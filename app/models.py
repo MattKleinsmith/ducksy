@@ -1,6 +1,6 @@
 from flask_sqlalchemy import SQLAlchemy
 from sqlalchemy.schema import Column
-from sqlalchemy.orm import ForeignKey
+from sqlalchemy.orm import ForeignKey, relationship
 from sqlalchemy.types import Integer, String, DateTime, Float
 from flask_login import UserMixin
 #  a crypto library that came with Flask
@@ -13,10 +13,12 @@ class Product(db.Model):
     __tablename__ = "products"
 
     id = Column(Integer, primary_key=True)
-    user_id = Column(Integer, nullable=False)
+    user_id = Column(Integer, ForeignKey('users.id'), nullable=False)
     name = Column(String(140), nullable=False)
     price = Column(Float(asdecimal=True), nullable=False)
     description = Column(String(5000), nullable=False)
+
+    user = relationship("Product", back_populates="products")
 
     def to_dict(self):
         return {
@@ -39,7 +41,7 @@ class User(db.Model, UserMixin):
     created_at = Column(DateTime, nullable=False)
     updated_at = Column(DateTime, nullable=False)
 
-    db.relationship("Product", back_populates='user')
+    products = relationship("Product", back_populates="user")
 
     @property
     def password(self):
