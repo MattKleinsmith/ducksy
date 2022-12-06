@@ -1,0 +1,50 @@
+Table users {
+  id integer [pk]
+  display_name VARCHAR(100)
+  email VARCHAR(100)
+  password_hash text
+  profile_picture_url text
+}
+
+Table products {
+  id integer [pk]
+  user_id integer
+  name VARCHAR(140)
+  price decimal
+  description text
+}
+
+Table product_images {
+  id integer [pk]
+  product_id integer
+  url text
+  preview boolean
+}
+
+Table review_images {
+  id integer [pk]
+  review_id integer
+  url text
+}
+
+Table reviews {
+  id integer [pk]
+  user_id integer
+  product_id integer
+  rating integer
+  review VARCHAR(840)
+}
+
+
+Table "All tables include:" {
+  created_at timestamp
+  updated_at timestamp
+}
+
+Ref: users.id < products.user_id
+Ref: users.id < reviews.user_id
+
+Ref: products.id < product_images.product_id
+Ref: products.id < reviews.product_id
+
+Ref: reviews.id < review_images.review_id
