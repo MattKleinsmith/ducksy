@@ -14,6 +14,17 @@ Table products {
   description text
 }
 
+Table categories {
+  id integer [pk]
+  name text
+}
+
+Table products_categories {
+  id integer [pk]
+  product_id integer
+  category_id integer
+}
+
 Table product_images {
   id integer [pk]
   product_id integer
@@ -59,7 +70,10 @@ Ref: users.id < orders.user_id
 Ref: products.id < product_images.product_id
 Ref: products.id < reviews.product_id
 Ref: products.id < order_item.product_id
+Ref: products.id < products_categories.product_id
 
 Ref: reviews.id < review_images.review_id
 
 Ref: orders.id < order_item.order_id
+
+Ref: categories.id < products_categories.category_id
