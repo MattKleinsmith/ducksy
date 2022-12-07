@@ -11,6 +11,8 @@ app.config.from_object(Config)
 db.init_app(app)
 migrate = Migrate(app, db)
 
+print(app.config)
+
 # Integrating Flask-Login
 # Create the login manager
 login = LoginManager(app)
@@ -38,6 +40,7 @@ def login():
             return redirect("login")
         login_user(user)
         return user.to_dict()
+
 
 @app.route("/logout", methods=["POST"])
 def logout():
