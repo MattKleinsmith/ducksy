@@ -28,6 +28,7 @@ class User(db.Model, UserMixin):
 
     products = relationship("Product", back_populates="user")
     reviews = relationship("Review", back_populates="user")
+    orders = relationship("Order", back_populates="user")
 
     @property
     def password(self):
@@ -68,6 +69,7 @@ class Product(db.Model):
     user = relationship("User", back_populates="products")
     product_images = relationship("ProductImage", back_populates="product")
     reviews = relationship("Review", back_populates="product")
+    items = relationship("OrderItem", back_populates="product")
 
     def to_dict(self):
         return {
@@ -132,3 +134,35 @@ class Review(db.Model):
             "rating": self.rating,
             "review": self.review
         }
+
+
+class Order(db.Model):
+    __tablename__ = "orders"
+
+    id = Column(Integer, primary_key=True)
+    user_id = Column(Integer, ForeignKey('users.id'), nullable=False)
+    created_at = Column(DateTime(timezone=True),
+                        server_default=func.now(), nullable=False)
+    updated_at = Column(DateTime(timezone=True),
+                        server_default=func.now(), onupdate=func.now(),
+                        nullable=False)
+
+    items = relationship("OrderItem", back_populates="order")
+    user = relationship("User", back_populates="orders")
+
+
+class OrderItem(db.Model):
+    __tablename__ = "order_items"
+
+    id = Column(Integer, primary_key=True)
+    order_id = Column(Integer, ForeignKey('orders.id'), nullable=False)
+    product_id = Column(Integer, ForeignKey('products.id'), nullable=False)
+    price = Column(DECIMAL, nullable=False)
+    created_at = Column(DateTime(timezone=True),
+                        server_default=func.now(), nullable=False)
+    updated_at = Column(DateTime(timezone=True),
+                        server_default=func.now(), onupdate=func.now(),
+                        nullable=False)
+
+    order = relationship("Order", back_populates="items")
+    product = relationship("Product", back_populates="items")
