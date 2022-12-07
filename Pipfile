@@ -13,6 +13,8 @@ flask-sqlalchemy = "*"
 alembic = "*"
 flask-migrate = "*"
 flask-login = "*"
+boto3 = "*"
+requests = "*"
 
 [dev-packages]
 
