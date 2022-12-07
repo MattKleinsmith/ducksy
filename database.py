@@ -10,5 +10,7 @@ with app.app_context():
                  email="test1@user.io", password="password")
     user2 = User(display_name="Marshall",
                  email="test2@user.io", password="password")
+
+    product1 = Product()
     db.session.add_all([user1, user2])
     db.session.commit()
