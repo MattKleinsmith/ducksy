@@ -1,6 +1,6 @@
 from flask_sqlalchemy import SQLAlchemy
-from sqlalchemy.schema import Column, ForeignKey
-from sqlalchemy.orm import relationship
+from sqlalchemy.schema import Column
+from sqlalchemy.orm import ForeignKey, relationship
 from sqlalchemy.types import Integer, String, DateTime, Float
 from flask_login import UserMixin
 #  a crypto library that came with Flask
