@@ -1,7 +1,8 @@
 from flask import Blueprint
 from flask_login import login_required, current_user
-from app.models import db, Product, Review
+from app.models import db, Product, Review, ProductImage
 from app.forms import ProductForm
+from sqlalchemy.exc import IntegrityError
 
 bp = Blueprint("products", __name__, url_prefix="/products")
 
@@ -26,7 +27,7 @@ def post_product():
         db.session.add(product)
         db.session.commit()
         return product.to_dict(), 201
-    return "failed to post"
+    return "Failed to post"
 
 
 @bp.route("<product_id>")
@@ -34,7 +35,32 @@ def product_by_id(product_id):
     return Product.query.filter(Product.id == product_id).first().to_dict()
 
 
+@bp.route("/<product_id>", methods=['DELETE'])
+@login_required
+def delete_product(product_id):
+    try:
+        product = Product.query.filter(Product.id == product_id,
+                                       Product.user_id == current_user.id)
+        print(product.first())
+        if (product.first()):
+            product.delete()
+            db.session.commit()
+            return f"Deleted product with id {product_id}"
+        return "404", 404
+    except IntegrityError:
+        return "Failed to delete"
+
+
 @bp.route("<product_id>/reviews")
 def reviews_by_product_id(product_id):
     reviews = Review.query.filter(Review.product_id == product_id)
     return [review.to_dict() for review in reviews]
+
+
+@bp.route("fun")
+def show_product_images():
+    html = ''
+    images = ProductImage.query
+    for image in images:
+        html += f"<img src='{image.url}' />"
+    return html

@@ -21,7 +21,7 @@ def upload_image_to_bucket(url, acl="public-read"):
             BUCKET_NAME,
             image_name,
             ExtraArgs={
-                "ACL": acl
+                "ACL": acl,
             }
         )
     except Exception as e:
