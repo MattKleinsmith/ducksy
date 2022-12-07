@@ -447,3 +447,50 @@ with app.app_context():
     ])
 
     db.session.commit()
+
+
+    # handcraft
+    product = Product(
+        user=anna,
+        name="100% Merino wool roving For Arm knit, Giant MERINO WOOL, Giant knitting, Super chunky wool, Felting, Roving wet felting merino tops",
+        price="4.02",
+        description="Hello:))"
+    )
+
+    db.session.add_all([
+        ProductImage(
+            product=product,
+            url=upload_image_to_bucket("https://i.etsystatic.com/20733697/r/il/521751/2328872220/il_794xN.2328872220_nqn5.jpg"),
+            preview=True
+        ),
+
+        Review(
+            user=brian,
+            product=product,
+            rating=5,
+            review="Really amazing quality and it came so fast!! I made my first blanket and it turned out beautifully!"
+        ),
+
+        Review(
+            user=caitlynn,
+            product=product,
+            rating=5,
+            review="LOVE LOVE LOVE my new cozy blanket!! The wool arrived quickly, the colour is beautiful and the yarn is such high quality. Such a great little project, will definitely be ordering more to make another blanket!"
+        ),
+
+        Review(
+            user=derrik,
+            product=product,
+            rating=5,
+            review="I made my first chunky knit blanket and it came out great."
+        ),
+
+        Review(
+            user=elizabeth,
+            product=product,
+            rating=4,
+            review="It shipped quickly. Came from across the world, thats neat. Love the color! Super rich! I was hammering out my blanket, then the yarn, like, broke. Now I'm going to have to look up a way to put that part back onto the yarn. Thats why I didn't give it 5 stars. I'm either out 7 feet of yarn, or I have to find a mill to put it back together. I feel like this is a rare thing to have happen."
+        ),
+    ])
+
+    db.session.commit()
