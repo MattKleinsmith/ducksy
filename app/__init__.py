@@ -4,10 +4,11 @@ from flask_login import LoginManager, login_user, logout_user, login_required, c
 from .models import db, User, Product, Review, ProductImage
 from .config import Config
 from .user_form import LoginForm
-
+from .routes import api
 
 app = Flask(__name__)
 app.config.from_object(Config)
+app.register_blueprint(api.bp)
 db.init_app(app)
 migrate = Migrate(app, db)
 
@@ -15,25 +16,6 @@ migrate = Migrate(app, db)
 @app.route("/")
 def home():
     return "<h1>Homepage</h1>"
-
-
-@app.route("/products")
-def products():
-    products = Product.query.all()
-    return [product.to_dict() for product in products]
-
-
-@app.route("/products/<product_id>/reviews")
-def reviews_of_product(product_id):
-    reviews = Review.query.filter(Review.product_id == product_id).all()
-    return [review.to_dict() for review in reviews]
-
-
-@app.route("/reviews")
-def reviews():
-    reviews = Review.query.all()
-    return [review.to_dict() for review in reviews]
-
 
 # Integrating Flask-Login
 # Create the login manager
