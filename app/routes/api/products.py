@@ -17,14 +17,15 @@ def get_products():
 def post_product():
     form = ProductForm()
     if (form.validate_on_submit()):
-        db.session.add(Product(
+        product = Product(
             user=current_user,
             name=form.name.data,
             price=form.price.data,
             description=form.description.data
-        ))
+        )
+        db.session.add(product)
         db.session.commit()
-        return "it worked"
+        return product.to_dict(), 201
     return "failed to post"
 
 

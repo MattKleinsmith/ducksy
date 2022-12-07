@@ -4,6 +4,9 @@ from wtforms.validators import DataRequired
 
 
 class LoginForm(FlaskForm):
+    class Meta:
+        csrf = False  # TODO: Turn this off once we have a frontend
+
     email = StringField(
         "Email", validators=[DataRequired()])
     password = PasswordField("Password", validators=[DataRequired()])

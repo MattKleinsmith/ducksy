@@ -17,6 +17,7 @@ migrate = Migrate(app, db)
 def home():
     return "<h1>Homepage</h1>"
 
+
 # Integrating Flask-Login
 # Create the login manager
 login = LoginManager(app)
@@ -44,6 +45,7 @@ def login():
             return redirect("login")
         login_user(user)
         return user.to_dict()
+    return "login page error"
 
 
 @app.route("/logout", methods=["POST"])
