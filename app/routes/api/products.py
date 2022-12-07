@@ -35,13 +35,30 @@ def product_by_id(product_id):
     return Product.query.filter(Product.id == product_id).first().to_dict()
 
 
+@bp.route("/<product_id>", methods=['PATCH'])
+@login_required
+def patch_product(product_id):
+    try:
+        form = ProductForm()
+        product = Product.query.filter(Product.id == product_id,
+                                       Product.user_id == current_user.id).first()
+        if (product):
+            product.name = form.name.data if form.name.data else product.name
+            product.price = form.price.data if form.price.data else product.price
+            product.description = form.description.data if form.description.data else product.description
+            db.session.commit()
+            return product.to_dict()
+        return "404", 404
+    except IntegrityError:
+        return "Failed to patch"
+
+
 @bp.route("/<product_id>", methods=['DELETE'])
 @login_required
 def delete_product(product_id):
     try:
         product = Product.query.filter(Product.id == product_id,
                                        Product.user_id == current_user.id)
-        print(product.first())
         if (product.first()):
             product.delete()
             db.session.commit()
