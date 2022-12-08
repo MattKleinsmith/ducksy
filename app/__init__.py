@@ -74,10 +74,23 @@ def review(product_id):
         )
         db.session.add(new_review)
         db.session.commit()
-        # return redirect("api/user/<int:user_id>/purchases")
         return {"review": new_review.to_dict()}, 200, {"Content-Type": "application/json" }
 
     if form.errors:
         return {"errors": form.errors}, 400, {"Content-Type": "application/json" }
 
     return {"Reviews": result}
+
+@app.route("/api/reviews/<int:review_id>", methods=["patch"])
+def update_review(review_id):
+    return
+
+@app.route("/api/reviews/<int:review_id>", methods=["delete"])
+def delete_review(review_id):
+    review_tobe_deleted = Review.query.get(review_id)
+    db.session.delete(review_tobe_deleted)
+    db.session.commit()
+    return {
+        "message": "Successfully deleted",
+        "statusCode": 200
+        }, 200, {"Content-Type": "application/json" }
