@@ -1,4 +1,4 @@
-from flask import Blueprint, redirect, render_template, url_for
+from flask import Blueprint
 from flask_login import current_user, login_user, logout_user
 from app.forms import LoginForm
 from app.models import User
@@ -6,25 +6,21 @@ from app.models import User
 bp = Blueprint("session", __name__, url_prefix="/session")
 
 
-@bp.route("/")
-def already_logged_in():
-    if current_user.is_authenticated:
-        return redirect(url_for("success"))
-    return render_template("login.html", form=LoginForm())
-
-
-@bp.route("/", methods=["POST"])
+@bp.route("", methods=["GET", "POST"])
 def login():
+    if current_user.is_authenticated:
+        return {"message": "Already logged in"}, 400
     form = LoginForm()
     if form.validate_on_submit():
         user = User.query.filter(User.email == form.email.data).first()
         if not user or not user.check_password(form.password.data):
-            return redirect(url_for(".login"))
+            return {"message": "Failed to log in"}, 400
         login_user(user)
-        return redirect(url_for("success"))
+        return user.to_dict()
+    return {"message": "Failed to log in"}, 400
 
 
-@bp.route("/", methods=["DELETE"])
+@bp.route("", methods=["DELETE"])
 def logout():
     logout_user()
-    return redirect(url_for('.login'))
+    return {"message": "Logged out"}
