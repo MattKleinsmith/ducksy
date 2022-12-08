@@ -6,7 +6,15 @@ from app.models import User
 bp = Blueprint("session", __name__, url_prefix="/session")
 
 
-@bp.route("", methods=["GET", "POST"])
+@bp.route("")
+def restore():
+    if current_user.is_authenticated:
+        return current_user.to_dict()
+    else:
+        return {"message": "Not logged in"}, 400
+
+
+@bp.route("", methods=["POST"])
 def login():
     if current_user.is_authenticated:
         return {"message": "Already logged in"}, 400
