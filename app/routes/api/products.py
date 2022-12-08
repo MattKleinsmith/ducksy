@@ -7,13 +7,13 @@ from sqlalchemy.exc import IntegrityError
 bp = Blueprint("products", __name__, url_prefix="/products")
 
 
-@bp.route("/")
+@bp.route("")
 def get_products():
     products = Product.query
     return [product.to_dict() for product in products]
 
 
-@bp.route("/", methods=['POST'])
+@bp.route("", methods=['POST'])
 @login_required
 def post_product():
     form = ProductForm()
@@ -30,7 +30,7 @@ def post_product():
     return "Failed to post"
 
 
-@bp.route("<product_id>")
+@bp.route("/<product_id>")
 def product_by_id(product_id):
     return Product.query.filter(Product.id == product_id).first().to_dict()
 
@@ -68,7 +68,7 @@ def delete_product(product_id):
         return "Failed to delete"
 
 
-@bp.route("<product_id>/reviews")
+@bp.route("/<product_id>/reviews")
 def reviews_by_product_id(product_id):
     reviews = Review.query.filter(Review.product_id == product_id)
     return [review.to_dict() for review in reviews]

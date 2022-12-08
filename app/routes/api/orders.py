@@ -5,14 +5,14 @@ from flask_login import current_user, login_required
 bp = Blueprint("orders", __name__, url_prefix="/orders")
 
 
-@bp.route("/")
+@bp.route("")
 @login_required
 def get_orders():
     orders = Order.query.filter(Order.user_id == current_user.id)
     return [order.to_dict() for order in orders]
 
 
-@bp.route("/", methods=["POST"])
+@bp.route("", methods=["POST"])
 @login_required
 def create_order():
     data = request.get_json()
