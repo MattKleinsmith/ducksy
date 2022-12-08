@@ -5,6 +5,8 @@ from .models import db, User, Product, Review, ProductImage
 from .config import Config
 from .user_form import LoginForm
 from .routes import api
+from .review_form import ReviewForm
+from flask import jsonify
 
 app = Flask(__name__)
 app.config.from_object(Config)
@@ -53,3 +55,29 @@ def logout():
     # flask_login.current_user.logout()
     logout_user()
     return redirect('/login')
+
+
+@app.route("/api/products/<int:product_id>/reviews", methods=["get", "post"])
+def review(product_id):
+    product = Product.query.filter(Product.id == product_id).all()
+    reviews = Review.query.filter(Review.product_id == product_id).all()
+    result = [review.to_dict() for review in reviews]
+    jsonify(result)
+
+    form = ReviewForm()
+    if form.validate_on_submit():
+        new_review = Review(
+            user_id= product[0].user_id,
+            product_id=product_id,
+            rating=form.data["rating"],
+            review= form.data["review"]
+        )
+        db.session.add(new_review)
+        db.session.commit()
+        # return redirect("api/user/<int:user_id>/purchases")
+        return {"review": new_review.to_dict()}, 200, {"Content-Type": "application/json" }
+
+    if form.errors:
+        return {"errors": form.errors}, 400, {"Content-Type": "application/json" }
+
+    return {"Reviews": result}
