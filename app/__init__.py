@@ -60,17 +60,16 @@ def logout():
 @app.route("/api/products/<int:product_id>/reviews", methods=["get", "post"])
 def review(product_id):
     product = Product.query.filter(Product.id == product_id).all()
-    reviews = Review.query.filter(Review.product_id == product_id).all()
-    result = [review.to_dict() for review in reviews]
+    result = [review.to_dict() for review in product[0].reviews]
     jsonify(result)
 
     form = ReviewForm()
     if form.validate_on_submit():
         new_review = Review(
-            user_id= product[0].user_id,
-            product_id=product_id,
-            rating=form.data["rating"],
-            review= form.data["review"]
+            user_id = product[0].user_id,
+            product_id = product_id,
+            rating = form.data["rating"],
+            review = form.data["review"]
         )
         db.session.add(new_review)
         db.session.commit()
@@ -83,7 +82,20 @@ def review(product_id):
 
 @app.route("/api/reviews/<int:review_id>", methods=["patch"])
 def update_review(review_id):
-    return
+    form = ReviewForm()
+    review_tobe_updated = Review.query.get(review_id)
+    
+    if form.validate_on_submit():
+        # review_tobe_updated.user_id = form.data["user_id"]
+        # review_tobe_updated.product_id = form.data["product_id"]
+        review_tobe_updated.rating = form.data["rating"]
+        review_tobe_updated.review = form.data["review"]
+        db.session.commit()
+
+    if form.errors:
+        return {"errors": form.errors}, 400, {"Content-Type": "application/json" }
+
+    return {"review": review_tobe_updated.to_dict()}, 200, {"Content-Type": "application/json" }
 
 @app.route("/api/reviews/<int:review_id>", methods=["delete"])
 def delete_review(review_id):
