@@ -1,7 +1,8 @@
-from flask import Flask, render_template, redirect, url_for
+from flask import Flask, redirect, request
 from flask_migrate import Migrate
 from flask_login import LoginManager, login_user, logout_user, login_required, current_user
-from .models import db, User, Product, Review, ProductImage
+from sqlalchemy.exc import IntegrityError
+from .models import db, User
 from .config import Config
 from .user_form import LoginForm
 from .routes import api
@@ -53,3 +54,22 @@ def logout():
     # flask_login.current_user.logout()
     logout_user()
     return redirect('/login')
+
+
+@app.route("/signup",  methods=["GET", "POST"])
+def signup():
+    try:
+        if current_user.is_authenticated:
+            return redirect("/")
+        form = LoginForm()
+        if form.validate_on_submit():
+            data = request.get_json()
+            print(data)
+            user = User(
+                **data
+            )
+            db.session.add(user)
+            db.session.commit()
+            return user.to_dict()
+    except IntegrityError:
+        return "Failed to sign up"
