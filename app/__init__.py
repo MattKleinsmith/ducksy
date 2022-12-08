@@ -84,7 +84,7 @@ def review(product_id):
 def update_review(review_id):
     form = ReviewForm()
     review_tobe_updated = Review.query.get(review_id)
-    
+
     if form.validate_on_submit():
         # review_tobe_updated.user_id = form.data["user_id"]
         # review_tobe_updated.product_id = form.data["product_id"]
@@ -106,3 +106,4 @@ def delete_review(review_id):
         "message": "Successfully deleted",
         "statusCode": 200
         }, 200, {"Content-Type": "application/json" }
+
