@@ -150,6 +150,12 @@ class Order(db.Model):
     items = relationship("OrderItem", back_populates="order")
     user = relationship("User", back_populates="orders")
 
+    def to_dict(self):
+        return {
+            "id": self.id,
+            "order_details": [item.to_dict() for item in self.items]
+        }
+
 
 class OrderItem(db.Model):
     __tablename__ = "order_items"
@@ -166,3 +172,9 @@ class OrderItem(db.Model):
 
     order = relationship("Order", back_populates="items")
     product = relationship("Product", back_populates="items")
+
+    def to_dict(self):
+        return {
+            "product_id": self.product_id,
+            "price": self.price
+        }

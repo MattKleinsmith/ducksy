@@ -1,5 +1,5 @@
 from app import app
-from app.models import db, User, Product, ProductImage, Review
+from app.models import db, User, Product, ProductImage, Review, Order, OrderItem
 from upload import upload_image_to_bucket
 from dotenv import load_dotenv
 load_dotenv()
@@ -448,7 +448,6 @@ with app.app_context():
 
     db.session.commit()
 
-
     # handcraft
     product = Product(
         user=anna,
@@ -460,7 +459,8 @@ with app.app_context():
     db.session.add_all([
         ProductImage(
             product=product,
-            url=upload_image_to_bucket("https://i.etsystatic.com/20733697/r/il/521751/2328872220/il_794xN.2328872220_nqn5.jpg"),
+            url=upload_image_to_bucket(
+                "https://i.etsystatic.com/20733697/r/il/521751/2328872220/il_794xN.2328872220_nqn5.jpg"),
             preview=True
         ),
 
@@ -493,4 +493,72 @@ with app.app_context():
         ),
     ])
 
+    db.session.commit()
+
+    order = Order(user=brian)
+    db.session.add_all([
+        OrderItem(
+            order=order,
+            product_id=1,
+            price=28),
+        OrderItem(
+            order=order,
+            product_id=2,
+            price=14.92),
+        OrderItem(
+            order=order,
+            product_id=3,
+            price=87),
+    ])
+    db.session.commit()
+
+    order = Order(user=brian)
+    db.session.add_all([
+        OrderItem(
+            order=order,
+            product_id=4,
+            price=9.1),
+        OrderItem(
+            order=order,
+            product_id=5,
+            price=4.45),
+        OrderItem(
+            order=order,
+            product_id=6,
+            price=37.19),
+    ])
+    db.session.commit()
+
+    order = Order(user=anna)
+    db.session.add_all([
+        OrderItem(
+            order=order,
+            product_id=4,
+            price=9.1),
+        OrderItem(
+            order=order,
+            product_id=5,
+            price=4.45),
+        OrderItem(
+            order=order,
+            product_id=6,
+            price=37.19),
+    ])
+    db.session.commit()
+
+    order = Order(user=anna)
+    db.session.add_all([
+        OrderItem(
+            order=order,
+            product_id=1,
+            price=28),
+        OrderItem(
+            order=order,
+            product_id=2,
+            price=14.92),
+        OrderItem(
+            order=order,
+            product_id=3,
+            price=87),
+    ])
     db.session.commit()
