@@ -7,7 +7,7 @@ from sqlalchemy.exc import IntegrityError
 bp = Blueprint("products", __name__, url_prefix="/products")
 
 
-@bp.route("/")
+@bp.route("/", methods=['GET'])
 def get_products():
     products = []
     for product in Product.query:
@@ -38,8 +38,8 @@ def post_product():
     return "Failed to post"
 
 
-@bp.route("<product_id>")
-def product_by_id(product_id):
+@bp.route("<product_id>", methods=['GET'])
+def get_product_by_id(product_id):
     product = Product.query.filter(Product.id == product_id).first()
     return product.to_dict() if product else ("Not found", 404)
 
@@ -77,13 +77,13 @@ def delete_product(product_id):
         return "Failed to delete"
 
 
-@bp.route("<product_id>/reviews")
-def reviews_by_product_id(product_id):
+@bp.route("<product_id>/reviews", methods=['GET'])
+def get_reviews_by_product_id(product_id):
     reviews = Review.query.filter(Review.product_id == product_id)
     return [review.to_dict() for review in reviews]
 
 
-@bp.route("fun")
+@bp.route("fun", methods=['GET'])
 def show_product_images():
     html = ''
     images = ProductImage.query

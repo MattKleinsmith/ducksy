@@ -23,7 +23,8 @@ class User(db.Model, UserMixin):
     display_name = Column(VARCHAR(100), nullable=False)
     email = Column(VARCHAR(100), nullable=False, unique=True)
     hashed_password = Column(TEXT, nullable=False)
-    profile_picture_url = Column(TEXT)
+    profile_picture_url = Column(
+        TEXT, server_default="https://d23.com/app/uploads/2017/10/1180w-600h_101717_donald-nephews-anniversary_v3-780x440.jpg")
 
     created_at = Column(DateTime(timezone=True),
                         server_default=func.now(), nullable=False)
@@ -34,6 +35,7 @@ class User(db.Model, UserMixin):
     products = relationship("Product", back_populates="shop")
     # reviews_author = relationship("Review", back_populates="author")
     # reviews_shop = relationship("Review", back_populates="shop")
+    orders = relationship("Order", back_populates="user")
 
     @property
     def password(self):
