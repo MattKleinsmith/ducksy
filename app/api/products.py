@@ -1,7 +1,7 @@
-from flask import Blueprint
+from flask import Blueprint,jsonify
 from flask_login import login_required, current_user
 from app.models import db, Product, Review, ProductImage
-from app.forms import ProductForm
+from app.forms import ProductForm, ReviewForm
 from sqlalchemy.exc import IntegrityError
 
 bp = Blueprint("products", __name__, url_prefix="/products")
@@ -77,10 +77,28 @@ def delete_product(product_id):
         return "Failed to delete"
 
 
-@bp.route("<product_id>/reviews", methods=['GET'])
-def get_reviews_by_product_id(product_id):
-    reviews = Review.query.filter(Review.product_id == product_id)
-    return [review.to_dict() for review in reviews]
+@bp.route("/<int:product_id>/reviews", methods=["get", "post"])
+def review(product_id):
+    product = Product.query.filter(Product.id == product_id).all()
+    result = [review.to_dict() for review in product[0].reviews]
+    jsonify(result)
+
+    form = ReviewForm()
+    if form.validate_on_submit():
+        new_review = Review(
+            user_id=product[0].user_id,
+            product_id=product_id,
+            rating=form.data["rating"],
+            review=form.data["review"]
+        )
+        db.session.add(new_review)
+        db.session.commit()
+        return {"review": new_review.to_dict()}, 200, {"Content-Type": "application/json"}
+
+    if form.errors:
+        return {"errors": form.errors}, 400, {"Content-Type": "application/json"}
+
+    return {"Reviews": result}
 
 
 @bp.route("fun", methods=['GET'])
