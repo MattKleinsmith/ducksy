@@ -12,18 +12,18 @@ from flask_login import UserMixin
 from werkzeug.security import generate_password_hash, check_password_hash
 
 
-class User(db.Model, UserMixin):
-    __tablename__ = "users"
+class Product(db.Model):
+    __tablename__ = "products"
 
     if environment == "production":
         __table_args__ = {'schema': SCHEMA}
 
     id = Column(Integer, primary_key=True)
 
-    display_name = Column(VARCHAR(100), nullable=False)
-    email = Column(VARCHAR(100), nullable=False, unique=True)
-    hashed_password = Column(TEXT, nullable=False)
-    profile_picture_url = Column(TEXT)
+    shop_id = Column(Integer, ForeignKey('users.id'), nullable=False)
+    name = Column(VARCHAR(140), nullable=False)
+    price = Column(DECIMAL, nullable=False)
+    description = Column(TEXT)
 
     created_at = Column(DateTime(timezone=True),
                         server_default=func.now(), nullable=False)
@@ -31,25 +31,16 @@ class User(db.Model, UserMixin):
                         server_default=func.now(), onupdate=func.now(),
                         nullable=False)
 
-    products = relationship("Product", back_populates="shop")
-    # reviews_author = relationship("Review", back_populates="author")
-    # reviews_shop = relationship("Review", back_populates="shop")
-
-    @property
-    def password(self):
-        return self.hashed_password
-
-    @password.setter
-    def password(self, password):
-        self.hashed_password = generate_password_hash(password)
-
-    def check_password(self, password):
-        return check_password_hash(self.password, password)
+    shop = relationship("User", back_populates="products")
+    product_images = relationship("ProductImage", back_populates="product")
+    reviews = relationship("Review", back_populates="product")
 
     def to_dict(self):
         return {
             "id": self.id,
-            "display_name": self.display_name,
-            "email": self.email,
-            "profile_picture": self.profile_picture_url,
+            "shop_id": self.shop_id,
+            "name": self.name,
+            "price": self.price,
+            "description": self.description,
+            "preview_image": self.product_images[0].url if len(self.product_images) else None
         }
