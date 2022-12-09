@@ -9,8 +9,10 @@ bp = Blueprint("products", __name__, url_prefix="/products")
 
 @bp.route("")
 def get_products():
-    products = Product.query
-    return [product.to_dict() for product in products]
+    products = Product.query.all()
+    return {
+        "Products":[product.to_dict() for product in products]
+    }
 
 
 @bp.route("", methods=['POST'])

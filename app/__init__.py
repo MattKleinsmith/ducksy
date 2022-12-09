@@ -24,7 +24,7 @@ def home():
 login = LoginManager(app)
 # By default, when a user attempts to access a login_required view without being logged in,
 # Flask-Login will flash a message and redirect them to the log in view.
-login.login_view = "/"
+login.login_view = "Please log in"
 
 
 @login.user_loader
