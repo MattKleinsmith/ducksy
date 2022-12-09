@@ -40,5 +40,5 @@
   "devDependencies": {
     "redux-logger": "^3.0.6"
   },
-  "proxy": "http://172.30.65.171:5000"
+  "proxy": "http://localhost:5001"
 }
