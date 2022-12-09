@@ -12,18 +12,19 @@ from flask_login import UserMixin
 from werkzeug.security import generate_password_hash, check_password_hash
 
 
-class User(db.Model, UserMixin):
-    __tablename__ = "users"
+class Review(db.Model):
+    __tablename__ = "reviews"
 
     if environment == "production":
         __table_args__ = {'schema': SCHEMA}
 
     id = Column(Integer, primary_key=True)
 
-    display_name = Column(VARCHAR(100), nullable=False)
-    email = Column(VARCHAR(100), nullable=False, unique=True)
-    hashed_password = Column(TEXT, nullable=False)
-    profile_picture_url = Column(TEXT)
+    author_id = Column(Integer, ForeignKey('users.id'), nullable=False)
+    shop_id = Column(Integer, ForeignKey('users.id'))
+    product_id = Column(Integer, ForeignKey('products.id'), nullable=False)
+    rating = Column(Integer, nullable=False)
+    review = Column(VARCHAR(840), nullable=False)
 
     created_at = Column(DateTime(timezone=True),
                         server_default=func.now(), nullable=False)
@@ -31,25 +32,16 @@ class User(db.Model, UserMixin):
                         server_default=func.now(), onupdate=func.now(),
                         nullable=False)
 
-    products = relationship("Product", back_populates="shop")
-    # reviews_author = relationship("Review", back_populates="author")
-    # reviews_shop = relationship("Review", back_populates="shop")
-
-    @property
-    def password(self):
-        return self.hashed_password
-
-    @password.setter
-    def password(self, password):
-        self.hashed_password = generate_password_hash(password)
-
-    def check_password(self, password):
-        return check_password_hash(self.password, password)
+    author = relationship("User", foreign_keys=author_id)
+    shop = relationship("User", foreign_keys=shop_id)
+    product = relationship("Product", back_populates="reviews")
 
     def to_dict(self):
         return {
             "id": self.id,
-            "display_name": self.display_name,
-            "email": self.email,
-            "profile_picture": self.profile_picture_url,
+            "author_id": self.author_id,
+            "shop_id": self.shop_id,
+            "product_id": self.product_id,
+            "rating": self.rating,
+            "review": self.review
         }
