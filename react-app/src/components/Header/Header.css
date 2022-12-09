@@ -1,0 +1,27 @@
+.headerWrapper {
+    display: flex;
+    justify-content: center;
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    width: 100vw;
+    max-width: 1350px;
+
+    padding-top: 10px;
+    padding-bottom: 16px;
+}
+
+#logo {
+    font-family: serif;
+    color: #f1641e;
+    font-size: 40px;
+}
+
+.line {
+    height: 1px;
+    background-color: #dedede;
+}
