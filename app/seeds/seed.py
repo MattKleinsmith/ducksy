@@ -475,7 +475,25 @@ def undo_seed():
     if environment == "production":
         db.session.execute(
             f"TRUNCATE table {SCHEMA}.users RESTART IDENTITY CASCADE;")
+        db.session.execute(
+            f"TRUNCATE table {SCHEMA}.products RESTART IDENTITY CASCADE;")
+        db.session.execute(
+            f"TRUNCATE table {SCHEMA}.product_images RESTART IDENTITY CASCADE;")
+        db.session.execute(
+            f"TRUNCATE table {SCHEMA}.reviews RESTART IDENTITY CASCADE;")
+        db.session.execute(
+            f"TRUNCATE table {SCHEMA}.review_images RESTART IDENTITY CASCADE;")
+        db.session.execute(
+            f"TRUNCATE table {SCHEMA}.orders RESTART IDENTITY CASCADE;")
+        db.session.execute(
+            f"TRUNCATE table {SCHEMA}.order_items RESTART IDENTITY CASCADE;")
     else:
         db.session.execute("DELETE FROM users")
+        db.session.execute("DELETE FROM products")
+        db.session.execute("DELETE FROM product_images")
+        db.session.execute("DELETE FROM reviews")
+        db.session.execute("DELETE FROM review_images")
+        db.session.execute("DELETE FROM orders")
+        db.session.execute("DELETE FROM order_items")
 
     db.session.commit()
