@@ -1,5 +1,5 @@
 from flask import Blueprint
-from flask_login import current_user, login_user, logout_user
+from flask_login import current_user, login_user, logout_user, login_required
 from app.forms import LoginForm
 from app.models import User
 
@@ -29,6 +29,15 @@ def login():
 
 
 @bp.route("", methods=["DELETE"])
+@login_required
 def logout():
     logout_user()
     return {"message": "Logged out"}
+
+
+@bp.route('/unauthorized')
+def unauthorized():
+    """
+    Returns unauthorized JSON when flask-login authentication fails
+    """
+    return {'errors': ['Unauthorized']}, 401

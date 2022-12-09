@@ -18,7 +18,7 @@ db.init_app(app)
 Migrate(app, db)
 
 login = LoginManager(app)
-login.login_view = "session.login"
+login.login_view = "api.session.unauthorized"
 
 
 @login.user_loader
