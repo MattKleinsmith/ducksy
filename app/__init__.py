@@ -24,7 +24,7 @@ def home():
 login = LoginManager(app)
 # By default, when a user attempts to access a login_required view without being logged in,
 # Flask-Login will flash a message and redirect them to the log in view.
-login.login_view = ".login"
+login.login_view = "/"
 
 
 @login.user_loader
@@ -33,43 +33,43 @@ def load_user(id):
     return User.query.get(int(id))
 
 
-@app.route("/login", methods=["GET", "POST"])
-def login():
-    # flask_login.current_user
-    if current_user.is_authenticated:
-        return redirect("/")
-    form = LoginForm()
-    if form.validate_on_submit():
-        data = form.data
-        user = User.query.filter(User.email == data["email"]).first()
-        if not user or not user.check_password(data["password"]):
-            return redirect("login")
-        login_user(user)
-        return user.to_dict()
-    return "login page error"
+# @app.route("/login", methods=["GET", "POST"])
+# def login():
+#     # flask_login.current_user
+#     if current_user.is_authenticated:
+#         return redirect("/")
+#     form = LoginForm()
+#     if form.validate_on_submit():
+#         data = form.data
+#         user = User.query.filter(User.email == data["email"]).first()
+#         if not user or not user.check_password(data["password"]):
+#             return redirect("login")
+#         login_user(user)
+#         return user.to_dict()
+#     return "login page error"
 
 
-@app.route("/logout", methods=["POST"])
-def logout():
-    # flask_login.current_user.logout()
-    logout_user()
-    return redirect('/login')
+# @app.route("/logout", methods=["POST"])
+# def logout():
+#     # flask_login.current_user.logout()
+#     logout_user()
+#     return redirect('/login')
 
 
-@app.route("/signup",  methods=["GET", "POST"])
-def signup():
-    try:
-        if current_user.is_authenticated:
-            return redirect("/")
-        form = LoginForm()
-        if form.validate_on_submit():
-            data = request.get_json()
-            print(data)
-            user = User(
-                **data
-            )
-            db.session.add(user)
-            db.session.commit()
-            return user.to_dict()
-    except IntegrityError:
-        return "Failed to sign up"
+# @app.route("/signup",  methods=["GET", "POST"])
+# def signup():
+#     try:
+#         if current_user.is_authenticated:
+#             return redirect("/")
+#         form = LoginForm()
+#         if form.validate_on_submit():
+#             data = request.get_json()
+#             print(data)
+#             user = User(
+#                 **data
+#             )
+#             db.session.add(user)
+#             db.session.commit()
+#             return user.to_dict()
+#     except IntegrityError:
+#         return "Failed to sign up"
