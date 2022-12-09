@@ -75,7 +75,8 @@ class Product(db.Model):
             "user_id": self.user_id,
             "name": self.name,
             "price": self.price,
-            "description": self.description
+            "description": self.description,
+            "preview_image": self.product_images[0].url if len(self.product_images) else None
         }
 
 
