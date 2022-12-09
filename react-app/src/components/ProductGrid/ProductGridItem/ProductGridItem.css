@@ -1,0 +1,10 @@
+.ProductGridItem {
+    height: 18.6vw;
+}
+
+.ProductGridItem>img {
+    object-fit: cover;
+    border-radius: 2px;
+    width: 100%;
+    height: 72%;
+}

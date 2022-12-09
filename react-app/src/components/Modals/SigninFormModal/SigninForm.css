@@ -1,0 +1,74 @@
+.signinForm {
+    width: 380px;
+    display: flex;
+    flex-direction: column;
+}
+
+.signinForm>.signinHeader {
+    font-size: 15px;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    height: 64px;
+    padding: 0px;
+    margin: 0px;
+}
+
+.signinForm>.signinHeader img {
+    margin-left: 25px;
+    cursor: pointer;
+}
+
+.signinForm>.signinHeader div {
+    margin-left: 220px;
+}
+
+.signinTitle {
+    font-size: 20px;
+    font-weight: bold;
+    margin-top: 30px;
+    margin-left: 25px;
+}
+
+.signinButton {
+    height: 50px;
+    width: 75%;
+    cursor: pointer;
+    margin-bottom: 30px;
+    margin-top: 30px;
+
+    border: 2px solid gray;
+    border-radius: 30px;
+
+    font-weight: bold;
+    font-size: 16px;
+
+    color: rgb(255, 255, 255);
+
+    align-self: center;
+
+    background-color: transparent;
+}
+
+.signInFormRegisterButton {
+    height: 50px;
+    width: 30%;
+    cursor: pointer;
+
+    margin-bottom: 30px;
+    margin-top: 30px;
+
+    border: 2px solid gray;
+    border-radius: 30px;
+
+    font-weight: bold;
+    font-size: 16px;
+
+    color: rgb(255, 255, 255);
+
+    background-color: transparent;
+}
+
+.demoButton {
+    width: 50%;
+}

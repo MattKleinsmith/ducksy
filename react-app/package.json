@@ -1,24 +1,24 @@
 {
-  "name": "react-app",
+  "name": "ducksy-react",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "@testing-library/jest-dom": "^5.14.1",
+    "@testing-library/jest-dom": "^5.16.5",
     "@testing-library/react": "^11.2.7",
     "@testing-library/user-event": "^12.8.3",
-    "http-proxy-middleware": "^1.0.5",
-    "react": "^17.0.2",
-    "react-dom": "^17.0.2",
-    "react-redux": "^7.2.4",
-    "react-router-dom": "^5.2.0",
-    "react-scripts": "^4.0.3",
-    "redux": "^4.1.0",
-    "redux-logger": "^3.0.6",
-    "redux-thunk": "^2.3.0"
+    "js-cookie": "^3.0.1",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-redux": "^8.0.5",
+    "react-router": "^6.4.4",
+    "react-router-dom": "^6.4.4",
+    "react-scripts": "5.0.1",
+    "redux": "^4.2.0",
+    "redux-thunk": "^2.4.2"
   },
   "scripts": {
     "start": "react-scripts start",
-    "build": "CI=false && react-scripts build",
+    "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
@@ -27,8 +27,7 @@
   },
   "browserslist": {
     "production": [
-      ">0.3%",
-      "not ie 11",
+      ">0.2%",
       "not dead",
       "not op_mini all"
     ],
@@ -38,5 +37,8 @@
       "last 1 safari version"
     ]
   },
-  "proxy": "http://localhost:5000"
+  "devDependencies": {
+    "redux-logger": "^3.0.6"
+  },
+  "proxy": "http://localhost:5001"
 }

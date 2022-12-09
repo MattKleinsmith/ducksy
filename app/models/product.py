@@ -34,6 +34,7 @@ class Product(db.Model):
     shop = relationship("User", back_populates="products")
     product_images = relationship("ProductImage", back_populates="product")
     reviews = relationship("Review", back_populates="product")
+    items = relationship("OrderItem", back_populates="product")
 
     def to_dict(self):
         return {
