@@ -277,7 +277,7 @@ def seed_all():
         shop=anna,
         name="Campbell Tote | Choose Your Strap",
         price="37.19",
-        description="Now you can build your perfect tote! Pick your favorite color Campbell Tote and then pick your favorite style strap to build the perfect bag. All straps are interchangeable!Our beautiful Campbell tote from the Threaded Pear is the perfect take anywhere bag. This stunning and durable bag features a zipper closure to access the spacious interior for all your must-have essentials. Multiple interior pockets allow for organization for all your items on the go."
+        description="Now you can build your perfect tote! Pick your favorite color Campbell Tote and then pick your favorite style strap to build the perfect bag. All straps are interchangeable!Our beautiful Campbell tote from the Threaded Pear is the perfect take anywhere bag. This stunning and durable bag features a zipper closure to access the spacious interior for all your must-have essentials. Multiple interior pockets allow for organization for all your items on the go."
     )
 
     db.session.add_all([
