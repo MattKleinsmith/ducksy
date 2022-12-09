@@ -1,6 +1,8 @@
 result = `
+    shop = anna
+
     product = Product(
-        user=anna,
+        shop=shop,
         name="${document.querySelector(".wt-text-body-03.wt-line-height-tight.wt-break-word").innerText}",
         price="${document.querySelectorAll(".wt-text-title-03.wt-mr-xs-1>span")[1].innerText.replace('+', '').replace("$", '')}",
         description="${document.querySelector(".wt-text-body-01.wt-break-word").innerText.split('\n')[0].replaceAll('"', "'")}"
@@ -21,7 +23,8 @@ users = ["brian", "caitlynn", "derrik", "elizabeth"]
 ratings.forEach((rating, i) => {
     result += `
         Review(
-            user=${users[i]},
+            author=${users[i]},
+            shop=shop,
             product=product,
             rating=${rating},
             review="${reviews[i].replaceAll('"', "'")}"

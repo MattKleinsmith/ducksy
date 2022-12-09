@@ -9,7 +9,16 @@ bp = Blueprint("products", __name__, url_prefix="/products")
 
 @bp.route("/")
 def get_products():
-    return [product.to_dict() for product in Product.query]
+    products = []
+    for product in Product.query:
+        product = product.to_dict()
+        reviews = Review.query.filter(
+            Review.shop_id == product["shop_id"]).all()
+        product["shop_rating"] = sum(
+            [review.rating for review in reviews]) / len(reviews)
+        product["num_shop_ratings"] = len(reviews)
+        products.append(product)
+    return products
 
 
 @bp.route("/", methods=['POST'])
@@ -18,7 +27,7 @@ def post_product():
     form = ProductForm()
     if (form.validate_on_submit()):
         product = Product(
-            user=current_user,
+            shop=current_user,
             name=form.name.data,
             price=form.price.data,
             description=form.description.data

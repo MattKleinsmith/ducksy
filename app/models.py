@@ -26,8 +26,9 @@ class User(db.Model, UserMixin):
                         server_default=func.now(), onupdate=func.now(),
                         nullable=False)
 
-    products = relationship("Product", back_populates="user")
-    reviews = relationship("Review", back_populates="user")
+    products = relationship("Product", back_populates="shop")
+    # reviews_author = relationship("Review", back_populates="author")
+    # reviews_shop = relationship("Review", back_populates="shop")
 
     @property
     def password(self):
@@ -54,7 +55,7 @@ class Product(db.Model):
 
     id = Column(Integer, primary_key=True)
 
-    user_id = Column(Integer, ForeignKey('users.id'), nullable=False)
+    shop_id = Column(Integer, ForeignKey('users.id'), nullable=False)
     name = Column(VARCHAR(140), nullable=False)
     price = Column(DECIMAL, nullable=False)
     description = Column(TEXT)
@@ -65,14 +66,14 @@ class Product(db.Model):
                         server_default=func.now(), onupdate=func.now(),
                         nullable=False)
 
-    user = relationship("User", back_populates="products")
+    shop = relationship("User", back_populates="products")
     product_images = relationship("ProductImage", back_populates="product")
     reviews = relationship("Review", back_populates="product")
 
     def to_dict(self):
         return {
             "id": self.id,
-            "user_id": self.user_id,
+            "shop_id": self.shop_id,
             "name": self.name,
             "price": self.price,
             "description": self.description,
@@ -111,7 +112,8 @@ class Review(db.Model):
 
     id = Column(Integer, primary_key=True)
 
-    user_id = Column(Integer, ForeignKey('users.id'), nullable=False)
+    author_id = Column(Integer, ForeignKey('users.id'), nullable=False)
+    shop_id = Column(Integer, ForeignKey('users.id'))
     product_id = Column(Integer, ForeignKey('products.id'), nullable=False)
     rating = Column(Integer, nullable=False)
     review = Column(VARCHAR(840), nullable=False)
@@ -122,7 +124,8 @@ class Review(db.Model):
                         server_default=func.now(), onupdate=func.now(),
                         nullable=False)
 
-    user = relationship("User", back_populates="reviews")
+    author = relationship("User", foreign_keys=author_id)
+    shop = relationship("User", foreign_keys=shop_id)
     product = relationship("Product", back_populates="reviews")
 
     def to_dict(self):
