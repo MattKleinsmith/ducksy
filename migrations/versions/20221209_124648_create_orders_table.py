@@ -28,9 +28,14 @@ def upgrade():
                               server_default=sa.text('(CURRENT_TIMESTAMP)'), nullable=False),
                     sa.Column('updated_at', sa.DateTime(timezone=True),
                               server_default=sa.text('(CURRENT_TIMESTAMP)'), nullable=False),
-                    sa.ForeignKeyConstraint(['user_id'], ['users.id'], ),
+                    sa.ForeignKeyConstraint(
+                        ['user_id'], ['users.id'], ),
                     sa.PrimaryKeyConstraint('id')
                     )
+
+    if environment == "production":
+        op.execute(f"ALTER TABLE orders SET SCHEMA {SCHEMA};")
+
     op.create_table('order_items',
                     sa.Column('id', sa.Integer(), nullable=False),
                     sa.Column('order_id', sa.Integer(), nullable=False),
@@ -41,13 +46,15 @@ def upgrade():
                               server_default=sa.text('(CURRENT_TIMESTAMP)'), nullable=False),
                     sa.Column('updated_at', sa.DateTime(timezone=True),
                               server_default=sa.text('(CURRENT_TIMESTAMP)'), nullable=False),
-                    sa.ForeignKeyConstraint(['order_id'], ['orders.id'], ),
-                    sa.ForeignKeyConstraint(['product_id'], ['products.id'], ),
+                    sa.ForeignKeyConstraint(
+                        ['order_id'], ['orders.id'], ),
+                    sa.ForeignKeyConstraint(
+                        ['product_id'], ['products.id'], ),
                     sa.PrimaryKeyConstraint('id')
                     )
     # ### end Alembic commands ###
     if environment == "production":
-        op.execute(f"ALTER TABLE users SET SCHEMA {SCHEMA};")
+        op.execute(f"ALTER TABLE order_items SET SCHEMA {SCHEMA};")
 
 
 def downgrade():

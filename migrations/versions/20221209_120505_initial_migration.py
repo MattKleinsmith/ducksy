@@ -35,6 +35,10 @@ def upgrade():
                     sa.PrimaryKeyConstraint('id'),
                     sa.UniqueConstraint('email')
                     )
+
+    if environment == "production":
+        op.execute(f"ALTER TABLE users SET SCHEMA {SCHEMA};")
+
     op.create_table('products',
                     sa.Column('id', sa.Integer(), nullable=False),
                     sa.Column('shop_id', sa.Integer(), nullable=False),
@@ -45,9 +49,14 @@ def upgrade():
                               server_default=sa.text('(CURRENT_TIMESTAMP)'), nullable=False),
                     sa.Column('updated_at', sa.DateTime(timezone=True),
                               server_default=sa.text('(CURRENT_TIMESTAMP)'), nullable=False),
-                    sa.ForeignKeyConstraint(['shop_id'], ['users.id'], ),
+                    sa.ForeignKeyConstraint(
+                        ['shop_id'], ['users.id'], ),
                     sa.PrimaryKeyConstraint('id')
                     )
+
+    if environment == "production":
+        op.execute(f"ALTER TABLE products SET SCHEMA {SCHEMA};")
+
     op.create_table('product_images',
                     sa.Column('id', sa.Integer(), nullable=False),
                     sa.Column('product_id', sa.Integer(), nullable=False),
@@ -57,9 +66,14 @@ def upgrade():
                               server_default=sa.text('(CURRENT_TIMESTAMP)'), nullable=False),
                     sa.Column('updated_at', sa.DateTime(timezone=True),
                               server_default=sa.text('(CURRENT_TIMESTAMP)'), nullable=False),
-                    sa.ForeignKeyConstraint(['product_id'], ['products.id'], ),
+                    sa.ForeignKeyConstraint(
+                        ['product_id'], ['products.id'], ),
                     sa.PrimaryKeyConstraint('id')
                     )
+
+    if environment == "production":
+        op.execute(f"ALTER TABLE product_images SET SCHEMA {SCHEMA};")
+
     op.create_table('reviews',
                     sa.Column('id', sa.Integer(), nullable=False),
                     sa.Column('customer_id', sa.Integer(), nullable=False),
@@ -80,7 +94,7 @@ def upgrade():
     # ### end Alembic commands ###
 
     if environment == "production":
-        op.execute(f"ALTER TABLE users SET SCHEMA {SCHEMA};")
+        op.execute(f"ALTER TABLE reviews SET SCHEMA {SCHEMA};")
 
 
 def downgrade():

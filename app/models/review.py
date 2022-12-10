@@ -19,7 +19,6 @@ class Review(db.Model):
         __table_args__ = {'schema': SCHEMA}
 
     id = Column(Integer, primary_key=True)
-
     customer_id = Column(Integer, ForeignKey('users.id'), nullable=False)
     shop_id = Column(Integer, ForeignKey('users.id'))
     product_id = Column(Integer, ForeignKey('products.id'), nullable=False)

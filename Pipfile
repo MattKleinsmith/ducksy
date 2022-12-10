@@ -17,7 +17,7 @@ Jinja2 = "==3.1.2"
 MarkupSafe = "==2.1.1"
 SQLAlchemy = "==1.4.44"
 Werkzeug = "==2.2.2"
-WTForms = "==3.0.1"
+WTForms = {extras = ["email"], version = "*"}
 Flask-Migrate = "==4.0.0"
 Flask-Login = "==0.6.2"
 alembic = "==1.8.1"
@@ -36,6 +36,7 @@ jmespath = "==1.0.1"
 s3transfer = "==0.6.0"
 urllib3 = "==1.26.13"
 zipp = "==3.11.0"
+psycopg2 = "*"
 
 [dev-packages]
 
