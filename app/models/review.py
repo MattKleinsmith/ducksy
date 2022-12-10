@@ -38,7 +38,6 @@ class Review(db.Model):
     customer = relationship("User", foreign_keys=customer_id)
     shop = relationship("User", foreign_keys=shop_id)
     product = relationship("Product", back_populates="reviews")
-    review_images = relationship("ReviewImage", back_populates="review")
 
     def to_dict(self):
         return {
