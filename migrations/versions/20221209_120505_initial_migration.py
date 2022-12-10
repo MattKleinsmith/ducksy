@@ -7,6 +7,7 @@ Create Date: 2022-12-09 12:05:05.542357
 """
 from alembic import op
 import sqlalchemy as sa
+from app.models import User, Product
 
 import os
 environment = os.getenv("FLASK_ENV")
@@ -35,6 +36,10 @@ def upgrade():
                     sa.PrimaryKeyConstraint('id'),
                     sa.UniqueConstraint('email')
                     )
+
+    if environment == "production":
+        op.execute(f"ALTER TABLE users SET SCHEMA {SCHEMA};")
+
     op.create_table('products',
                     sa.Column('id', sa.Integer(), nullable=False),
                     sa.Column('shop_id', sa.Integer(), nullable=False),
@@ -45,9 +50,13 @@ def upgrade():
                               server_default=sa.text('(CURRENT_TIMESTAMP)'), nullable=False),
                     sa.Column('updated_at', sa.DateTime(timezone=True),
                               server_default=sa.text('(CURRENT_TIMESTAMP)'), nullable=False),
-                    sa.ForeignKeyConstraint(['shop_id'], ['users.id'], ),
+                    sa.ForeignKeyConstraint(['shop_id'], [User.c.id], ),
                     sa.PrimaryKeyConstraint('id')
                     )
+
+    if environment == "production":
+        op.execute(f"ALTER TABLE products SET SCHEMA {SCHEMA};")
+
     op.create_table('product_images',
                     sa.Column('id', sa.Integer(), nullable=False),
                     sa.Column('product_id', sa.Integer(), nullable=False),
@@ -57,9 +66,13 @@ def upgrade():
                               server_default=sa.text('(CURRENT_TIMESTAMP)'), nullable=False),
                     sa.Column('updated_at', sa.DateTime(timezone=True),
                               server_default=sa.text('(CURRENT_TIMESTAMP)'), nullable=False),
-                    sa.ForeignKeyConstraint(['product_id'], ['products.id'], ),
+                    sa.ForeignKeyConstraint(['product_id'], [Product.c.id], ),
                     sa.PrimaryKeyConstraint('id')
                     )
+
+    if environment == "production":
+        op.execute(f"ALTER TABLE product_images SET SCHEMA {SCHEMA};")
+
     op.create_table('reviews',
                     sa.Column('id', sa.Integer(), nullable=False),
                     sa.Column('author_id', sa.Integer(), nullable=False),
@@ -72,15 +85,15 @@ def upgrade():
                               server_default=sa.text('(CURRENT_TIMESTAMP)'), nullable=False),
                     sa.Column('updated_at', sa.DateTime(timezone=True),
                               server_default=sa.text('(CURRENT_TIMESTAMP)'), nullable=False),
-                    sa.ForeignKeyConstraint(['author_id'], ['users.id'], ),
-                    sa.ForeignKeyConstraint(['product_id'], ['products.id'], ),
-                    sa.ForeignKeyConstraint(['shop_id'], ['users.id'], ),
+                    sa.ForeignKeyConstraint(['author_id'], [User.c.id], ),
+                    sa.ForeignKeyConstraint(['product_id'], [Product.c.id], ),
+                    sa.ForeignKeyConstraint(['shop_id'], [User.c.id], ),
                     sa.PrimaryKeyConstraint('id')
                     )
     # ### end Alembic commands ###
 
     if environment == "production":
-        op.execute(f"ALTER TABLE users SET SCHEMA {SCHEMA};")
+        op.execute(f"ALTER TABLE reviews SET SCHEMA {SCHEMA};")
 
 
 def downgrade():
