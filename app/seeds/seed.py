@@ -58,6 +58,48 @@ def seed_all():
             preview=True
         ),
 
+        ProductImage(
+            product=product,
+            url=upload_image_to_bucket(
+                "https://i.etsystatic.com/23020574/r/il/fad766/3146934257/il_1588xN.3146934257_lnos.jpg"),
+            preview=False
+        ),
+
+        ProductImage(
+            product=product,
+            url=upload_image_to_bucket(
+                "https://i.etsystatic.com/23020574/r/il/d928ce/3099213096/il_1588xN.3099213096_n86d.jpg"),
+            preview=False
+        ),
+
+        ProductImage(
+            product=product,
+            url=upload_image_to_bucket(
+                "https://i.etsystatic.com/23020574/r/il/499c97/3146934189/il_1588xN.3146934189_sb01.jpg"),
+            preview=False
+        ),
+
+        ProductImage(
+            product=product,
+            url=upload_image_to_bucket(
+                "https://i.etsystatic.com/23020574/r/il/3d113a/3146934181/il_1588xN.3146934181_7nex.jpg"),
+            preview=False
+        ),
+
+        ProductImage(
+            product=product,
+            url=upload_image_to_bucket(
+                "https://i.etsystatic.com/23020574/r/il/3fffd4/3146934133/il_1588xN.3146934133_hbmo.jpg"),
+            preview=False
+        ),
+
+        ProductImage(
+            product=product,
+            url=upload_image_to_bucket(
+                "https://i.etsystatic.com/23020574/r/il/67c451/3146934239/il_1588xN.3146934239_ik6z.jpg"),
+            preview=False
+        ),
+
         Review(
             customer=brian,
             product=product,
@@ -104,6 +146,62 @@ def seed_all():
             preview=True
         ),
 
+        ProductImage(
+            product=product,
+            url=upload_image_to_bucket(
+                "https://i.etsystatic.com/32929192/r/il/490c85/3478726118/il_1588xN.3478726118_cq9g.jpg"),
+            preview=False
+        ),
+
+        ProductImage(
+            product=product,
+            url=upload_image_to_bucket(
+                "https://i.etsystatic.com/32929192/r/il/73824a/3890948405/il_1588xN.3890948405_dpmf.jpg"),
+            preview=False
+        ),
+
+        ProductImage(
+            product=product,
+            url=upload_image_to_bucket(
+                "https://i.etsystatic.com/32929192/r/il/0fc8b8/3890948387/il_1588xN.3890948387_o5r0.jpg"),
+            preview=False
+        ),
+
+        ProductImage(
+            product=product,
+            url=upload_image_to_bucket(
+                "https://i.etsystatic.com/32929192/r/il/5f5055/3889937763/il_1588xN.3889937763_s56t.jpg"),
+            preview=False
+        ),
+
+        ProductImage(
+            product=product,
+            url=upload_image_to_bucket(
+                "https://i.etsystatic.com/32929192/r/il/ed4ec5/3889941053/il_1588xN.3889941053_3xj1.jpg"),
+            preview=False
+        ),
+
+        ProductImage(
+            product=product,
+            url=upload_image_to_bucket(
+                "https://i.etsystatic.com/32929192/r/il/34db34/3526372801/il_1588xN.3526372801_s24t.jpg"),
+            preview=False
+        ),
+
+        ProductImage(
+            product=product,
+            url=upload_image_to_bucket(
+                "https://i.etsystatic.com/32929192/r/il/69854a/3481338888/il_1588xN.3481338888_osh1.jpg"),
+            preview=False
+        ),
+
+        ProductImage(
+            product=product,
+            url=upload_image_to_bucket(
+                "https://i.etsystatic.com/32929192/r/il/98071f/3842438288/il_1588xN.3842438288_4uzt.jpg"),
+            preview=False
+        ),
+
         Review(
             customer=brian,
             product=product,
@@ -115,7 +213,7 @@ def seed_all():
             customer=caitlynn,
             product=product,
             rating=5,
-            review="I’ve never experienced customer service like I did with Enes! They made sure I was satisfied and kept me up to date with my order without me asking. I ordered a bag with my boyfriends initials and it looks stunning 🤩 I’m so excited to gift it to him. Super satisfied with my item!!! Thank you 🙏"
+            review="I've never experienced customer service like I did with Enes! They made sure I was satisfied and kept me up to date with my order without me asking. I ordered a bag with my boyfriends initials and it looks stunning 🤩 I'm so excited to gift it to him. Super satisfied with my item!!! Thank you 🙏"
         ),
 
         Review(
@@ -148,6 +246,62 @@ def seed_all():
             url=upload_image_to_bucket(
                 "https://i.etsystatic.com/31475762/r/il/7a4962/3416025636/il_794xN.3416025636_neol.jpg"),
             preview=True
+        ),
+
+        ProductImage(
+            product=product,
+            url=upload_image_to_bucket(
+                "https://i.etsystatic.com/31475762/r/il/1c7ca9/3375663430/il_1588xN.3375663430_8iom.jpg"),
+            preview=False
+        ),
+
+        ProductImage(
+            product=product,
+            url=upload_image_to_bucket(
+                "https://i.etsystatic.com/31475762/r/il/67771d/3415990988/il_1588xN.3415990988_iisk.jpg"),
+            preview=False
+        ),
+
+        ProductImage(
+            product=product,
+            url=upload_image_to_bucket(
+                "https://i.etsystatic.com/31475762/r/il/a60150/3415986242/il_1588xN.3415986242_t37f.jpg"),
+            preview=False
+        ),
+
+        ProductImage(
+            product=product,
+            url=upload_image_to_bucket(
+                "https://i.etsystatic.com/31475762/r/il/1f74de/4291529578/il_1588xN.4291529578_3jqc.jpg"),
+            preview=False
+        ),
+
+        ProductImage(
+            product=product,
+            url=upload_image_to_bucket(
+                "https://i.etsystatic.com/31475762/r/il/7ab155/4191194083/il_1588xN.4191194083_m91m.jpg"),
+            preview=False
+        ),
+
+        ProductImage(
+            product=product,
+            url=upload_image_to_bucket(
+                "https://i.etsystatic.com/31475762/r/il/4ac5ca/3375665586/il_1588xN.3375665586_fesp.jpg"),
+            preview=False
+        ),
+
+        ProductImage(
+            product=product,
+            url=upload_image_to_bucket(
+                "https://i.etsystatic.com/31475762/r/il/cfedfe/3375661820/il_1588xN.3375661820_3gap.jpg"),
+            preview=False
+        ),
+
+        ProductImage(
+            product=product,
+            url=upload_image_to_bucket(
+                "https://i.etsystatic.com/31475762/r/il/b739ae/4143913686/il_1588xN.4143913686_8quk.jpg"),
+            preview=False
         ),
 
         Review(
@@ -194,6 +348,49 @@ def seed_all():
             url=upload_image_to_bucket(
                 "https://i.etsystatic.com/28509384/r/il/0927a2/3343967865/il_794xN.3343967865_sjls.jpg"),
             preview=True
+        ),
+
+        ProductImage(
+            product=product,
+            url=upload_image_to_bucket(
+                "https://i.etsystatic.com/28509384/r/il/74386f/3296265660/il_1588xN.3296265660_4osh.jpg"),
+            preview=False
+        ),
+
+        ProductImage(
+            product=product,
+            url=upload_image_to_bucket(
+                "https://i.etsystatic.com/28509384/r/il/84a682/3294635830/il_1588xN.3294635830_hlx8.jpg"),
+            preview=False
+        ),
+
+
+        ProductImage(
+            product=product,
+            url=upload_image_to_bucket(
+                "https://i.etsystatic.com/28509384/r/il/69ea0d/3358133601/il_1588xN.3358133601_odoq.jpg"),
+            preview=False
+        ),
+
+        ProductImage(
+            product=product,
+            url=upload_image_to_bucket(
+                "https://i.etsystatic.com/28509384/r/il/38041d/3358133381/il_1588xN.3358133381_lqpf.jpg"),
+            preview=False
+        ),
+
+        ProductImage(
+            product=product,
+            url=upload_image_to_bucket(
+                "https://i.etsystatic.com/28509384/r/il/e9e519/3663698967/il_1588xN.3663698967_5vxb.jpg"),
+            preview=False
+        ),
+
+        ProductImage(
+            product=product,
+            url=upload_image_to_bucket(
+                "https://i.etsystatic.com/28509384/r/il/41842b/3663698885/il_1588xN.3663698885_apk3.jpg"),
+            preview=False
         ),
 
         Review(
@@ -277,7 +474,7 @@ def seed_all():
         shop=anna,
         name="Campbell Tote | Choose Your Strap",
         price="37.19",
-        description="Now you can build your perfect tote! Pick your favorite color Campbell Tote and then pick your favorite style strap to build the perfect bag. All straps are interchangeable!Our beautiful Campbell tote from the Threaded Pear is the perfect take anywhere bag. This stunning and durable bag features a zipper closure to access the spacious interior for all your must-have essentials. Multiple interior pockets allow for organization for all your items on the go."
+        description="Now you can build your perfect tote! Pick your favorite color Campbell Tote and then pick your favorite style strap to build the perfect bag. All straps are interchangeable!Our beautiful Campbell tote from the Threaded Pear is the perfect take anywhere bag. This stunning and durable bag features a zipper closure to access the spacious interior for all your must-have essentials. Multiple interior pockets allow for organization for all your items on the go."
     )
 
     db.session.add_all([
@@ -286,6 +483,69 @@ def seed_all():
             url=upload_image_to_bucket(
                 "https://i.etsystatic.com/27481253/r/il/aee3c0/4146026909/il_794xN.4146026909_dfu3.jpg"),
             preview=True
+        ),
+
+        ProductImage(
+            product=product,
+            url=upload_image_to_bucket(
+                "https://i.etsystatic.com/27481253/r/il/52186d/3759312349/il_1588xN.3759312349_5e1s.jpg"),
+            preview=False
+        ),
+
+        ProductImage(
+            product=product,
+            url=upload_image_to_bucket(
+                "https://i.etsystatic.com/27481253/r/il/be0888/3711743784/il_1588xN.3711743784_73im.jpg"),
+            preview=False
+        ),
+
+        ProductImage(
+            product=product,
+            url=upload_image_to_bucket(
+                "https://i.etsystatic.com/27481253/r/il/03ea82/4146016113/il_1588xN.4146016113_oz2z.jpg"),
+            preview=False
+        ),
+
+        ProductImage(
+            product=product,
+            url=upload_image_to_bucket(
+                "https://i.etsystatic.com/27481253/r/il/a8a692/4098359482/il_1588xN.4098359482_q6sx.jpg"),
+            preview=False
+        ),
+
+        ProductImage(
+            product=product,
+            url=upload_image_to_bucket(
+                "https://i.etsystatic.com/27481253/r/il/3640f4/3759312653/il_1588xN.3759312653_k3c0.jpg"),
+            preview=False
+        ),
+
+        ProductImage(
+            product=product,
+            url=upload_image_to_bucket(
+                "https://i.etsystatic.com/27481253/r/il/d6f597/4138828614/il_1588xN.4138828614_7i59.jpg"),
+            preview=False
+        ),
+
+        ProductImage(
+            product=product,
+            url=upload_image_to_bucket(
+                "https://i.etsystatic.com/27481253/r/il/c0e07b/4186489933/il_1588xN.4186489933_lq60.jpg"),
+            preview=False
+        ),
+
+        ProductImage(
+            product=product,
+            url=upload_image_to_bucket(
+                "https://i.etsystatic.com/27481253/r/il/e89ace/4138829272/il_1588xN.4138829272_ix21.jpg"),
+            preview=False
+        ),
+
+        ProductImage(
+            product=product,
+            url=upload_image_to_bucket(
+                "https://i.etsystatic.com/27481253/r/il/6d94ba/4138829522/il_1588xN.4138829522_40bj.jpg"),
+            preview=False
         ),
 
         Review(
@@ -334,6 +594,55 @@ def seed_all():
             preview=True
         ),
 
+        ProductImage(
+            product=product,
+            url=upload_image_to_bucket(
+                "https://i.etsystatic.com/21515874/r/il/1c7a2a/3854800271/il_1588xN.3854800271_obi0.jpg"),
+            preview=False
+        ),
+
+        ProductImage(
+            product=product,
+            url=upload_image_to_bucket(
+                "https://i.etsystatic.com/21515874/r/il/27274f/3872663237/il_1588xN.3872663237_b73y.jpg"),
+            preview=False
+        ),
+
+        ProductImage(
+            product=product,
+            url=upload_image_to_bucket(
+                "https://i.etsystatic.com/21515874/r/il/73de40/2109966780/il_1588xN.2109966780_f0o2.jpg"),
+            preview=False
+        ),
+
+        ProductImage(
+            product=product,
+            url=upload_image_to_bucket(
+                "https://i.etsystatic.com/21515874/r/il/1494ff/3895691133/il_1588xN.3895691133_b9zu.jpg"),
+            preview=False
+        ),
+
+        ProductImage(
+            product=product,
+            url=upload_image_to_bucket(
+                "https://i.etsystatic.com/21515874/r/il/64eb90/3157818513/il_1588xN.3157818513_sjcb.jpg"),
+            preview=False
+        ),
+
+        ProductImage(
+            product=product,
+            url=upload_image_to_bucket(
+                "https://i.etsystatic.com/21515874/r/il/9c9483/2117559993/il_1588xN.2117559993_9qnp.jpg"),
+            preview=False
+        ),
+
+        ProductImage(
+            product=product,
+            url=upload_image_to_bucket(
+                "https://i.etsystatic.com/21515874/r/il/576709/2069990788/il_1588xN.2069990788_4356.jpg"),
+            preview=False
+        ),
+
         Review(
             customer=brian,
             product=product,
@@ -378,6 +687,55 @@ def seed_all():
             url=upload_image_to_bucket(
                 "https://i.etsystatic.com/8617622/r/il/0c6972/2264040092/il_794xN.2264040092_5oim.jpg"),
             preview=True
+        ),
+
+        ProductImage(
+            product=product,
+            url=upload_image_to_bucket(
+                "https://i.etsystatic.com/8617622/r/il/c0510a/2271000930/il_1588xN.2271000930_4nu0.jpg"),
+            preview=False
+        ),
+
+        ProductImage(
+            product=product,
+            url=upload_image_to_bucket(
+                "https://i.etsystatic.com/8617622/r/il/4876ec/2143657481/il_1588xN.2143657481_tiqt.jpg"),
+            preview=False
+        ),
+
+        ProductImage(
+            product=product,
+            url=upload_image_to_bucket(
+                "https://i.etsystatic.com/8617622/r/il/be1d24/2318598873/il_1588xN.2318598873_33fn.jpg"),
+            preview=False
+        ),
+
+        ProductImage(
+            product=product,
+            url=upload_image_to_bucket(
+                "https://i.etsystatic.com/8617622/r/il/61d7d3/2271001676/il_1588xN.2271001676_4cdi.jpg"),
+            preview=False
+        ),
+
+        ProductImage(
+            product=product,
+            url=upload_image_to_bucket(
+                "https://i.etsystatic.com/8617622/r/il/200fa7/2135455738/il_1588xN.2135455738_2wwe.jpg"),
+            preview=False
+        ),
+
+        ProductImage(
+            product=product,
+            url=upload_image_to_bucket(
+                "https://i.etsystatic.com/8617622/r/il/c417ee/3106133842/il_1588xN.3106133842_3kkd.jpg"),
+            preview=False
+        ),
+
+        ProductImage(
+            product=product,
+            url=upload_image_to_bucket(
+                "https://i.etsystatic.com/8617622/r/il/ca6d5d/3880525610/il_1588xN.3880525610_k3lt.jpg"),
+            preview=False
         ),
 
         Review(
@@ -426,6 +784,55 @@ def seed_all():
             preview=True
         ),
 
+        ProductImage(
+            product=product,
+            url=upload_image_to_bucket(
+                "https://i.etsystatic.com/29566173/r/il/a9d3a1/3215372425/il_1588xN.3215372425_t00v.jpg"),
+            preview=False
+        ),
+
+        ProductImage(
+            product=product,
+            url=upload_image_to_bucket(
+                "https://i.etsystatic.com/29566173/r/il/ef1b05/3254013457/il_1588xN.3254013457_98tn.jpg"),
+            preview=False
+        ),
+
+        ProductImage(
+            product=product,
+            url=upload_image_to_bucket(
+                "https://i.etsystatic.com/29566173/r/il/773447/3225389747/il_1588xN.3225389747_7tx1.jpg"),
+            preview=False
+        ),
+
+        ProductImage(
+            product=product,
+            url=upload_image_to_bucket(
+                "https://i.etsystatic.com/29566173/r/il/80a445/4334997689/il_1588xN.4334997689_gj8u.jpg"),
+            preview=False
+        ),
+
+        ProductImage(
+            product=product,
+            url=upload_image_to_bucket(
+                "https://i.etsystatic.com/29566173/r/il/ac5cf0/3254017891/il_1588xN.3254017891_d4l9.jpg"),
+            preview=False
+        ),
+
+        ProductImage(
+            product=product,
+            url=upload_image_to_bucket(
+                "https://i.etsystatic.com/29566173/r/il/221a6d/3181554992/il_1588xN.3181554992_tsyd.jpg"),
+            preview=False
+        ),
+
+        ProductImage(
+            product=product,
+            url=upload_image_to_bucket(
+                "https://i.etsystatic.com/29566173/r/il/2b8f93/4039378744/il_1588xN.4039378744_m5gw.jpg"),
+            preview=False
+        ),
+
         Review(
             customer=brian,
             product=product,
@@ -456,6 +863,700 @@ def seed_all():
     ])
 
     db.session.commit()
+
+    product = Product(
+        shop=anna,
+        name="Personalized Night Light with Moon & Stars - Nursery Decor - Custom Name Light Night Gift - Kids Room Decor - Personalized Gifts for Kids",
+        price="36.99",
+        description="Custom Rainbow Night Light"
+    )
+
+    db.session.add_all([
+        ProductImage(
+            product=product,
+            url=upload_image_to_bucket(
+                "https://i.etsystatic.com/27235619/r/il/c4c01c/2873811274/il_794xN.2873811274_mrtd.jpg"),
+            preview=True
+        ),
+
+        ProductImage(
+            product=product,
+            url=upload_image_to_bucket(
+                "https://i.etsystatic.com/27235619/r/il/0e004a/3571770510/il_1588xN.3571770510_j6y1.jpg"),
+            preview=False
+        ),
+
+        ProductImage(
+            product=product,
+            url=upload_image_to_bucket(
+                "https://i.etsystatic.com/27235619/r/il/6a3644/3619396337/il_1588xN.3619396337_ohih.jpg"),
+            preview=False
+        ),
+
+        ProductImage(
+            product=product,
+            url=upload_image_to_bucket(
+                "https://i.etsystatic.com/27235619/r/il/7c6f27/3571769514/il_1588xN.3571769514_dnpg.jpg"),
+            preview=False
+        ),
+
+        ProductImage(
+            product=product,
+            url=upload_image_to_bucket(
+                "https://i.etsystatic.com/27235619/r/il/9776c2/3619395923/il_1588xN.3619395923_qvg3.jpg"),
+            preview=False
+        ),
+
+        ProductImage(
+            product=product,
+            url=upload_image_to_bucket(
+                "https://i.etsystatic.com/27235619/r/il/e36494/3619394791/il_1588xN.3619394791_8is3.jpg"),
+            preview=False
+        ),
+
+        ProductImage(
+            product=product,
+            url=upload_image_to_bucket(
+                "https://i.etsystatic.com/27235619/r/il/bf3a8a/3571771138/il_1588xN.3571771138_8u0r.jpg"),
+            preview=False
+        ),
+
+        ProductImage(
+            product=product,
+            url=upload_image_to_bucket(
+                "https://i.etsystatic.com/27235619/r/il/5e8f5c/3619394805/il_1588xN.3619394805_257z.jpg"),
+            preview=False
+        ),
+
+        ProductImage(
+            product=product,
+            url=upload_image_to_bucket(
+                "https://i.etsystatic.com/27235619/r/il/cf9c3c/3619397621/il_1588xN.3619397621_sxrc.jpg"),
+            preview=False
+        ),
+
+        Review(
+            customer=brian,
+            product=product,
+            rating=3,
+            review="The product is nice but the picture is deceiving, it is a lot smaller than the posted picture. The quality is okay! The shipping was very quick but I did pay for fast shipping. I gave it 3 stars because I had wrote down under personalization the wrong name; after I noticed that I msged them hrs later and they were able to change it for me."
+        ),
+
+        Review(
+            customer=caitlynn,
+            product=product,
+            rating=5,
+            review="The night light is absolutely perfect. The quality, the craftsmanship, the time it took to arrive!! I’m so glad I found this shop bc I couldn’t have picked a better place for my gift. The response times were almost instantaneous and the package arrived and you could tell it was handled with care. Thank you for making these amazing items. 20 out of 10 I recommend!!! (Pictured with the plastic still on bc it is a gift)"
+        ),
+
+        Review(
+            customer=derrik,
+            product=product,
+            rating=1,
+            review="The item written name was must smaller than anticipated and connects with a USB plug. Just did not look as amazing as the photo."
+        ),
+
+        Review(
+            customer=elizabeth,
+            product=product,
+            rating=5,
+            review="This night light was perfect! Love how it looks and the quality of it"
+        ),
+    ])
+
+    db.session.commit()
+
+    product = Product(
+        shop=anna,
+        name="Birth Flower Jewelry Travel Case, Birth Month Flower Gift, Personalized Birthday Gift, Leather Jewelry Travel Case, Custom Jewelry Case",
+        price="14.49",
+        description="Personalized Jewelry Boxes, Birth Flower Jewelry Case, Travel Case For Bridesmaids, Minimal Jewelry Box, Jewelry Organizer, Jewelry Box"
+    )
+
+    db.session.add_all([
+        ProductImage(
+            product=product,
+            url=upload_image_to_bucket(
+                "https://i.etsystatic.com/35966576/r/il/e1510f/4033777789/il_794xN.4033777789_dqlw.jpg"),
+            preview=True
+        ),
+
+        ProductImage(
+            product=product,
+            url=upload_image_to_bucket(
+                "https://i.etsystatic.com/35966576/r/il/3f876c/4248811668/il_1588xN.4248811668_qimg.jpg"),
+            preview=False
+        ),
+
+        ProductImage(
+            product=product,
+            url=upload_image_to_bucket(
+                "https://i.etsystatic.com/35966576/r/il/f97159/4033778219/il_1588xN.4033778219_m8za.jpg"),
+            preview=False
+        ),
+
+        ProductImage(
+            product=product,
+            url=upload_image_to_bucket(
+                "https://i.etsystatic.com/35966576/r/il/166da7/4033778223/il_1588xN.4033778223_sp6a.jpg"),
+            preview=False
+        ),
+
+        ProductImage(
+            product=product,
+            url=upload_image_to_bucket(
+                "https://i.etsystatic.com/35966576/r/il/5aca21/4033778233/il_1588xN.4033778233_pkrc.jpg"),
+            preview=False
+        ),
+
+        ProductImage(
+            product=product,
+            url=upload_image_to_bucket(
+                "https://i.etsystatic.com/35966576/r/il/3defa8/4033778221/il_1588xN.4033778221_fffh.jpg"),
+            preview=False
+        ),
+
+        ProductImage(
+            product=product,
+            url=upload_image_to_bucket(
+                "https://i.etsystatic.com/35966576/r/il/eabb31/3986126544/il_1588xN.3986126544_dbum.jpg"),
+            preview=False
+        ),
+
+        ProductImage(
+            product=product,
+            url=upload_image_to_bucket(
+                "https://i.etsystatic.com/35966576/r/il/5fa922/4033778467/il_1588xN.4033778467_bbiz.jpg"),
+            preview=False
+        ),
+
+        ProductImage(
+            product=product,
+            url=upload_image_to_bucket(
+                "https://i.etsystatic.com/35966576/r/il/3c568d/3986127254/il_1588xN.3986127254_ltgj.jpg"),
+            preview=False
+        ),
+
+        ProductImage(
+            product=product,
+            url=upload_image_to_bucket(
+                "https://i.etsystatic.com/35966576/r/il/c849c5/4296447437/il_1588xN.4296447437_fzz0.jpg"),
+            preview=False
+        ),
+
+        Review(
+            customer=brian,
+            product=product,
+            rating=5,
+            review="Beautiful! The photos don’t do them justice. Very satisfied!"
+        ),
+
+        Review(
+            customer=caitlynn,
+            product=product,
+            rating=5,
+            review="Oh my gosh, if I didn't have this custom with my cousins name (the flowers are totally fine) I would be keeping this for myself haha it's so cute and small. Perfect nightstand/travel size. The inside is nice n study and the outside is soft. The teal color is beautiful! Definitely recommend for gifts. I'm gifting it for Christmas this year and will likely share the link after so she can get me one as well lol!"
+        ),
+
+        Review(
+            customer=derrik,
+            product=product,
+            rating=5,
+            review="This came out amazing! Love it, will purchase agian!"
+        ),
+
+        Review(
+            customer=elizabeth,
+            product=product,
+            rating=5,
+            review="I am so happy with this item! Matched the description and arrived fast! It’s a Christmas present so I hope my daughter loves it as much as I do! Would definitely order another one!"
+        ),
+    ])
+
+    db.session.commit()
+
+    product = Product(
+        shop=anna,
+        name="Birth Flower Jewelry Travel Case, Birth Month Flower Gift, Personalized Birthday Gift, Leather Jewelry Travel Case, Custom Jewelry Case",
+        price="14.90",
+        description="Personalized Jewelry Boxes, Birth Flower Jewelry Case, Travel Case For Bridesmaids, Minimal Jewelry Box, Jewelry Organizer, Jewelry Box"
+    )
+
+    db.session.add_all([
+        ProductImage(
+            product=product,
+            url=upload_image_to_bucket(
+                "https://i.etsystatic.com/23702777/r/il/14c918/4184624086/il_794xN.4184624086_s698.jpg"),
+            preview=True
+        ),
+
+        ProductImage(
+            product=product,
+            url=upload_image_to_bucket(
+                "https://i.etsystatic.com/23702777/r/il/14c918/4184624086/il_794xN.4184624086_s698.jpg"),
+            preview=False
+        ),
+
+        ProductImage(
+            product=product,
+            url=upload_image_to_bucket(
+                "https://i.etsystatic.com/23702777/r/il/2fa402/4232282423/il_1588xN.4232282423_sffe.jpg"),
+            preview=False
+        ),
+
+        ProductImage(
+            product=product,
+            url=upload_image_to_bucket(
+                "https://i.etsystatic.com/23702777/r/il/6ae3d6/4232282411/il_1588xN.4232282411_s250.jpg"),
+            preview=False
+        ),
+
+        ProductImage(
+            product=product,
+            url=upload_image_to_bucket(
+                "https://i.etsystatic.com/23702777/r/il/fb63a6/4232282215/il_1588xN.4232282215_57p8.jpg"),
+            preview=False
+        ),
+
+        ProductImage(
+            product=product,
+            url=upload_image_to_bucket(
+                "https://i.etsystatic.com/23702777/r/il/b93c56/4184622950/il_1588xN.4184622950_mbjb.jpg"),
+            preview=False
+        ),
+
+        ProductImage(
+            product=product,
+            url=upload_image_to_bucket(
+                "https://i.etsystatic.com/23702777/r/il/b2ed6f/4184625188/il_1588xN.4184625188_fs8m.jpg"),
+            preview=False
+        ),
+
+        ProductImage(
+            product=product,
+            url=upload_image_to_bucket(
+                "https://i.etsystatic.com/23702777/r/il/62d356/4184625114/il_1588xN.4184625114_o8ik.jpg"),
+            preview=False
+        ),
+
+        ProductImage(
+            product=product,
+            url=upload_image_to_bucket(
+                "https://i.etsystatic.com/23702777/r/il/935548/4232285551/il_1588xN.4232285551_8083.jpg"),
+            preview=False
+        ),
+
+        ProductImage(
+            product=product,
+            url=upload_image_to_bucket(
+                "https://i.etsystatic.com/23702777/r/il/f6c098/4232281079/il_1588xN.4232281079_bw8q.jpg"),
+            preview=False
+        ),
+
+        Review(
+            customer=brian,
+            product=product,
+            rating=3,
+            review="Received purple. Asked for pink. Name looks like Liuz instead of Liz"
+        ),
+
+        Review(
+            customer=caitlynn,
+            product=product,
+            rating=4,
+            review="Rarely got updates on the shipping end, which sucked. Took a little longer to get here than expected. But the boxes were great! Very cute on the outside and the inside is nice and soft material."
+        ),
+
+        Review(
+            customer=derrik,
+            product=product,
+            rating=5,
+            review="These are beautiful! I purchased as a gift for my best friend and couldn’t resist buying one for myself too. The quality is nice and shipping was fast. I chose the color Rawhide. Would def buy again!"
+        ),
+
+        Review(
+            customer=elizabeth,
+            product=product,
+            rating=4,
+            review="its so cute!! a bit smaller than i thought!"
+        ),
+    ])
+
+    db.session.commit()
+
+    product = Product(
+        shop=anna,
+        name="Baby Girl and Baby Boy Name Puzzle by BusyPuzzle, Christmas Gift For Kids, 1 Year Old Birthday Gift, Montessori Toys",
+        price="1.99",
+        description="· Name Puzzle from BusyPuzzle is the Best Personalized Wooden Gift for Kids ·"
+    )
+
+    db.session.add_all([
+        ProductImage(
+            product=product,
+            url=upload_image_to_bucket(
+                "https://i.etsystatic.com/17305851/r/il/95b009/3398360096/il_794xN.3398360096_rpcp.jpg"),
+            preview=True
+        ),
+
+        ProductImage(
+            product=product,
+            url=upload_image_to_bucket(
+                "https://i.etsystatic.com/17305851/r/il/5de389/3398348088/il_1588xN.3398348088_4jzk.jpg"),
+            preview=False
+        ),
+
+        ProductImage(
+            product=product,
+            url=upload_image_to_bucket(
+                "https://i.etsystatic.com/17305851/r/il/4877ec/3398348092/il_1588xN.3398348092_1wcg.jpg"),
+            preview=False
+        ),
+
+        ProductImage(
+            product=product,
+            url=upload_image_to_bucket(
+                "https://i.etsystatic.com/17305851/r/il/3791e1/3446014715/il_1588xN.3446014715_b4fg.jpg"),
+            preview=False
+        ),
+
+        ProductImage(
+            product=product,
+            url=upload_image_to_bucket(
+                "https://i.etsystatic.com/17305851/r/il/f04819/3446014719/il_1588xN.3446014719_2xu9.jpg"),
+            preview=False
+        ),
+
+        ProductImage(
+            product=product,
+            url=upload_image_to_bucket(
+                "https://i.etsystatic.com/17305851/r/il/d9f6ea/3454598673/il_1588xN.3454598673_9oh8.jpg"),
+            preview=False
+        ),
+
+        ProductImage(
+            product=product,
+            url=upload_image_to_bucket(
+                "https://i.etsystatic.com/17305851/r/il/877d98/3398358046/il_1588xN.3398358046_eu55.jpg"),
+            preview=False
+        ),
+
+        ProductImage(
+            product=product,
+            url=upload_image_to_bucket(
+                "https://i.etsystatic.com/17305851/r/il/9c85e8/3446025849/il_1588xN.3446025849_6sjx.jpg"),
+            preview=False
+        ),
+
+        ProductImage(
+            product=product,
+            url=upload_image_to_bucket(
+                "https://i.etsystatic.com/17305851/r/il/fc16a4/3398359014/il_1588xN.3398359014_bk4g.jpg"),
+            preview=False
+        ),
+
+        Review(
+            customer=brian,
+            product=product,
+            rating=5,
+            review="I was at a loss at what to get my nephew for his 1st birthday. And then I found this awesome shop with these beautiful puzzles. I paid the extra to get the pegs put on to make it easier for my nephew to use and it was perfect. Someone different and special to celebrate turning 1. Thank you for the lovely puzzle."
+        ),
+
+        Review(
+            customer=caitlynn,
+            product=product,
+            rating=5,
+            review="They came out beautifully. I even received a few duplicate letters in glitter which I wasn't expecting but very happy about. They were packaged very securely. I love them. I'd certainly recommend to others."
+        ),
+
+        Review(
+            customer=derrik,
+            product=product,
+            rating=4,
+            review="OMG! I love this product. And my baby love it too. She started pulling out the letter.it looks great and quality is great. It just fit right in her room. We love it."
+        ),
+    ])
+
+    db.session.commit()
+
+    product = Product(
+        shop=anna,
+        name="Personalized Flask for Men, Leather Flask, Flask Personalized, Flask Leather, Flasks",
+        price="9.99",
+        description="Personalized Leather Flask!"
+    )
+
+    db.session.add_all([
+        ProductImage(
+            product=product,
+            url=upload_image_to_bucket(
+                "https://i.etsystatic.com/20811748/r/il/824d8a/3906405268/il_794xN.3906405268_aubi.jpg"),
+            preview=True
+        ),
+
+        ProductImage(
+            product=product,
+            url=upload_image_to_bucket(
+                "https://i.etsystatic.com/20811748/r/il/518070/3953900723/il_794xN.3953900723_fws4.jpg"),
+            preview=False
+        ),
+
+        ProductImage(
+            product=product,
+            url=upload_image_to_bucket(
+                "https://i.etsystatic.com/20811748/r/il/a6f0ac/3953898647/il_794xN.3953898647_rypx.jpg"),
+            preview=False
+        ),
+
+        ProductImage(
+            product=product,
+            url=upload_image_to_bucket(
+                "https://i.etsystatic.com/20811748/r/il/1606e5/3953897201/il_794xN.3953897201_e1gg.jpg"),
+            preview=False
+        ),
+
+        ProductImage(
+            product=product,
+            url=upload_image_to_bucket(
+                "https://i.etsystatic.com/20811748/r/il/a471d4/2022380975/il_794xN.2022380975_m69x.jpg"),
+            preview=False
+        ),
+
+        ProductImage(
+            product=product,
+            url=upload_image_to_bucket(
+                "https://i.etsystatic.com/20811748/r/il/55c6e1/1974823668/il_794xN.1974823668_js8r.jpg"),
+            preview=False
+        ),
+
+        ProductImage(
+            product=product,
+            url=upload_image_to_bucket(
+                "https://i.etsystatic.com/20811748/r/il/af0949/2022381025/il_794xN.2022381025_bate.jpg"),
+            preview=False
+        ),
+
+        ProductImage(
+            product=product,
+            url=upload_image_to_bucket(
+                "https://i.etsystatic.com/20811748/r/il/437abe/1974823536/il_75x75.1974823536_7wlu.jpg"),
+            preview=False
+        ),
+
+        Review(
+            customer=brian,
+            product=product,
+            rating=5,
+            review="So cute! Such good quality and the seller was so nice and responded quick! Great price also! I think all the groomsmen for our wedding will be very excited with these! :)"
+        ),
+
+        Review(
+            customer=caitlynn,
+            product=product,
+            rating=5,
+            review="Item looks great! Lettering was very well done. Picture of the Gray with Black flask is a little misleading, the picture looks more cream colored but the flask itself is more gray. That being said they still came out great"
+        ),
+
+        Review(
+            customer=derrik,
+            product=product,
+            rating=5,
+            review="Very nice, good size. I got the gray and plan to use it while out fox hunting. Nice quality for price and like the monogram!"
+        ),
+
+        Review(
+            customer=elizabeth,
+            product=product,
+            rating=5,
+            review="The day of my wedding, I gifted these flasks to my dad, groom and my brother. They were so surprised in the quality and really liked the flask. Well made and shipped before the expected date! Made great gifts!"
+        ),
+    ])
+
+    db.session.commit()
+
+    product = Product(
+        shop=anna,
+        name="Kids Night Light, Personalized Baby Gift, Woodland Nursery Decor, Custom Night Light Lamp, Gifts for Toddler Birthday Baby Shower, Christmas",
+        price="34.50",
+        description="The wooden night light provides a gentle, soft, and calming glow for kids of all ages to fight away monsters under the bed and make their sleep magical and sweet. With a nursery night light, it is easier to check on your kid at night to ensure s/he is peacefully asleep or to soothe a baby crying at night. The item is easy to use, colorful, and portable."
+    )
+
+    db.session.add_all([
+        ProductImage(
+            product=product,
+            url=upload_image_to_bucket(
+                "https://i.etsystatic.com/22537583/r/il/7300a3/4437193987/il_794xN.4437193987_ff7j.jpg"),
+            preview=True
+        ),
+
+        ProductImage(
+            product=product,
+            url=upload_image_to_bucket(
+                "https://i.etsystatic.com/22537583/r/il/14f758/4389803568/il_1588xN.4389803568_4xf0.jpg"),
+            preview=False
+        ),
+
+        ProductImage(
+            product=product,
+            url=upload_image_to_bucket(
+                "https://i.etsystatic.com/22537583/r/il/3480b5/4411512246/il_1588xN.4411512246_m70u.jpg"),
+            preview=False
+        ),
+
+        ProductImage(
+            product=product,
+            url=upload_image_to_bucket(
+                "https://i.etsystatic.com/22537583/r/il/e972a3/4411512230/il_1588xN.4411512230_5tui.jpg"),
+            preview=False
+        ),
+
+        ProductImage(
+            product=product,
+            url=upload_image_to_bucket(
+                "https://i.etsystatic.com/22537583/r/il/07d214/4393774586/il_1588xN.4393774586_ph9k.jpg"),
+            preview=False
+        ),
+
+        ProductImage(
+            product=product,
+            url=upload_image_to_bucket(
+                "https://i.etsystatic.com/22537583/r/il/c0847e/3654676157/il_1588xN.3654676157_2m6r.jpg"),
+            preview=False
+        ),
+
+        ProductImage(
+            product=product,
+            url=upload_image_to_bucket(
+                "https://i.etsystatic.com/22537583/r/il/f7fc26/4441166869/il_1588xN.4441166869_2ott.jpg"),
+            preview=False
+        ),
+
+        ProductImage(
+            product=product,
+            url=upload_image_to_bucket(
+                "https://i.etsystatic.com/22537583/r/il/4f2e94/4437192209/il_1588xN.4437192209_bdig.jpg"),
+            preview=False
+        ),
+
+        Review(
+            customer=brian,
+            product=product,
+            rating=5,
+            review="The nightlight is exactly as described! I am so impressed at the quality and how beautiful they are! I bought them as Christmas presents so we haven't lighten them up yet but the craftsmanship is stunning! I love it! ❤️"
+        ),
+
+        Review(
+            customer=caitlynn,
+            product=product,
+            rating=5,
+            review="I ordered this while I was pregnant. I lost the baby at 20 weeks pregnant but the night light is going on our memory shelf. It’s so cute."
+        ),
+
+        Review(
+            customer=derrik,
+            product=product,
+            rating=5,
+            review="Gifted for my best friend's baby- they said it is absolutely perfect for diaper changes! Soft glow just enough for them to be able to get through the diaper change without having the baby totally wake up!"
+        ),
+
+        Review(
+            customer=elizabeth,
+            product=product,
+            rating=5,
+            review="I LOVE this nightlight. The quality is amazing and I think it is so much better in real life than the pictures. I love the option of using a cord or batteries. The amount of light is gives is perfect. It’s a great addition to our woodlands nursery. My only wish was we bought two as the shipping is a lot to Aus."
+        ),
+    ])
+
+    db.session.commit()
+
+    product = Product(
+        shop=anna,
+        name="Personalized Plexi Night Light with Little Prince - Nursery Decor - Le Petit Prince - Kids Room Decor - Personalized Gifts for Kids",
+        price="36.99",
+        description="Custom Baby Night Lights with Little Prince!"
+    )
+
+    db.session.add_all([
+        ProductImage(
+            product=product,
+            url=upload_image_to_bucket(
+                "https://i.etsystatic.com/27235619/r/il/b029b4/2847834009/il_794xN.2847834009_nd9k.jpg"),
+            preview=True
+        ),
+
+        ProductImage(
+            product=product,
+            url=upload_image_to_bucket(
+                "https://i.etsystatic.com/27235619/r/il/059dba/3000942409/il_1588xN.3000942409_p8p2.jpg"),
+            preview=False
+        ),
+
+        ProductImage(
+            product=product,
+            url=upload_image_to_bucket(
+                "https://i.etsystatic.com/27235619/r/il/f1c61d/3513343688/il_1588xN.3513343688_jnus.jpg"),
+            preview=False
+        ),
+
+        ProductImage(
+            product=product,
+            url=upload_image_to_bucket(
+                "https://i.etsystatic.com/27235619/r/il/fb4d2f/2800157076/il_1588xN.2800157076_hsm7.jpg"),
+            preview=False
+        ),
+
+        ProductImage(
+            product=product,
+            url=upload_image_to_bucket(
+                "https://i.etsystatic.com/27235619/r/il/2c53d5/2847838107/il_1588xN.2847838107_rxyx.jpg"),
+            preview=False
+        ),
+
+        ProductImage(
+            product=product,
+            url=upload_image_to_bucket(
+                "https://i.etsystatic.com/27235619/r/il/ce50de/2847839301/il_1588xN.2847839301_oc9z.jpg"),
+            preview=False
+        ),
+
+        ProductImage(
+            product=product,
+            url=upload_image_to_bucket(
+                "https://i.etsystatic.com/27235619/r/il/8cc9e3/2953230296/il_1588xN.2953230296_eq5s.jpg"),
+            preview=False
+        ),
+
+        Review(
+            customer=brian,
+            product=product,
+            rating=5,
+            review="I'm in love! This is, BY FAR, the most beautiful gift I've ever given myself. I am constantly showering myself with gifts (because who else knows what I like better than myself?!) and let me just say that this is next level gorgeous. I am an avid reader, and I love The Little Prince sooo much that my original copy has 70% of the pages falling out. So when I saw this light, I KNEW I must have it. I cannot stress enough how perfect it is. Even as good as the photos make this look, they do not do it justice, so imagine it about 10,000 times more amazing. I just got it, and honestly, I cannot tear my eyes away; I just keep staring at the whole thing. I am over the moon thrilled with this purchase and 100% satisfied with my care. Infinity % recommend. Synopsis: GET IT. I guarantee you will not be disappointed. It's truly lovely."
+        ),
+
+        Review(
+            customer=caitlynn,
+            product=product,
+            rating=5,
+            review="Super cute! It turned out better than I even expected. The personalization is such a great touch and I can’t wait to see it light up my nephews nursery for years to come!"
+        ),
+
+        Review(
+            customer=derrik,
+            product=product,
+            rating=5,
+            review="Incredible customer service, Ibrahim was so great to correspond with and made it really easy and efficient! And the product is sooooo beautiful. It makes the perfect nightlight for my daughter and also serves as really pretty decoration on her night stand. I HIGHLY recommend it, if you're on the fence just get it!"
+        ),
+
+        Review(
+            customer=elizabeth,
+            product=product,
+            rating=5,
+            review="Absolutely gorgeous. The perfect addition to my themed nursery. And Ibrahim is also very responsive. Thanks again."
+        ),
+    ])
+
+    db.session.commit()
+
 
     # Insert seeder code above this line
 
