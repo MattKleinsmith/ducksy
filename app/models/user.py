@@ -33,7 +33,7 @@ class User(db.Model, UserMixin):
                         nullable=False)
 
     products = relationship("Product", back_populates="shop")
-    # reviews_author = relationship("Review", back_populates="author")
+    # reviews_customer = relationship("Review", back_populates="customer")
     # reviews_shop = relationship("Review", back_populates="shop")
     orders = relationship("Order", back_populates="user")
 

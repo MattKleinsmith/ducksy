@@ -20,9 +20,9 @@ class OrderItem(db.Model):
 
     id = Column(Integer, primary_key=True)
     order_id = Column(Integer, ForeignKey(
-        add_prefix_for_prod('orders.id')), nullable=False)
+        add_prefix_for_prod('orders.id'), name='fk_order_item_order_id'), nullable=False)
     product_id = Column(Integer, ForeignKey(
-        add_prefix_for_prod('products.id')), nullable=False)
+        add_prefix_for_prod('products.id'), name='fk_order_item_product_id'), nullable=False)
     price = Column(DECIMAL, nullable=False)
     created_at = Column(DateTime(timezone=True),
                         server_default=func.now(), nullable=False)
