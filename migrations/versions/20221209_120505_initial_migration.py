@@ -50,7 +50,7 @@ def upgrade():
                     sa.Column('updated_at', sa.DateTime(timezone=True),
                               server_default=sa.text('(CURRENT_TIMESTAMP)'), nullable=False),
                     sa.ForeignKeyConstraint(
-                        ['shop_id'], [f'{SCHEMA}.users.id'], ),
+                        ['shop_id'], ['users.id'], ),
                     sa.PrimaryKeyConstraint('id')
                     )
 
@@ -67,7 +67,7 @@ def upgrade():
                     sa.Column('updated_at', sa.DateTime(timezone=True),
                               server_default=sa.text('(CURRENT_TIMESTAMP)'), nullable=False),
                     sa.ForeignKeyConstraint(
-                        ['product_id'], [f'{SCHEMA}.products.id'], ),
+                        ['product_id'], ['products.id'], ),
                     sa.PrimaryKeyConstraint('id')
                     )
 
@@ -87,11 +87,11 @@ def upgrade():
                     sa.Column('updated_at', sa.DateTime(timezone=True),
                               server_default=sa.text('(CURRENT_TIMESTAMP)'), nullable=False),
                     sa.ForeignKeyConstraint(
-                        ['author_id'], [f'{SCHEMA}.users.id'], ),
+                        ['author_id'], ['users.id'], ),
                     sa.ForeignKeyConstraint(
-                        ['product_id'], [f'{SCHEMA}.products.id'], ),
+                        ['product_id'], ['products.id'], ),
                     sa.ForeignKeyConstraint(
-                        ['shop_id'], [f'{SCHEMA}.users.id'], ),
+                        ['shop_id'], ['users.id'], ),
                     sa.PrimaryKeyConstraint('id')
                     )
     # ### end Alembic commands ###

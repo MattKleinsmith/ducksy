@@ -20,7 +20,8 @@ class ProductImage(db.Model):
 
     id = Column(Integer, primary_key=True)
 
-    product_id = Column(Integer, ForeignKey('products.id'), nullable=False)
+    product_id = Column(Integer, ForeignKey(
+        add_prefix_for_prod('products.id')), nullable=False)
     url = Column(TEXT, nullable=False)
     preview = Column(BOOLEAN, nullable=False)
 

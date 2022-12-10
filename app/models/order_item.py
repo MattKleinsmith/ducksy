@@ -19,8 +19,10 @@ class OrderItem(db.Model):
         __table_args__ = {'schema': SCHEMA}
 
     id = Column(Integer, primary_key=True)
-    order_id = Column(Integer, ForeignKey('orders.id'), nullable=False)
-    product_id = Column(Integer, ForeignKey('products.id'), nullable=False)
+    order_id = Column(Integer, ForeignKey(
+        add_prefix_for_prod('orders.id')), nullable=False)
+    product_id = Column(Integer, ForeignKey(
+        add_prefix_for_prod('products.id')), nullable=False)
     price = Column(DECIMAL, nullable=False)
     created_at = Column(DateTime(timezone=True),
                         server_default=func.now(), nullable=False)

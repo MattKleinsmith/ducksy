@@ -20,7 +20,9 @@ class Product(db.Model):
 
     id = Column(Integer, primary_key=True)
 
-    shop_id = Column(Integer, ForeignKey('users.id'), nullable=False)
+    shop_id = Column(Integer, ForeignKey(
+        add_prefix_for_prod('users.id')), nullable=False)
+
     name = Column(VARCHAR(140), nullable=False)
     price = Column(DECIMAL, nullable=False)
     description = Column(TEXT)
