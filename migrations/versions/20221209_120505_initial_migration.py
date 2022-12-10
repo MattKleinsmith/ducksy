@@ -7,6 +7,7 @@ Create Date: 2022-12-09 12:05:05.542357
 """
 from alembic import op
 import sqlalchemy as sa
+from app.models import User, Product
 
 import os
 environment = os.getenv("FLASK_ENV")
@@ -49,7 +50,7 @@ def upgrade():
                               server_default=sa.text('(CURRENT_TIMESTAMP)'), nullable=False),
                     sa.Column('updated_at', sa.DateTime(timezone=True),
                               server_default=sa.text('(CURRENT_TIMESTAMP)'), nullable=False),
-                    sa.ForeignKeyConstraint(['shop_id'], ['users.id'], ),
+                    sa.ForeignKeyConstraint(['shop_id'], [User.c.id], ),
                     sa.PrimaryKeyConstraint('id')
                     )
 
@@ -65,7 +66,7 @@ def upgrade():
                               server_default=sa.text('(CURRENT_TIMESTAMP)'), nullable=False),
                     sa.Column('updated_at', sa.DateTime(timezone=True),
                               server_default=sa.text('(CURRENT_TIMESTAMP)'), nullable=False),
-                    sa.ForeignKeyConstraint(['product_id'], ['products.id'], ),
+                    sa.ForeignKeyConstraint(['product_id'], [Product.c.id], ),
                     sa.PrimaryKeyConstraint('id')
                     )
 
@@ -84,9 +85,9 @@ def upgrade():
                               server_default=sa.text('(CURRENT_TIMESTAMP)'), nullable=False),
                     sa.Column('updated_at', sa.DateTime(timezone=True),
                               server_default=sa.text('(CURRENT_TIMESTAMP)'), nullable=False),
-                    sa.ForeignKeyConstraint(['author_id'], ['users.id'], ),
-                    sa.ForeignKeyConstraint(['product_id'], ['products.id'], ),
-                    sa.ForeignKeyConstraint(['shop_id'], ['users.id'], ),
+                    sa.ForeignKeyConstraint(['author_id'], [User.c.id], ),
+                    sa.ForeignKeyConstraint(['product_id'], [Product.c.id], ),
+                    sa.ForeignKeyConstraint(['shop_id'], [User.c.id], ),
                     sa.PrimaryKeyConstraint('id')
                     )
     # ### end Alembic commands ###
