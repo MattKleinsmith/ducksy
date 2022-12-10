@@ -10,6 +10,7 @@ from sqlalchemy.sql import func
 from flask_login import UserMixin
 #  a crypto library that came with Flask
 from werkzeug.security import generate_password_hash, check_password_hash
+from app.models.order import Order
 
 
 class User(db.Model, UserMixin):
@@ -35,8 +36,8 @@ class User(db.Model, UserMixin):
     products = relationship("Product", back_populates="shop")
     # reviews_customer = relationship("Review", back_populates="customer")
     # reviews_shop = relationship("Review", back_populates="shop")
-    orders = relationship("Order", back_populates="user")
-    order_items = relationship("OrderItem", back_populates="shop")
+    shop_orders = relationship("Order", back_populates="shop", foreign_keys=[Order.shop_id])
+    customer_orders = relationship("Order", back_populates="customer", foreign_keys=[Order.customer_id])
 
     @property
     def password(self):

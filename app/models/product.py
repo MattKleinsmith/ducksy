@@ -21,7 +21,7 @@ class Product(db.Model):
     id = Column(Integer, primary_key=True)
 
     shop_id = Column(Integer, ForeignKey(
-        add_prefix_for_prod('users.id')), nullable=False)
+        add_prefix_for_prod('users.id'), name='fk_product_shop_id'), nullable=False)
 
     name = Column(VARCHAR(140), nullable=False)
     price = Column(DECIMAL, nullable=False)

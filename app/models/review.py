@@ -19,9 +19,13 @@ class Review(db.Model):
         __table_args__ = {'schema': SCHEMA}
 
     id = Column(Integer, primary_key=True)
-    customer_id = Column(Integer, ForeignKey('users.id'), nullable=False)
-    shop_id = Column(Integer, ForeignKey('users.id'))
-    product_id = Column(Integer, ForeignKey('products.id'), nullable=False)
+
+    customer_id = Column(Integer, ForeignKey(
+        add_prefix_for_prod('users.id'), name='fk_review_customer_id'), nullable=False)
+    shop_id = Column(Integer, ForeignKey(
+        add_prefix_for_prod('users.id'), name='fk_review_shop_id'))
+    product_id = Column(Integer, ForeignKey(
+        add_prefix_for_prod('products.id'), name='fk_review_product_id'), nullable=False)
     rating = Column(Integer, nullable=False)
     review = Column(VARCHAR(840), nullable=False)
 

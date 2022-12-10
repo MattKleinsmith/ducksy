@@ -29,7 +29,7 @@ def upgrade():
                     sa.Column('updated_at', sa.DateTime(timezone=True),
                               server_default=sa.text('(CURRENT_TIMESTAMP)'), nullable=False),
                     sa.ForeignKeyConstraint(
-                        ['user_id'], ['users.id'], ),
+                        ['user_id'], ['users.id'], name='fk_order_user_id' ),
                     sa.PrimaryKeyConstraint('id')
                     )
 
