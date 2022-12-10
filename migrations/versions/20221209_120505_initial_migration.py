@@ -50,7 +50,8 @@ def upgrade():
                               server_default=sa.text('(CURRENT_TIMESTAMP)'), nullable=False),
                     sa.Column('updated_at', sa.DateTime(timezone=True),
                               server_default=sa.text('(CURRENT_TIMESTAMP)'), nullable=False),
-                    sa.ForeignKeyConstraint(['shop_id'], [User.c.id], ),
+                    sa.ForeignKeyConstraint(
+                        ['shop_id'], [f'{SCHEMA}.users.id'], ),
                     sa.PrimaryKeyConstraint('id')
                     )
 
