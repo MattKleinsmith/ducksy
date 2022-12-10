@@ -1,7 +1,7 @@
 from flask import Blueprint, request
 from flask_login import login_required, current_user
-from app.models import db, Product, Review, ProductImage
-from app.forms import ProductForm, validation_errors_formatter
+from app.models import db, Product, Review, ProductImage, Order, OrderItem
+from app.forms import ProductForm, ReviewForm, validation_errors_formatter
 from sqlalchemy.exc import IntegrityError
 
 bp = Blueprint("products", __name__, url_prefix="/products")
@@ -83,6 +83,35 @@ def get_reviews_by_product_id(product_id):
     reviews = Review.query.filter(Review.product_id == product_id)
     return [review.to_dict() for review in reviews]
 
+
+@bp.route("/<int:product_id>/reviews", methods=["post"])
+@login_required
+def review(product_id):
+    orders = current_user.orders
+    if len(orders) > 0:
+        for order in orders:
+            for order in order.items:
+                if order.product_id == product_id:
+                    form = ReviewForm()
+                    if form.validate_on_submit():
+                        new_review = Review(
+                            customer_id = current_user.id,
+                            shop_id = order.product_id,
+                            product_id = product_id,
+                            rating = form.data["rating"],
+                            review = form.data["review"]
+                            )
+                        db.session.add(new_review)
+                        db.session.commit()
+                        return new_review.to_dict(), 201
+                    if form.errors:
+                        return {
+                            "message": "Validation Error",
+                            "statusCode": 400,
+                            "errors": form.errors
+                            }, 400, {"Content-Type": "application/json"}
+                    return "Fail to create review", 404
+        return "Fail to create review", 404
 
 @bp.route("fun", methods=['GET'])
 def show_product_images():

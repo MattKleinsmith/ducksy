@@ -15,7 +15,7 @@ CORS(app)
 app.config.from_object(Config)
 app.register_blueprint(api.bp)
 db.init_app(app)
-Migrate(app, db)
+Migrate(app, db, render_as_batch=True)
 
 login = LoginManager(app)
 login.login_view = "api.session.unauthorized"

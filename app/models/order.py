@@ -19,8 +19,10 @@ class Order(db.Model):
         __table_args__ = {'schema': SCHEMA}
 
     id = Column(Integer, primary_key=True)
-    user_id = Column(Integer, ForeignKey(
-        add_prefix_for_prod('users.id')), nullable=False)
+    customer_id = Column(Integer, ForeignKey(
+        add_prefix_for_prod('users.id'), name='fk_order_customer_id'), nullable=False)
+    shop_id = Column(Integer, ForeignKey(
+        add_prefix_for_prod('users.id'), name='fk_order_shop_id'), nullable=False)
     created_at = Column(DateTime(timezone=True),
                         server_default=func.now(), nullable=False)
     updated_at = Column(DateTime(timezone=True),
@@ -28,7 +30,8 @@ class Order(db.Model):
                         nullable=False)
 
     items = relationship("OrderItem", back_populates="order")
-    user = relationship("User", back_populates="orders")
+    shop = relationship("User", back_populates="shop_orders", foreign_keys=[shop_id])
+    customer = relationship("User", back_populates="customer_orders", foreign_keys=[customer_id])
 
     def to_dict(self):
         return {
