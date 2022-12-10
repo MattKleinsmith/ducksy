@@ -20,9 +20,11 @@ class Review(db.Model):
 
     id = Column(Integer, primary_key=True)
 
-    author_id = Column(Integer, ForeignKey('users.id'), nullable=False)
-    shop_id = Column(Integer, ForeignKey('users.id'))
-    product_id = Column(Integer, ForeignKey('products.id'), nullable=False)
+    author_id = Column(Integer, ForeignKey(
+        add_prefix_for_prod('users.id')), nullable=False)
+    shop_id = Column(Integer, ForeignKey(add_prefix_for_prod('users.id')))
+    product_id = Column(Integer, ForeignKey(
+        add_prefix_for_prod('products.id')), nullable=False)
     rating = Column(Integer, nullable=False)
     review = Column(VARCHAR(840), nullable=False)
 
