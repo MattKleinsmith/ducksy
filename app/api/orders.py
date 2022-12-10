@@ -18,7 +18,7 @@ def create_order():
     data = request.get_json()
     product_ids = data['product_ids']
     order = Order(user_id=current_user.id)
-    items = [OrderItem(order=order,
+    items = [OrderItem(order=order, shop_id = 1,
                        product_id=product_id,
                        price=Product.query.filter(
                            Product.id == product_id).one().price
@@ -27,3 +27,15 @@ def create_order():
     db.session.add_all(items)
     db.session.commit()
     return {"order_id": order.id}
+
+# this just for removing order to test some functionality
+# @bp.route("/<order_id>", methods=['delete'])
+# @login_required
+# def delete_order(order_id):
+#     order = Order.query.get(order_id)
+#     items = OrderItem.query.all()
+#     for item in items:
+#         db.session.delete(item)
+#     db.session.delete(order)
+#     db.session.commit()
+#     return "hi"

@@ -34,6 +34,7 @@ def upgrade():
     op.create_table('order_items',
                     sa.Column('id', sa.Integer(), nullable=False),
                     sa.Column('order_id', sa.Integer(), nullable=False),
+                    sa.Column('shop_id', sa.Integer(), nullable=False),
                     sa.Column('product_id', sa.Integer(), nullable=False),
                     sa.Column('price', sa.DECIMAL(), nullable=False),
                     sa.Column('created_at', sa.DateTime(timezone=True),

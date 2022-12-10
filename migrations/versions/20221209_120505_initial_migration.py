@@ -62,7 +62,7 @@ def upgrade():
                     )
     op.create_table('reviews',
                     sa.Column('id', sa.Integer(), nullable=False),
-                    sa.Column('author_id', sa.Integer(), nullable=False),
+                    sa.Column('customer_id', sa.Integer(), nullable=False),
                     sa.Column('shop_id', sa.Integer(), nullable=True),
                     sa.Column('product_id', sa.Integer(), nullable=False),
                     sa.Column('rating', sa.Integer(), nullable=False),
@@ -72,7 +72,7 @@ def upgrade():
                               server_default=sa.text('(CURRENT_TIMESTAMP)'), nullable=False),
                     sa.Column('updated_at', sa.DateTime(timezone=True),
                               server_default=sa.text('(CURRENT_TIMESTAMP)'), nullable=False),
-                    sa.ForeignKeyConstraint(['author_id'], ['users.id'], ),
+                    sa.ForeignKeyConstraint(['customer_id'], ['users.id'], ),
                     sa.ForeignKeyConstraint(['product_id'], ['products.id'], ),
                     sa.ForeignKeyConstraint(['shop_id'], ['users.id'], ),
                     sa.PrimaryKeyConstraint('id')

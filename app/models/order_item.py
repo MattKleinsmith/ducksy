@@ -20,6 +20,7 @@ class OrderItem(db.Model):
 
     id = Column(Integer, primary_key=True)
     order_id = Column(Integer, ForeignKey('orders.id'), nullable=False)
+    shop_id = Column(Integer, ForeignKey('users.id'), nullable=False)
     product_id = Column(Integer, ForeignKey('products.id'), nullable=False)
     price = Column(DECIMAL, nullable=False)
     created_at = Column(DateTime(timezone=True),
@@ -30,9 +31,11 @@ class OrderItem(db.Model):
 
     order = relationship("Order", back_populates="items")
     product = relationship("Product", back_populates="items")
+    shop = relationship("User", back_populates="order_items")
 
     def to_dict(self):
         return {
             "product_id": self.product_id,
+            "shop_id": self.shop_id,
             "price": self.price
         }
