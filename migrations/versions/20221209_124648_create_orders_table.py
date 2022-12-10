@@ -7,7 +7,6 @@ Create Date: 2022-12-09 12:46:48.009678
 """
 from alembic import op
 import sqlalchemy as sa
-from app.models import User, Product, ProductImage, Review, Order
 
 import os
 environment = os.getenv("FLASK_ENV")
@@ -29,7 +28,8 @@ def upgrade():
                               server_default=sa.text('(CURRENT_TIMESTAMP)'), nullable=False),
                     sa.Column('updated_at', sa.DateTime(timezone=True),
                               server_default=sa.text('(CURRENT_TIMESTAMP)'), nullable=False),
-                    sa.ForeignKeyConstraint(['user_id'], [User.id], ),
+                    sa.ForeignKeyConstraint(
+                        ['user_id'], [f'{SCHEMA}.users.id'], ),
                     sa.PrimaryKeyConstraint('id')
                     )
 
@@ -45,8 +45,10 @@ def upgrade():
                               server_default=sa.text('(CURRENT_TIMESTAMP)'), nullable=False),
                     sa.Column('updated_at', sa.DateTime(timezone=True),
                               server_default=sa.text('(CURRENT_TIMESTAMP)'), nullable=False),
-                    sa.ForeignKeyConstraint(['order_id'], [Order.id], ),
-                    sa.ForeignKeyConstraint(['product_id'], [Product.id], ),
+                    sa.ForeignKeyConstraint(
+                        ['order_id'], [f'{SCHEMA}.orders.id'], ),
+                    sa.ForeignKeyConstraint(
+                        ['product_id'], [f'{SCHEMA}.products.id'], ),
                     sa.PrimaryKeyConstraint('id')
                     )
     # ### end Alembic commands ###
