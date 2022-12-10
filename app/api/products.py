@@ -111,7 +111,7 @@ def review(product_id):
                             "errors": form.errors
                             }, 400, {"Content-Type": "application/json"}
                     return "Fail to create review", 404
-        return "Fail to create review", 404
+    return "Fail to create review", 404
 
 @bp.route("fun", methods=['GET'])
 def show_product_images():
