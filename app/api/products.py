@@ -1,7 +1,7 @@
-from flask import Blueprint
+from flask import Blueprint, request
 from flask_login import login_required, current_user
 from app.models import db, Product, Review, ProductImage
-from app.forms import ProductForm
+from app.forms import ProductForm, validation_errors_formatter
 from sqlalchemy.exc import IntegrityError
 
 bp = Blueprint("products", __name__, url_prefix="/products")
@@ -25,6 +25,7 @@ def get_products():
 @login_required
 def post_product():
     form = ProductForm()
+    form['csrf_token'].data = request.cookies['csrf_token']
     if (form.validate_on_submit()):
         product = Product(
             shop=current_user,
@@ -44,14 +45,14 @@ def get_product_by_id(product_id):
     return product.to_dict() if product else ("Not found", 404)
 
 
-@bp.route("/<product_id>", methods=['PATCH'])
+@bp.route("/<product_id>", methods=['PUT'])
 @login_required
 def patch_product(product_id):
     try:
         form = ProductForm()
         product = Product.query.filter(Product.id == product_id,
                                        Product.shop_id == current_user.id).first()
-        if (product):
+        if form.validate_on_submit():
             product.name = form.name.data if form.name.data else product.name
             product.price = form.price.data if form.price.data else product.price
             product.description = form.description.data if form.description.data else product.description
