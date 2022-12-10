@@ -21,7 +21,7 @@ def upgrade():
     with op.batch_alter_table('orders', schema=None) as batch_op:
         batch_op.add_column(sa.Column('customer_id', sa.Integer(), nullable=False))
         batch_op.add_column(sa.Column('shop_id', sa.Integer(), nullable=False))
-        batch_op.drop_constraint(None, type_='foreignkey')
+        batch_op.drop_constraint('fk_order_user_id', type_='foreignkey')
         batch_op.create_foreign_key('fk_order_customer_id', 'users', ['customer_id'], ['id'])
         batch_op.create_foreign_key('fk_order_shop_id', 'users', ['shop_id'], ['id'])
         batch_op.drop_column('user_id')
@@ -35,7 +35,7 @@ def downgrade():
         batch_op.add_column(sa.Column('user_id', sa.INTEGER(), nullable=False))
         batch_op.drop_constraint('fk_order_shop_id', type_='foreignkey')
         batch_op.drop_constraint('fk_order_customer_id', type_='foreignkey')
-        batch_op.create_foreign_key(None, 'users', ['user_id'], ['id'])
+        batch_op.create_foreign_key('fk_order_user_id', 'users', ['user_id'], ['id'])
         batch_op.drop_column('shop_id')
         batch_op.drop_column('customer_id')
 

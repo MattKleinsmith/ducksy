@@ -30,7 +30,8 @@ class Order(db.Model):
                         nullable=False)
 
     items = relationship("OrderItem", back_populates="order")
-    user = relationship("User", back_populates="orders")
+    shop = relationship("User", back_populates="shop_orders", foreign_keys=[shop_id])
+    customer = relationship("User", back_populates="customer_orders", foreign_keys=[customer_id])
 
     def to_dict(self):
         return {
