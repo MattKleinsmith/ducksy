@@ -14,7 +14,7 @@ def get_products():
         reviews = product.reviews
         product = product.to_dict()
         product["seller_rating"] = sum(
-            [review.rating for review in reviews]) / len(reviews)
+            [review.rating for review in reviews]) / len(reviews) if len(reviews) > 0 else None
         product["num_seller_ratings"] = len(reviews)
         products.append(product)
     return products
@@ -38,10 +38,13 @@ def post_product():
     return "Failed to post"
 
 
-@bp.route("<product_id>", methods=['GET'])
+@bp.route("<int:product_id>", methods=['GET'])
 def get_product_by_id(product_id):
-    product = Product.query.filter(Product.id == product_id).first()
-    return product.to_dict() if product else ("Not found", 404)
+    try:
+        product = Product.query.filter(Product.id == product_id).first()
+        return product.to_dict() if product else (f"Product with id {product_id} not found", 404)
+    except Exception:
+        return "500", 500
 
 
 @bp.route("/<product_id>", methods=['PUT'])
