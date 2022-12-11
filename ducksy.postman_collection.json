@@ -10,12 +10,53 @@
 			"name": "csrf",
 			"request": {
 				"method": "GET",
-				"header": []
+				"header": [],
+				"url": {
+					"raw": "{{url}}/docs",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"docs"
+					]
+				}
 			},
 			"response": []
 		},
 		{
-			"name": "session",
+			"name": "----------------------------",
+			"request": {
+				"method": "----",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "email",
+							"value": "email@email.com",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "password",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{url}}/session",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"session"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "CREATE session",
 			"request": {
 				"method": "POST",
 				"header": [],
@@ -47,24 +88,175 @@
 			"response": []
 		},
 		{
-			"name": "products",
+			"name": "READ session",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
 			"request": {
 				"method": "GET",
 				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "email",
+							"value": "email@email.com",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "password",
+							"type": "text"
+						}
+					]
+				},
 				"url": {
-					"raw": "{{url}}/products",
+					"raw": "{{url}}/session",
 					"host": [
 						"{{url}}"
 					],
 					"path": [
-						"products"
+						"session"
 					]
 				}
 			},
 			"response": []
 		},
 		{
-			"name": "product",
+			"name": "DELETE session",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "email",
+							"value": "email@email.com",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "password",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{url}}/session",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"session"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "----------------------------",
+			"request": {
+				"method": "----",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "email",
+							"value": "email@email.com",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "password",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{url}}/session",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"session"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "CREATE user",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "email",
+							"value": "new@email.com",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "password",
+							"type": "text"
+						},
+						{
+							"key": "display_name",
+							"value": "NEW_USER",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{url}}/users",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"users"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "----------------------------",
+			"request": {
+				"method": "----",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "email",
+							"value": "email@email.com",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "password",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{url}}/session",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"session"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "CREATE product",
 			"event": [
 				{
 					"listen": "test",
@@ -118,7 +310,7 @@
 			"response": []
 		},
 		{
-			"name": "product",
+			"name": "READ product",
 			"request": {
 				"method": "GET",
 				"header": [],
@@ -136,7 +328,7 @@
 			"response": []
 		},
 		{
-			"name": "product",
+			"name": "UPDATE product",
 			"request": {
 				"method": "PUT",
 				"header": [],
@@ -144,33 +336,23 @@
 					"mode": "urlencoded",
 					"urlencoded": [
 						{
-							"key": "\"description\"",
-							"value": " \"It's a good product\"",
+							"key": "description",
+							"value": "It's a good product",
 							"type": "text"
 						},
 						{
-							"key": "\"id\"",
-							"value": " 17",
-							"type": "text"
-						},
-						{
-							"key": "\"name\"",
+							"key": "name",
 							"value": "UPDATED_NAME",
 							"type": "text"
 						},
 						{
-							"key": "\"preview_image\"",
-							"value": " null",
+							"key": "preview_image",
+							"value": "null",
 							"type": "text"
 						},
 						{
-							"key": "\"price\"",
-							"value": " \"4.55\"",
-							"type": "text"
-						},
-						{
-							"key": "\"seller_id\"",
-							"value": "",
+							"key": "price",
+							"value": "4.55",
 							"type": "text"
 						}
 					]
@@ -189,9 +371,76 @@
 			"response": []
 		},
 		{
-			"name": "product",
+			"name": "DELETE product",
 			"request": {
 				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "{{url}}/products/{{product_id}}",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"products",
+						"{{product_id}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "----------------------------",
+			"request": {
+				"method": "----",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "email",
+							"value": "email@email.com",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "password",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{url}}/session",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"session"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "READ products",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{url}}/products",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"products"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "READ product Copy",
+			"request": {
+				"method": "GET",
 				"header": [],
 				"url": {
 					"raw": "{{url}}/products/{{product_id}}",
