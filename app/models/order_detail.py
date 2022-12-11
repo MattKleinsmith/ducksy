@@ -40,5 +40,6 @@ class OrderDetail(db.Model):
         return {
             "product_id": self.product_id,
             "price": self.price,
-            "seller_id": self.seller_id
+            "seller_id": self.seller_id,
+            "order_id": self.order_id
         }
