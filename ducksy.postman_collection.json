@@ -1,0 +1,210 @@
+{
+	"info": {
+		"_postman_id": "c049e3f4-76e1-466a-a5a3-0c369d62b0d6",
+		"name": "ducksy",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "24025000"
+	},
+	"item": [
+		{
+			"name": "csrf",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": []
+		},
+		{
+			"name": "session",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "email",
+							"value": "email@email.com",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "password",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{url}}/session",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"session"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "products",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{url}}/products",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"products"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "product",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"const responseJson = pm.response.json();\r",
+							"postman.setEnvironmentVariable('product_id', responseJson.id)"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "name",
+							"value": "ProductName",
+							"type": "text"
+						},
+						{
+							"key": "price",
+							"value": "4.55",
+							"type": "text"
+						},
+						{
+							"key": "description",
+							"value": "It's a good product",
+							"type": "text"
+						},
+						{
+							"key": "submit",
+							"value": "True",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{url}}/products",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"products"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "product",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{url}}/products/{{product_id}}",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"products",
+						"{{product_id}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "product",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "\"description\"",
+							"value": " \"It's a good product\"",
+							"type": "text"
+						},
+						{
+							"key": "\"id\"",
+							"value": " 17",
+							"type": "text"
+						},
+						{
+							"key": "\"name\"",
+							"value": "UPDATED_NAME",
+							"type": "text"
+						},
+						{
+							"key": "\"preview_image\"",
+							"value": " null",
+							"type": "text"
+						},
+						{
+							"key": "\"price\"",
+							"value": " \"4.55\"",
+							"type": "text"
+						},
+						{
+							"key": "\"seller_id\"",
+							"value": "",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{url}}/products/{{product_id}}",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"products",
+						"{{product_id}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "product",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "{{url}}/products/{{product_id}}",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"products",
+						"{{product_id}}"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
