@@ -38,5 +38,6 @@ class OrderDetail(db.Model):
     def to_dict(self):
         return {
             "product_id": self.product_id,
-            "price": self.price
+            "price": self.price,
+            "seller_id": self.seller_id
         }
