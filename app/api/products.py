@@ -51,7 +51,7 @@ def get_product_by_id(product_id):
 @login_required
 def put_product(product_id):
     product = Product.query.filter(Product.id == product_id,
-                                    Product.seller_id == current_user.id).first()
+                                   Product.seller_id == current_user.id).first()
     if (not product):
         return "404", 404
     form = ProductForm()
@@ -91,29 +91,29 @@ def get_reviews_by_product_id(product_id):
 def review(product_id):
     product = Product.query.get(product_id)
     if product is None:
-        return "No product", 404
+        return "Product not found", 404
     if product.seller_id == current_user.id:
-        return "Seller can not leave review for your products", 404
+        return "Seller can not leave review for their own products", 400
 
     form = ReviewForm()
-    # form['csrf_token'].data = request.cookies['csrf_token']
+    form['csrf_token'].data = request.cookies['csrf_token']
     if form.validate_on_submit():
         new_review = Review(
-                            buyer_id=current_user.id,
-                            seller_id=product.seller_id,
-                            product_id=product_id,
-                            rating=form.data["rating"],
-                            review=form.data["review"]
-                        )
+            buyer_id=current_user.id,
+            seller_id=product.seller_id,
+            product_id=product_id,
+            rating=int(float(form.data["rating"])),
+            review=form.data["review"]
+        )
         db.session.add(new_review)
         db.session.commit()
         return new_review.to_dict(), 201
     if form.errors:
         return {
-                "message": "Validation Error",
-                "statusCode": 400,
-                "errors": form.errors
-                }, 400, {"Content-Type": "application/json"}
+            "message": "Validation Error",
+            "statusCode": 400,
+            "errors": form.errors
+        }, 400, {"Content-Type": "application/json"}
 
 
 @bp.route("fun", methods=['GET'])

@@ -8,7 +8,15 @@ from sqlalchemy.exc import IntegrityError
 bp = Blueprint("reviews", __name__, url_prefix="/reviews")
 
 
-@bp.route("/<int:review_id>", methods=["patch"])
+@bp.route("/<int:review_id>", methods=["GET"])
+def get_review(review_id):
+    review = Review.query.get(review_id)
+    if not review:
+        return "Review not found", 404
+    return review.to_dict()
+
+
+@bp.route("/<int:review_id>", methods=["PUT"])
 @login_required
 def update_review(review_id):
     review_tobe_updated = Review.query.get(review_id)
@@ -16,7 +24,7 @@ def update_review(review_id):
         return "No review", 404
 
     form = ReviewForm()
-    # form['csrf_token'].data = request.cookies['csrf_token']
+    form['csrf_token'].data = request.cookies['csrf_token']
 
     if review_tobe_updated.buyer_id == current_user.id:
         if form.validate_on_submit():
@@ -37,17 +45,17 @@ def update_review(review_id):
     return "Fail to update", 404
 
 
-@bp.route("/<int:review_id>", methods=["delete"])
+@bp.route("/<int:review_id>", methods=["DELETE"])
 @login_required
 def delete_review(review_id):
-    review_tobe_deleted = Review.query.get(review_id)
-    if review_tobe_deleted is None:
-        return "Fail to delete", 404
-    if review_tobe_deleted.buyer_id != current_user.id:
-        return "You are not authorized to delete this review", 404
+    review = Review.query.get(review_id)
+    if not review:
+        return "Review not found", 404
+    if review.buyer_id != current_user.id:
+        return "You are not authorized to delete this review", 403
 
-    if review_tobe_deleted.buyer_id == current_user.id:
-        db.session.delete(review_tobe_deleted)
+    if review.buyer_id == current_user.id:
+        db.session.delete(review)
         db.session.commit()
         return {
             "message": "Successfully deleted",
