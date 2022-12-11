@@ -25,7 +25,7 @@ def create_order():
     # user cannot buy their own products
     seller_ids = (product.seller_id for product in products)
     if current_user.id in seller_ids:
-        return {'errors': ['Unauthorized']}, 401
+        return "Seller can't order their own product", 401
     order = Order(buyer_id=current_user.id)
     order_products = [OrderDetail(order=order,
                                   product_id=product.id,

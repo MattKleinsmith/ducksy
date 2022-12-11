@@ -86,7 +86,7 @@ def get_reviews_by_product_id(product_id):
     return [review.to_dict() for review in reviews]
 
 
-@bp.route("/<int:product_id>/reviews", methods=["post"])
+@bp.route("/<int:product_id>/reviews", methods=["POST"])
 @login_required
 def review(product_id):
     product = Product.query.get(product_id)
@@ -94,26 +94,29 @@ def review(product_id):
         return "Product not found", 404
     if product.seller_id == current_user.id:
         return "Seller can not leave review for their own products", 400
+    reviews = Review.query.filter(
+        Review.product_id == product_id and Review.buyer_id == current_user.id).all()
+    if len(reviews) > 0:
+        return "Buyer already left a review for this product", 400
 
     form = ReviewForm()
     form['csrf_token'].data = request.cookies['csrf_token']
     if form.validate_on_submit():
-        new_review = Review(
+        review = Review(
             buyer_id=current_user.id,
             seller_id=product.seller_id,
             product_id=product_id,
             rating=int(float(form.data["rating"])),
             review=form.data["review"]
         )
-        db.session.add(new_review)
+        db.session.add(review)
         db.session.commit()
-        return new_review.to_dict(), 201
-    if form.errors:
-        return {
-            "message": "Validation Error",
-            "statusCode": 400,
-            "errors": form.errors
-        }, 400, {"Content-Type": "application/json"}
+        return review.to_dict(), 201
+    return {
+        "message": "Validation Error",
+        "statusCode": 400,
+        "errors": form.errors
+    }, 400, {"Content-Type": "application/json"}
 
 
 @bp.route("fun", methods=['GET'])
