@@ -20,11 +20,11 @@ def create_order():
     products = Product.query.filter(Product.id.in_(product_ids)).all()
     order = Order(buyer_id=current_user.id, seller_id=products[0].seller_id)
     print(order, '==============================')
-    order_products = [OrderProduct(order=order,
-                       product_id=product.id,
-                       price=product.price
-                       )
-             for product in products]
+    order_products = [OrderDetail(order=order,
+                                  product_id=product.id,
+                                  price=product.price
+                                  )
+                      for product in products]
     db.session.add_all(order_products)
     db.session.commit()
     return {"order_id": order.id}
