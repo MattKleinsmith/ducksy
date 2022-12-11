@@ -17,7 +17,7 @@ def signup():
     if form.validate_on_submit():
         data = form.data
         if User.query.filter(User.email == data['email']).one_or_none():
-            return {'errors': {'email': "Email has been registered."}}, 401
+            return {'errors': {'email': "Email has been registered."}}, 400
         user = User(
             display_name=data['display_name'],
             email=data['email'],
@@ -28,7 +28,7 @@ def signup():
         db.session.commit()
         login_user(user)
         return user.to_dict()
-    return {'errors': validation_errors_formatter(form.errors)}, 401
+    return {'errors': validation_errors_formatter(form.errors)}, 400
 
 
 @bp.route("/<user_id>", methods=["PUT"])
@@ -41,7 +41,7 @@ def update_user(user_id):
     if form.validate_on_submit():
         data = form.data
         if User.query.filter(User.email == data['email']).one_or_none():
-            return {'errors': {'email': "Email has been registered."}}, 401
+            return {'errors': {'email': "Email has been registered."}}, 400
         user = User.query.get(current_user.id)
         user.display_name = data['display_name']
         user.email = data['email']
@@ -50,4 +50,4 @@ def update_user(user_id):
 
         db.session.commit()
         return user.to_dict()
-    return {'errors': validation_errors_formatter(form.errors)}, 401
+    return {'errors': validation_errors_formatter(form.errors)}, 400
