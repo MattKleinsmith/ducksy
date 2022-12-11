@@ -1,5 +1,5 @@
 from flask import Blueprint, request
-from app.models import db, Order, OrderProduct, Product
+from app.models import db, Order, OrderDetail, Product
 from flask_login import current_user, login_required
 
 bp = Blueprint("orders", __name__, url_prefix="/orders")

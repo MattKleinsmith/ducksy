@@ -12,17 +12,19 @@ from flask_login import UserMixin
 from werkzeug.security import generate_password_hash, check_password_hash
 
 
-class OrderProduct(db.Model):
-    __tablename__ = "orders_products"
+class OrderDetail(db.Model):
+    __tablename__ = "order_details"
 
     if environment == "production":
         __table_args__ = {'schema': SCHEMA}
 
     id = Column(Integer, primary_key=True)
     order_id = Column(Integer, ForeignKey(
-        add_prefix_for_prod('orders.id'), name='fk_order_product_order_id'), nullable=False)
+        add_prefix_for_prod('orders.id'), name='fk_order_detail_order_id'), nullable=False)
     product_id = Column(Integer, ForeignKey(
-        add_prefix_for_prod('products.id'), name='fk_order_product_product_id'), nullable=False)
+        add_prefix_for_prod('products.id'), name='fk_order_detail_product_id'), nullable=False)
+    seller_id = Column(Integer, ForeignKey(
+        add_prefix_for_prod('users.id'), name='fk_order_seller_id'), nullable=False)
     price = Column(DECIMAL, nullable=False)
     created_at = Column(DateTime(timezone=True),
                         server_default=func.now(), nullable=False)

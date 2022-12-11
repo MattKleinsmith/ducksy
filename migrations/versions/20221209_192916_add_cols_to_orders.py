@@ -21,8 +21,6 @@ def upgrade():
     with op.batch_alter_table('orders', schema=None) as batch_op:
         batch_op.add_column(
             sa.Column('buyer_id', sa.Integer(), nullable=False))
-        batch_op.add_column(
-            sa.Column('seller_id', sa.Integer(), nullable=False))
         batch_op.drop_constraint('fk_order_user_id', type_='foreignkey')
         batch_op.create_foreign_key('fk_order_buyer_id', 'users', [
                                     'buyer_id'], ['id'])
