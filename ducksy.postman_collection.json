@@ -837,13 +837,14 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "{{url}}/reviews/{{review_id}}",
+					"raw": "{{url}}/products/1/reviews",
 					"host": [
 						"{{url}}"
 					],
 					"path": [
-						"reviews",
-						"{{review_id}}"
+						"products",
+						"1",
+						"reviews"
 					]
 				}
 			},
