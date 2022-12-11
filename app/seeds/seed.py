@@ -1,4 +1,4 @@
-from app.models import db, environment, SCHEMA, User, Product, ProductImage, Review
+from app.models import db, environment, SCHEMA, User, Product, ProductImage, Review, Category
 from app.seeds.upload import upload_image_to_bucket
 
 # Adds a demo user, you can add other users here if you want
@@ -39,12 +39,31 @@ def seed_all():
                        elizabeth, demo, marnie, bobbie])
     db.session.commit()
 
+    ################
+    ## Categories ##
+    ################
+
+    wedding = Category(name="wedding")
+    boyfriend = Category(name="boyfriend")
+    girlfriend = Category(name="girlfriend")
+    gift = Category(name="gift")
+    bag= Category(name="bag")
+    case= Category(name="case")
+    personalized_gift = Category(name="personalized gift")
+    leather = Category(name="leather")
+    home_decor = Category(name="home_decor")
+    newborn = Category(name="newborn")
+    child = Category(name="child")
+    toy = Category(name="toy")
+
+
     ##############
     ## Products ##
     ##############
 
     product = Product(
         seller=anna,
+        categories=[wedding, gift, girlfriend, bag],
         name="60%Off customized straw bags Personalized WEDDING GUEST GIFT monogrammed bag bridal shower bags,custom beach bag,straw tote,embroidered bag",
         price="28.00",
         description="This straw is Personalized order and send me your name Personalized you want Write it down in this bags"
@@ -133,6 +152,7 @@ def seed_all():
 
     product = Product(
         seller=anna,
+        categories=[wedding, boyfriend, gift],
         name="Men's Leather Dopp Kit, Personalized Groomsman Gift, Men's Leather Accessory, Custom Mens Shave Bag, Anniversary Gift for Man, Birthday Gift",
         price="14.92",
         description="Personalized Leather Dopp Kit, Third Anniversary Gifts For Men, Leather Toiletry Bag, Birthday Gift For Dad, Valentines Day Gift For Him, Dopp Kit, Travel Bag, Personalized Groomsmen Gift, Custom Leather Toiletry Bag, Leather Personalized Gift, Mens Toiletry Bag, Father’s Day Gift, Birthday Gift, Gift for Him"
@@ -235,6 +255,7 @@ def seed_all():
 
     product = Product(
         seller=anna,
+        categories=[girlfriend, bag, case],
         name="Leather iPhone 12 13 case bag, wallet with card pocket, Gift for Her, Leather Phone Bag, Leather Accessories for her",
         price="87.00",
         description="Crossbody phone bag Milley is very suitable for daily casual wearing, office occasion, travel. Especially for travel - it's perfect for holding your phone, cards and passport. This style features and adjustable strap, magnetic closure and a pocket on a back panel."
@@ -337,6 +358,7 @@ def seed_all():
 
     product = Product(
         seller=anna,
+        categories=[wedding, girlfriend, bag, gift],
         name="Personalized Tote Bag, Bridesmaid Totes,Name Tote,Canvas Bag, Bridesmaid Gift, Bachelorette Gift, (Font 6 - 10 inch wide/ 6 inch height MAX)",
         price="9.10",
         description="Bag Dimensions are approximately 15x15 inches No Zipper Or Clip."
@@ -426,6 +448,7 @@ def seed_all():
 
     product = Product(
         seller=anna,
+        categories=[bag, personalized_gift],
         name="Custom Text Bags in Bulk , Custom Tote Bag, Promotional Tote Bag, Trade Show Gift Bag, Custom sellerper, sellerping Bags, Custom Text Tote",
         price="4.45",
         description="Custom Text Bag, Custom Tote Bag, Promotional Tote Bag, Trade Show Gift Bag, Custom sellerper, sellerping Bags, Custom Text Tote"
@@ -472,6 +495,7 @@ def seed_all():
 
     product = Product(
         seller=anna,
+        categories=[bag, gift],
         name="Campbell Tote | Choose Your Strap",
         price="37.19",
         description="Now you can build your perfect tote! Pick your favorite color Campbell Tote and then pick your favorite style strap to build the perfect bag. All straps are interchangeable!Our beautiful Campbell tote from the Threaded Pear is the perfect take anywhere bag. This stunning and durable bag features a zipper closure to access the spacious interior for all your must-have essentials. Multiple interior pockets allow for organization for all your items on the go."
@@ -581,6 +605,7 @@ def seed_all():
 
     product = Product(
         seller=anna,
+        categories=[bag, personalized_gift],
         name="Beach Tote Bags for Women Personalize, Embroidery Initial Monogram Large Bag, 100% Cotton Canvas, Bridesmaid Bachelorette Gift A-Z",
         price="18.97",
         description="- Elegant beach bag: The canvas beach tote is a classic, minimalist design bag with plenty of room for your daily summer tasks. Whether by the poolside, at the beach, or a quick grocery trip. It is big enough to fit all of the day's essentials and perfect for a weekend getaway."
@@ -676,6 +701,7 @@ def seed_all():
 
     product = Product(
         seller=anna,
+        categories=[wedding, gift, bag],
         name="MakeUp Bag Make Up Bag Bridesmaid Make Up Bag with Name Birthday Gift Ideas for Her (EB3222AD)",
         price="7.22",
         description="Make Up Bags personalized with a name in pretty script make a great gift for bridesmaids or a birthday gift for any woman. Customize each bag with her name. Cosmetic Bags are lined on the inside and have a metallic zipper."
@@ -771,6 +797,7 @@ def seed_all():
 
     product = Product(
         seller=anna,
+        categories=[boyfriend, leather, bag, case],
         name="Leather briefcase man, leather bag man, mens briefcase, shoulder bag, laptop messenger bag, satchel bag, new job gift, graduation gift",
         price="147.00",
         description="This comfortable genuine leather briefcase can be a great addition to any outfit and an excellent helper for every day. It is convenient to carry a laptop, wallet, documents, books, keys everything you need to have at hand. This is a great gift, especially if you add personalization, for a friend, boyfriend, husband, brother, dad for any occasion."
@@ -866,6 +893,7 @@ def seed_all():
 
     product = Product(
         seller=anna,
+        categories=[home_decor, personalized_gift, child],
         name="Personalized Night Light with Moon & Stars - Nursery Decor - Custom Name Light Night Gift - Kids Room Decor - Personalized Gifts for Kids",
         price="36.99",
         description="Custom Rainbow Night Light"
@@ -968,6 +996,7 @@ def seed_all():
 
     product = Product(
         seller=anna,
+        categories=[newborn, gift, personalized_gift],
         name="Birth Flower Jewelry Travel Case, Birth Month Flower Gift, Personalized Birthday Gift, Leather Jewelry Travel Case, Custom Jewelry Case",
         price="14.49",
         description="Personalized Jewelry Boxes, Birth Flower Jewelry Case, Travel Case For Bridesmaids, Minimal Jewelry Box, Jewelry Organizer, Jewelry Box"
@@ -1077,6 +1106,7 @@ def seed_all():
 
     product = Product(
         seller=anna,
+        categories=[newborn, personalized_gift, gift, case],
         name="Birth Flower Jewelry Travel Case, Birth Month Flower Gift, Personalized Birthday Gift, Leather Jewelry Travel Case, Custom Jewelry Case",
         price="14.90",
         description="Personalized Jewelry Boxes, Birth Flower Jewelry Case, Travel Case For Bridesmaids, Minimal Jewelry Box, Jewelry Organizer, Jewelry Box"
@@ -1186,6 +1216,7 @@ def seed_all():
 
     product = Product(
         seller=anna,
+        categories=[child, gift, toy, personalized_gift],
         name="Baby Girl and Baby Boy Name Puzzle by BusyPuzzle, Christmas Gift For Kids, 1 Year Old Birthday Gift, Montessori Toys",
         price="1.99",
         description="· Name Puzzle from BusyPuzzle is the Best Personalized Wooden Gift for Kids ·"
@@ -1281,6 +1312,7 @@ def seed_all():
 
     product = Product(
         seller=anna,
+        categories=[personalized_gift, leather, boyfriend, gift],
         name="Personalized Flask for Men, Leather Flask, Flask Personalized, Flask Leather, Flasks",
         price="9.99",
         description="Personalized Leather Flask!"
@@ -1376,6 +1408,7 @@ def seed_all():
 
     product = Product(
         seller=anna,
+        categories=[newborn, child, gift, personalized_gift, home_decor],
         name="Kids Night Light, Personalized Baby Gift, Woodland Nursery Decor, Custom Night Light Lamp, Gifts for Toddler Birthday Baby Shower, Christmas",
         price="34.50",
         description="The wooden night light provides a gentle, soft, and calming glow for kids of all ages to fight away monsters under the bed and make their sleep magical and sweet. With a nursery night light, it is easier to check on your kid at night to ensure s/he is peacefully asleep or to soothe a baby crying at night. The item is easy to use, colorful, and portable."
@@ -1471,6 +1504,7 @@ def seed_all():
 
     product = Product(
         seller=anna,
+        categories=[newborn, gift, personalized_gift, home_decor],
         name="Personalized Plexi Night Light with Little Prince - Nursery Decor - Le Petit Prince - Kids Room Decor - Personalized Gifts for Kids",
         price="36.99",
         description="Custom Baby Night Lights with Little Prince!"

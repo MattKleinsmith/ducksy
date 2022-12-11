@@ -1,15 +1,20 @@
 from .db import db, environment, SCHEMA, add_prefix_for_prod
-from werkzeug.security import generate_password_hash, check_password_hash
-from flask_login import UserMixin
-
-from flask_sqlalchemy import SQLAlchemy
 from sqlalchemy.schema import Column, ForeignKey
 from sqlalchemy.orm import relationship
 from sqlalchemy.types import Integer, DateTime, VARCHAR, DECIMAL, TEXT, BOOLEAN
 from sqlalchemy.sql import func
-from flask_login import UserMixin
-#  a crypto library that came with Flask
-from werkzeug.security import generate_password_hash, check_password_hash
+
+
+products_categories = db.Table(
+    'products_categories',
+    db.Model.metadata,
+    db.Column('product_id', db.Integer, db.ForeignKey('products.id'), primary_key=True),
+    db.Column('category_id', db.Integer, db.ForeignKey('categories.id'), primary_key=True)
+)
+
+if environment == "production":
+    products_categories.schema = SCHEMA
+
 
 
 class Product(db.Model):
@@ -36,8 +41,8 @@ class Product(db.Model):
     seller = relationship("User", back_populates="products")
     product_images = relationship("ProductImage", back_populates="product")
     reviews = relationship("Review", back_populates="product")
+    categories = relationship("Category", secondary=products_categories, back_populates="products")
 
-    # product.product_images
 
     def to_dict(self):
         return {
@@ -48,3 +53,15 @@ class Product(db.Model):
             "description": self.description,
             "preview_image": self.product_images[0].url if len(self.product_images) else None
         }
+
+
+class Category(db.Model):
+    __tablename__ = "categories"
+
+    if environment == "production":
+        __table_args__ = {'schema': SCHEMA}
+
+    id = Column(Integer, primary_key=True)
+    name = Column(VARCHAR, nullable=False)
+
+    products = relationship("Product", secondary=products_categories, back_populates="categories")

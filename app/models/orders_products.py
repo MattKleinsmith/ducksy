@@ -23,6 +23,8 @@ class OrderProduct(db.Model):
         add_prefix_for_prod('orders.id'), name='fk_order_product_order_id'), nullable=False)
     product_id = Column(Integer, ForeignKey(
         add_prefix_for_prod('products.id'), name='fk_order_product_product_id'), nullable=False)
+    seller_id = Column(Integer, ForeignKey(
+        add_prefix_for_prod('users.id'), name='fk_order_product_seller_id'), nullable=False)
     price = Column(DECIMAL, nullable=False)
     created_at = Column(DateTime(timezone=True),
                         server_default=func.now(), nullable=False)
@@ -30,7 +32,7 @@ class OrderProduct(db.Model):
                         server_default=func.now(), onupdate=func.now(),
                         nullable=False)
 
-    # order = relationship("Order", back_populates="items")
+    order = relationship("Order", back_populates="order_products")
     # product = relationship("Product", back_populates="items")
 
     def to_dict(self):
