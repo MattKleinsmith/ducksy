@@ -17,13 +17,16 @@ def get_orders():
 def create_order():
     data = request.get_json()
     product_ids = data['product_ids']
+    if len(product_ids) == 0:
+        return "No products given", 400
     products = Product.query.filter(Product.id.in_(product_ids)).all()
-    order = Order(buyer_id=current_user.id, seller_id=products[0].seller_id)
-    print(order, '==============================')
+    if len(products) == 0:
+        return "No products found", 404
+    order = Order(buyer_id=current_user.id)
     order_products = [OrderDetail(order=order,
                                   product_id=product.id,
-                                  price=product.price
-                                  )
+                                  seller_id=product.seller_id,
+                                  price=product.price)
                       for product in products]
     db.session.add_all(order_products)
     db.session.commit()
