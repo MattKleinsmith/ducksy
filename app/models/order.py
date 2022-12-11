@@ -21,8 +21,6 @@ class Order(db.Model):
     id = Column(Integer, primary_key=True)
     buyer_id = Column(Integer, ForeignKey(
         add_prefix_for_prod('users.id'), name='fk_order_buyer_id'), nullable=False)
-    seller_id = Column(Integer, ForeignKey(
-        add_prefix_for_prod('users.id'), name='fk_order_seller_id'), nullable=False)
     created_at = Column(DateTime(timezone=True),
                         server_default=func.now(), nullable=False)
     updated_at = Column(DateTime(timezone=True),
