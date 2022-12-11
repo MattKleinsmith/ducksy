@@ -27,7 +27,7 @@ class Order(db.Model):
                         server_default=func.now(), onupdate=func.now(),
                         nullable=False)
 
-    order_deatils = relationship("OrderDetail", back_populates="order")
+    order_details = relationship("OrderDetail", back_populates="order")
 
     def to_dict(self):
         return {
