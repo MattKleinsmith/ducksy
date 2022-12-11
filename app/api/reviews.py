@@ -1,4 +1,4 @@
-from flask import Blueprint
+from flask import Blueprint, request
 from flask_login import login_required, current_user
 from app.models import db, Review
 from app.forms import ReviewForm
@@ -11,10 +11,14 @@ bp = Blueprint("reviews", __name__, url_prefix="/reviews")
 @bp.route("/<int:review_id>", methods=["patch"])
 @login_required
 def update_review(review_id):
-    form = ReviewForm()
     review_tobe_updated = Review.query.get(review_id)
+    if review_tobe_updated is None:
+        return "No review", 404
 
-    if review_tobe_updated and review_tobe_updated.buyer_id == current_user.id:
+    form = ReviewForm()
+    # form['csrf_token'].data = request.cookies['csrf_token']
+
+    if review_tobe_updated.buyer_id == current_user.id:
         if form.validate_on_submit():
             review_tobe_updated.rating = form.data["rating"]
             review_tobe_updated.review = form.data["review"]
@@ -37,11 +41,15 @@ def update_review(review_id):
 @login_required
 def delete_review(review_id):
     review_tobe_deleted = Review.query.get(review_id)
-    if review_tobe_deleted and review_tobe_deleted.buyer_id == current_user.id:
+    if review_tobe_deleted is None:
+        return "Fail to delete", 404
+    if review_tobe_deleted.buyer_id != current_user.id:
+        return "You are not authorized to delete this review", 404
+
+    if review_tobe_deleted.buyer_id == current_user.id:
         db.session.delete(review_tobe_deleted)
         db.session.commit()
         return {
             "message": "Successfully deleted",
             "statusCode": 200
         }, 200, {"Content-Type": "application/json"}
-    return "Fail to delete", 404

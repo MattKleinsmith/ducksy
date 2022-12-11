@@ -92,31 +92,31 @@ def get_reviews_by_product_id(product_id):
 @bp.route("/<int:product_id>/reviews", methods=["post"])
 @login_required
 def review(product_id):
-    orders = current_user.orders
-    if len(orders) > 0:
-        for order in orders:
-            for order in order.items:
-                if order.product_id == product_id:
-                    form = ReviewForm()
-                    if form.validate_on_submit():
-                        new_review = Review(
+    product = Product.query.get(product_id)
+    if product is None:
+        return "No product", 404
+    if product.seller_id == current_user.id:
+        return "Seller can not leave review for your products", 404
+
+    form = ReviewForm()
+    # form['csrf_token'].data = request.cookies['csrf_token']
+    if form.validate_on_submit():
+        new_review = Review(
                             buyer_id=current_user.id,
-                            seller_id=order.product_id,
+                            seller_id=product.seller_id,
                             product_id=product_id,
                             rating=form.data["rating"],
                             review=form.data["review"]
                         )
-                        db.session.add(new_review)
-                        db.session.commit()
-                        return new_review.to_dict(), 201
-                    if form.errors:
-                        return {
-                            "message": "Validation Error",
-                            "statusCode": 400,
-                            "errors": form.errors
-                        }, 400, {"Content-Type": "application/json"}
-                    return "Fail to create review", 404
-        return "Fail to create review", 404
+        db.session.add(new_review)
+        db.session.commit()
+        return new_review.to_dict(), 201
+    if form.errors:
+        return {
+                "message": "Validation Error",
+                "statusCode": 400,
+                "errors": form.errors
+                }, 400, {"Content-Type": "application/json"}
 
 
 @bp.route("fun", methods=['GET'])
