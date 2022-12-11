@@ -48,19 +48,21 @@ def get_product_by_id(product_id):
 @login_required
 def patch_product(product_id):
     try:
+        product = Product.query.filter(Product.id == product_id,
+                                       Product.seller_id == current_user.id).first()
+        if (not product):
+            return "404", 404
         form = ProductForm()
         form['csrf_token'].data = request.cookies['csrf_token']
         if form.validate_on_submit():
-            product = Product.query.filter(Product.id == product_id,
-                                           Product.seller_id == current_user.id).first()
             product.name = form.name.data
             product.price = form.price.data
             product.description = form.description.data
             db.session.commit()
             return product.to_dict()
-        return {"errors": form.errors}, 404
+        return {"errors": form.errors}, 400
     except IntegrityError:
-        return "Failed to put"
+        return "Failed to put", 500
 
 
 @bp.route("/<product_id>", methods=['DELETE'])

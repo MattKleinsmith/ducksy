@@ -170,3 +170,4 @@ cython_debug/
 #.idea/
 
 dev.db
+scratch.md
