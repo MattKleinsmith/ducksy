@@ -20,12 +20,12 @@ def create_order():
     if len(product_ids) == 0:
         return "No products given", 400
     products = Product.query.filter(Product.id.in_(product_ids)).all()
+    if len(products) == 0:
+        return "No products found", 404
     # user cannot buy their own products
     seller_ids = (product.seller_id for product in products)
     if current_user.id in seller_ids:
         return {'errors': ['Unauthorized']}, 401
-    if len(products) == 0:
-        return "No products found", 404
     order = Order(buyer_id=current_user.id)
     order_products = [OrderDetail(order=order,
                                   product_id=product.id,
