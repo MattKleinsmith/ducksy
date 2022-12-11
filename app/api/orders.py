@@ -1,5 +1,5 @@
 from flask import Blueprint, request
-from app.models import db, Order, OrderItem, Product
+from app.models import db, Order, OrderProduct, Product
 from flask_login import current_user, login_required
 
 bp = Blueprint("orders", __name__, url_prefix="/orders")
@@ -18,13 +18,13 @@ def create_order():
     data = request.get_json()
     product_ids = data['product_ids']
     order = Order(user_id=current_user.id)
-    items = [OrderItem(order=order, shop_id = 1,
-                       product_id=product_id,
-                       price=Product.query.filter(
-                           Product.id == product_id).one().price
-                       )
-             for product_id in product_ids]
-    db.session.add_all(items)
+    products = [OrderProduct(order=order,
+                             product_id=product_id,
+                             price=Product.query.filter(
+                                 Product.id == product_id).one().price
+                             )
+                for product_id in product_ids]
+    db.session.add_all(products)
     db.session.commit()
     return {"order_id": order.id}
 
@@ -33,7 +33,7 @@ def create_order():
 # @login_required
 # def delete_order(order_id):
 #     order = Order.query.get(order_id)
-#     items = OrderItem.query.all()
+#     items = OrderProduct.query.all()
 #     for item in items:
 #         db.session.delete(item)
 #     db.session.delete(order)

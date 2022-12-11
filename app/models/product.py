@@ -20,8 +20,8 @@ class Product(db.Model):
 
     id = Column(Integer, primary_key=True)
 
-    shop_id = Column(Integer, ForeignKey(
-        add_prefix_for_prod('users.id'), name='fk_product_shop_id'), nullable=False)
+    seller_id = Column(Integer, ForeignKey(
+        add_prefix_for_prod('users.id'), name='fk_product_seller_id'), nullable=False)
 
     name = Column(VARCHAR(140), nullable=False)
     price = Column(DECIMAL, nullable=False)
@@ -33,15 +33,16 @@ class Product(db.Model):
                         server_default=func.now(), onupdate=func.now(),
                         nullable=False)
 
-    shop = relationship("User", back_populates="products")
+    seller = relationship("User", back_populates="products")
     product_images = relationship("ProductImage", back_populates="product")
     reviews = relationship("Review", back_populates="product")
-    items = relationship("OrderItem", back_populates="product")
+
+    # product.product_images
 
     def to_dict(self):
         return {
             "id": self.id,
-            "shop_id": self.shop_id,
+            "seller_id": self.seller_id,
             "name": self.name,
             "price": str(self.price),
             "description": self.description,

@@ -20,10 +20,10 @@ class Review(db.Model):
 
     id = Column(Integer, primary_key=True)
 
-    customer_id = Column(Integer, ForeignKey(
-        add_prefix_for_prod('users.id'), name='fk_review_customer_id'), nullable=False)
-    shop_id = Column(Integer, ForeignKey(
-        add_prefix_for_prod('users.id'), name='fk_review_shop_id'))
+    buyer_id = Column(Integer, ForeignKey(
+        add_prefix_for_prod('users.id'), name='fk_review_buyer_id'), nullable=False)
+    seller_id = Column(Integer, ForeignKey(
+        add_prefix_for_prod('users.id'), name='fk_review_seller_id'))
     product_id = Column(Integer, ForeignKey(
         add_prefix_for_prod('products.id'), name='fk_review_product_id'), nullable=False)
     rating = Column(Integer, nullable=False)
@@ -35,15 +35,14 @@ class Review(db.Model):
                         server_default=func.now(), onupdate=func.now(),
                         nullable=False)
 
-    customer = relationship("User", foreign_keys=customer_id)
-    shop = relationship("User", foreign_keys=shop_id)
+    buyer = relationship("User", foreign_keys=[buyer_id])
     product = relationship("Product", back_populates="reviews")
 
     def to_dict(self):
         return {
             "id": self.id,
-            "customer_id": self.customer_id,
-            "shop_id": self.shop_id,
+            "buyer_id": self.buyer_id,
+            "seller_id": self.seller_id,
             "product_id": self.product_id,
             "rating": self.rating,
             "review": self.review

@@ -43,9 +43,10 @@ class ProductForm(FlaskForm):
 
     submit = SubmitField("List product")
 
+
 class ReviewForm(FlaskForm):
     class Meta:
         csrf = False  # TODO: Turn this off once we have a frontend
-    rating = StringField("Review this item", validators=[DataRequired()])
+    rating = StringField("Review this product", validators=[DataRequired()])
     review = TextAreaField("My review", validators=[DataRequired()])
     submit = SubmitField("Post My Review")
