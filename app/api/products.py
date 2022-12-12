@@ -69,15 +69,18 @@ def put_product(product_id):
 @login_required
 def delete_product(product_id):
     try:
-        product = Product.query.filter(Product.id == product_id,
-                                       Product.seller_id == current_user.id)
-        if (product.first()):
-            product.delete()
+        # product = Product.query.filter(Product.id == product_id,
+        #                                Product.seller_id == current_user.id).first()
+        product = db.session.query(Product).filter(
+            Product.id == product_id, Product.seller_id == current_user.id).first()
+        if (product):
+            db.session.delete(product)
             db.session.commit()
             return f"Deleted product with id {product_id}"
         return "404", 404
-    except IntegrityError:
-        return "Failed to delete"
+    except IntegrityError as e:
+        print(e)
+        return {"error": "Failed to delete"}, 400
 
 
 @bp.route("<int:product_id>/reviews", methods=['GET'])

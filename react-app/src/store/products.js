@@ -25,14 +25,15 @@ export const postProduct = (body, url) => async () => {
     return product;
 };
 
-export const deleteProduct = (productId) => async () => {
+export const deleteProduct = productId => async () => {
+    console.log("deleteProduct", productId);
     const response = await csrfFetch('/api/products/' + productId, { method: "DELETE", });
     return await response.json();
 };
 
-export const patchProduct = (productId, body) => async dispatch => {
+export const putProduct = (productId, body) => async dispatch => {
     const response = await csrfFetch('/api/products/' + productId, {
-        method: "PATCH",
+        method: "PUT",
         body: JSON.stringify(body)
     });
     return await response.json();
