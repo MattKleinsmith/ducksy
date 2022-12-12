@@ -1,7 +1,7 @@
 import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { useEffect } from "react";
-import { getCurrentUserOrders } from '../../store/order_details';
+import { getCurrentUserOrders } from '../../store/orderDetails';
 
 export default function OrderDetails() {
     const dispatch = useDispatch();

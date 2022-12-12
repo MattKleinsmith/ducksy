@@ -1,7 +1,7 @@
 import { createStore, combineReducers, applyMiddleware, compose } from "redux";
 import thunk from "redux-thunk";
 import productDetailsReducer from "./productDetails";
-import orderDetailsReducer from "./order_details";
+import orderDetailsReducer from "./orderDetails";
 import productsReducer from "./products";
 import reviewsReducer from "./reviews";
 import sessionReducer from "./session";
