@@ -20,6 +20,7 @@ def get_review(review_id):
 @login_required
 def update_review(review_id):
     review_tobe_updated = Review.query.get(review_id)
+    print(review_tobe_updated)
     if review_tobe_updated is None:
         return "No review", 404
 
