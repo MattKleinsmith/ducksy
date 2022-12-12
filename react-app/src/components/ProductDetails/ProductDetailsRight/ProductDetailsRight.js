@@ -8,7 +8,7 @@ export default function ProductDetailsRight({ product }) {
     return (
         <div className="ProductDetailsRightWrapper">
             <div className="ProductDetailsRight">
-                <div>{product.user.name}</div>
+                <div>{product.seller.display_name}</div>
                 <div style={{ "display": "flex" }}><span>1000 sales | <FiveStars /></span></div>
                 <div>{product.name}</div>
                 <div>{product.price}</div>
