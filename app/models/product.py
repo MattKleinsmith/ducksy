@@ -50,6 +50,7 @@ class Product(db.Model):
         return {
             "id": self.id,
             "seller_id": self.seller_id,
+            "seller_name": self.seller.display_name,
             "name": self.name,
             "price": str(self.price),
             "description": self.description,

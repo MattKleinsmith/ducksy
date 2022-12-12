@@ -7,7 +7,7 @@ import Modals from "./components/Modals/Modals";
 import ProductDetails from "./components/ProductDetails/ProductDetails";
 import ProductGrid from "./components/ProductGrid/ProductGrid";
 import { restoreUser } from "./store/session";
-import Orders from "./components/Orders/Orders";
+import OrderDetails from "./components/OrderDetails/OrderDetails";
 
 export default function App() {
   const dispatch = useDispatch();
@@ -22,7 +22,7 @@ export default function App() {
       <Routes>
         <Route path="/" element={<ProductGrid />} />
         <Route path="/listing/:productId" element={<ProductDetails />} />
-        <Route exact path='/your/purchases' element={<Orders />} />
+        <Route exact path='/your/purchases' element={<OrderDetails />} />
         <Route exact path='/your/shop' element={<Orders />} />
       </Routes>
     </>
