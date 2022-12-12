@@ -8,6 +8,7 @@ import ProductDetails from "./components/ProductDetails/ProductDetails";
 import ProductGrid from "./components/ProductGrid/ProductGrid";
 import { restoreUser } from "./store/session";
 import OrderDetails from "./components/OrderDetails/OrderDetails";
+import ShopManager from "./components/ShopManager/ShopManager";
 
 export default function App() {
   const dispatch = useDispatch();
@@ -23,7 +24,7 @@ export default function App() {
         <Route path="/" element={<ProductGrid />} />
         <Route path="/listing/:productId" element={<ProductDetails />} />
         <Route exact path='/your/purchases' element={<OrderDetails />} />
-        <Route exact path='/your/shop' element={<Orders />} />
+        <Route exact path='/your/shop' element={<ShopManager />} />
       </Routes>
     </>
   );
