@@ -1,0 +1,10 @@
+.ProductEditorWrapper {
+    display: flex;
+    justify-content: center;
+}
+
+.ProductEditor {
+    display: flex;
+    max-width: 1350px;
+    gap: 10px;
+}

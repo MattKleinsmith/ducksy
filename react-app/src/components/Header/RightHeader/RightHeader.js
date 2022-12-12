@@ -10,7 +10,7 @@ export default function RightHeader() {
     const dispatch = useDispatch();
     return <span>
         {<div className="rightHeader">
-            <ShopButton />
+            {session.user && <ShopButton />}
             {!session.user && <div className="pointer" onClick={() => dispatch(setSigninModal(true))}>Sign In</div>}
             {session.user && <ProfileButton />}
             <CartButton />

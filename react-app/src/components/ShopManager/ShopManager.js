@@ -1,13 +1,13 @@
 import { NavLink } from "react-router-dom";
-import { useSelector, useDispatch } from 'react-redux';
-import { useEffect } from "react";
+import { useSelector } from 'react-redux';
 
 import "./ShopManager.css";
 import ProductGridItem from "../ProductGrid/ProductGridItem/ProductGridItem";
 
 export default function ShopManager() {
-    const dispatch = useDispatch();
-    const products = useSelector(state => Object.values(state.products));
+    const user = useSelector(state => state.session.user)
+    const products = useSelector(state => Object.values(state.products))
+        .filter(product => product.seller_id == user.id);
 
     return (
         <div className="ShopManagerWrapper">
@@ -16,7 +16,7 @@ export default function ShopManager() {
             </div>
             <div className="ShopManager">
                 {products.map((product, i) =>
-                    <NavLink key={i} to={`/listing/${product.id}`} style={{ textDecoration: 'none' }}>
+                    <NavLink key={i} to={`/your/shop/listing/${product.id}`} style={{ textDecoration: 'none' }}>
                         <ProductGridItem product={product} />
                     </NavLink>)
                 }
