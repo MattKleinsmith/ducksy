@@ -1,5 +1,5 @@
 from flask_wtf import FlaskForm
-from wtforms.fields import StringField, FloatField, TextAreaField, SubmitField, URLField, EmailField, PasswordField
+from wtforms.fields import StringField, FloatField, TextAreaField, SubmitField, URLField, EmailField, PasswordField, BooleanField
 from wtforms.validators import DataRequired, Email, URL, NumberRange
 
 
@@ -42,6 +42,13 @@ class ProductForm(FlaskForm):
     description = TextAreaField("Description")
 
     submit = SubmitField("List product")
+
+class ProductImageForm(FlaskForm):
+    url = URLField(
+        "Product Image URL", validators=[URL(), DataRequired()])
+    preview = BooleanField(default=False, validators=[DataRequired()])
+
+    submit = SubmitField("Post Product Image")
 
 
 class ReviewForm(FlaskForm):

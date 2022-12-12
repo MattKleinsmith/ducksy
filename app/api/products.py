@@ -1,7 +1,7 @@
 from flask import Blueprint, request
 from flask_login import login_required, current_user
 from app.models import db, Product, Review, ProductImage, Order, OrderDetail
-from app.forms import ProductForm, ReviewForm, validation_errors_formatter
+from app.forms import ProductForm, ReviewForm, ProductImageForm, validation_errors_formatter
 from sqlalchemy.exc import IntegrityError
 
 bp = Blueprint("products", __name__, url_prefix="/products")
@@ -86,18 +86,18 @@ def get_reviews_by_product_id(product_id):
     return [review.to_dict() for review in reviews]
 
 
-@bp.route("/<int:product_id>/reviews", methods=["POST"])
+@bp.route("/<product_id>/reviews", methods=["POST"])
 @login_required
 def review(product_id):
     # Check database for available product
     product = Product.query.get(product_id)
-    if product is None:
+    if not product:
         return "Product not found", 404
     # Validate seller vs buyer status
     if product.seller_id == current_user.id:
         return "Seller can not leave review for their own products", 400
-    # Check all reviews for the product to find if there is review belongs to current user
-    reviews = Review.query.filter(Review.product_id == product_id ,Review.buyer_id == current_user.id).all()
+    reviews = Review.query.filter(
+        Review.product_id == product_id, Review.buyer_id == current_user.id).all()
     if len(reviews) > 0:
         return "Buyer already left a review for this product", 400
     # Check if buyer bought the product in order to leave review
@@ -106,24 +106,20 @@ def review(product_id):
         if order.product_id != product_id:
             return "You are not authorized to review this product", 400
 
-        form = ReviewForm()
-        form['csrf_token'].data = request.cookies['csrf_token']
-        if form.validate_on_submit():
-            review = Review(
-                buyer_id=current_user.id,
-                seller_id=product.seller_id,
-                product_id=product_id,
-                rating=int(float(form.data["rating"])),
-                review=form.data["review"]
-            )
-            db.session.add(review)
-            db.session.commit()
-            return review.to_dict(), 201
-        return {
-            "message": "Validation Error",
-            "statusCode": 400,
-            "errors": form.errors
-        }, 400, {"Content-Type": "application/json"}
+    form = ReviewForm()
+    form['csrf_token'].data = request.cookies['csrf_token']
+    if form.validate_on_submit():
+        review = Review(
+            buyer_id=current_user.id,
+            seller_id=product.seller_id,
+            product_id=product_id,
+            rating=int(float(form.data["rating"])),
+            review=form.data["review"]
+        )
+        db.session.add(review)
+        db.session.commit()
+        return review.to_dict(), 201
+    return {'errors': validation_errors_formatter(form.errors)}, 400
 
 
 @bp.route("fun", methods=['GET'])
@@ -133,3 +129,26 @@ def show_product_images():
     for image in images:
         html += f"<img src='{image.url}' />"
     return html
+
+
+@bp.route("<product_id>/images", methods=['GET'])
+def get_images_by_product_id(product_id):
+    product_images = ProductImage.query.filter(ProductImage.product_id == product_id)
+    return [product_image.to_dict() for product_image in product_images]
+
+
+@bp.route("<product_id>/images", methods=['POST'])
+def post_image_by_product_id(product_id):
+    form = ProductImageForm()
+    form['csrf_token'].data = request.cookies['csrf_token']
+    if form.validate_on_submit():
+        data= form.data
+        product_image = ProductImage(
+            product_id=int(product_id),
+            url=data['url'],
+            preview=data['preview']
+        )
+        db.session.add(product_image)
+        db.session.commit()
+        return product_image.to_dict()
+    return {'errors': validation_errors_formatter(form.errors)}, 400
