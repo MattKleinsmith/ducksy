@@ -34,8 +34,7 @@ class OrderDetail(db.Model):
                         nullable=False)
 
     order = relationship("Order", back_populates="order_details")
-    product = relationship("Product", back_populates="orders_details")
-
+    product = relationship("Product")
 
     def to_dict(self):
         return {
