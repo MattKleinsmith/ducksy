@@ -1,0 +1,25 @@
+.deleteForm {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 30px;
+}
+
+.deleteFormButton {
+    height: 50px;
+    width: 280px;
+    cursor: pointer;
+    margin-top: 30px;
+    margin-bottom: 20px;
+
+    border-style: none;
+    border-radius: 10px;
+
+    font-weight: bold;
+    font-size: 16px;
+
+    color: rgb(255, 255, 255);
+    background: linear-gradient(90deg, rgb(245, 0, 0), rgb(245, 0, 0));
+
+    align-self: center;
+}
