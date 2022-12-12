@@ -9,6 +9,7 @@ import ProductGrid from "./components/ProductGrid/ProductGrid";
 import { restoreUser } from "./store/session";
 import OrderDetails from "./components/OrderDetails/OrderDetails";
 import ShopManager from "./components/ShopManager/ShopManager";
+import ShoppingCart from "./components/ShoppingCart/ShoppingCart";
 
 export default function App() {
   const dispatch = useDispatch();
@@ -21,10 +22,11 @@ export default function App() {
       <Modals />
       <Header />
       <Routes>
-        <Route path="/" element={<ProductGrid />} />
+        <Route exact path="/" element={<ProductGrid />} />
         <Route path="/listing/:productId" element={<ProductDetails />} />
         <Route exact path='/your/purchases' element={<OrderDetails />} />
         <Route exact path='/your/shop' element={<ShopManager />} />
+        <Route path='/cart' element={<ShoppingCart />} />
       </Routes>
     </>
   );
