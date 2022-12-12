@@ -21,9 +21,9 @@ class Review(db.Model):
     id = Column(Integer, primary_key=True)
 
     buyer_id = Column(Integer, ForeignKey(
-        add_prefix_for_prod('users.id'), name='fk_review_buyer_id'), nullable=False)
+        add_prefix_for_prod('users.id'), name='fk_review_buyer_id', ondelete='CASCADE'), nullable=False)
     seller_id = Column(Integer, ForeignKey(
-        add_prefix_for_prod('users.id'), name='fk_review_seller_id'))
+        add_prefix_for_prod('users.id'), name='fk_review_seller_id', ondelete='CASCADE'))
     product_id = Column(Integer, ForeignKey(
         add_prefix_for_prod('products.id'), name='fk_review_product_id'), nullable=False)
     rating = Column(Integer, nullable=False)

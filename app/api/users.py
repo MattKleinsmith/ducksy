@@ -1,6 +1,5 @@
 from flask import Blueprint, request
-from flask_login import login_required, current_user, login_user
-from sqlalchemy.exc import IntegrityError
+from flask_login import login_required, current_user, login_user, logout_user
 from app.forms import SignupForm, validation_errors_formatter
 from app.models import db, User
 
@@ -51,3 +50,13 @@ def update_user(user_id):
         db.session.commit()
         return user.to_dict()
     return {'errors': validation_errors_formatter(form.errors)}, 400
+
+
+@bp.route("/current", methods=["DELETE"])
+@login_required
+def delete_user():
+    """For debugging"""
+    db.session.delete(current_user)
+    db.session.commit()
+    logout_user()
+    return "Deleted user and logged out"

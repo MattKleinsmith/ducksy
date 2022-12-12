@@ -20,11 +20,11 @@ class OrderDetail(db.Model):
 
     id = Column(Integer, primary_key=True)
     order_id = Column(Integer, ForeignKey(
-        add_prefix_for_prod('orders.id'), name='fk_order_detail_order_id'), nullable=False)
+        add_prefix_for_prod('orders.id'), name='fk_order_detail_order_id', ondelete='CASCADE'), nullable=False)
     product_id = Column(Integer, ForeignKey(
         add_prefix_for_prod('products.id'), name='fk_order_detail_product_id'), nullable=False)
     seller_id = Column(Integer, ForeignKey(
-        add_prefix_for_prod('users.id'), name='fk_order_detail_seller_id'), nullable=False)
+        add_prefix_for_prod('users.id'), name='fk_order_detail_seller_id', ondelete='CASCADE'), nullable=False)
     price = Column(DECIMAL, nullable=False)
 
     created_at = Column(DateTime(timezone=True),

@@ -8,13 +8,14 @@ from sqlalchemy.sql import func
 products_categories = db.Table(
     'products_categories',
     db.Model.metadata,
-    db.Column('product_id', db.Integer, db.ForeignKey('products.id'), primary_key=True),
-    db.Column('category_id', db.Integer, db.ForeignKey('categories.id'), primary_key=True)
+    db.Column('product_id', db.Integer, db.ForeignKey(
+        'products.id'), primary_key=True),
+    db.Column('category_id', db.Integer, db.ForeignKey(
+        'categories.id'), primary_key=True)
 )
 
 if environment == "production":
     products_categories.schema = SCHEMA
-
 
 
 class Product(db.Model):
@@ -26,7 +27,7 @@ class Product(db.Model):
     id = Column(Integer, primary_key=True)
 
     seller_id = Column(Integer, ForeignKey(
-        add_prefix_for_prod('users.id'), name='fk_product_seller_id'), nullable=False)
+        add_prefix_for_prod('users.id'), name='fk_product_seller_id', ondelete='CASCADE'), nullable=False)
 
     name = Column(VARCHAR(140), nullable=False)
     price = Column(DECIMAL, nullable=False)
@@ -41,8 +42,8 @@ class Product(db.Model):
     seller = relationship("User", back_populates="products")
     product_images = relationship("ProductImage", back_populates="product")
     reviews = relationship("Review", back_populates="product")
-    categories = relationship("Category", secondary=products_categories, back_populates="products")
-
+    categories = relationship(
+        "Category", secondary=products_categories, back_populates="products")
 
     def to_dict(self):
         return {
@@ -64,4 +65,5 @@ class Category(db.Model):
     id = Column(Integer, primary_key=True)
     name = Column(VARCHAR, nullable=False)
 
-    products = relationship("Product", secondary=products_categories, back_populates="categories")
+    products = relationship(
+        "Product", secondary=products_categories, back_populates="categories")

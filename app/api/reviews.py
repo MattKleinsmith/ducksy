@@ -62,3 +62,16 @@ def delete_review(review_id):
             "message": "Successfully deleted",
             "statusCode": 200
         }, 200, {"Content-Type": "application/json"}
+
+
+@bp.route("/current", methods=["GET"])
+def get_current_reviews():
+    """For debugging"""
+    reviews = Review.query.filter(Review.buyer_id == current_user.id)
+    return [review.to_dict() for review in reviews]
+
+
+@bp.route("", methods=["GET"])
+def get_reviews():
+    """For debugging"""
+    return [review.to_dict() for review in Review.query]
