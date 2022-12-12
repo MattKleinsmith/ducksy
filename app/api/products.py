@@ -86,16 +86,17 @@ def get_reviews_by_product_id(product_id):
     return [review.to_dict() for review in reviews]
 
 
-@bp.route("/<int:product_id>/reviews", methods=["POST"])
+@bp.route("/<product_id>/reviews", methods=["POST"])
 @login_required
 def review(product_id):
     product = Product.query.get(product_id)
-    if product is None:
+    if not product:
         return "Product not found", 404
     if product.seller_id == current_user.id:
         return "Seller can not leave review for their own products", 400
+    print(current_user.id, '-'*20)
     reviews = Review.query.filter(
-        Review.product_id == product_id and Review.buyer_id == current_user.id).all()
+        Review.product_id == product_id, Review.buyer_id == current_user.id).all()
     if len(reviews) > 0:
         return "Buyer already left a review for this product", 400
 
@@ -112,11 +113,7 @@ def review(product_id):
         db.session.add(review)
         db.session.commit()
         return review.to_dict(), 201
-    return {
-        "message": "Validation Error",
-        "statusCode": 400,
-        "errors": form.errors
-    }, 400, {"Content-Type": "application/json"}
+    return {'errors': validation_errors_formatter(form.errors)}, 400
 
 
 @bp.route("fun", methods=['GET'])
@@ -126,3 +123,15 @@ def show_product_images():
     for image in images:
         html += f"<img src='{image.url}' />"
     return html
+
+
+@bp.route("<product_id>/images", methods=['GET'])
+def get_images_by_product_id(product_id):
+    product_images = ProductImage.query.filter(ProductImage.product_id == product_id)
+    return [product_image.to_dict() for product_image in product_images]
+
+
+@bp.route("<product_id>/images", methods=['POST'])
+def post_images_by_product_id(product_id):
+    product_images = ProductImage.query.filter(ProductImage.product_id == product_id)
+    return [product_image.to_dict() for product_image in product_images]
