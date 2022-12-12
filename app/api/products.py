@@ -3,12 +3,32 @@ from flask_login import login_required, current_user
 from app.models import db, Product, Review, ProductImage, Order, OrderDetail, Category
 from app.forms import ProductForm, ReviewForm, ProductImageForm, validation_errors_formatter
 from sqlalchemy.exc import IntegrityError
+import json
 
 bp = Blueprint("products", __name__, url_prefix="/products")
 
 
 @bp.route("/", methods=['GET'])
 def get_products():
+    # query = request.query_string.decode()
+    query = request.args.getlist("categories")[0].split(', ')
+    print(query, '-'*50)
+    categories = Category.query.filter(Category.name.in_(query)).all()
+    print(categories, '-'*50)
+    if query:
+        products = set()
+        for category in categories:
+            for product in category.products:
+                categories = [category.name for category in product.categories]
+                product = product.to_dict()
+                product['categories'] = categories
+                products.append(product)
+        return products
+    # if query:
+    #     products = Product.query.filter(Product.categories.any(categories)).all()
+    #     return [product.to_dict() for product in products]
+
+
     products = []
     for product in Product.query:
         reviews = product.reviews
