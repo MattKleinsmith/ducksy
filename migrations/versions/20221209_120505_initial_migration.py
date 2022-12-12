@@ -50,7 +50,7 @@ def upgrade():
                     sa.Column('updated_at', sa.DateTime(timezone=True),
                               server_default=sa.text('(CURRENT_TIMESTAMP)'), nullable=False),
                     sa.ForeignKeyConstraint(
-                        ['seller_id'], ['users.id'], ),
+                        ['seller_id'], ['users.id'], name='fk_product_seller_id' ),
                     sa.PrimaryKeyConstraint('id')
                     )
 
@@ -67,7 +67,7 @@ def upgrade():
                     sa.Column('updated_at', sa.DateTime(timezone=True),
                               server_default=sa.text('(CURRENT_TIMESTAMP)'), nullable=False),
                     sa.ForeignKeyConstraint(
-                        ['product_id'], ['products.id'], ),
+                        ['product_id'], ['products.id'], name='fk_product_image_product_id' ),
                     sa.PrimaryKeyConstraint('id')
                     )
 
@@ -87,11 +87,11 @@ def upgrade():
                     sa.Column('updated_at', sa.DateTime(timezone=True),
                               server_default=sa.text('(CURRENT_TIMESTAMP)'), nullable=False),
                     sa.ForeignKeyConstraint(
-                        ['buyer_id'], ['users.id'], ),
+                        ['buyer_id'], ['users.id'], name='fk_review_buyer_id' ),
                     sa.ForeignKeyConstraint(
-                        ['product_id'], ['products.id'], ),
+                        ['product_id'], ['products.id'], name='fk_review_product_id' ),
                     sa.ForeignKeyConstraint(
-                        ['seller_id'], ['users.id'], ),
+                        ['seller_id'], ['users.id'], name='fk_review_seller_id'),
                     sa.PrimaryKeyConstraint('id')
                     )
     # ### end Alembic commands ###

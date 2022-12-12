@@ -9,9 +9,9 @@ products_categories = db.Table(
     'products_categories',
     db.Model.metadata,
     db.Column('product_id', db.Integer, db.ForeignKey(
-        'products.id'), primary_key=True),
+        'products.id'), primary_key=True, name='fk_product_category_product_id'),
     db.Column('category_id', db.Integer, db.ForeignKey(
-        'categories.id'), primary_key=True)
+        'categories.id'), primary_key=True, name='fk_product_category_category_id')
 )
 
 if environment == "production":

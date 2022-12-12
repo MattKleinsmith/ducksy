@@ -23,8 +23,8 @@ def upgrade():
     op.create_table('products_categories',
     sa.Column('product_id', sa.Integer(), nullable=False),
     sa.Column('category_id', sa.Integer(), nullable=False),
-    sa.ForeignKeyConstraint(['category_id'], ['categories.id'], ),
-    sa.ForeignKeyConstraint(['product_id'], ['products.id'], ),
+    sa.ForeignKeyConstraint(['category_id'], ['categories.id'], name='fk_products_category_category_id' ),
+    sa.ForeignKeyConstraint(['product_id'], ['products.id'], name='fk_products_category_product_id' ),
     sa.PrimaryKeyConstraint('product_id', 'category_id')
     )
     # ### end Alembic commands ###
