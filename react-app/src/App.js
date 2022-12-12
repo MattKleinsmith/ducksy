@@ -7,12 +7,13 @@ import Modals from "./components/Modals/Modals";
 import ProductDetails from "./components/ProductDetails/ProductDetails";
 import ProductGrid from "./components/ProductGrid/ProductGrid";
 import { restoreUser } from "./store/session";
+import Purchases from "./components/Purchases/Purchases";
 
 export default function App() {
   const dispatch = useDispatch();
   useEffect(() => {
-    dispatch(restoreUser())
-  }, [dispatch])
+    dispatch(restoreUser());
+  }, [dispatch]);
 
   return (
     <>
@@ -21,6 +22,7 @@ export default function App() {
       <Routes>
         <Route path="/" element={<ProductGrid />} />
         <Route path="/products/:productId" element={<ProductDetails />} />
+        <Route exact path='/purchases_reviews' element={<Purchases />} />
       </Routes>
     </>
   );
