@@ -47,7 +47,7 @@ def get_product_by_id(product_id):
         return "500", 500
 
 
-@bp.route("<product_id>", methods=['PUT'])
+@bp.route("<int:product_id>", methods=['PUT'])
 @login_required
 def put_product(product_id):
     product = Product.query.filter(Product.id == product_id,
@@ -65,7 +65,7 @@ def put_product(product_id):
     return {'errors': validation_errors_formatter(form.errors)}, 400
 
 
-@bp.route("<product_id>", methods=['DELETE'])
+@bp.route("<int:product_id>", methods=['DELETE'])
 @login_required
 def delete_product(product_id):
     try:
@@ -80,13 +80,13 @@ def delete_product(product_id):
         return "Failed to delete"
 
 
-@bp.route("<product_id>/reviews", methods=['GET'])
+@bp.route("<int:product_id>/reviews", methods=['GET'])
 def get_reviews_by_product_id(product_id):
     reviews = Review.query.filter(Review.product_id == product_id)
     return [review.to_dict() for review in reviews]
 
 
-@bp.route("<product_id>/reviews", methods=["POST"])
+@bp.route("<int:product_id>/reviews", methods=["POST"])
 @login_required
 def review(product_id):
     # Check database for available product
@@ -101,9 +101,9 @@ def review(product_id):
     if len(reviews) > 0:
         return "Buyer already left a review for this product", 400
     # Check if buyer bought the product in order to leave review
-    orders = OrderDetail.query.all()
+    orders = Order.query.filter(Order.buyer_id == current_user.id).all()
     for order in orders:
-        if order.product_id != product_id:
+        if all(map(lambda x: x.product_id != product_id, order.order_details)):
             return "You are not authorized to review this product", 400
 
     form = ReviewForm()
@@ -122,14 +122,14 @@ def review(product_id):
     return {'errors': validation_errors_formatter(form.errors)}, 400
 
 
-@bp.route("<product_id>/images", methods=['GET'])
+@bp.route("<int:product_id>/images", methods=['GET'])
 def get_images_by_product_id(product_id):
     product_images = ProductImage.query.filter(
         ProductImage.product_id == product_id)
     return [product_image.to_dict() for product_image in product_images]
 
 
-@bp.route("<product_id>/images", methods=['POST'])
+@bp.route("<int:product_id>/images", methods=['POST'])
 def post_image_by_product_id(product_id):
     form = ProductImageForm()
     form['csrf_token'].data = request.cookies['csrf_token']
