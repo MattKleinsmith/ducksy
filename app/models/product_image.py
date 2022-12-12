@@ -31,8 +31,6 @@ class ProductImage(db.Model):
                         server_default=func.now(), onupdate=func.now(),
                         nullable=False)
 
-    product = relationship("Product", back_populates="product_images")
-
     def to_dict(self):
         return {
             "id": self.id,

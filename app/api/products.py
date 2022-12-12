@@ -74,9 +74,12 @@ def delete_product(product_id):
         product = db.session.query(Product).filter(
             Product.id == product_id, Product.seller_id == current_user.id).first()
         if (product):
+            print("-"*50)
+            print("Deleting PRODUCT:", product.to_dict())
+            print("-"*75)
             db.session.delete(product)
             db.session.commit()
-            return f"Deleted product with id {product_id}"
+            return {"message": f"Deleted product with id {product_id}"}
         return "404", 404
     except IntegrityError as e:
         print(e)
