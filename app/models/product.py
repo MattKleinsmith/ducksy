@@ -42,12 +42,15 @@ class Product(db.Model):
     product_images = relationship("ProductImage", back_populates="product")
     reviews = relationship("Review", back_populates="product")
     categories = relationship("Category", secondary=products_categories, back_populates="products")
+    orders_details = relationship("OrderDetail", back_populates='product')
+
 
 
     def to_dict(self):
         return {
             "id": self.id,
             "seller_id": self.seller_id,
+            "seller_name": self.seller.display_name,
             "name": self.name,
             "price": str(self.price),
             "description": self.description,

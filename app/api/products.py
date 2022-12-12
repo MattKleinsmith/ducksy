@@ -102,6 +102,7 @@ def review(product_id):
         return "Buyer already left a review for this product", 400
     # Check if buyer bought the product in order to leave review
     orders = OrderDetail.query.all()
+    print(orders, "backend order ________________")
     for order in orders:
         if order.product_id != product_id:
             return "You are not authorized to review this product", 400

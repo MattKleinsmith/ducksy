@@ -34,11 +34,13 @@ class OrderDetail(db.Model):
                         nullable=False)
 
     order = relationship("Order", back_populates="order_details")
-    # product = relationship("Product", back_populates="items")
+    product = relationship("Product", back_populates="orders_details")
+
 
     def to_dict(self):
         return {
             "product_id": self.product_id,
+            "product": self.product.to_dict(),
             "price": self.price,
             "seller_id": self.seller_id,
             "order_id": self.order_id
