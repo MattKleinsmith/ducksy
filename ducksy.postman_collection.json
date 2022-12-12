@@ -1,9 +1,9 @@
 {
 	"info": {
-		"_postman_id": "fe71fef1-e301-47d4-9d80-4845244264be",
+		"_postman_id": "677d56b7-2159-4fcd-b0af-87247c1b0e9f",
 		"name": "ducksy",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
-		"_exporter_id": "23440124"
+		"_exporter_id": "24025000"
 	},
 	"item": [
 		{
@@ -443,14 +443,14 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "{{url}}/categories/1/products",
+					"raw": "{{url}}/products/category/bags",
 					"host": [
 						"{{url}}"
 					],
 					"path": [
-						"categories",
-						"1",
-						"products"
+						"products",
+						"category",
+						"bags"
 					]
 				}
 			},
@@ -1015,6 +1015,56 @@
 					],
 					"path": [
 						"session"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "CREATE session: Anna",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "email",
+							"value": "email@email.com",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "password",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{url}}/session",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"session"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "DELETE product with images",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "{{url}}/products/{{product_id}}",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"products",
+						"{{product_id}}"
 					]
 				}
 			},
