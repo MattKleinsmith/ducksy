@@ -132,7 +132,7 @@ def get_images_by_product_id(product_id):
 
 
 @bp.route("<product_id>/images", methods=['POST'])
-def post_images_by_product_id(product_id):
+def post_image_by_product_id(product_id):
     form = ProductImageForm()
     form['csrf_token'].data = request.cookies['csrf_token']
     if form.validate_on_submit():
