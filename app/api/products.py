@@ -1,6 +1,6 @@
 from flask import Blueprint, request
 from flask_login import login_required, current_user
-from app.models import db, Product, Review, ProductImage, Order, OrderDetail
+from app.models import db, Product, Review, ProductImage, Order, OrderDetail, Category
 from app.forms import ProductForm, ReviewForm, ProductImageForm, validation_errors_formatter
 from sqlalchemy.exc import IntegrityError
 
