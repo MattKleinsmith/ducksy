@@ -19,7 +19,7 @@ export default function ProductGrid() {
         <div className="ProductGridWrapper">
             <div className="ProductGrid">
                 {products.map((product, i) =>
-                    <NavLink key={i} to={`/products/${product.id}`} style={{ textDecoration: 'none' }}>
+                    <NavLink key={i} to={`/listing/${product.id}`} style={{ textDecoration: 'none' }}>
                         <ProductGridItem product={product} />
                     </NavLink>)
                 }

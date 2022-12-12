@@ -3,7 +3,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import { useEffect } from "react";
 
 import "./ShopManager.css";
-// import { clearProductDetails } from "../../store/productDetails";
+import ProductGridItem from "../ProductGrid/ProductGridItem/ProductGridItem";
 
 export default function ShopManager() {
     const dispatch = useDispatch();
@@ -11,13 +11,16 @@ export default function ShopManager() {
 
     return (
         <div className="ShopManagerWrapper">
+            <div className="ShopManagerTitle">
+                <h1>Add draft listings to your shop.</h1>
+            </div>
             <div className="ShopManager">
                 {products.map((product, i) =>
-                    <NavLink key={i} to={`/products/${product.id}`} style={{ textDecoration: 'none' }}>
+                    <NavLink key={i} to={`/listing/${product.id}`} style={{ textDecoration: 'none' }}>
                         <ProductGridItem product={product} />
                     </NavLink>)
                 }
-            </div >
+            </div>
         </div>
     );
 }
