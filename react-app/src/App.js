@@ -21,8 +21,9 @@ export default function App() {
       <Header />
       <Routes>
         <Route path="/" element={<ProductGrid />} />
-        <Route path="/products/:productId" element={<ProductDetails />} />
-        <Route exact path='/purchases_reviews' element={<Orders />} />
+        <Route path="/listing/:productId" element={<ProductDetails />} />
+        <Route exact path='/your/purchases' element={<Orders />} />
+        <Route exact path='/your/shop' element={<Orders />} />
       </Routes>
     </>
   );

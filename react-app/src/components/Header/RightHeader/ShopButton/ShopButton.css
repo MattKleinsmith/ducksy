@@ -1,0 +1,10 @@
+.shopButton {
+    border: none;
+    background-color: white;
+    cursor: pointer;
+    font-size: 20px;
+}
+
+.shopButton:hover {
+    box-shadow: 0px 2px 5px rgb(217, 217, 217);
+}
