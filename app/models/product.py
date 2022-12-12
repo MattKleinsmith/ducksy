@@ -52,7 +52,8 @@ class Product(db.Model):
             "name": self.name,
             "price": str(self.price),
             "description": self.description,
-            "preview_image": self.product_images[0].url if len(self.product_images) else None
+            "preview_image": self.product_images[0].url if len(self.product_images) else None,
+            "seller": self.seller.to_dict()
         }
 
 

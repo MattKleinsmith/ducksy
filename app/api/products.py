@@ -47,7 +47,7 @@ def get_product_by_id(product_id):
         return "500", 500
 
 
-@bp.route("/<product_id>", methods=['PUT'])
+@bp.route("<product_id>", methods=['PUT'])
 @login_required
 def put_product(product_id):
     product = Product.query.filter(Product.id == product_id,
@@ -65,7 +65,7 @@ def put_product(product_id):
     return {'errors': validation_errors_formatter(form.errors)}, 400
 
 
-@bp.route("/<product_id>", methods=['DELETE'])
+@bp.route("<product_id>", methods=['DELETE'])
 @login_required
 def delete_product(product_id):
     try:
@@ -86,7 +86,7 @@ def get_reviews_by_product_id(product_id):
     return [review.to_dict() for review in reviews]
 
 
-@bp.route("/<product_id>/reviews", methods=["POST"])
+@bp.route("<product_id>/reviews", methods=["POST"])
 @login_required
 def review(product_id):
     # Check database for available product
@@ -122,18 +122,10 @@ def review(product_id):
     return {'errors': validation_errors_formatter(form.errors)}, 400
 
 
-@bp.route("fun", methods=['GET'])
-def show_product_images():
-    html = ''
-    images = ProductImage.query
-    for image in images:
-        html += f"<img src='{image.url}' />"
-    return html
-
-
 @bp.route("<product_id>/images", methods=['GET'])
 def get_images_by_product_id(product_id):
-    product_images = ProductImage.query.filter(ProductImage.product_id == product_id)
+    product_images = ProductImage.query.filter(
+        ProductImage.product_id == product_id)
     return [product_image.to_dict() for product_image in product_images]
 
 
@@ -142,7 +134,7 @@ def post_image_by_product_id(product_id):
     form = ProductImageForm()
     form['csrf_token'].data = request.cookies['csrf_token']
     if form.validate_on_submit():
-        data= form.data
+        data = form.data
         product_image = ProductImage(
             product_id=int(product_id),
             url=data['url'],

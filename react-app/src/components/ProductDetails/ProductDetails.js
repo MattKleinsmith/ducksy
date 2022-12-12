@@ -16,18 +16,12 @@ export default function ProductDetails() {
         dispatch(getProducts());
     }, [dispatch]);
 
-    const user = {
-        display_name: "Mary",
-        num_sales: 1000,
-        rating: 5
-    }
-
     if (!product) return
     return (
         <div className="ProductDetailsWrapper">
             <div className="ProductDetails">
                 <ProductDetailsLeft product={product} />
-                <ProductDetailsRight product={product} user={user} />
+                <ProductDetailsRight product={product} />
             </div>
         </div>
     );
