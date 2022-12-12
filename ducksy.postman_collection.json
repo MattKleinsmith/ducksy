@@ -1,9 +1,9 @@
 {
 	"info": {
-		"_postman_id": "a715058c-719e-4c00-b39b-c463323b79a4",
+		"_postman_id": "677d56b7-2159-4fcd-b0af-87247c1b0e9f",
 		"name": "ducksy",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
-		"_exporter_id": "23440124"
+		"_exporter_id": "24025000"
 	},
 	"item": [
 		{
@@ -569,7 +569,7 @@
 			"response": []
 		},
 		{
-			"name": "READ orders",
+			"name": "ERROR: Order own product",
 			"event": [
 				{
 					"listen": "test",
@@ -582,15 +582,12 @@
 					}
 				}
 			],
-			"protocolProfileBehavior": {
-				"disableBodyPruning": true
-			},
 			"request": {
-				"method": "GET",
+				"method": "POST",
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n\r\n}",
+					"raw": "{\r\n    \"product_ids\": [{{product_id}}]\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -789,6 +786,102 @@
 			"response": []
 		},
 		{
+			"name": "ERROR: Leave a review twice",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "rating",
+							"value": "5.0",
+							"type": "text"
+						},
+						{
+							"key": "review",
+							"value": "It is cute.",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{url}}/products/1/reviews",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"products",
+						"1",
+						"reviews"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "READ reviews by product id",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{url}}/products/1/reviews",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"products",
+						"1",
+						"reviews"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "----------------------------",
+			"request": {
+				"method": "----",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "email",
+							"value": "email@email.com",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "password",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{url}}/session",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"session"
+					]
+				}
+			},
+			"response": []
+		},
+		{
 			"name": "CREATE product_image",
 			"request": {
 				"method": "POST",
@@ -829,7 +922,7 @@
 		{
 			"name": "DELETE  product_image",
 			"request": {
-				"method": "GET",
+				"method": "DELETE",
 				"header": [],
 				"url": {
 					"raw": "{{url}}/products/{{product_id}}/images",
@@ -942,32 +1035,41 @@
 			"response": []
 		},
 		{
-			"name": "----------------------------",
+			"name": "READ orders Copy",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"const responseJson = pm.response.json();\r",
+							"postman.setEnvironmentVariable('review_id', responseJson.id)"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
 			"request": {
-				"method": "----",
+				"method": "GET",
 				"header": [],
 				"body": {
-					"mode": "urlencoded",
-					"urlencoded": [
-						{
-							"key": "email",
-							"value": "email@email.com",
-							"type": "text"
-						},
-						{
-							"key": "password",
-							"value": "password",
-							"type": "text"
+					"mode": "raw",
+					"raw": "{\r\n\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
 						}
-					]
+					}
 				},
 				"url": {
-					"raw": "{{url}}/session",
+					"raw": "{{url}}/orders",
 					"host": [
 						"{{url}}"
 					],
 					"path": [
-						"session"
+						"orders"
 					]
 				}
 			},
