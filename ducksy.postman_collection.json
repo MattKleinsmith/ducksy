@@ -971,32 +971,18 @@
 			"response": []
 		},
 		{
-			"name": "----------------------------",
+			"name": "DELETE user",
 			"request": {
-				"method": "----",
+				"method": "DELETE",
 				"header": [],
-				"body": {
-					"mode": "urlencoded",
-					"urlencoded": [
-						{
-							"key": "email",
-							"value": "email@email.com",
-							"type": "text"
-						},
-						{
-							"key": "password",
-							"value": "password",
-							"type": "text"
-						}
-					]
-				},
 				"url": {
-					"raw": "{{url}}/session",
+					"raw": "{{url}}/users/current",
 					"host": [
 						"{{url}}"
 					],
 					"path": [
-						"session"
+						"users",
+						"current"
 					]
 				}
 			},
@@ -1035,41 +1021,32 @@
 			"response": []
 		},
 		{
-			"name": "READ orders Copy",
-			"event": [
-				{
-					"listen": "test",
-					"script": {
-						"exec": [
-							"const responseJson = pm.response.json();\r",
-							"postman.setEnvironmentVariable('review_id', responseJson.id)"
-						],
-						"type": "text/javascript"
-					}
-				}
-			],
-			"protocolProfileBehavior": {
-				"disableBodyPruning": true
-			},
+			"name": "----------------------------",
 			"request": {
-				"method": "GET",
+				"method": "----",
 				"header": [],
 				"body": {
-					"mode": "raw",
-					"raw": "{\r\n\r\n}",
-					"options": {
-						"raw": {
-							"language": "json"
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "email",
+							"value": "email@email.com",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "password",
+							"type": "text"
 						}
-					}
+					]
 				},
 				"url": {
-					"raw": "{{url}}/orders",
+					"raw": "{{url}}/session",
 					"host": [
 						"{{url}}"
 					],
 					"path": [
-						"orders"
+						"session"
 					]
 				}
 			},
