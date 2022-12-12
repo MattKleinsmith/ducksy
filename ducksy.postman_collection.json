@@ -1,9 +1,9 @@
 {
 	"info": {
-		"_postman_id": "c049e3f4-76e1-466a-a5a3-0c369d62b0d6",
+		"_postman_id": "a715058c-719e-4c00-b39b-c463323b79a4",
 		"name": "ducksy",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
-		"_exporter_id": "24025000"
+		"_exporter_id": "23440124"
 	},
 	"item": [
 		{
@@ -569,7 +569,7 @@
 			"response": []
 		},
 		{
-			"name": "ERROR: Order own product",
+			"name": "READ orders",
 			"event": [
 				{
 					"listen": "test",
@@ -582,12 +582,15 @@
 					}
 				}
 			],
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
 			"request": {
-				"method": "POST",
+				"method": "GET",
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    \"product_ids\": [{{product_id}}]\r\n}",
+					"raw": "{\r\n\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -786,65 +789,57 @@
 			"response": []
 		},
 		{
-			"name": "ERROR: Leave a review twice",
-			"event": [
-				{
-					"listen": "test",
-					"script": {
-						"exec": [
-							"const responseJson = pm.response.json();\r",
-							"postman.setEnvironmentVariable('review_id', responseJson.id)"
-						],
-						"type": "text/javascript"
-					}
-				}
-			],
+			"name": "CREATE product_image",
 			"request": {
 				"method": "POST",
 				"header": [],
-				"body": {
-					"mode": "urlencoded",
-					"urlencoded": [
-						{
-							"key": "rating",
-							"value": "5.0",
-							"type": "text"
-						},
-						{
-							"key": "review",
-							"value": "It is cute.",
-							"type": "text"
-						}
-					]
-				},
 				"url": {
-					"raw": "{{url}}/products/1/reviews",
+					"raw": "{{url}}/products/{{product_id}}/images",
 					"host": [
 						"{{url}}"
 					],
 					"path": [
 						"products",
-						"1",
-						"reviews"
+						"{{product_id}}",
+						"images"
 					]
 				}
 			},
 			"response": []
 		},
 		{
-			"name": "READ reviews by product id",
+			"name": "READ product_images",
 			"request": {
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "{{url}}/products/1/reviews",
+					"raw": "{{url}}/products/{{product_id}}/images",
 					"host": [
 						"{{url}}"
 					],
 					"path": [
 						"products",
-						"1",
-						"reviews"
+						"{{product_id}}",
+						"images"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "DELETE  product_image",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{url}}/products/{{product_id}}/images",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"products",
+						"{{product_id}}",
+						"images"
 					]
 				}
 			},
