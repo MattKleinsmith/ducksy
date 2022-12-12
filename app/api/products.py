@@ -1,7 +1,7 @@
 from flask import Blueprint, request
 from flask_login import login_required, current_user
 from app.models import db, Product, Review, ProductImage, Order, OrderDetail
-from app.forms import ProductForm, ReviewForm, validation_errors_formatter
+from app.forms import ProductForm, ReviewForm, ProductImageForm, validation_errors_formatter
 from sqlalchemy.exc import IntegrityError
 
 bp = Blueprint("products", __name__, url_prefix="/products")
@@ -133,5 +133,16 @@ def get_images_by_product_id(product_id):
 
 @bp.route("<product_id>/images", methods=['POST'])
 def post_images_by_product_id(product_id):
-    product_images = ProductImage.query.filter(ProductImage.product_id == product_id)
-    return [product_image.to_dict() for product_image in product_images]
+    form = ProductImageForm()
+    form['csrf_token'].data = request.cookies['csrf_token']
+    if form.validate_on_submit():
+        data= form.data
+        product_image = ProductImage(
+            product_id=int(product_id),
+            url=data['url'],
+            preview=data['preview']
+        )
+        db.session.add(product_image)
+        db.session.commit()
+        return product_image.to_dict()
+    return {'errors': validation_errors_formatter(form.errors)}, 400
