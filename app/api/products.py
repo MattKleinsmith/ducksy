@@ -3,20 +3,36 @@ from flask_login import login_required, current_user
 from app.models import db, Product, Review, ProductImage, Order, OrderDetail, Category
 from app.forms import ProductForm, ReviewForm, ProductImageForm, validation_errors_formatter
 from sqlalchemy.exc import IntegrityError
+import json
 
 bp = Blueprint("products", __name__, url_prefix="/products")
 
 
 @bp.route("/", methods=['GET'])
 def get_products():
+    query = request.args.getlist("categories")
     products = []
-    for product in Product.query:
-        reviews = product.reviews
-        product = product.to_dict()
-        product["seller_rating"] = sum(
-            [review.rating for review in reviews]) / len(reviews) if len(reviews) > 0 else None
-        product["num_seller_ratings"] = len(reviews)
-        products.append(product)
+    if query:
+        query_params = query[0].split(', ')
+        categories = Category.query.filter(Category.name.in_(query_params)).all()
+        query_categories = [category.name for category in categories]
+
+        for category in categories:
+            for product in category.products:
+                product_categories = [category.name for category in product.categories]
+                if product_categories == query_categories:
+                    product = product.to_dict()
+                    product['categories'] = product_categories
+                    products.append(product)
+
+    else:
+        for product in Product.query:
+            reviews = product.reviews
+            product = product.to_dict()
+            product["seller_rating"] = sum(
+                [review.rating for review in reviews]) / len(reviews) if len(reviews) > 0 else None
+            product["num_seller_ratings"] = len(reviews)
+            products.append(product)
     return products
 
 
