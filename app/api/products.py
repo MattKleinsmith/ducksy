@@ -89,34 +89,41 @@ def get_reviews_by_product_id(product_id):
 @bp.route("/<int:product_id>/reviews", methods=["POST"])
 @login_required
 def review(product_id):
+    # Check database for available product
     product = Product.query.get(product_id)
     if product is None:
         return "Product not found", 404
+    # Validate seller vs buyer status
     if product.seller_id == current_user.id:
         return "Seller can not leave review for their own products", 400
-    reviews = Review.query.filter(
-        Review.product_id == product_id and Review.buyer_id == current_user.id).all()
+    # Check all reviews for the product to find if there is review belongs to current user
+    reviews = Review.query.filter(Review.product_id == product_id ,Review.buyer_id == current_user.id).all()
     if len(reviews) > 0:
         return "Buyer already left a review for this product", 400
+    # Check if buyer bought the product in order to leave review
+    orders = OrderDetail.query.all()
+    for order in orders:
+        if order.product_id != product_id:
+            return "You are not authorized to review this product", 400
 
-    form = ReviewForm()
-    form['csrf_token'].data = request.cookies['csrf_token']
-    if form.validate_on_submit():
-        review = Review(
-            buyer_id=current_user.id,
-            seller_id=product.seller_id,
-            product_id=product_id,
-            rating=int(float(form.data["rating"])),
-            review=form.data["review"]
-        )
-        db.session.add(review)
-        db.session.commit()
-        return review.to_dict(), 201
-    return {
-        "message": "Validation Error",
-        "statusCode": 400,
-        "errors": form.errors
-    }, 400, {"Content-Type": "application/json"}
+        form = ReviewForm()
+        form['csrf_token'].data = request.cookies['csrf_token']
+        if form.validate_on_submit():
+            review = Review(
+                buyer_id=current_user.id,
+                seller_id=product.seller_id,
+                product_id=product_id,
+                rating=int(float(form.data["rating"])),
+                review=form.data["review"]
+            )
+            db.session.add(review)
+            db.session.commit()
+            return review.to_dict(), 201
+        return {
+            "message": "Validation Error",
+            "statusCode": 400,
+            "errors": form.errors
+        }, 400, {"Content-Type": "application/json"}
 
 
 @bp.route("fun", methods=['GET'])
