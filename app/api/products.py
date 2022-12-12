@@ -10,33 +10,29 @@ bp = Blueprint("products", __name__, url_prefix="/products")
 
 @bp.route("/", methods=['GET'])
 def get_products():
-    # query = request.query_string.decode()
-    query = request.args.getlist("categories")[0].split(', ')
-    print(query, '-'*50)
-    categories = Category.query.filter(Category.name.in_(query)).all()
-    print(categories, '-'*50)
+    query = request.args.getlist("categories")
+    products = []
     if query:
-        products = set()
+        query_params = query[0].split(', ')
+        categories = Category.query.filter(Category.name.in_(query_params)).all()
+        query_categories = [category.name for category in categories]
+
         for category in categories:
             for product in category.products:
-                categories = [category.name for category in product.categories]
-                product = product.to_dict()
-                product['categories'] = categories
-                products.append(product)
-        return products
-    # if query:
-    #     products = Product.query.filter(Product.categories.any(categories)).all()
-    #     return [product.to_dict() for product in products]
+                product_categories = [category.name for category in product.categories]
+                if product_categories == query_categories:
+                    product = product.to_dict()
+                    product['categories'] = product_categories
+                    products.append(product)
 
-
-    products = []
-    for product in Product.query:
-        reviews = product.reviews
-        product = product.to_dict()
-        product["seller_rating"] = sum(
-            [review.rating for review in reviews]) / len(reviews) if len(reviews) > 0 else None
-        product["num_seller_ratings"] = len(reviews)
-        products.append(product)
+    else:
+        for product in Product.query:
+            reviews = product.reviews
+            product = product.to_dict()
+            product["seller_rating"] = sum(
+                [review.rating for review in reviews]) / len(reviews) if len(reviews) > 0 else None
+            product["num_seller_ratings"] = len(reviews)
+            products.append(product)
     return products
 
 
