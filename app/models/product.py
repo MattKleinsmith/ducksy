@@ -40,7 +40,8 @@ class Product(db.Model):
                         nullable=False)
 
     seller = relationship("User", back_populates="products")
-    product_images = relationship("ProductImage", cascade="all, delete-orphan")
+    product_images = relationship(
+        "ProductImage", cascade="all, delete-orphan", back_populates="product")
     reviews = relationship(
         "Review", back_populates="product", cascade="all, delete-orphan")
     categories = relationship(

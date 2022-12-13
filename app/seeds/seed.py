@@ -1,4 +1,4 @@
-from app.models import db, environment, SCHEMA, User, Product, ProductImage, Review, Category
+from app.models import db, environment, SCHEMA, User, Product, ProductImage, Review, Category, Order, OrderDetail
 from app.seeds.upload import upload_image_to_bucket
 
 # Adds a demo user, you can add other users here if you want
@@ -47,15 +47,14 @@ def seed_all():
     boyfriend = Category(name="boyfriend")
     girlfriend = Category(name="girlfriend")
     gift = Category(name="gift")
-    bag= Category(name="bag")
-    case= Category(name="case")
+    bag = Category(name="bag")
+    case = Category(name="case")
     personalized_gift = Category(name="personalized gift")
     leather = Category(name="leather")
     home_decor = Category(name="home_decor")
     newborn = Category(name="newborn")
     child = Category(name="child")
     toy = Category(name="toy")
-
 
     ##############
     ## Products ##
@@ -1591,6 +1590,18 @@ def seed_all():
 
     db.session.commit()
 
+    order = Order(buyer_id=brian.id)
+    db.session.add_all([
+        OrderDetail(
+            seller_id=anna.id,
+            price=product.id,
+            product=product,
+            order=order
+        )
+    ])
+
+    db.session.commit()
+
     # Insert seeder code above this line
 
     reviews = Review.query.all()
@@ -1620,12 +1631,13 @@ def undo_seed():
         db.session.execute(
             f"TRUNCATE table {SCHEMA}.orders_products RESTART IDENTITY CASCADE;")
     else:
-        db.session.execute("DELETE FROM users")
-        db.session.execute("DELETE FROM products")
-        db.session.execute("DELETE FROM product_images")
         db.session.execute("DELETE FROM reviews")
-        db.session.execute("DELETE FROM review_images")
+        db.session.execute("DELETE FROM order_details")
         db.session.execute("DELETE FROM orders")
-        db.session.execute("DELETE FROM orders_products")
+        db.session.execute("DELETE FROM products_categories")
+        db.session.execute("DELETE FROM categories")
+        db.session.execute("DELETE FROM product_images")
+        db.session.execute("DELETE FROM products")
+        db.session.execute("DELETE FROM users")
 
     db.session.commit()

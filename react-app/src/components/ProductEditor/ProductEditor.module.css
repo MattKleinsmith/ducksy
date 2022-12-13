@@ -5,6 +5,8 @@
 
 .ProductEditor {
     display: flex;
+    flex-direction: column;
     max-width: 1350px;
     gap: 10px;
+    width: 100vw;
 }

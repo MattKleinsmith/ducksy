@@ -3,7 +3,11 @@ import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
 import { getProducts } from "../../store/products";
 
-import "./ProductEditor.css";
+import styles from "./ProductEditor.module.css";
+import { ProductEditorDetails } from "./ProductEditorDetails/ProductEditorDetails";
+import { ProductEditorFooter } from "./ProductEditorFooter/ProductEditorFooter";
+import { ProductEditorPhotos } from "./ProductEditorPhotos/ProductEditorPhotos";
+import { ProductEditorPricing } from "./ProductEditorPricing/ProductEditorPricing";
 
 export default function ProductEditor() {
     const { productId } = useParams();
@@ -16,10 +20,14 @@ export default function ProductEditor() {
 
     if (!product) return
     return (
-        <div className="ProductEditorWrapper">
-            <div className="ProductEditor">
+        <div className={styles.ProductEditorWrapper}>
+            <div className={styles.ProductEditor}>
                 <h1>Editing product {productId}</h1>
+                <ProductEditorPhotos />
+                <ProductEditorDetails />
+                <ProductEditorPricing />
             </div>
+            <ProductEditorFooter />
         </div>
     );
 }
