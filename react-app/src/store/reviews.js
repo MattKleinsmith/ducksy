@@ -15,13 +15,13 @@ export const getReviewsByProductId = (productId) => async dispatch => {
     return response;
 };
 
-// export const getReviewsByBuyerId = () => async dispatch => {
-//     const response = await csrfFetch(`/api/order_details/current`);
+export const getReviewsByBuyerId = () => async dispatch => {
+    const response = await csrfFetch(`/api/users/reviews`);
 
-//     const reviews = await response.json();
-//     dispatch({ type: GET_REVIEWS_BY_BUYER_ID, reviews });
-//     return response;
-// };
+    const reviews = await response.json();
+    dispatch({ type: GET_REVIEWS_BY_BUYER_ID, reviews });
+    return response;
+};
 
 export const getReviews = () => async dispatch => {
     const response = await csrfFetch('/api/reviews');
@@ -83,7 +83,7 @@ export default function reviewsReducer(state = {}, action) {
             }, {});
         case GET_REVIEWS_BY_BUYER_ID:
             return action.reviews.reduce((reviews, review) => {
-                reviews[review.id] = review;
+                reviews[review.product_id] = review;
                 return reviews;
             }, {});
         case GET_REVIEWS:

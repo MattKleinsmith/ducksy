@@ -62,7 +62,8 @@ def delete_user():
     return "Deleted user and logged out"
 
 @bp.route('/reviews')
-def get_review_by_buyer():
+@login_required
+def get_reviews_by_buyer():
     reviews = Review.query.filter(Review.buyer_id == current_user.id).all()
     if not reviews:
         return "Review not found", 404

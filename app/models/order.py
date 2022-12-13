@@ -32,5 +32,5 @@ class Order(db.Model):
     def to_dict(self):
         return {
             "id": self.id,
-            "order_details": [order_detail.to_dict() for order_detail in self.order_details]
+            "order_details": [order_detail.to_dict() for order_detail in self.order_details],
         }
