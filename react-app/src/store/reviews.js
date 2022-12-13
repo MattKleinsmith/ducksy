@@ -31,7 +31,7 @@ export const postReview = (productId, data) => async dispatch => {
     if (response.ok) {
         const review = await response.json();
         dispatch({ type: POST_REVIEW, review });
-        return response;
+        return review;
     }
 };
 

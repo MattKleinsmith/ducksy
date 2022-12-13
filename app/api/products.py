@@ -114,34 +114,43 @@ def review(product_id):
     # Check database for available product
     product = Product.query.get(product_id)
     if not product:
-        return "Product not found", 404
+        return {'errors': "Product not found"}, 404
     # Validate seller vs buyer status
     if product.seller_id == current_user.id:
-        return "Seller can not leave review for their own products", 400
+        return {"errors": "Seller can not leave review for their own products"}, 400
     reviews = Review.query.filter(
         Review.product_id == product_id, Review.buyer_id == current_user.id).all()
     if len(reviews) > 0:
-        return "Buyer already left a review for this product", 400
+        error_message = {
+            'errors' : {
+                'message': "Buyer already left a review for this product"
+                }
+            }
+        return error_message , 400
     # Check if buyer bought the product in order to leave review
     orders = Order.query.filter(Order.buyer_id == current_user.id).all()
+    # [<Order 1>, <Order 2>, <Order 3>, <Order 4>, <Order 5>]
+    # for order in orders:
+    #     if all(map(lambda x: x.product_id != product_id, order.order_details)):
     for order in orders:
-        if all(map(lambda x: x.product_id != product_id, order.order_details)):
-            return "You are not authorized to review this product", 400
+        for product_info in order.order_details: # [<OrderDetails1>,]
+            if product_id == product_info.product_id:
+                form = ReviewForm()
+                form['csrf_token'].data = request.cookies['csrf_token']
+                if form.validate_on_submit():
+                    review = Review(
+                        buyer_id=current_user.id,
+                        seller_id=product.seller_id,
+                        product_id=product_id,
+                        rating=int(float(form.data["rating"])),
+                        review=form.data["review"]
+                    )
+                    db.session.add(review)
+                    db.session.commit()
+                    return review.to_dict(), 201
+                return {'errors': validation_errors_formatter(form.errors)}, 400
+            return {'errors': "You are not authorized to review this product"}, 400
 
-    form = ReviewForm()
-    form['csrf_token'].data = request.cookies['csrf_token']
-    if form.validate_on_submit():
-        review = Review(
-            buyer_id=current_user.id,
-            seller_id=product.seller_id,
-            product_id=product_id,
-            rating=int(float(form.data["rating"])),
-            review=form.data["review"]
-        )
-        db.session.add(review)
-        db.session.commit()
-        return review.to_dict(), 201
-    return {'errors': validation_errors_formatter(form.errors)}, 400
 
 
 @bp.route("<int:product_id>/images", methods=['GET'])
