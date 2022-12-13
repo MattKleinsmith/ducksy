@@ -5,6 +5,10 @@
     font-size: 20px;
 }
 
+.cartButton i {
+    color: black
+}
+
 .cartButton:hover {
     box-shadow: 0px 2px 5px rgb(217, 217, 217);
 }

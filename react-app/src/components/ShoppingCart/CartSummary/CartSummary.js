@@ -1,11 +1,28 @@
+import { useNavigate } from "react-router";
+
+
 
 export default function CartSummary() {
-    const items = window.localStorage.getItem('products')
-    const itemsNum = items ? items.length : 0
+    const navigate = useNavigate();
+
+    const totalItems = () => {
+        let itemNum = 0;
+        const cart = window.localStorage.getItem('ducksyCart');
+        if (cart) {
+            const items = JSON.parse(cart)
+            itemNum = Object.values(items).reduce((total, num) => total += num, 0);
+        }
+        return itemNum;
+    };
+
     return (
-        <div>
+        <div className="cartSummary">
             <div>
-                {itemsNum} items in your cart
+                <h1>{totalItems()} items in your cart</h1>
+            </div>
+            <div>
+                <button onClick={() => navigate('/')}>
+                    Keep shopping</button>
             </div>
         </div>
     )

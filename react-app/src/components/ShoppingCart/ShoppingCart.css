@@ -1,0 +1,30 @@
+.cartWrapper {
+    display: flex;
+    justify-content: center;
+}
+
+
+.cartSummary {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    width: 100vw;
+    max-width: 1350px;
+
+    padding-top: 20px;
+    padding-bottom: 16px;
+}
+
+.cartSummary h1 {
+    font-weight: 200;
+    font-size: 32px;
+}
+
+.cartSummary button {
+    cursor: pointer;
+    background-color: transparent;
+    border: none;
+    color: black;
+    font-weight: 600;
+}
