@@ -1,20 +1,12 @@
 import { NavLink } from "react-router-dom";
-import { useSelector, useDispatch } from 'react-redux';
-import { useEffect } from "react";
+import { useSelector } from 'react-redux';
 
 import "./ProductGrid.css";
 import ProductGridItem from "./ProductGridItem/ProductGridItem";
-import { getProducts } from "../../store/products";
 // import { clearProductDetails } from "../../store/productDetails";
 
 export default function ProductGrid() {
-    const dispatch = useDispatch();
     const products = useSelector(state => Object.values(state.products));
-    useEffect(() => {
-        dispatch(getProducts());
-        // dispatch(clearProductDetails());
-    }, [dispatch]);
-
     return (
         <div className="ProductGridWrapper">
             <div className="ProductGrid">
