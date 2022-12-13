@@ -7,8 +7,7 @@ export default function DropdownSignedIn({ user }) {
     const navigate = useNavigate();
 
     const onClickSignOut = () => {
-        dispatch(signOut())
-            .then(window.localStorage.removeItem('ducksyCart'));
+        dispatch(signOut());
     }
     return <>
         <div className="dropdownInfo">Hello, {user.display_name}!</div>
