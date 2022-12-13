@@ -1,25 +1,30 @@
 import React, { useState } from 'react';
+import { useParams } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { setReviewModal } from '../../../store/ui';
 import { postReview } from '../../../store/reviews';
 import './reviewForm.css';
 
+
 export default function ReviewForm() {
     const [review, setReview] = useState('');
+    // const [isReviewed, setIsReviewed] = useState(false);
     const [rating, setRating] = useState(0);
     const [hover, setHover] = useState(0);
     const [errors, setErrors] = useState([]);
     const dispatch = useDispatch();
 
+    const id = useSelector(state => state.productDetails.id);
     const handleSubmit = async e => {
         e.preventDefault();
         const newReview = { rating, review };
         if (newReview) {
-            return await dispatch(postReview(1, newReview)) // use review no1 for testing now
+            return await dispatch(postReview(id, newReview))
                 .then(() => {
                     dispatch(setReviewModal(false));
                     setRating(0);
                     setReview("");
+                    // setIsReviewed(true);
                 })
                 .catch(response => {
                     if (response.errors) setErrors(Object.values(response.errors));
@@ -60,6 +65,7 @@ export default function ReviewForm() {
                 />
                 <button className='review-btn' type='submit'>Post Your review</button>
             </form>
+            <div><button className='cancel-btn' onClick={() => dispatch(setReviewModal(false))}>Cancel</button></div>
         </>
     );
 };
