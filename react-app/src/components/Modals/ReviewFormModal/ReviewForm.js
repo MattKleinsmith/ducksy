@@ -8,17 +8,21 @@ export default function ReviewForm() {
     const [review, setReview] = useState('');
     const [rating, setRating] = useState(0);
     const [hover, setHover] = useState(0);
+    const [errors, setErrors] = useState([]);
     const dispatch = useDispatch();
 
     const handleSubmit = async e => {
         e.preventDefault();
         const newReview = { rating, review };
         if (newReview) {
-            return await dispatch(postReview(newReview, 1)) // use review no1 for testing now
+            return await dispatch(postReview(1, newReview)) // use review no1 for testing now
                 .then(() => {
                     dispatch(setReviewModal(false));
                     setRating(0);
                     setReview("");
+                })
+                .catch(response => {
+                    if (response.errors) setErrors(Object.values(response.errors));
                 });
         }
     };
@@ -27,6 +31,9 @@ export default function ReviewForm() {
         <>
             <div>My review</div>
             <form onSubmit={handleSubmit}>
+                <ul style={{ color: 'rgb(246, 18, 18)' }}>
+                    {errors.map((error, i) => <li key={i}>{error}</li>)}
+                </ul>
                 <div className='star-rating'><span>Select your rating   </span>
                     {[...Array(5)].map((star, i) => {
                         i += 1;
@@ -55,4 +62,4 @@ export default function ReviewForm() {
             </form>
         </>
     );
-}
+};
