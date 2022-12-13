@@ -8,6 +8,8 @@ export default function DropdownSignedIn({ user }) {
 
     const onClickSignOut = () => {
         dispatch(signOut());
+        if (window.location.href.includes("your"))
+            navigate("/")
     }
     return <>
         <div className="dropdownInfo">Hello, {user.display_name}!</div>

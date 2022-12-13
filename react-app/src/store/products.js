@@ -25,6 +25,23 @@ export const postProduct = (body, url) => async () => {
     return product;
 };
 
+export const postProductImage = (productId, image, preview) => async () => {
+    const formData = new FormData();
+
+    formData.append('image', image);
+    formData.append('preview', preview);
+
+    console.log("formData", Array.from(formData.entries()));
+
+    const response = await fetch(`/api/products/${productId}/images`, {
+        method: "POST",
+        body: formData
+    });
+
+    const data = await response.json();
+    console.log(data);
+};
+
 export const deleteProduct = productId => async () => {
     console.log("deleteProduct", productId);
     const response = await csrfFetch('/api/products/' + productId, { method: "DELETE", });

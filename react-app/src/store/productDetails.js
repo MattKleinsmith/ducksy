@@ -1,5 +1,3 @@
-import { csrfFetch } from './csrf';
-
 const SET_PRODUCT_ID = 'productDetails/SET_PRODUCT_ID';
 
 export const setProductId = productId => {
