@@ -18,18 +18,18 @@ export default function App() {
   const user = useSelector(state => state.session.user);
 
   const setCart = (user) => {
-    const cart_storage = window.localStorage.getItem('ducksyCart');
-    const cart = cart_storage ? JSON.parse(cart_storage) : {};
+    const cart_storage = window.localStorage.getItem('ducksyCarts');
+    const carts = cart_storage ? JSON.parse(cart_storage) : {};
     if (user) {
-      if (!cart[user.id]) {
-        cart[user.id] = {};
+      if (!carts[user.id]) {
+        carts[user.id] = {};
       }
     } else {
-      if (!cart["guest"]) {
-        cart["guest"] = {};
+      if (!carts["guest"]) {
+        carts["guest"] = {};
       }
     }
-    window.localStorage.setItem('ducksyCart', JSON.stringify(cart));
+    window.localStorage.setItem('ducksyCarts', JSON.stringify(carts));
   }
 
   setCart(user);
@@ -44,7 +44,7 @@ export default function App() {
       <Modals />
       <Header />
       <Routes>
-        <Route exact path="/" element={<ProductGrid />} />
+        <Route path="/" element={<ProductGrid />} />
         <Route path="/listing/:productId" element={<ProductDetails />} />
         <Route path='/your/purchases' element={<OrderDetails />} />
         <Route path='/your/shop' element={<ShopManager />} />
