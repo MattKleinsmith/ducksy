@@ -1,0 +1,15 @@
+/* REVIEW STARS */
+button {
+    background-color: transparent;
+    border: none;
+    outline: none;
+    cursor: pointer;
+}
+
+.on {
+    color: #f1a545
+}
+
+.off {
+    color: #ccc;
+}

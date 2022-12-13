@@ -23,8 +23,8 @@ export default function App() {
       <Routes>
         <Route path="/" element={<ProductGrid />} />
         <Route path="/listing/:productId" element={<ProductDetails />} />
-        <Route exact path='/your/purchases' element={<OrderDetails />} />
-        <Route exact path='/your/shop' element={<ShopManager />} />
+        <Route path='/your/purchases' element={<OrderDetails />} />
+        <Route path='/your/shop' element={<ShopManager />} />
       </Routes>
     </>
   );

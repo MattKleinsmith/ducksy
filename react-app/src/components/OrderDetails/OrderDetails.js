@@ -2,6 +2,8 @@ import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { useEffect } from "react";
 import { getCurrentUserOrders } from '../../store/orderDetails';
+import { setReviewModal } from '../../store/ui';
+
 
 export default function OrderDetails() {
     const dispatch = useDispatch();
@@ -21,6 +23,7 @@ export default function OrderDetails() {
                         <div>{product.product.name}</div>
                         <div><img src={product.product.preview_image} alt="previewImage" /></div>
                         <div>{product.price}</div>
+                        <button onClick={() => dispatch(setReviewModal(true))}>Review this item</button>
                     </div>
                 )}
             </div>

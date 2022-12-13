@@ -1,15 +1,11 @@
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { Modal } from '../../../context/Modal';
 import { setDeleteProductModal } from '../../../store/ui';
 import DeleteProductForm from './DeleteProductForm';
 
-function DeleteProductFormModal() {
+export default function DeleteProductFormModal() {
     const dispatch = useDispatch();
-    const showDeleteProductModal = useSelector(state => state.ui.showDeleteProductModal);
-    if (!showDeleteProductModal) return;
     return <Modal onClose={() => dispatch(setDeleteProductModal(false))}>
         <DeleteProductForm />
-    </Modal>
+    </Modal>;
 }
-
-export default DeleteProductFormModal;

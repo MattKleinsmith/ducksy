@@ -11,7 +11,7 @@ export default function RightHeader() {
     return <span>
         {<div className="rightHeader">
             <ShopButton />
-            {!session.user && <div className="pointer" onClick={() => dispatch(setSigninModal(true))}>Sign In</div>}
+            {!session.user && <div className="pointer" onClick={() => dispatch(setSigninModal(true))}>Sign in</div>}
             {session.user && <ProfileButton />}
             <CartButton />
         </div>}
