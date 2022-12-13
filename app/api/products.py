@@ -149,10 +149,10 @@ def review(product_id):
                     db.session.commit()
                     return review.to_dict(), 201
                 return {'errors': validation_errors_formatter(form.errors)}, 400
-            error_message = {
-            'errors' : {
-                'message': "You are not authorized to review this product"}}
-            return error_message , 400
+    error_message = {
+        'errors' : {
+        'message': "You are not authorized to review this product"}}
+    return error_message , 400
 
 
 

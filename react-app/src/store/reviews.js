@@ -1,6 +1,7 @@
 import { csrfFetch } from './csrf';
 
 const GET_REVIEWS_BY_PRODUCT_ID = 'reviews/GET_REVIEWS_BY_PRODUCT_ID';
+const GET_REVIEWS_BY_BUYER_ID = 'reviews/GET_REVIEWS_BY_BUYER_ID';
 const GET_REVIEWS = 'reviews/GET_REVIEWS';
 const POST_REVIEW = 'reviews/POST_REVIEW';
 const DELETE_REVIEW = 'reviews/DELETE_REVIEW';
@@ -13,6 +14,14 @@ export const getReviewsByProductId = (productId) => async dispatch => {
     dispatch({ type: GET_REVIEWS_BY_PRODUCT_ID, reviews });
     return response;
 };
+
+// export const getReviewsByBuyerId = () => async dispatch => {
+//     const response = await csrfFetch(`/api/order_details/current`);
+
+//     const reviews = await response.json();
+//     dispatch({ type: GET_REVIEWS_BY_BUYER_ID, reviews });
+//     return response;
+// };
 
 export const getReviews = () => async dispatch => {
     const response = await csrfFetch('/api/reviews');
@@ -68,6 +77,11 @@ export default function reviewsReducer(state = {}, action) {
     let newState = { ...state };
     switch (action.type) {
         case GET_REVIEWS_BY_PRODUCT_ID:
+            return action.reviews.reduce((reviews, review) => {
+                reviews[review.id] = review;
+                return reviews;
+            }, {});
+        case GET_REVIEWS_BY_BUYER_ID:
             return action.reviews.reduce((reviews, review) => {
                 reviews[review.id] = review;
                 return reviews;

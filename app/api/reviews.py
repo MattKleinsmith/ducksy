@@ -63,7 +63,6 @@ def delete_review(review_id):
             "statusCode": 200
         }, 200, {"Content-Type": "application/json"}
 
-
 @bp.route("/current", methods=["GET"])
 def get_current_reviews():
     """For debugging"""
