@@ -11,6 +11,7 @@ import OrderDetails from "./components/OrderDetails/OrderDetails";
 import ShopManager from "./components/ShopManager/ShopManager";
 import ProductEditor from "./components/ProductEditor/ProductEditor";
 import { getProducts } from "./store/products";
+import ShoppingCart from "./components/ShoppingCart/ShoppingCart";
 
 export default function App() {
   const dispatch = useDispatch();
@@ -24,11 +25,12 @@ export default function App() {
       <Modals />
       <Header />
       <Routes>
-        <Route path="/" element={<ProductGrid />} />
+        <Route exact path="/" element={<ProductGrid />} />
         <Route path="/listing/:productId" element={<ProductDetails />} />
         <Route path='/your/purchases' element={<OrderDetails />} />
         <Route path='/your/shop' element={<ShopManager />} />
         <Route path='/your/shop/listing/:productId' element={<ProductEditor />} />
+        <Route path='/cart' element={<ShoppingCart />} />
       </Routes>
     </>
   );

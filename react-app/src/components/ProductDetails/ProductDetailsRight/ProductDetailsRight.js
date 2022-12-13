@@ -10,6 +10,20 @@ export default function ProductDetailsRight({ product }) {
 
     const dispatch = useDispatch();
 
+    const updateCart = (product) => {
+        const cart_data = window.localStorage.getItem("ducksyCart")
+        let cart_obj;
+        if (cart_data) {
+            cart_obj = JSON.parse(cart_data)
+            if (String(product.id) in cart_obj) cart_obj[product.id] += 1
+            else cart_obj[product.id] = 1
+        } else {
+            cart_obj = {};
+            cart_obj[product.id] = 1
+        }
+        window.localStorage.setItem('ducksyCart', JSON.stringify(cart_obj))
+    }
+
     const onDeleteClick = () => {
         dispatch(setProductId(product.id))
         dispatch(setDeleteProductModal(true));
@@ -24,7 +38,10 @@ export default function ProductDetailsRight({ product }) {
                 <div>{product.price}</div>
                 <input type="number" value={quantity} onChange={(e) => setQuantity(e.target.value)}></input>
                 <button>Buy it now</button>
-                <button>Add to cart</button>
+                <button
+                    onClick={() => updateCart(product)}
+                >
+                    Add to cart</button>
                 <div>{product.description}</div>
                 <button className="button" onClick={onDeleteClick}>Delete product</button>
             </div>
