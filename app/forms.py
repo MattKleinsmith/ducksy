@@ -1,4 +1,5 @@
 from flask_wtf import FlaskForm
+from flask_wtf.file import FileField
 from wtforms.fields import StringField, FloatField, TextAreaField, SubmitField, URLField, EmailField, PasswordField, BooleanField
 from wtforms.validators import DataRequired, Email, URL, NumberRange
 
@@ -43,12 +44,16 @@ class ProductForm(FlaskForm):
 
     submit = SubmitField("List product")
 
-class ProductImageForm(FlaskForm):
-    url = URLField(
-        "Product Image URL", validators=[URL(), DataRequired()])
-    preview = BooleanField(default=False, validators=[DataRequired()])
 
-    submit = SubmitField("Post Product Image")
+def require_image_or_url(form, field):
+    return form.url.data or form.image.data
+
+
+class ProductImageForm(FlaskForm):
+    url = URLField()
+    image = FileField()
+    preview = BooleanField(default=False)
+    submit = SubmitField()
 
 
 class ReviewForm(FlaskForm):

@@ -3,7 +3,8 @@ from flask_login import login_required, current_user
 from app.models import db, Product, Review, ProductImage, Order, OrderDetail, Category
 from app.forms import ProductForm, ReviewForm, ProductImageForm, validation_errors_formatter
 from sqlalchemy.exc import IntegrityError
-import json
+from app.seeds.upload import upload_image_to_bucket_from_url, upload_image_to_bucket
+from werkzeug.utils import secure_filename
 
 bp = Blueprint("products", __name__, url_prefix="/products")
 
@@ -14,12 +15,14 @@ def get_products():
     products = []
     if query:
         query_params = query[0].split(', ')
-        categories = Category.query.filter(Category.name.in_(query_params)).all()
+        categories = Category.query.filter(
+            Category.name.in_(query_params)).all()
         query_categories = [category.name for category in categories]
 
         for category in categories:
             for product in category.products:
-                product_categories = [category.name for category in product.categories]
+                product_categories = [
+                    category.name for category in product.categories]
                 if product_categories == query_categories:
                     product = product.to_dict()
                     product['categories'] = product_categories
@@ -122,18 +125,18 @@ def review(product_id):
         Review.product_id == product_id, Review.buyer_id == current_user.id).all()
     if len(reviews) > 0:
         error_message = {
-            'errors' : {
+            'errors': {
                 'message': "Buyer already left a review for this product"
-                }
             }
-        return error_message , 400
+        }
+        return error_message, 400
     # Check if buyer bought the product in order to leave review
     orders = Order.query.filter(Order.buyer_id == current_user.id).all()
     # [<Order 1>, <Order 2>, <Order 3>, <Order 4>, <Order 5>]
     # for order in orders:
     #     if all(map(lambda x: x.product_id != product_id, order.order_details)):
     for order in orders:
-        for product_info in order.order_details: # [<OrderDetails1>,]
+        for product_info in order.order_details:  # [<OrderDetails1>,]
             if product_id == product_info.product_id:
                 form = ReviewForm()
                 form['csrf_token'].data = request.cookies['csrf_token']
@@ -152,7 +155,6 @@ def review(product_id):
             return {'errors': "You are not authorized to review this product"}, 400
 
 
-
 @bp.route("<int:product_id>/images", methods=['GET'])
 def get_images_by_product_id(product_id):
     product_images = ProductImage.query.filter(
@@ -162,16 +164,16 @@ def get_images_by_product_id(product_id):
 
 @bp.route("<int:product_id>/images", methods=['POST'])
 def post_image_by_product_id(product_id):
-    form = ProductImageForm()
-    form['csrf_token'].data = request.cookies['csrf_token']
-    if form.validate_on_submit():
-        data = form.data
+    try:
+        file = request.files['image']
+        url = upload_image_to_bucket(file, secure_filename(file.filename))
         product_image = ProductImage(
-            product_id=int(product_id),
-            url=data['url'],
-            preview=data['preview']
+            product_id=product_id,
+            url=url,
+            preview=request.form['preview'] == 'true'
         )
         db.session.add(product_image)
         db.session.commit()
         return product_image.to_dict()
-    return {'errors': validation_errors_formatter(form.errors)}, 400
+    except Exception as e:
+        return e, 500

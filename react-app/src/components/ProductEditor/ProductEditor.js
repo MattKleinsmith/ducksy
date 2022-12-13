@@ -23,7 +23,7 @@ export default function ProductEditor() {
         <div className={styles.ProductEditorWrapper}>
             <div className={styles.ProductEditor}>
                 <h1>Editing product {productId}</h1>
-                <ProductEditorPhotos />
+                <ProductEditorPhotos productId={productId} />
                 <ProductEditorDetails />
                 <ProductEditorPricing />
             </div>
