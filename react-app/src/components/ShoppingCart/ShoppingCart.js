@@ -8,12 +8,13 @@ import { CartList } from "./CartList/CartList";
 
 export default function ShoppingCart() {
     const data = window.localStorage.getItem('ducksyCart');
-    const cart = data ? JSON.parse(data) : null;
+    const carts = JSON.parse(data);
+    console.log("ShoppingCart", carts)
 
     return (
         <div className="cartWrapper">
-            <CartSummary cart={cart} />
-            <CartList cart={cart} />
+            <CartSummary carts={carts} />
+            <CartList carts={carts} />
         </div>
     )
 }
