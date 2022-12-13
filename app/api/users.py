@@ -1,7 +1,7 @@
 from flask import Blueprint, request
 from flask_login import login_required, current_user, login_user, logout_user
 from app.forms import SignupForm, validation_errors_formatter
-from app.models import db, User
+from app.models import db, User, Review
 
 
 bp = Blueprint("users", __name__, url_prefix="/users")
@@ -60,3 +60,11 @@ def delete_user():
     db.session.commit()
     logout_user()
     return "Deleted user and logged out"
+
+@bp.route('/reviews')
+@login_required
+def get_reviews_by_buyer():
+    reviews = Review.query.filter(Review.buyer_id == current_user.id).all()
+    if not reviews:
+        return "Review not found", 404
+    return [review.to_dict() for review in reviews]

@@ -7,13 +7,14 @@ import reviewsReducer from "./reviews";
 import sessionReducer from "./session";
 import uiReducer from "./ui";
 
+
 const rootReducer = combineReducers({
     session: sessionReducer,
     ui: uiReducer,
     products: productsReducer,
     productDetails: productDetailsReducer,
     reviews: reviewsReducer,
-    order_details: orderDetailsReducer
+    order_details: orderDetailsReducer,
 });
 
 let enhancer;

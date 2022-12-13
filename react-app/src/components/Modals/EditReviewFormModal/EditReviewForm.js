@@ -1,30 +1,27 @@
 import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { setReviewModal } from '../../../store/ui';
-import { getReviewsByBuyerId, postReview } from '../../../store/reviews';
-import './reviewForm.css';
+import { setEditReviewModal } from '../../../store/ui';
+import { getReviewsByBuyerId, updateReview } from '../../../store/reviews';
+import './editReviewForm.css';
 
-
-export default function ReviewForm() {
-    const [review, setReview] = useState('');
-    // const [isReviewed, setIsReviewed] = useState(false);
-    const [rating, setRating] = useState(0);
-    const [hover, setHover] = useState(0);
+export default function EditReviewForm() {
+    const productId = useSelector(state => state.productDetails.id);
+    const reviews = useSelector(state => state.reviews);
+    const originalReview = reviews[productId];
+    const [review, setReview] = useState(originalReview.review);
+    const [rating, setRating] = useState(originalReview.rating);
+    const [hover, setHover] = useState(rating);
     const [errors, setErrors] = useState([]);
     const dispatch = useDispatch();
 
-    const id = useSelector(state => state.productDetails.id);
     const handleSubmit = async e => {
         e.preventDefault();
         const newReview = { rating, review };
         if (newReview) {
-            return await dispatch(postReview(id, newReview))
+            return await dispatch(updateReview(originalReview.id, newReview))
                 .then(() => {
-                    dispatch(setReviewModal(false));
+                    dispatch(setEditReviewModal(false));
                     dispatch(getReviewsByBuyerId());
-                    setRating(0);
-                    setReview("");
-                    // setIsReviewed(true);
                 })
                 .catch(response => {
                     if (response.errors) setErrors(Object.values(response.errors));
@@ -58,14 +55,14 @@ export default function ReviewForm() {
 
                 <textarea
                     className='review-detail'
-                    placeholder='Review here'
+                    placeholder='Update here'
                     type='text'
                     onChange={e => setReview(e.target.value)}
                     value={review}
                 />
-                <button className='review-btn' type='submit'>Post Your review</button>
+                <button className='review-btn' type='submit'>Update review</button>
             </form>
-            <div><button className='cancel-btn' onClick={() => dispatch(setReviewModal(false))}>Cancel</button></div>
+            <div><button className='cancel-btn' onClick={() => dispatch(setEditReviewModal(false))}>Cancel</button></div>
         </>
     );
 };

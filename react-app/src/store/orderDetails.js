@@ -12,8 +12,7 @@ export const getCurrentUserOrders = () => async dispatch => {
 export default function orderDetailsReducer(state = {}, action) {
     switch (action.type) {
         case GET_ORDER_DETAILS:
-            const newState = { ...state };
-            action.order_details.forEach(order_detail => newState[order_detail.order_id] = order_detail);
+            const newState = { ...state, ...action.order_details };
             return newState;
         default:
             return state;
