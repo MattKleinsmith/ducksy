@@ -17,12 +17,13 @@ s3 = boto3.client(
 
 def upload_image_to_bucket(image, image_name, acl="public-read"):
     print(f"upload_image_to_bucket: Uploading {image_name}", "-"*50)
+    image_name = str(uuid.uuid1()) + "-" + image_name
     bucket_url = f"{S3_LOCATION}{image_name}"
     try:
         s3.upload_fileobj(
             image,
             BUCKET_NAME,
-            str(uuid.uuid1()) + "-" + image_name,
+            image_name,
             ExtraArgs={
                 "ACL": acl,
             }

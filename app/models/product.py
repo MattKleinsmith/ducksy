@@ -48,6 +48,7 @@ class Product(db.Model):
         "Category", secondary=products_categories, back_populates="products")
 
     def to_dict(self):
+        preview_images = list(filter(lambda x: x.preview, self.product_images))
         return {
             "id": self.id,
             "seller_id": self.seller_id,
@@ -55,7 +56,7 @@ class Product(db.Model):
             "name": self.name,
             "price": str(self.price),
             "description": self.description,
-            "preview_image": self.product_images[0].url if len(self.product_images) else None,
+            "preview_image": preview_images[-1].url if len(preview_images) else None,
             "seller": self.seller.to_dict()
         }
 
