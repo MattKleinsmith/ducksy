@@ -5,7 +5,6 @@ import DeleteProductFormModal from './DeleteProductFormModal/DeleteProductFormMo
 import ReviewFormModal from './ReviewFormModal/ReviewFormModal';
 import EditReviewFormModal from './EditReviewFormModal/EditReviewFormModal';
 
-
 export default function Modals() {
     const ui = useSelector(state => state.ui);
     return <>

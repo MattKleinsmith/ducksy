@@ -1,14 +1,14 @@
 import React from 'react';
 import { useDispatch } from 'react-redux';
 import { Modal } from '../../../context/Modal';
-import { setReviewModal } from '../../../store/ui';
+import { setEditReviewModal } from '../../../store/ui';
 import EditReviewForm from './EditReviewForm';
 
-export default function ReviewFormModal() {
+export default function EditReviewFormModal() {
     const dispatch = useDispatch();
 
     return (
-        <Modal onClose={() => dispatch(setReviewModal(false))}>
+        <Modal onClose={() => dispatch(setEditReviewModal(false))}>
             <EditReviewForm />
         </Modal>
     );

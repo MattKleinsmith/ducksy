@@ -19,23 +19,23 @@ def get_review(review_id):
 @bp.route("/<int:review_id>", methods=["PUT"])
 @login_required
 def update_review(review_id):
-    review_tobe_updated = Review.query.get(review_id)
-    print(review_tobe_updated)
-    if review_tobe_updated is None:
+    review = Review.query.get(review_id)
+    print(review)
+    if not review:
         return "No review", 404
 
     form = ReviewForm()
     form['csrf_token'].data = request.cookies['csrf_token']
 
-    if review_tobe_updated.buyer_id == current_user.id:
+    if review.buyer_id == current_user.id:
         if form.validate_on_submit():
-            review_tobe_updated.rating = form.data["rating"]
-            review_tobe_updated.review = form.data["review"]
+            review.rating = form.data["rating"]
+            review.review = form.data["review"]
             db.session.commit()
             return {
-                "rating": review_tobe_updated.rating,
-                "review": review_tobe_updated.review
-            }, 201
+                "rating": review.rating,
+                "review": review.review
+            }
 
         if form.errors:
             return {

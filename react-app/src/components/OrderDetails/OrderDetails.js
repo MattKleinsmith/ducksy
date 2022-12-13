@@ -10,15 +10,15 @@ export default function OrderDetails() {
     const dispatch = useDispatch();
     const orderDetails = useSelector(state => Object.values(state.order_details));
     const reviews = useSelector(state => state.reviews);
-    console.log(reviews);
 
     useEffect(() => {
         dispatch(getCurrentUserOrders());
         dispatch(getReviewsByBuyerId());
-    }, [dispatch, reviews]);
+    }, [dispatch]);
 
     return (
         <>
+
             <div>Purchases</div>
             <div>
                 {orderDetails.length && orderDetails.map(orderDetail =>
@@ -37,6 +37,7 @@ export default function OrderDetails() {
                                     dispatch(setEditReviewModal(true));
                                     dispatch(setReviewModal(false));
                                 }}>Edit review</button>
+
                             </div>
                             :
                             <button onClick={() => {
@@ -46,12 +47,6 @@ export default function OrderDetails() {
                             }}>Review this item</button>
                         }
                         </div>
-                        {/* <div>
-                            <button onClick={() => {
-                                dispatch(setProductId(product.product_id));
-                                dispatch(setReviewModal(true));
-                            }}>Review this item</button>
-                        </div> */}
                     </div>
                 )}
             </div>

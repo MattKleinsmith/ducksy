@@ -1,8 +1,7 @@
 import React, { useState } from 'react';
-import { useParams } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { setReviewModal } from '../../../store/ui';
-import { postReview } from '../../../store/reviews';
+import { getReviewsByBuyerId, postReview } from '../../../store/reviews';
 import './reviewForm.css';
 
 
@@ -22,6 +21,7 @@ export default function ReviewForm() {
             return await dispatch(postReview(id, newReview))
                 .then(() => {
                     dispatch(setReviewModal(false));
+                    dispatch(getReviewsByBuyerId());
                     setRating(0);
                     setReview("");
                     // setIsReviewed(true);

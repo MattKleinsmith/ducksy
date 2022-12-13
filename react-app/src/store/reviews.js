@@ -4,6 +4,7 @@ const GET_REVIEWS_BY_PRODUCT_ID = 'reviews/GET_REVIEWS_BY_PRODUCT_ID';
 const GET_REVIEWS_BY_BUYER_ID = 'reviews/GET_REVIEWS_BY_BUYER_ID';
 const GET_REVIEWS = 'reviews/GET_REVIEWS';
 const POST_REVIEW = 'reviews/POST_REVIEW';
+const UPDATE_REVIEW = ' reviews/UPDATE_REVIEW';
 const DELETE_REVIEW = 'reviews/DELETE_REVIEW';
 
 export const getReviewsByProductId = (productId) => async dispatch => {
@@ -44,21 +45,6 @@ export const postReview = (productId, data) => async dispatch => {
     }
 };
 
-// export const postReview = (body, url) => async () => {
-//     const response = await csrfFetch('/api/reviews', {
-//         method: "POST",
-//         body: JSON.stringify(body)
-//     });
-//     const review = await response.json();
-
-//     await csrfFetch(`/api/reviews/${review.id}/images`, {
-//         method: "POST",
-//         body: JSON.stringify({ url, preview: true })
-//     });
-
-//     return review;
-// };
-
 export const deleteReview = (reviewId) => async dispatch => {
     const response = await csrfFetch(`/api/reviews/${reviewId}`, { method: "DELETE" });
     if (response.ok)
@@ -70,7 +56,11 @@ export const updateReview = (reviewId, body) => async dispatch => {
         method: "PUT",
         body: JSON.stringify(body)
     });
-    return await response.json();
+    if (response.ok) {
+        const review = await response.json();
+        dispatch({ type: UPDATE_REVIEW, review });
+        return review;
+    }
 };
 
 export default function reviewsReducer(state = {}, action) {
@@ -94,8 +84,11 @@ export default function reviewsReducer(state = {}, action) {
         case POST_REVIEW:
             newState[action.review.id] = action.review;
             return newState;
+        case UPDATE_REVIEW:
+            newState[action.review.id] = action.review;
+            return newState;
         case DELETE_REVIEW:
-            delete newState[action.id];
+            delete newState[action.reviewId];
             return newState;
         default:
             return state;
