@@ -20,14 +20,17 @@ export default function App() {
   const setCart = (user) => {
     const cart_storage = window.localStorage.getItem('ducksyCarts');
     const carts = cart_storage ? JSON.parse(cart_storage) : {};
+    if (!carts["guest"]) {
+      carts["guest"] = {};
+    }
     if (user) {
       if (!carts[user.id]) {
         carts[user.id] = {};
       }
-    } else {
-      if (!carts["guest"]) {
-        carts["guest"] = {};
-      }
+      // Merge guest cart to log-in user cart
+      carts[user.id] = Object.assign(carts[user.id], carts["guest"]);
+      //  Clear guest cart
+      carts["guest"] = {};
     }
     window.localStorage.setItem('ducksyCarts', JSON.stringify(carts));
   }
