@@ -1,9 +1,11 @@
+import { deleteItemFromCart } from '../../../../store/shoppingCart';
+import { useDispatch, useSelector } from 'react-redux';
 import './CartItem.css';
 
 export default function CartItem({ product, amount }) {
-    const removeHandler = () => {
+    const dispatch = useDispatch()
+    const user = useSelector(state => state.session.user)
 
-    }
     return (
         <div>
             <div className="cart_seller_info">
@@ -23,7 +25,7 @@ export default function CartItem({ product, amount }) {
                     </div>
                     <div>
                         <button
-                            onClick={() => removeHandler()}
+                            onClick={() => dispatch(deleteItemFromCart(product, user))}
                         >Remove</button>
                     </div>
                 </div>
