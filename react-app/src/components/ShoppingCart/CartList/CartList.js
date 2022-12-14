@@ -5,6 +5,7 @@ import './CartList.css'
 
 export function CartList({ cart_items }) {
     const products = useSelector(state => state.products);
+    console.log(cart_items)
 
     return (
         <>
@@ -12,11 +13,6 @@ export function CartList({ cart_items }) {
                 <div className="CartList">
                     {cart_items.length > 0
                         && cart_items.map(([product_id, amount], i) => <CartItem product={products[product_id]} amount={amount} key={i} />)}
-                    {cart_items.length === 0
-                        && <div>
-                            <h1>Your cart is empty</h1>
-                            <NavLink to={'/'}>Discover something unique to fill it up</NavLink>
-                        </div>}
                 </div>
             }
         </>
