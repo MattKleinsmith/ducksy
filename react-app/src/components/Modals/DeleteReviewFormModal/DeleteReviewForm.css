@@ -23,3 +23,9 @@
 
     align-self: center;
 }
+
+.cancel-x {
+    font-weight: bold;
+    font-size: 16px;
+    margin-left: 300px;
+}

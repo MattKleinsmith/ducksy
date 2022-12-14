@@ -12,7 +12,10 @@ bp = Blueprint("reviews", __name__, url_prefix="/reviews")
 def get_review(review_id):
     review = Review.query.get(review_id)
     if not review:
-        return "Review not found", 404
+        errors = {
+            "message": {"Review not found"}
+        }
+        return errors, 404
     return review.to_dict()
 
 
@@ -22,7 +25,10 @@ def update_review(review_id):
     review = Review.query.get(review_id)
     print(review)
     if not review:
-        return "No review", 404
+        errors = {
+            "message": {"Review not found"}
+        }
+        return errors, 404
 
     form = ReviewForm()
     form['csrf_token'].data = request.cookies['csrf_token']
@@ -51,7 +57,11 @@ def update_review(review_id):
 def delete_review(review_id):
     review = Review.query.get(review_id)
     if not review:
-        return "Review not found", 404
+        errors = {
+            "message": {"Review not found"}
+        }
+        return errors, 404
+
     if review.buyer_id != current_user.id:
         return "You are not authorized to delete this review", 403
 
@@ -61,7 +71,7 @@ def delete_review(review_id):
         return {
             "message": "Successfully deleted",
             "statusCode": 200
-        }, 200, {"Content-Type": "application/json"}
+        }
 
 @bp.route("/current", methods=["GET"])
 def get_current_reviews():

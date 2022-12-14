@@ -10,7 +10,6 @@ export default function OrderDetails() {
     const dispatch = useDispatch();
     const orderDetails = useSelector(state => Object.values(state.order_details));
     const reviews = useSelector(state => state.reviews);
-
     useEffect(() => {
         dispatch(getCurrentUserOrders());
         dispatch(getReviewsByBuyerId());
@@ -34,14 +33,14 @@ export default function OrderDetails() {
                                 <button onClick={() => {
                                     dispatch(setProductId(orderDetail.product_id));
                                     dispatch(setEditReviewModal(true));
-                                    dispatch(setReviewModal(false));
-                                    dispatch(setDeleteReviewModal(false));
+                                    // dispatch(setReviewModal(false));
+                                    // dispatch(setDeleteReviewModal(false));
                                 }}>Edit review</button>
                                 <button onClick={() => {
                                     dispatch(setReviewId(reviews[orderDetail.product_id].id));
                                     dispatch(setDeleteReviewModal(true));
-                                    dispatch(setEditReviewModal(false));
-                                    dispatch(setReviewModal(false));
+                                    // dispatch(setEditReviewModal(false));
+                                    // dispatch(setReviewModal(false));
                                 }}>Remove review</button>
                             </div>
                             :
