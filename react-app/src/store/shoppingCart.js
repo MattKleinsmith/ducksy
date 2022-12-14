@@ -33,7 +33,6 @@ export const addItemToCart = (product, user) => async dispatch => {
     const current_cart = user ? carts[user.id] : carts['guest'];
     if (String(product.id) in current_cart) current_cart[product.id] += 1;
     else current_cart[product.id] = 1;
-    console.log(carts)
     saveCarts(carts)
     dispatch({ type: GET_CARTS, carts })
 };
@@ -47,6 +46,15 @@ export const deleteItemFromCart = (product, user) => async dispatch => {
     dispatch({ type: GET_CARTS, carts })
 }
 
+
+export const updateItemAmount = (product, user, amount) => async dispatch => {
+    console.log(' HEYYYYYYYYYYYYYYY', amount)
+    const carts = await dispatch(getCarts())
+    const current_cart = user ? carts[user.id] : carts['guest'];
+    current_cart[product.id] = Number(amount);
+    saveCarts(carts)
+    dispatch({ type: GET_CARTS, carts })
+}
 
 const initialState = window.localStorage.getItem('ducksy');
 

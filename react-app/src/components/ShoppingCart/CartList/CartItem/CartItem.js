@@ -1,6 +1,7 @@
 import { deleteItemFromCart } from '../../../../store/shoppingCart';
 import { useDispatch, useSelector } from 'react-redux';
 import './CartItem.css';
+import ItemAmount from './ItemAmount/ItemAmount';
 
 export default function CartItem({ product, amount }) {
     const dispatch = useDispatch()
@@ -29,8 +30,8 @@ export default function CartItem({ product, amount }) {
                         >Remove</button>
                     </div>
                 </div>
+                <ItemAmount amount={amount} user={user} product={product} />
             </div>
-            <div>{amount}</div>
         </div >
     )
 }
