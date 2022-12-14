@@ -171,7 +171,11 @@ def post_image_by_product_id(product_id):
         file = request.files['image']
         filename = secure_filename(file.filename)
         if not allowed_file(filename):
-            return {"error": "Please upload a supported image format: .png and .jpg"}, 400
+            return {
+                "errors": {
+                    "image": "Please upload a supported image format: .png and .jpg"
+                }
+            }, 400
         url = upload_image_to_bucket(file, filename)
         product_image = ProductImage(
             product_id=product_id,

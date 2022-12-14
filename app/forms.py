@@ -1,7 +1,7 @@
 from flask_wtf import FlaskForm
 from flask_wtf.file import FileField
 from wtforms.fields import StringField, FloatField, TextAreaField, SubmitField, URLField, EmailField, PasswordField, BooleanField
-from wtforms.validators import DataRequired, Email, URL, NumberRange
+from wtforms.validators import DataRequired, Email, URL, NumberRange, Length
 
 
 def validation_errors_formatter(validation_errors):
@@ -37,7 +37,7 @@ class SignupForm(FlaskForm):
 
 
 class ProductForm(FlaskForm):
-    name = StringField("Name", validators=[DataRequired()])
+    name = StringField("Name", validators=[DataRequired(), Length(max=140)])
     price = FloatField("Price", validators=[
                        DataRequired(), NumberRange(min=0)])
     description = TextAreaField("Description")
