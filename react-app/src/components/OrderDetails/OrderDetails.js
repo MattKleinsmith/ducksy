@@ -1,10 +1,10 @@
 import { useSelector, useDispatch } from 'react-redux';
 import { useEffect } from "react";
 import { getCurrentUserOrders } from '../../store/orderDetails';
-import { setReviewModal, setEditReviewModal } from '../../store/ui';
+import { setReviewModal, setEditReviewModal, setDeleteReviewModal } from '../../store/ui';
 import { setProductId } from '../../store/productDetails';
 import { getReviewsByBuyerId } from '../../store/reviews';
-
+import { setReviewId } from '../../store/reviewId';
 
 export default function OrderDetails() {
     const dispatch = useDispatch();
@@ -18,7 +18,6 @@ export default function OrderDetails() {
 
     return (
         <>
-
             <div>Purchases</div>
             <div>
                 {orderDetails.length && orderDetails.map(orderDetail =>
@@ -36,8 +35,14 @@ export default function OrderDetails() {
                                     dispatch(setProductId(orderDetail.product_id));
                                     dispatch(setEditReviewModal(true));
                                     dispatch(setReviewModal(false));
+                                    dispatch(setDeleteReviewModal(false));
                                 }}>Edit review</button>
-
+                                <button onClick={() => {
+                                    dispatch(setReviewId(reviews[orderDetail.product_id].id));
+                                    dispatch(setDeleteReviewModal(true));
+                                    dispatch(setEditReviewModal(false));
+                                    dispatch(setReviewModal(false));
+                                }}>Remove review</button>
                             </div>
                             :
                             <button onClick={() => {
