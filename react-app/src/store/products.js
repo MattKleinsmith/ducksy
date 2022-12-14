@@ -30,10 +30,17 @@ export const postProductImage = (productId, image, preview) => async dispatch =>
     formData.append('image', image);
     formData.append('preview', preview);
 
-    await fetch(`/api/products/${productId}/images`, {
+    const res = await fetch(`/api/products/${productId}/images`, {
         method: "POST",
         body: formData
     });
+
+    if (res.status >= 400) {
+        const errors = await res.json();
+        console.log(errors);
+        throw errors;
+    }
+
     dispatch(getProducts())
 };
 

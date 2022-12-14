@@ -19,7 +19,6 @@ export const getCarts = (user = null) => async dispatch => {
 }
 
 export const mergeCarts = (user_id) => async dispatch => {
-    console.log('HEYYYYYYYYYYYYYYYYYYYYY')
     const carts = await dispatch(getCarts())
     // Merge guest cart to log-in user cart
     carts[user_id] = Object.assign(carts[user_id], carts["guest"]);

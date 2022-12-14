@@ -35,7 +35,6 @@ def get_products():
 @bp.route("", methods=['POST'])
 @login_required
 def post_product():
-    print("did we get here?")
     form = ProductForm()
     form['csrf_token'].data = request.cookies['csrf_token']
     if (form.validate_on_submit()):
@@ -159,11 +158,21 @@ def get_images_by_product_id(product_id):
     return [product_image.to_dict() for product_image in product_images]
 
 
+ALLOWED_EXTENSIONS = set(['png', 'jpg', 'jpeg'])
+
+
+def allowed_file(filename): return '.' in filename and filename.rsplit(
+    '.', 1)[1].lower() in ALLOWED_EXTENSIONS
+
+
 @bp.route("<int:product_id>/images", methods=['POST'])
 def post_image_by_product_id(product_id):
     try:
         file = request.files['image']
-        url = upload_image_to_bucket(file, secure_filename(file.filename))
+        filename = secure_filename(file.filename)
+        if not allowed_file(filename):
+            return {"error": "Please upload a supported image format: .png and .jpg"}, 400
+        url = upload_image_to_bucket(file, filename)
         product_image = ProductImage(
             product_id=product_id,
             url=url,

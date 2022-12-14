@@ -42,14 +42,14 @@ export default function ProductEditor() {
             try {
                 setImageErrors([]);
                 await dispatch(postProductImage(productId, image, preview))
+                navigate("/your/shop")
             }
             catch (errors) {
-                setImageErrors(Object.values(errors.errors))
+                setImageErrors(Object.values(errors))
             }
-            navigate("/your/shop")
         }
         catch (errors) {
-            setErrors(Object.values(errors.errors))
+            setErrors(Object.values(errors))
         }
     };
 
