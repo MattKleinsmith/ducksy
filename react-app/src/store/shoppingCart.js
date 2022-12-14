@@ -1,6 +1,4 @@
-import { csrfFetch } from './csrf';
-
-export const postCarts = (carts) => {
+export const saveCarts = (carts) => {
     window.localStorage.setItem('ducksyCarts', JSON.stringify(carts));
 }
 
@@ -15,31 +13,38 @@ export const getCarts = (user = null) => async dispatch => {
     if (user) {
         if (!carts[user.id]) carts[user.id] = {}
     }
-    postCarts(carts)
+    saveCarts(carts)
     dispatch({ type: GET_CARTS, carts })
     return carts
 }
 
-// const MERGE_CARTS = 'shoppingCart/MERGE_CARTS'
 export const mergeCarts = (user_id) => async dispatch => {
-    const carts = dispatch(getCarts())
+    console.log('HEYYYYYYYYYYYYYYYYYYYYY')
+    const carts = await dispatch(getCarts())
     // Merge guest cart to log-in user cart
     carts[user_id] = Object.assign(carts[user_id], carts["guest"]);
     //  Clear guest cart
     carts["guest"] = {};
+    saveCarts(carts)
     dispatch({ type: GET_CARTS, carts })
 }
+
+export const addItemToCart = (product, user) => async dispatch => {
+    const carts = await dispatch(getCarts())
+    const current_cart = user ? carts[user.id] : carts['guest'];
+    if (String(product.id) in current_cart) current_cart[product.id] += 1;
+    else current_cart[product.id] = 1;
+    console.log(carts)
+    saveCarts(carts)
+    dispatch({ type: GET_CARTS, carts })
+};
 
 export const deleteItem = (user_id, product_id) => async dispatch => {
     const carts = dispatch(getCarts())
     delete carts[user_id][product_id]
-    postCarts()
+    saveCarts()
     dispatch({ type: GET_CARTS, carts })
 }
-
-const UPDATE_CART = 'shoppingCart/UPDATE_CART'
-const DELETE_CART = 'shoppingCart/DELETE_CART'
-
 
 
 const initialState = window.localStorage.getItem('ducksy');
@@ -47,7 +52,7 @@ const initialState = window.localStorage.getItem('ducksy');
 export default function ShoppingCartReducer(state = initialState, action) {
     switch (action.type) {
         case GET_CARTS:
-            return action.carts
+            return { ...action.carts }
         default:
             return state
     }
