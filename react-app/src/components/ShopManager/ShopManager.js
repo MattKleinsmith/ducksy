@@ -1,13 +1,25 @@
-import { NavLink } from "react-router-dom";
 import { useSelector } from 'react-redux';
-
+import ShopManagerItem from "./ShopManagerItem/ShopManagerItem";
 import "./ShopManager.css";
-import ProductGridItem from "../ProductGrid/ProductGridItem/ProductGridItem";
 
 export default function ShopManager() {
     const user = useSelector(state => state.session.user)
-    const products = useSelector(state => Object.values(state.products))
-        .filter(product => product.seller_id == user.id);
+    let products = useSelector(state => Object.values(state.products))
+        .filter(product => product.seller_id === user.id);
+    products = [{
+        preview_image: "/add_a_listing.png"
+    }].concat(products);
+
+    console.log(products);
+    const minItems = 10
+    if (products.length < minItems) {
+        const diff = minItems - products.length;
+        for (let i = 0; i < diff; i++) {
+            products.push({
+                preview_image: "/placeholder.png"
+            })
+        }
+    }
 
     return (
         <div className="ShopManagerWrapper">
@@ -15,11 +27,7 @@ export default function ShopManager() {
                 <h1>Add draft listings to your shop.</h1>
             </div>
             <div className="ShopManager">
-                {products.map((product, i) =>
-                    <NavLink key={i} to={`/your/shop/listing/${product.id}`} style={{ textDecoration: 'none' }}>
-                        <ProductGridItem product={product} />
-                    </NavLink>)
-                }
+                {products.map((product, i) => <ShopManagerItem product={product} />)}
             </div>
         </div>
     );

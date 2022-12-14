@@ -1,7 +1,6 @@
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
-import { setProductEditorState } from "../../store/productEditor";
 import { getProducts, putProduct } from "../../store/products";
 import { postProductImage } from "../../store/products";
 
@@ -18,7 +17,6 @@ export default function ProductEditor() {
 
     useEffect(() => {
         dispatch(getProducts());
-        dispatch(setProductEditorState(product))
     }, [dispatch]);
 
     const [image, setImage] = useState(null);

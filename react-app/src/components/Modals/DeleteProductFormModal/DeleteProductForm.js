@@ -15,12 +15,11 @@ export default function DeleteProductForm() {
         e.preventDefault();
         setErrors([]);
         return dispatch(deleteProduct(productId))
-            .then(() => {
+            .then(async () => {
                 dispatch(setDeleteProductModal(false));
-                navigate("/");
+                navigate("/your/shop");
             })
             .catch(errors => {
-                console.log("3", errors);
                 setErrors(Object.values(errors.errors))
             });
     };
