@@ -10,3 +10,9 @@
     gap: 10px;
     width: 100vw;
 }
+
+.image {
+    width: 16vw;
+    height: 10vw;
+    object-fit: cover;
+}

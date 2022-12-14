@@ -6,7 +6,6 @@ import { postProductImage } from "../../store/products";
 
 import styles from "./ProductEditor.module.css";
 import footerStyles from "./ProductEditorFooter/ProductEditorFooter.module.css"
-import { ProductEditorFooter } from "./ProductEditorFooter/ProductEditorFooter";
 
 export default function ProductEditor() {
     const navigate = useNavigate()
@@ -27,15 +26,11 @@ export default function ProductEditor() {
     const [price, setPrice] = useState(product?.price || 0);
     const [errors, setErrors] = useState([]);
 
-    const handleImageSubmit = (e) => {
-        e.preventDefault();
-        setImageErrors([]);
-        dispatch(postProductImage(productId, image, preview))
-            .then(() => { })
-            .catch(errors => {
-                setImageErrors(Object.values(errors.errors))
-            });
-    };
+    useEffect(() => {
+        setName(product?.name || "")
+        setDescription(product?.description || "")
+        setPrice(product?.price || 0)
+    }, [product])
 
     const handleSubmit = async (e) => {
         e.preventDefault();
@@ -44,6 +39,13 @@ export default function ProductEditor() {
         const thunk = product ? putProduct(productId, body) : postProduct(body)
         try {
             await dispatch(thunk)
+            try {
+                setImageErrors([]);
+                await dispatch(postProductImage(productId, image, preview))
+            }
+            catch (errors) {
+                setImageErrors(Object.values(errors.errors))
+            }
             navigate("/your/shop")
         }
         catch (errors) {
@@ -51,12 +53,24 @@ export default function ProductEditor() {
         }
     };
 
+    const handleImageChange = (e) => {
+        const file = e.target.files[0];
+        setImage(file)
+        const reader = new FileReader();
+        reader.onload = function (e) {
+            document.querySelector("#ProductEditorImage").src = e.target.result;
+        }
+        reader.readAsDataURL(file);
+    }
+
     return (
         <div className={styles.ProductEditorWrapper}>
             <div className={styles.ProductEditor}>
-                <h1>{product ? "Editing" : "Creating"} product {productId}</h1>
+                <h1>{productId ? "Editing" : "Creating"} product {productId}</h1>
 
-                <form className={styles.form} onSubmit={handleImageSubmit}>
+                <img id="ProductEditorImage" className={styles.image} src={product?.preview_image} alt={product?.preview_image} />
+
+                <form className={styles.form} onSubmit={handleSubmit}>
                     {imageErrors.length > 0 && <ul className="formErrors">
                         {imageErrors.map((error, idx) => <li key={idx}>{error}</li>)}
                     </ul>}
@@ -66,7 +80,7 @@ export default function ProductEditor() {
                             type="file"
                             name="image"
                             accept="image/*"
-                            onChange={e => setImage(e.target.files[0])}
+                            onChange={handleImageChange}
                         />
                     </label>
                     <label>Is this a preview image?:
@@ -77,10 +91,7 @@ export default function ProductEditor() {
                             onChange={() => setPreview(!preview)}
                         />
                     </label>
-                    <button type="submit">Upload image</button>
-                </form>
 
-                <form className={styles.form} onSubmit={handleSubmit}>
                     {errors.length > 0 && <ul className="formErrors">
                         {errors.map((error, idx) => <li key={idx}>{error}</li>)}
                     </ul>}

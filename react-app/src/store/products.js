@@ -9,7 +9,7 @@ export const getProducts = () => async dispatch => {
 };
 
 export const postProduct = body => async dispatch => {
-    await csrfFetch('/api/products/', {
+    await csrfFetch('/api/products', {
         method: "POST",
         body: JSON.stringify(body)
     });
@@ -17,7 +17,7 @@ export const postProduct = body => async dispatch => {
 };
 
 export const putProduct = (productId, body) => async dispatch => {
-    await csrfFetch('/api/products/' + productId, {
+    await csrfFetch(`/api/products/${productId}`, {
         method: "PUT",
         body: JSON.stringify(body)
     });
@@ -38,7 +38,7 @@ export const postProductImage = (productId, image, preview) => async dispatch =>
 };
 
 export const deleteProduct = productId => async dispatch => {
-    await csrfFetch('/api/products/' + productId, { method: "DELETE", });
+    await csrfFetch(`/api/products/${productId}`, { method: "DELETE", });
     dispatch(getProducts());
 };
 

@@ -1,5 +1,3 @@
-import { csrfFetch } from './csrf';
-
 export const postCarts = (carts) => {
     window.localStorage.setItem('ducksyCarts', JSON.stringify(carts));
 }
@@ -37,8 +35,8 @@ export const deleteItem = (user_id, product_id) => async dispatch => {
     dispatch({ type: GET_CARTS, carts })
 }
 
-const UPDATE_CART = 'shoppingCart/UPDATE_CART'
-const DELETE_CART = 'shoppingCart/DELETE_CART'
+// const UPDATE_CART = 'shoppingCart/UPDATE_CART'
+// const DELETE_CART = 'shoppingCart/DELETE_CART'
 
 
 
