@@ -5,9 +5,7 @@ import { getReviewsByBuyerId, updateReview } from '../../../store/buyerReviews';
 import './editReviewForm.css';
 
 export default function EditReviewForm() {
-    const productId = useSelector(state => state.productDetails.id);
-    const reviews = useSelector(state => state.reviews);
-    const originalReview = reviews[productId];
+    const originalReview = useSelector(state => state.reviewDetails);
     const [review, setReview] = useState(originalReview.review);
     const [rating, setRating] = useState(originalReview.rating);
     const [hover, setHover] = useState(rating);

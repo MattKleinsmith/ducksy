@@ -8,12 +8,10 @@ const DELETE_REVIEW = 'buyerReviews/DELETE_REVIEW';
 
 export const getReviewsByBuyerId = () => async dispatch => {
     const response = await csrfFetch(`/api/users/reviews`);
-
     const reviews = await response.json();
     dispatch({ type: GET_REVIEWS_BY_BUYER_ID, reviews });
     return response;
 };
-
 
 export const postReview = (productId, data) => async dispatch => {
     const response = await csrfFetch(`/api/products/${productId}/reviews`, {
@@ -51,21 +49,11 @@ export const updateReview = (reviewId, body) => async dispatch => {
 export default function buyerReviewsReducer(state = {}, action) {
     let newState = { ...state };
     switch (action.type) {
-        // case GET_REVIEWS_BY_PRODUCT_ID:
-        //     return action.reviews.reduce((reviews, review) => {
-        //         reviews[review.id] = review;
-        //         return reviews;
-        //     }, {});
         case GET_REVIEWS_BY_BUYER_ID:
             return action.reviews.reduce((reviews, review) => {
                 reviews[review.product_id] = review;
                 return reviews;
             }, {});
-        // case GET_REVIEWS:
-        //     return action.reviews.reduce((reviews, review) => {
-        //         reviews[review.id] = review;
-        //         return reviews;
-        //     }, {});
         case POST_REVIEW:
             newState[action.review.id] = action.review;
             return newState;
