@@ -1,22 +1,23 @@
 import { useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { setProductId } from "../../../store/productDetails";
+import { setDeleteProductModal } from "../../../store/ui";
 import FiveStars from "../../FiveStars/FiveStars";
 import "./ProductDetailsRight.css"
 
 export default function ProductDetailsRight({ product }) {
     const [quantity, setQuantity] = useState("");
+    const user = useSelector(state => state.session.user)
+
+    const dispatch = useDispatch();
 
     const updateCart = (product) => {
-        const cart_data = window.localStorage.getItem("ducksyCart")
-        let cart_obj;
-        if (cart_data) {
-            cart_obj = JSON.parse(cart_data)
-            if (String(product.id) in cart_obj) cart_obj[product.id] += 1
-            else cart_obj[product.id] = 1
-        } else {
-            cart_obj = {};
-            cart_obj[product.id] = 1
-        }
-        window.localStorage.setItem('ducksyCart', JSON.stringify(cart_obj))
+        const data = window.localStorage.getItem("ducksyCarts")
+        const carts = JSON.parse(data);
+        const current_cart = user ? carts[user.id] : carts['guest']
+        if (String(product.id) in current_cart) current_cart[product.id] += 1
+        else current_cart[product.id] = 1
+        window.localStorage.setItem('ducksyCarts', JSON.stringify(carts))
     }
 
     return (

@@ -1,5 +1,5 @@
 import { useEffect } from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { Route, Routes } from "react-router-dom";
 
 import Header from "./components/Header/Header";
@@ -15,6 +15,28 @@ import ShoppingCart from "./components/ShoppingCart/ShoppingCart";
 
 export default function App() {
   const dispatch = useDispatch();
+  const user = useSelector(state => state.session.user);
+
+  const setCart = (user) => {
+    const cart_storage = window.localStorage.getItem('ducksyCarts');
+    const carts = cart_storage ? JSON.parse(cart_storage) : {};
+    if (!carts["guest"]) {
+      carts["guest"] = {};
+    }
+    if (user) {
+      if (!carts[user.id]) {
+        carts[user.id] = {};
+      }
+      // Merge guest cart to log-in user cart
+      carts[user.id] = Object.assign(carts[user.id], carts["guest"]);
+      //  Clear guest cart
+      carts["guest"] = {};
+    }
+    window.localStorage.setItem('ducksyCarts', JSON.stringify(carts));
+  }
+
+  setCart(user);
+
   useEffect(() => {
     dispatch(restoreUser());
     dispatch(getProducts());
@@ -25,7 +47,7 @@ export default function App() {
       <Modals />
       <Header />
       <Routes>
-        <Route exact path="/" element={<ProductGrid />} />
+        <Route path="/" element={<ProductGrid />} />
         <Route path="/listing/:productId" element={<ProductDetails />} />
         <Route path='/your/purchases' element={<OrderDetails />} />
         <Route path='/your/shop' element={<ShopManager />} />

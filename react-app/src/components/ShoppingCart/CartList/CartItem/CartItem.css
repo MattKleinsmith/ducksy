@@ -1,0 +1,26 @@
+.cart_seller_info {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.seller_profile_picture {
+    font-family: serif;
+    color: #f1641e;
+    font-size: 20px;
+}
+
+.cart_product_grid {
+    display: grid;
+    grid-template-columns: 1fr 2fr 1fr;
+    grid-template-rows: 1fr;
+    gap: 0px 0px;
+    grid-template-areas:
+        ". . .";
+}
+
+
+.cart_product_image img {
+    width: 12rem;
+    border-radius: 0.5vw;
+}
