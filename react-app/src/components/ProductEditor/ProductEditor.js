@@ -44,12 +44,12 @@ export default function ProductEditor() {
                 await dispatch(postProductImage(productId, image, preview))
                 navigate("/your/shop")
             }
-            catch (errors) {
-                setImageErrors(Object.values(errors))
+            catch (responseBody) {
+                setImageErrors(Object.values(responseBody.errors))
             }
         }
-        catch (errors) {
-            setErrors(Object.values(errors))
+        catch (responseBody) {
+            setErrors(Object.values(responseBody.errors))
         }
     };
 
@@ -72,7 +72,7 @@ export default function ProductEditor() {
 
                 <form className={styles.form} onSubmit={handleSubmit}>
                     {imageErrors.length > 0 && <ul className="formErrors">
-                        {imageErrors.map((error, idx) => <li key={idx}>{error}</li>)}
+                        {imageErrors.map((error, i) => <li key={i}>{error}</li>)}
                     </ul>}
 
                     <label>Select image:
@@ -93,7 +93,7 @@ export default function ProductEditor() {
                     </label>
 
                     {errors.length > 0 && <ul className="formErrors">
-                        {errors.map((error, idx) => <li key={idx}>{error}</li>)}
+                        {errors.map((error, i) => <li key={i}>{error}</li>)}
                     </ul>}
 
                     <label>Name
