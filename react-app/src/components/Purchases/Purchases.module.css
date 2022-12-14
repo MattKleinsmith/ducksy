@@ -11,6 +11,8 @@ img {
 .heading {
     display: flex;
     font-size: 26px;
+    font-weight: 500;
+    color: #333;
 }
 
 .orderInfo {
@@ -23,12 +25,36 @@ img {
 .purchaseFromWrapper {
     display: flex;
     justify-content: space-between;
+    color: #666;
+    ;
 }
 
 .productWrapper {
-    display: flex;
+    display: flex
+}
+
+.productName {
+    color: 222;
+    font-size: 18px;
 }
 
 .buyAgain {
-    display: flex
+    display: flex;
+    font-size: 18px
+}
+
+.buyAgainBtn {
+    background-color: #222222;
+    padding: 7px 15px 8px;
+    border-width: 1px;
+    border-style: solid;
+    border-color: rgba(0, 0, 0, 0.1);
+    border-radius: 3px;
+    color: #FFF;
+    font-weight: bold;
+
+}
+
+.buyAgainBtn:hover {
+    background-color: #3c3c3c
 }

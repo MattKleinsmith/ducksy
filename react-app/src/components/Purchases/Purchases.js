@@ -32,7 +32,7 @@ export default function Purchases() {
                                 <div><img src={orderDetail.product ? orderDetail.product.preview_image : "/placeholder.png"} alt="previewImage" />
                                 </div>
                                 <div className={styles.infoWrapper}>
-                                    <div>
+                                    <div className={styles.productName}>
                                         {orderDetail.product ? orderDetail.product.name : "Product is unavailable"}
                                     </div>
                                     <div>
@@ -63,7 +63,7 @@ export default function Purchases() {
                                         }
                                     </div>
                                     <div className={styles.buyAgain}>
-                                        <div><button>Buy this again</button></div>
+                                        <div><button className={styles.buyAgainBtn}>Buy this again</button></div>
                                         <div>{orderDetail.price}</div>
                                     </div>
                                 </div>
