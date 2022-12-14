@@ -7,15 +7,21 @@ import { CartList } from "./CartList/CartList";
 import CartCheckout from "./CartCheckout/CartCheckout";
 
 export default function ShoppingCart() {
+    const user = useSelector(state => state.session.user)
+    const products = useSelector(state => state.products)
     const data = window.localStorage.getItem('ducksyCarts');
     const carts = JSON.parse(data);
+    const current_cart = user ? carts[user.id] : carts["guest"]
+    const cart_items = Object.entries(current_cart).filter(([product_id, amount]) => product_id in products);
+
+    if (!cart_items.length) return;
 
     return (
         <div className="cartWrapper">
-            <CartSummary carts={carts} />
+            <CartSummary cart_items={cart_items} />
             <div className="cart_grid_container">
-                <CartList carts={carts} />
-                <CartCheckout carts={carts} />
+                <CartList cart_items={cart_items} />
+                <CartCheckout cart_items={cart_items} />
             </div>
 
         </div>
