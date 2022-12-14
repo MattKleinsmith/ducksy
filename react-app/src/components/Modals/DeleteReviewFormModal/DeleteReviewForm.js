@@ -8,7 +8,7 @@ import { deleteReview, getReviewsByBuyerId } from '../../../store/buyerReviews';
 export default function DeleteReviewForm() {
     const [errors, setErrors] = useState([]);
     const dispatch = useDispatch();
-    const reviewId = useSelector(state => state.reviewId);
+    const reviewId = useSelector(state => state.reviewDetails);
 
     const handleSubmit = e => {
         e.preventDefault();
