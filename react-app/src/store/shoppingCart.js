@@ -22,7 +22,7 @@ export const getCarts = (user = null) => async dispatch => {
 
 // const MERGE_CARTS = 'shoppingCart/MERGE_CARTS'
 export const mergeCarts = (user_id) => async dispatch => {
-    carts = dispatch(getCarts())
+    const carts = dispatch(getCarts())
     // Merge guest cart to log-in user cart
     carts[user_id] = Object.assign(carts[user_id], carts["guest"]);
     //  Clear guest cart
@@ -31,7 +31,7 @@ export const mergeCarts = (user_id) => async dispatch => {
 }
 
 export const deleteItem = (user_id, product_id) => async dispatch => {
-    carts = dispatch(getCarts())
+    const carts = dispatch(getCarts())
     delete carts[user_id][product_id]
     postCarts()
     dispatch({ type: GET_CARTS, carts })

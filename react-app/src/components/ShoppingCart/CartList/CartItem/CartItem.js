@@ -3,6 +3,7 @@ import './CartItem.css'
 
 export default function CartItem({ product, amount }) {
     const removeHandler = () => {
+
     }
     return (
         <div>
