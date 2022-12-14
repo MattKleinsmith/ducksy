@@ -186,4 +186,8 @@ def post_image_by_product_id(product_id):
         db.session.commit()
         return product_image.to_dict()
     except Exception as e:
-        return e, 500
+        return {
+            "errors": {
+                "image": str(e)
+            }
+        }, 500

@@ -36,12 +36,13 @@ export default function ProductEditor() {
         e.preventDefault();
         setErrors([]);
         const body = { name, description, price };
-        const thunk = product ? putProduct(productId, body) : postProduct(body)
+        const productThunkAction = product ? putProduct(productId, body) : postProduct(body)
         try {
-            await dispatch(thunk)
+            const newProductId = await dispatch(productThunkAction)
             try {
                 setImageErrors([]);
-                await dispatch(postProductImage(productId, image, preview))
+                if (image)
+                    await dispatch(postProductImage(newProductId ? newProductId : productId, image, preview))
                 navigate("/your/shop")
             }
             catch (responseBody) {
@@ -79,7 +80,7 @@ export default function ProductEditor() {
                         <input
                             type="file"
                             name="image"
-                            accept="image/*"
+                            accept="image/png, image/jpeg"
                             onChange={handleImageChange}
                         />
                     </label>
@@ -115,14 +116,6 @@ export default function ProductEditor() {
                     <label>Price
                         <input
                             type="number"
-                            value={price}
-                            onChange={e => setPrice(e.target.value)}
-                        />
-                    </label>
-
-                    <label> Categories (TODO: Multi-select options)
-                        <input
-                            type="text"
                             value={price}
                             onChange={e => setPrice(e.target.value)}
                         />

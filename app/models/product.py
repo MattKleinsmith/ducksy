@@ -41,7 +41,7 @@ class Product(db.Model):
 
     seller = relationship("User", back_populates="products")
     product_images = relationship(
-        "ProductImage", cascade="all, delete-orphan", back_populates="product")
+        "ProductImage", cascade="all, delete-orphan", back_populates="product", order_by="ProductImage.id")
     reviews = relationship(
         "Review", back_populates="product", cascade="all, delete-orphan")
     categories = relationship(
@@ -49,6 +49,7 @@ class Product(db.Model):
 
     def to_dict(self):
         preview_images = list(filter(lambda x: x.preview, self.product_images))
+        print(self.id, list(map(lambda x: x.id, preview_images)))
         seller_rating = sum(
             [review.rating for review in self.reviews]) / len(self.reviews) if len(self.reviews) > 0 else None
         num_seller_ratings = len(self.reviews)

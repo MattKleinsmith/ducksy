@@ -9,11 +9,13 @@ export const getProducts = () => async dispatch => {
 };
 
 export const postProduct = body => async dispatch => {
-    await csrfFetch('/api/products', {
+    const response = await csrfFetch('/api/products', {
         method: "POST",
         body: JSON.stringify(body)
     });
-    dispatch(getProducts())
+    await dispatch(getProducts())
+    const product = await response.json()
+    return product.id
 };
 
 export const putProduct = (productId, body) => async dispatch => {
