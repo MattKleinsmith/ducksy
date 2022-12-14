@@ -49,6 +49,9 @@ class Product(db.Model):
 
     def to_dict(self):
         preview_images = list(filter(lambda x: x.preview, self.product_images))
+        seller_rating = sum(
+            [review.rating for review in self.reviews]) / len(self.reviews) if len(self.reviews) > 0 else None
+        num_seller_ratings = len(self.reviews)
         return {
             "id": self.id,
             "seller_id": self.seller_id,
@@ -57,7 +60,9 @@ class Product(db.Model):
             "price": str(self.price),
             "description": self.description,
             "preview_image": preview_images[-1].url if len(preview_images) else None,
-            "seller": self.seller.to_dict()
+            "seller": self.seller.to_dict(),
+            "seller_rating": seller_rating,
+            "num_seller_ratings": num_seller_ratings
         }
 
 

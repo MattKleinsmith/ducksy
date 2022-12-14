@@ -25,21 +25,19 @@ export const postProduct = (body, url) => async () => {
     return product;
 };
 
-export const postProductImage = (productId, image, preview) => async () => {
+export const postProductImage = (productId, image, preview) => async dispatch => {
     const formData = new FormData();
 
     formData.append('image', image);
     formData.append('preview', preview);
-
-    console.log("formData", Array.from(formData.entries()));
 
     const response = await fetch(`/api/products/${productId}/images`, {
         method: "POST",
         body: formData
     });
 
-    const data = await response.json();
-    console.log(data);
+    await response.json();
+    dispatch(getProducts())
 };
 
 export const deleteProduct = productId => async dispatch => {

@@ -12,8 +12,8 @@ bp = Blueprint("products", __name__, url_prefix="/products")
 @bp.route("/", methods=['GET'])
 def get_products():
     query = request.args.getlist("categories")
-    products = []
     if query:
+        products = []
         query_params = query[0].split(', ')
         categories = Category.query.filter(
             Category.name.in_(query_params)).all()
@@ -27,16 +27,9 @@ def get_products():
                     product = product.to_dict()
                     product['categories'] = product_categories
                     products.append(product)
-
+        return products
     else:
-        for product in Product.query:
-            reviews = product.reviews
-            product = product.to_dict()
-            product["seller_rating"] = sum(
-                [review.rating for review in reviews]) / len(reviews) if len(reviews) > 0 else None
-            product["num_seller_ratings"] = len(reviews)
-            products.append(product)
-    return products
+        return [product.to_dict() for product in Product.query]
 
 
 @bp.route("/", methods=['POST'])
@@ -153,9 +146,9 @@ def review(product_id):
                     return review.to_dict(), 201
                 return {'errors': validation_errors_formatter(form.errors)}, 400
     error_message = {
-        'errors' : {
-        'message': "You are not authorized to review this product"}}
-    return error_message , 400
+        'errors': {
+            'message': "You are not authorized to review this product"}}
+    return error_message, 400
 
 
 @bp.route("<int:product_id>/images", methods=['GET'])
