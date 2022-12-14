@@ -1,13 +1,15 @@
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { useParams } from "react-router-dom";
-import { getProducts, putProduct } from "../../store/products";
+import { useNavigate, useParams } from "react-router-dom";
+import { getProducts, putProduct, postProduct } from "../../store/products";
 import { postProductImage } from "../../store/products";
 
 import styles from "./ProductEditor.module.css";
+import footerStyles from "./ProductEditorFooter/ProductEditorFooter.module.css"
 import { ProductEditorFooter } from "./ProductEditorFooter/ProductEditorFooter";
 
 export default function ProductEditor() {
+    const navigate = useNavigate()
     const { productId } = useParams();
     const dispatch = useDispatch();
     const product = useSelector(state => state.products)[productId]
@@ -17,12 +19,12 @@ export default function ProductEditor() {
     }, [dispatch]);
 
     const [image, setImage] = useState(null);
-    const [preview, setPreview] = useState(false);
+    const [preview, setPreview] = useState(true);
     const [imageErrors, setImageErrors] = useState([]);
 
-    const [name, setName] = useState(product.name);
-    const [description, setDescription] = useState(product.description);
-    const [price, setPrice] = useState(product.price);
+    const [name, setName] = useState(product?.name || "");
+    const [description, setDescription] = useState(product?.description || "");
+    const [price, setPrice] = useState(product?.price || 0);
     const [errors, setErrors] = useState([]);
 
     const handleImageSubmit = (e) => {
@@ -35,21 +37,24 @@ export default function ProductEditor() {
             });
     };
 
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault();
         setErrors([]);
-        dispatch(putProduct(productId, { name, description, price }))
-            .then(() => { })
-            .catch(errors => {
-                setErrors(Object.values(errors.errors))
-            });
+        const body = { name, description, price };
+        const thunk = product ? putProduct(productId, body) : postProduct(body)
+        try {
+            await dispatch(thunk)
+            navigate("/your/shop")
+        }
+        catch (errors) {
+            setErrors(Object.values(errors.errors))
+        }
     };
 
-    if (!product) return
     return (
         <div className={styles.ProductEditorWrapper}>
             <div className={styles.ProductEditor}>
-                <h1>Editing product {productId}</h1>
+                <h1>{product ? "Editing" : "Creating"} product {productId}</h1>
 
                 <form className={styles.form} onSubmit={handleImageSubmit}>
                     {imageErrors.length > 0 && <ul className="formErrors">
@@ -104,10 +109,24 @@ export default function ProductEditor() {
                         />
                     </label>
 
+                    <label> Categories (TODO: Multi-select options)
+                        <input
+                            type="text"
+                            value={price}
+                            onChange={e => setPrice(e.target.value)}
+                        />
+                    </label>
+
                     <button type="submit">Update product listing</button>
                 </form>
             </div>
-            <ProductEditorFooter />
+            <div className={footerStyles.wrapper}>
+                <div className={footerStyles.line} />
+                <div className={footerStyles.footer}>
+                    <div className={`${footerStyles.button} ${footerStyles.cancel}`} onClick={() => navigate("/your/shop")}>Cancel</div>
+                    <div className={`${footerStyles.button} ${footerStyles.saveAndContinue}`} onClick={handleSubmit}>Save and continue</div>
+                </div>
+            </div>
         </div>
     );
 }

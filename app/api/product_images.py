@@ -6,6 +6,7 @@ from sqlalchemy.exc import IntegrityError
 
 bp = Blueprint("product_images", __name__, url_prefix="product_images")
 
+
 @bp.route("/<product_image_id>", methods=["DELETE"])
 @login_required
 def delete_product_image_by_id(product_image_id):
@@ -13,7 +14,7 @@ def delete_product_image_by_id(product_image_id):
         product_image = ProductImage.query.get(product_image_id)
         if product_image:
             if product_image.product.seller_id != current_user.id:
-                return {'errors': ['Unauthorized']}, 401
+                return {'errors': ['Must own image to delete']}, 401
             db.session.delete(product_image)
             db.session.commit()
             return f"Deleted product image with id {product_image_id}"

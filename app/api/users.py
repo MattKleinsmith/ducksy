@@ -34,7 +34,7 @@ def signup():
 @login_required
 def update_user(user_id):
     if int(user_id) != current_user.id:
-        return {'errors': ['Unauthorized']}, 401
+        return {'errors': ['Must own account to update it']}, 401
     form = SignupForm()
     form['csrf_token'].data = request.cookies['csrf_token']
     if form.validate_on_submit():
@@ -60,6 +60,7 @@ def delete_user():
     db.session.commit()
     logout_user()
     return "Deleted user and logged out"
+
 
 @bp.route('/reviews')
 @login_required

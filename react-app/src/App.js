@@ -51,6 +51,7 @@ export default function App() {
         <Route path="/listing/:productId" element={<ProductDetails />} />
         <Route path='/your/purchases' element={<Purchases />} />
         <Route path='/your/shop' element={<ShopManager />} />
+        <Route path='/your/shop/listing/new' element={<ProductEditor />} />
         <Route path='/your/shop/listing/:productId' element={<ProductEditor />} />
         <Route path='/cart' element={<ShoppingCart />} />
       </Routes>

@@ -9,7 +9,7 @@ from werkzeug.utils import secure_filename
 bp = Blueprint("products", __name__, url_prefix="/products")
 
 
-@bp.route("/", methods=['GET'])
+@bp.route("", methods=['GET'])
 def get_products():
     query = request.args.getlist("categories")
     if query:
@@ -32,9 +32,10 @@ def get_products():
         return [product.to_dict() for product in Product.query]
 
 
-@bp.route("/", methods=['POST'])
+@bp.route("", methods=['POST'])
 @login_required
 def post_product():
+    print("did we get here?")
     form = ProductForm()
     form['csrf_token'].data = request.cookies['csrf_token']
     if (form.validate_on_submit()):
@@ -147,7 +148,7 @@ def review(product_id):
                 return {'errors': validation_errors_formatter(form.errors)}, 400
     error_message = {
         'errors': {
-            'message': "You are not authorized to review this product"}}
+            'message': "A user can only review a product they've purchased"}}
     return error_message, 400
 
 

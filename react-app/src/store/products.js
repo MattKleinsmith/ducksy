@@ -4,25 +4,24 @@ const GET_PRODUCTS = 'products/GET_PRODUCTS';
 
 export const getProducts = () => async dispatch => {
     const response = await csrfFetch('/api/products');
-
     const products = await response.json();
     dispatch({ type: GET_PRODUCTS, products });
-    return response;
 };
 
-export const postProduct = (body, url) => async () => {
-    const response = await csrfFetch('/api/products', {
+export const postProduct = body => async dispatch => {
+    await csrfFetch('/api/products/', {
         method: "POST",
         body: JSON.stringify(body)
     });
-    const product = await response.json();
+    dispatch(getProducts())
+};
 
-    await csrfFetch(`/api/products/${product.id}/images`, {
-        method: "POST",
-        body: JSON.stringify({ url, preview: true })
+export const putProduct = (productId, body) => async dispatch => {
+    await csrfFetch('/api/products/' + productId, {
+        method: "PUT",
+        body: JSON.stringify(body)
     });
-
-    return product;
+    dispatch(getProducts());
 };
 
 export const postProductImage = (productId, image, preview) => async dispatch => {
@@ -31,30 +30,18 @@ export const postProductImage = (productId, image, preview) => async dispatch =>
     formData.append('image', image);
     formData.append('preview', preview);
 
-    const response = await fetch(`/api/products/${productId}/images`, {
+    await fetch(`/api/products/${productId}/images`, {
         method: "POST",
         body: formData
     });
-
-    await response.json();
     dispatch(getProducts())
 };
 
 export const deleteProduct = productId => async dispatch => {
-    console.log("deleteProduct", productId);
-    const response = await csrfFetch('/api/products/' + productId, { method: "DELETE", });
-    await response.json();
+    await csrfFetch('/api/products/' + productId, { method: "DELETE", });
     dispatch(getProducts());
 };
 
-export const putProduct = (productId, body) => async dispatch => {
-    const response = await csrfFetch('/api/products/' + productId, {
-        method: "PUT",
-        body: JSON.stringify(body)
-    });
-    await response.json();
-    dispatch(getProducts());
-};
 
 export default function productsReducer(state = {}, action) {
     switch (action.type) {
