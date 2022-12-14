@@ -42,10 +42,11 @@ export const postProductImage = (productId, image, preview) => async () => {
     console.log(data);
 };
 
-export const deleteProduct = productId => async () => {
+export const deleteProduct = productId => async dispatch => {
     console.log("deleteProduct", productId);
     const response = await csrfFetch('/api/products/' + productId, { method: "DELETE", });
-    return await response.json();
+    await response.json();
+    dispatch(getProducts());
 };
 
 export const putProduct = (productId, body) => async dispatch => {
@@ -53,7 +54,8 @@ export const putProduct = (productId, body) => async dispatch => {
         method: "PUT",
         body: JSON.stringify(body)
     });
-    return await response.json();
+    await response.json();
+    dispatch(getProducts());
 };
 
 export default function productsReducer(state = {}, action) {

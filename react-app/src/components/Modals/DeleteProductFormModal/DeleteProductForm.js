@@ -16,11 +16,8 @@ export default function DeleteProductForm() {
         setErrors([]);
         return dispatch(deleteProduct(productId))
             .then(() => {
-                console.log("0");
                 dispatch(setDeleteProductModal(false));
-                console.log("1");
                 navigate("/");
-                console.log("2");
             })
             .catch(errors => {
                 console.log("3", errors);
