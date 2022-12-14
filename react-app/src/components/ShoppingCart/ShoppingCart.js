@@ -4,17 +4,20 @@ import { useEffect } from "react";
 import CartSummary from "./CartSummary/CartSummary";
 import './ShoppingCart.css'
 import { CartList } from "./CartList/CartList";
-
+import CartCheckout from "./CartCheckout/CartCheckout";
 
 export default function ShoppingCart() {
-    const data = window.localStorage.getItem('ducksyCart');
+    const data = window.localStorage.getItem('ducksyCarts');
     const carts = JSON.parse(data);
-    console.log("ShoppingCart", carts)
 
     return (
         <div className="cartWrapper">
             <CartSummary carts={carts} />
-            <CartList carts={carts} />
+            <div className="cart_grid_container">
+                <CartList carts={carts} />
+                <CartCheckout carts={carts} />
+            </div>
+
         </div>
     )
 }
