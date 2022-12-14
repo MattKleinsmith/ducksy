@@ -1,24 +1,20 @@
 import { useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { setProductId } from "../../../store/productDetails";
-import { setDeleteProductModal } from "../../../store/ui";
+import { useSelector } from "react-redux";
 import FiveStars from "../../FiveStars/FiveStars";
-import "./ProductDetailsRight.css"
+import "./ProductDetailsRight.css";
 
 export default function ProductDetailsRight({ product }) {
     const [quantity, setQuantity] = useState("");
-    const user = useSelector(state => state.session.user)
-
-    const dispatch = useDispatch();
+    const user = useSelector(state => state.session.user);
 
     const updateCart = (product) => {
-        const data = window.localStorage.getItem("ducksyCarts")
+        const data = window.localStorage.getItem("ducksyCarts");
         const carts = JSON.parse(data);
-        const current_cart = user ? carts[user.id] : carts['guest']
-        if (String(product.id) in current_cart) current_cart[product.id] += 1
-        else current_cart[product.id] = 1
-        window.localStorage.setItem('ducksyCarts', JSON.stringify(carts))
-    }
+        const current_cart = user ? carts[user.id] : carts['guest'];
+        if (String(product.id) in current_cart) current_cart[product.id] += 1;
+        else current_cart[product.id] = 1;
+        window.localStorage.setItem('ducksyCarts', JSON.stringify(carts));
+    };
 
     return (
         <div className="ProductDetailsRightWrapper">

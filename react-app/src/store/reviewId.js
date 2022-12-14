@@ -1,4 +1,3 @@
-import { csrfFetch } from './csrf';
 
 const SET_REVIEW_ID = 'reviewId/SET_REVIEW_ID';
 

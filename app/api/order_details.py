@@ -12,4 +12,5 @@ def get_order_details():
     order_ids = [order.id for order in orders]
     order_details = OrderDetail.query.filter(
         OrderDetail.order_id.in_(order_ids))
+    print(order_details, "+++++++++++++++++++++++++++++++++")
     return [order_detail.to_dict() for order_detail in order_details]

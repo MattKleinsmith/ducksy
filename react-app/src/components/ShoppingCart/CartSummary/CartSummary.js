@@ -1,4 +1,3 @@
-import { useSelector } from "react-redux";
 import { useNavigate } from "react-router";
 import './CartSummary.css'
 

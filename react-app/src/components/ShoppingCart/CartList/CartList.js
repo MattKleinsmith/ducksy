@@ -1,5 +1,4 @@
 import { useSelector } from "react-redux"
-import { NavLink } from "react-router-dom"
 import CartItem from "./CartItem/CartItem"
 import './CartList.css'
 

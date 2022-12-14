@@ -22,10 +22,10 @@ export default function OrderDetails() {
             <div>
                 {orderDetails.length && orderDetails.map(orderDetail =>
                     <div>
-                        <div>Purchase from {orderDetail.product.seller_name}</div>
+                        <div>Purchase from {orderDetail.seller.display_name}</div>
                         <div>{orderDetail.purchase_date} </div>
-                        <div><img src={orderDetail.product.preview_image} alt="previewImage" /></div>
-                        <div>{orderDetail.product.name}</div>
+                        <div><img src={orderDetail.product ? orderDetail.product.preview_image : "/placeholder.png"} alt="previewImage" /></div>
+                        <div>{orderDetail.product ? orderDetail.product.name : "Product is unavailable"}</div>
                         <div>{orderDetail.price}</div>
                         <div>{orderDetail.product_id in reviews ?
                             <div>

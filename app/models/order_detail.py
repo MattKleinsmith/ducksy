@@ -35,13 +35,15 @@ class OrderDetail(db.Model):
 
     order = relationship("Order", back_populates="order_details")
     product = relationship("Product")
+    seller = relationship("User")
 
     def to_dict(self):
         return {
             "product_id": self.product_id,
-            "product": self.product.to_dict(),
+            "product": self.product.to_dict() if self.product is not None else None,
             "price": self.price,
             "seller_id": self.seller_id,
+            "seller": self.seller.to_dict(),
             "order_id": self.order_id,
             "purchase_date": self.created_at
         }

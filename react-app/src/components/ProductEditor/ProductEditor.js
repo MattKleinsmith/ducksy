@@ -5,10 +5,7 @@ import { getProducts, putProduct } from "../../store/products";
 import { postProductImage } from "../../store/products";
 
 import styles from "./ProductEditor.module.css";
-import { ProductEditorDetails } from "./ProductEditorDetails/ProductEditorDetails";
 import { ProductEditorFooter } from "./ProductEditorFooter/ProductEditorFooter";
-import { ProductEditorPhotos } from "./ProductEditorPhotos/ProductEditorPhotos";
-import { ProductEditorPricing } from "./ProductEditorPricing/ProductEditorPricing";
 
 export default function ProductEditor() {
     const { productId } = useParams();

@@ -1,6 +1,5 @@
 import { NavLink } from "react-router-dom";
-import { useSelector, useDispatch } from 'react-redux';
-import { useEffect } from "react";
+import { useSelector,  } from 'react-redux';
 import CartSummary from "./CartSummary/CartSummary";
 import './ShoppingCart.css'
 import { CartList } from "./CartList/CartList";
