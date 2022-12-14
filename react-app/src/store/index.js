@@ -6,7 +6,7 @@ import productsReducer from "./products";
 import buyerReviewsReducer from "./buyerReviews";
 import sessionReducer from "./session";
 import uiReducer from "./ui";
-import ReviewIdReducer from "./reviewId";
+import ReviewDetailsReducer from "./reviewDetails";
 import productReviewsReducer from "./productReviews";
 
 const rootReducer = combineReducers({
@@ -17,7 +17,7 @@ const rootReducer = combineReducers({
     productReviews: productReviewsReducer,
     order_details: orderDetailsReducer,
     buyerReviews: buyerReviewsReducer,
-    reviewId: ReviewIdReducer,
+    reviewDetails: ReviewDetailsReducer,
 });
 
 let enhancer;

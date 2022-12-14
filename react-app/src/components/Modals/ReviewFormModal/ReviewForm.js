@@ -7,7 +7,6 @@ import './reviewForm.css';
 
 export default function ReviewForm() {
     const [review, setReview] = useState('');
-    // const [isReviewed, setIsReviewed] = useState(false);
     const [rating, setRating] = useState(0);
     const [hover, setHover] = useState(0);
     const [errors, setErrors] = useState([]);
@@ -24,7 +23,6 @@ export default function ReviewForm() {
                     dispatch(getReviewsByBuyerId());
                     setRating(0);
                     setReview("");
-                    // setIsReviewed(true);
                 })
                 .catch(response => {
                     if (response.errors) setErrors(Object.values(response.errors));
