@@ -3,13 +3,14 @@ import { useEffect } from "react";
 import { getCurrentUserOrders } from '../../store/orderDetails';
 import { setReviewModal, setEditReviewModal, setDeleteReviewModal } from '../../store/ui';
 import { setProductId } from '../../store/productDetails';
-import { getReviewsByBuyerId } from '../../store/reviews';
+import { getReviewsByBuyerId } from '../../store/buyerReviews';
 import { setReviewId } from '../../store/reviewId';
+import styles from './Purchases.module.css';
 
-export default function OrderDetails() {
+export default function Purchases() {
     const dispatch = useDispatch();
     const orderDetails = useSelector(state => Object.values(state.order_details));
-    const reviews = useSelector(state => state.reviews);
+    const reviews = useSelector(state => state.buyerReviews);
 
     useEffect(() => {
         dispatch(getCurrentUserOrders());
@@ -18,7 +19,7 @@ export default function OrderDetails() {
 
     return (
         <>
-            <div>Purchases</div>
+            <div styles={styles.heading}>Purchases</div>
             <div>
                 {orderDetails.length && orderDetails.map(orderDetail =>
                     <div>

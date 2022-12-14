@@ -1,20 +1,10 @@
 import { csrfFetch } from './csrf';
 
-const GET_REVIEWS_BY_PRODUCT_ID = 'reviews/GET_REVIEWS_BY_PRODUCT_ID';
-const GET_REVIEWS_BY_BUYER_ID = 'reviews/GET_REVIEWS_BY_BUYER_ID';
-const GET_REVIEWS = 'reviews/GET_REVIEWS';
-const POST_REVIEW = 'reviews/POST_REVIEW';
-const UPDATE_REVIEW = ' reviews/UPDATE_REVIEW';
-const DELETE_REVIEW = 'reviews/DELETE_REVIEW';
+const GET_REVIEWS_BY_BUYER_ID = 'buyerReviews/GET_REVIEWS_BY_BUYER_ID';
+const POST_REVIEW = 'buyerReviews/POST_REVIEW';
+const UPDATE_REVIEW = ' buyerReviews/UPDATE_REVIEW';
+const DELETE_REVIEW = 'buyerReviews/DELETE_REVIEW';
 
-export const getReviewsByProductId = (productId) => async dispatch => {
-    console.log("getReviewsByProductId");
-    const response = await csrfFetch(`/api/products/${productId}/reviews`);
-
-    const reviews = await response.json();
-    dispatch({ type: GET_REVIEWS_BY_PRODUCT_ID, reviews });
-    return response;
-};
 
 export const getReviewsByBuyerId = () => async dispatch => {
     const response = await csrfFetch(`/api/users/reviews`);
@@ -24,13 +14,6 @@ export const getReviewsByBuyerId = () => async dispatch => {
     return response;
 };
 
-export const getReviews = () => async dispatch => {
-    const response = await csrfFetch('/api/reviews');
-
-    const reviews = await response.json();
-    dispatch({ type: GET_REVIEWS, reviews });
-    return response;
-};
 
 export const postReview = (productId, data) => async dispatch => {
     const response = await csrfFetch(`/api/products/${productId}/reviews`, {
@@ -65,7 +48,7 @@ export const updateReview = (reviewId, body) => async dispatch => {
     }
 };
 
-export default function reviewsReducer(state = {}, action) {
+export default function buyerReviewsReducer(state = {}, action) {
     let newState = { ...state };
     switch (action.type) {
         // case GET_REVIEWS_BY_PRODUCT_ID:
@@ -78,11 +61,11 @@ export default function reviewsReducer(state = {}, action) {
                 reviews[review.product_id] = review;
                 return reviews;
             }, {});
-        case GET_REVIEWS:
-            return action.reviews.reduce((reviews, review) => {
-                reviews[review.id] = review;
-                return reviews;
-            }, {});
+        // case GET_REVIEWS:
+        //     return action.reviews.reduce((reviews, review) => {
+        //         reviews[review.id] = review;
+        //         return reviews;
+        //     }, {});
         case POST_REVIEW:
             newState[action.review.id] = action.review;
             return newState;

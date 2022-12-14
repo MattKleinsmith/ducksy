@@ -1,12 +1,12 @@
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { getReviewsByProductId } from "../../../../store/reviews";
+import { getReviewsByProductId } from "../../../../store/productReviews";
 import ProductDetailsReview from "./ProductDetailsReview/ProductDetailsReview";
-import "./ProductDetailsReviewList.css"
+import "./ProductDetailsReviewList.css";
 
 export default function ProductDetailsReviewList({ product }) {
     const dispatch = useDispatch();
-    const reviews = useSelector(state => Object.values(state.reviews));
+    const reviews = useSelector(state => Object.values(state.productReviews));
     useEffect(() => {
         dispatch(getReviewsByProductId(product.id));
     }, [dispatch, product.id]);

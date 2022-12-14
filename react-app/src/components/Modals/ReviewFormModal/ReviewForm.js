@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { setReviewModal } from '../../../store/ui';
-import { getReviewsByBuyerId, postReview } from '../../../store/reviews';
+import { getReviewsByBuyerId, postReview } from '../../../store/buyerReviews';
 import './reviewForm.css';
 
 

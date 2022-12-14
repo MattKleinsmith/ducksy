@@ -3,18 +3,20 @@ import thunk from "redux-thunk";
 import productDetailsReducer from "./productDetails";
 import orderDetailsReducer from "./orderDetails";
 import productsReducer from "./products";
-import reviewsReducer from "./reviews";
+import buyerReviewsReducer from "./buyerReviews";
 import sessionReducer from "./session";
 import uiReducer from "./ui";
 import ReviewIdReducer from "./reviewId";
+import productReviewsReducer from "./productReviews";
 
 const rootReducer = combineReducers({
     session: sessionReducer,
     ui: uiReducer,
     products: productsReducer,
     productDetails: productDetailsReducer,
-    reviews: reviewsReducer,
+    productReviews: productReviewsReducer,
     order_details: orderDetailsReducer,
+    buyerReviews: buyerReviewsReducer,
     reviewId: ReviewIdReducer,
 });
 

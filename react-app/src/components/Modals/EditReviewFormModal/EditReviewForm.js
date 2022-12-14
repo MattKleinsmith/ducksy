@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { setEditReviewModal } from '../../../store/ui';
-import { getReviewsByBuyerId, updateReview } from '../../../store/reviews';
+import { getReviewsByBuyerId, updateReview } from '../../../store/buyerReviews';
 import './editReviewForm.css';
 
 export default function EditReviewForm() {
