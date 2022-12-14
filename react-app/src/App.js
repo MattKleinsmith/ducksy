@@ -12,7 +12,7 @@ import ShopManager from "./components/ShopManager/ShopManager";
 import ProductEditor from "./components/ProductEditor/ProductEditor";
 import { getProducts } from "./store/products";
 import ShoppingCart from "./components/ShoppingCart/ShoppingCart";
-import { getCarts } from "./store/shoppingCart";
+import { getCarts, mergeCarts } from "./store/shoppingCart";
 
 export default function App() {
   const dispatch = useDispatch();
@@ -25,6 +25,7 @@ export default function App() {
 
   useEffect(() => {
     dispatch(getCarts(user));
+    if (user) dispatch(mergeCarts(user.id))
   }, [dispatch, user]);
 
   return (
