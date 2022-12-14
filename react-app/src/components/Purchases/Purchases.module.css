@@ -1,3 +1,34 @@
+img {
+    width: 100px;
+    height: 100px;
+}
+
+.body {
+    display: flex;
+    flex-direction: column;
+}
+
 .heading {
-    background-color: green;
+    display: flex;
+    font-size: 26px;
+}
+
+.orderInfo {
+    display: flex;
+    flex-direction: column;
+}
+
+
+
+.purchaseFromWrapper {
+    display: flex;
+    justify-content: space-between;
+}
+
+.productWrapper {
+    display: flex;
+}
+
+.buyAgain {
+    display: flex
 }
