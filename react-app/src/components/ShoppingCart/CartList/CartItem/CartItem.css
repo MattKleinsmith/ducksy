@@ -10,11 +10,17 @@
     font-size: 20px;
 }
 
-.cart_product_detail {
-    display: flex;
-    /* align-items: center; */
-    gap: 5px;
+.cart_product_grid {
+    display: grid;
+    grid-template-columns: 1fr 2fr 1fr;
+    grid-template-rows: 1fr;
+    gap: 0px 0px;
+    grid-template-areas:
+        ". . .";
 }
 
 
-.cart_product_image {}
+.cart_product_image img {
+    width: 12rem;
+    border-radius: 0.5vw;
+}

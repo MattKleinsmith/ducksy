@@ -11,7 +11,8 @@ export default function CartItem({ product, amount }) {
                 </div>
                 <div>{product.seller.display_name}</div>
             </div>
-            <div className="cart_product_detail">
+
+            <div className="cart_product_grid">
                 <div className="cart_product_image">
                     <img src={product.preview_image}></img>
                 </div>
