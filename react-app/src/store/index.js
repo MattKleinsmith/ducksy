@@ -8,6 +8,7 @@ import sessionReducer from "./session";
 import uiReducer from "./ui";
 import ReviewDetailsReducer from "./reviewDetails";
 import productReviewsReducer from "./productReviews";
+import ShoppingCartReducer from "./shoppingCart";
 
 const rootReducer = combineReducers({
     session: sessionReducer,
@@ -18,6 +19,7 @@ const rootReducer = combineReducers({
     order_details: orderDetailsReducer,
     buyerReviews: buyerReviewsReducer,
     reviewDetails: ReviewDetailsReducer,
+    shoppingCarts: ShoppingCartReducer,
 });
 
 let enhancer;
