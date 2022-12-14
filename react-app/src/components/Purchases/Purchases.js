@@ -4,7 +4,7 @@ import { getCurrentUserOrders } from '../../store/orderDetails';
 import { setReviewModal, setEditReviewModal, setDeleteReviewModal } from '../../store/ui';
 import { setProductId } from '../../store/productDetails';
 import { getReviewsByBuyerId } from '../../store/buyerReviews';
-import { setReviewId } from '../../store/reviewId';
+import { setReviewId } from '../../store/reviewDetails';
 import styles from './Purchases.module.css';
 
 export default function Purchases() {
@@ -34,10 +34,11 @@ export default function Purchases() {
                                 <div>{reviews[orderDetail.product_id].review} </div>
                                 <button onClick={() => {
                                     dispatch(setProductId(orderDetail.product_id));
+                                    dispatch(setReviewId(reviews[orderDetail.product_id].id, reviews[orderDetail.product_id].review, reviews[orderDetail.product_id].rating));
                                     dispatch(setEditReviewModal(true));
                                 }}>Edit review</button>
                                 <button onClick={() => {
-                                    dispatch(setReviewId(reviews[orderDetail.product_id].id));
+                                    dispatch(setReviewId(reviews[orderDetail.product_id].id, reviews[orderDetail.product_id].review));
                                     dispatch(setDeleteReviewModal(true));
                                 }}>Remove review</button>
                             </div>
