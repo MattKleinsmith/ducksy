@@ -4,7 +4,6 @@ const GET_REVIEWS_BY_PRODUCT_ID = 'productReviews/GET_REVIEWS_BY_PRODUCT_ID';
 const GET_REVIEWS = 'productReviews/GET_REVIEWS';
 
 export const getReviewsByProductId = (productId) => async dispatch => {
-    console.log("getReviewsByProductId");
     const response = await csrfFetch(`/api/products/${productId}/reviews`);
 
     const reviews = await response.json();

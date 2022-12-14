@@ -32,7 +32,6 @@ export function ProductEditorPhotos({ productId }) {
                     accept="image/*"
                     onChange={(e) => {
                         setImage(e.target.files[0])
-                        console.log("image", e.target.files[0]);
                     }}
                 />
             </label>

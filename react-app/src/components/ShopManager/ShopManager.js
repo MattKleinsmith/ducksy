@@ -10,7 +10,6 @@ export default function ShopManager() {
         preview_image: "/add_a_listing.png"
     }].concat(products);
 
-    console.log(products);
     const minItems = 10
     if (products.length < minItems) {
         const diff = minItems - products.length;

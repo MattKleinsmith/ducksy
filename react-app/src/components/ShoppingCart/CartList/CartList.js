@@ -4,7 +4,6 @@ import './CartList.css'
 
 export function CartList({ cart_items }) {
     const products = useSelector(state => state.products);
-    console.log(cart_items)
 
     return (
         <>

@@ -1,5 +1,5 @@
 import { NavLink } from "react-router-dom";
-import { useSelector,  } from 'react-redux';
+import { useSelector, } from 'react-redux';
 import CartSummary from "./CartSummary/CartSummary";
 import './ShoppingCart.css'
 import { CartList } from "./CartList/CartList";
@@ -9,8 +9,12 @@ export default function ShoppingCart() {
     const user = useSelector(state => state.session.user)
     const products = useSelector(state => state.products)
     const carts = useSelector(state => state.shoppingCarts)
+    if (!carts || !Object.keys(products).length) return;
     const current_cart = user ? carts[user.id] : carts["guest"]
     const cart_items = Object.entries(current_cart).filter(([product_id, amount]) => product_id in products);
+
+    console.log(carts, "carts", current_cart, "current_cart", cart_items, "cart_items");
+
 
     return (
         <div>

@@ -17,12 +17,15 @@ import { getCarts } from "./store/shoppingCart";
 export default function App() {
   const dispatch = useDispatch();
   const user = useSelector(state => state.session.user);
-  dispatch(getCarts(user));
 
   useEffect(() => {
     dispatch(restoreUser());
     dispatch(getProducts());
   }, [dispatch]);
+
+  useEffect(() => {
+    dispatch(getCarts(user));
+  }, [dispatch, user]);
 
   return (
     <>

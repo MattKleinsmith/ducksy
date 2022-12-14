@@ -41,7 +41,6 @@ export const postProductImage = (productId, image, preview) => async dispatch =>
 };
 
 export const deleteProduct = productId => async dispatch => {
-    console.log("deleteProduct", productId);
     const response = await csrfFetch('/api/products/' + productId, { method: "DELETE", });
     await response.json();
     dispatch(getProducts());
