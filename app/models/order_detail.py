@@ -22,7 +22,7 @@ class OrderDetail(db.Model):
     order_id = Column(Integer, ForeignKey(
         add_prefix_for_prod('orders.id'), name='fk_order_detail_order_id', ondelete='CASCADE'), nullable=False)
     product_id = Column(Integer, ForeignKey(
-        add_prefix_for_prod('products.id'), name='fk_order_detail_product_id'), nullable=True)
+        add_prefix_for_prod('products.id'), name='fk_order_detail_product_id', ondelete='SET NULL'), nullable=True)
     seller_id = Column(Integer, ForeignKey(
         add_prefix_for_prod('users.id'), name='fk_order_detail_seller_id', ondelete='CASCADE'), nullable=False)
     price = Column(DECIMAL, nullable=False)

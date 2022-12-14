@@ -95,7 +95,9 @@ def delete_product(product_id):
         return "404", 404
     except IntegrityError as e:
         print(e)
-        return {"error": "Failed to delete"}, 400
+        return {"errors": {
+            "server": "Server failed to delete"
+        }}, 500
 
 
 @bp.route("<int:product_id>/reviews", methods=['GET'])
