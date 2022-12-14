@@ -5,7 +5,6 @@ import DeleteReviewForm from './DeleteReviewForm';
 
 export default function DeleteReviewFormModal() {
     const dispatch = useDispatch();
-    console.log("HEREEEEE");
     return <Modal onClose={() => dispatch(setDeleteReviewModal(false))}>
         <DeleteReviewForm />
     </Modal>;

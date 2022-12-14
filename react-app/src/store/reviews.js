@@ -68,11 +68,11 @@ export const updateReview = (reviewId, body) => async dispatch => {
 export default function reviewsReducer(state = {}, action) {
     let newState = { ...state };
     switch (action.type) {
-        case GET_REVIEWS_BY_PRODUCT_ID:
-            return action.reviews.reduce((reviews, review) => {
-                reviews[review.id] = review;
-                return reviews;
-            }, {});
+        // case GET_REVIEWS_BY_PRODUCT_ID:
+        //     return action.reviews.reduce((reviews, review) => {
+        //         reviews[review.id] = review;
+        //         return reviews;
+        //     }, {});
         case GET_REVIEWS_BY_BUYER_ID:
             return action.reviews.reduce((reviews, review) => {
                 reviews[review.product_id] = review;
