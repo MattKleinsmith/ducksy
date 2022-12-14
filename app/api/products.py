@@ -125,11 +125,8 @@ def review(product_id):
         return error_message, 400
     # Check if buyer bought the product in order to leave review
     orders = Order.query.filter(Order.buyer_id == current_user.id).all()
-    # [<Order 1>, <Order 2>, <Order 3>, <Order 4>, <Order 5>]
-    # for order in orders:
-    #     if all(map(lambda x: x.product_id != product_id, order.order_details)):
     for order in orders:
-        for product_info in order.order_details:  # [<OrderDetails1>,]
+        for product_info in order.order_details:
             if product_id == product_info.product_id:
                 form = ReviewForm()
                 form['csrf_token'].data = request.cookies['csrf_token']
