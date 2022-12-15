@@ -4,7 +4,7 @@ import './CartSummary.css'
 
 export default function CartSummary({ cart_items }) {
     const navigate = useNavigate();
-    const total = cart_items.reduce((total, [product_id, num]) => total += num, 0);
+    const total = cart_items.length;
 
     return (
         <>

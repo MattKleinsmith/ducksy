@@ -6,6 +6,7 @@
     box-shadow: 0 0 2rem rgba(0, 0, 0, 0.1);
     border: 0.1rem solid rgba(0, 0, 0, 0.1);
     border-radius: 1.5rem;
+    height: 30vh;
 }
 
 .cart_subtotal {
