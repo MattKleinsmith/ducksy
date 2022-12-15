@@ -1,0 +1,49 @@
+.ProductEditorWrapper {
+    display: flex;
+    justify-content: center;
+}
+
+.ProductEditor {
+    display: flex;
+    flex-direction: column;
+    max-width: 1350px;
+    gap: 10px;
+    width: 100vw;
+}
+
+.image {
+    width: 16vw;
+    height: 10vw;
+    object-fit: cover;
+}
+
+.form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.name {
+    width: 50vw;
+}
+
+.descriptionWrapper {
+    display: flex;
+    gap: 5px;
+}
+
+.description {
+    width: 25vw;
+    height: 5vw;
+    padding-top: 4px;
+    padding-left: 4px;
+}
+
+.descriptionLabel {
+    align-self: flex-start;
+}
+
+.checkbox {
+    margin-left: 5px;
+    transform: scale(1.25);
+}

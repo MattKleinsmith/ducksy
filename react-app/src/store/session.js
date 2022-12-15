@@ -21,11 +21,9 @@ export const signIn = credentials => async dispatch => {
         body: JSON.stringify(credentials),
     });
 
-    if (response.ok) {
-        const data = await response.json();
-        dispatch(setUser(data));
-    }
-    return response;
+    const user = await response.json();
+    dispatch(setUser(user));
+    return user;
 };
 
 export const signOut = () => async (dispatch) => {

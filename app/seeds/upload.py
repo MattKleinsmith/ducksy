@@ -1,6 +1,7 @@
 import boto3
 import os
 import requests
+import uuid
 from dotenv import load_dotenv
 load_dotenv()
 
@@ -14,7 +15,27 @@ s3 = boto3.client(
 )
 
 
-def upload_image_to_bucket(url, acl="public-read"):
+def upload_image_to_bucket(image, image_name, acl="public-read"):
+    print(f"upload_image_to_bucket: Uploading {image_name}", "-"*50)
+    image_name = str(uuid.uuid1()) + "-" + image_name
+    bucket_url = f"{S3_LOCATION}{image_name}"
+    try:
+        s3.upload_fileobj(
+            image,
+            BUCKET_NAME,
+            image_name,
+            ExtraArgs={
+                "ACL": acl,
+            }
+        )
+    except Exception as e:
+        # in case the our s3 upload fails
+        return {"errors": str(e)}
+    print(bucket_url, "-"*50)
+    return bucket_url
+
+
+def upload_image_to_bucket_from_url(url, acl="public-read"):
     image_name = os.path.basename(url)
     bucket_url = f"{S3_LOCATION}{image_name}"
 

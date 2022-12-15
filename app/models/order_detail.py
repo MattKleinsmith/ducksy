@@ -12,31 +12,41 @@ from flask_login import UserMixin
 from werkzeug.security import generate_password_hash, check_password_hash
 
 
-class OrderItem(db.Model):
-    __tablename__ = "order_items"
+class OrderDetail(db.Model):
+    __tablename__ = "order_details"
 
     if environment == "production":
         __table_args__ = {'schema': SCHEMA}
 
     id = Column(Integer, primary_key=True)
     order_id = Column(Integer, ForeignKey(
-        add_prefix_for_prod('orders.id'), name='fk_order_item_order_id'), nullable=False)
+        add_prefix_for_prod('orders.id'), name='fk_order_detail_order_id', ondelete='CASCADE'), nullable=False)
     product_id = Column(Integer, ForeignKey(
-        add_prefix_for_prod('products.id'), name='fk_order_item_product_id'), nullable=False)
+        add_prefix_for_prod('products.id'), name='fk_order_detail_product_id', ondelete='SET NULL'), nullable=True)
+    seller_id = Column(Integer, ForeignKey(
+        add_prefix_for_prod('users.id'), name='fk_order_detail_seller_id', ondelete='CASCADE'), nullable=False)
+    buyer_id = Column(Integer, ForeignKey(
+        add_prefix_for_prod('users.id'), name='fk_order_detail_buyer_id', ondelete='CASCADE'), nullable=False)
     price = Column(DECIMAL, nullable=False)
+    quantity = Column(Integer, nullable=False)
+
     created_at = Column(DateTime(timezone=True),
                         server_default=func.now(), nullable=False)
     updated_at = Column(DateTime(timezone=True),
                         server_default=func.now(), onupdate=func.now(),
                         nullable=False)
 
-    order = relationship("Order", back_populates="items")
-    product = relationship("Product", back_populates="items")
-    shop = relationship("User", back_populates="order_items")
+    order = relationship("Order", back_populates="order_details")
+    product = relationship("Product")
+    seller = relationship("User", foreign_keys=[seller_id])
 
     def to_dict(self):
         return {
             "product_id": self.product_id,
-            "shop_id": self.shop_id,
-            "price": self.price
+            "product": self.product.to_dict() if self.product is not None else None,
+            "price": self.price,
+            "seller_id": self.seller_id,
+            "seller": self.seller.to_dict(),
+            "order_id": self.order_id,
+            "purchase_date": self.created_at
         }

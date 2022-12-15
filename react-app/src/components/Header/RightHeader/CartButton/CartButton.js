@@ -1,16 +1,15 @@
-// import { useState, useEffect } from "react";
-// import { useSelector } from 'react-redux';
-
-import "./CartButton.css";
+import { useNavigate } from "react-router";
+import styles from "./CartButton.module.css";
 
 export default function CartButton() {
-    // const [showMenu, setShowMenu] = useState(false);
-    // const ui = useSelector(state => state.ui);
-
+    const navigate = useNavigate()
     return (
         <>
-            <button className="cartButton">
-                <i className="fa-solid fa-cart-shopping"></i>
+            <button
+                className={styles.cartButton}
+                onClick={() => navigate('/cart')}
+            >
+                <i className="fa-solid fa-cart-shopping" />
             </button>
         </>
     );

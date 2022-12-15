@@ -1,0 +1,23 @@
+.ShopManagerItemDescription {
+    display: flex;
+    flex-direction: column;
+    /* justify-content: space-evenly; */
+    font-size: 14px;
+    color: #222222;
+    padding-top: 10px;
+    padding-left: 8px;
+    padding-right: 8px;
+}
+
+.ShopManagerItemDescriptionName {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.priceWrapper {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 3px;
+    font-size: 13px;
+}

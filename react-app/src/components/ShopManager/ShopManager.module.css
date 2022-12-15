@@ -1,0 +1,21 @@
+.ShopManagerWrapper {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+.ShopManagerWrapper>.ShopManagerTitle {
+    align-self: flex-start
+}
+
+.ShopManager {
+    display: grid;
+    grid-template-columns: repeat(5, minmax(0, 1fr));
+
+    max-width: 1350px;
+
+    padding-top: 40px;
+
+    column-gap: 24px;
+    row-gap: 40px;
+}

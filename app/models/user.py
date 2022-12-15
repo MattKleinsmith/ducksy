@@ -33,11 +33,9 @@ class User(db.Model, UserMixin):
                         server_default=func.now(), onupdate=func.now(),
                         nullable=False)
 
-    products = relationship("Product", back_populates="shop")
-    # reviews_customer = relationship("Review", back_populates="customer")
-    # reviews_shop = relationship("Review", back_populates="shop")
-    shop_orders = relationship("Order", back_populates="shop", foreign_keys=[Order.shop_id])
-    customer_orders = relationship("Order", back_populates="customer", foreign_keys=[Order.customer_id])
+    products = relationship("Product", back_populates="seller")
+    # buyer_orders = relationship(
+    #     "Order", back_populates="buyer", foreign_keys=[Order.buyer_id])
 
     @property
     def password(self):

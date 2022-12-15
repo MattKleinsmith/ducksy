@@ -1,0 +1,16 @@
+.cartSummary {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 20px 0;
+    width: 1350px;
+
+}
+
+.cartSummary button {
+    cursor: pointer;
+    background-color: transparent;
+    border: none;
+    color: black;
+    font-weight: 600;
+}

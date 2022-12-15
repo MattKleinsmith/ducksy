@@ -21,7 +21,7 @@ class ProductImage(db.Model):
     id = Column(Integer, primary_key=True)
 
     product_id = Column(Integer, ForeignKey(
-        add_prefix_for_prod('products.id'), name='fk_product_image_product_id'), nullable=False)
+        add_prefix_for_prod('products.id'), name='fk_product_image_product_id', ondelete='CASCADE'), nullable=False)
     url = Column(TEXT, nullable=False)
     preview = Column(BOOLEAN, nullable=False)
 
@@ -31,7 +31,8 @@ class ProductImage(db.Model):
                         server_default=func.now(), onupdate=func.now(),
                         nullable=False)
 
-    product = relationship("Product", back_populates="product_images")
+    product = relationship(
+        "Product", back_populates="product_images")  # For seeding
 
     def to_dict(self):
         return {

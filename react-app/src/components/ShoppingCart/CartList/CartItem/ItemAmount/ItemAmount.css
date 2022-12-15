@@ -1,0 +1,9 @@
+.cart_grid_item_amount {
+    display: flex;
+    justify-content: space-around;
+
+}
+
+.cart_grid_item_amount select {
+    max-height: 2rem;
+}

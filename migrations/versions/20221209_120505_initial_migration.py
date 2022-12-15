@@ -41,7 +41,7 @@ def upgrade():
 
     op.create_table('products',
                     sa.Column('id', sa.Integer(), nullable=False),
-                    sa.Column('shop_id', sa.Integer(), nullable=False),
+                    sa.Column('seller_id', sa.Integer(), nullable=False),
                     sa.Column('name', sa.VARCHAR(length=140), nullable=False),
                     sa.Column('price', sa.DECIMAL(), nullable=False),
                     sa.Column('description', sa.TEXT(), nullable=True),
@@ -50,7 +50,7 @@ def upgrade():
                     sa.Column('updated_at', sa.DateTime(timezone=True),
                               server_default=sa.text('(CURRENT_TIMESTAMP)'), nullable=False),
                     sa.ForeignKeyConstraint(
-                        ['shop_id'], ['users.id'], ),
+                        ['seller_id'], ['users.id'], name='fk_product_seller_id' ),
                     sa.PrimaryKeyConstraint('id')
                     )
 
@@ -67,7 +67,7 @@ def upgrade():
                     sa.Column('updated_at', sa.DateTime(timezone=True),
                               server_default=sa.text('(CURRENT_TIMESTAMP)'), nullable=False),
                     sa.ForeignKeyConstraint(
-                        ['product_id'], ['products.id'], ),
+                        ['product_id'], ['products.id'], name='fk_product_image_product_id' ),
                     sa.PrimaryKeyConstraint('id')
                     )
 
@@ -76,8 +76,8 @@ def upgrade():
 
     op.create_table('reviews',
                     sa.Column('id', sa.Integer(), nullable=False),
-                    sa.Column('customer_id', sa.Integer(), nullable=False),
-                    sa.Column('shop_id', sa.Integer(), nullable=True),
+                    sa.Column('buyer_id', sa.Integer(), nullable=False),
+                    sa.Column('seller_id', sa.Integer(), nullable=True),
                     sa.Column('product_id', sa.Integer(), nullable=False),
                     sa.Column('rating', sa.Integer(), nullable=False),
                     sa.Column('review', sa.VARCHAR(
@@ -87,11 +87,11 @@ def upgrade():
                     sa.Column('updated_at', sa.DateTime(timezone=True),
                               server_default=sa.text('(CURRENT_TIMESTAMP)'), nullable=False),
                     sa.ForeignKeyConstraint(
-                        ['customer_id'], ['users.id'], ),
+                        ['buyer_id'], ['users.id'], name='fk_review_buyer_id' ),
                     sa.ForeignKeyConstraint(
-                        ['product_id'], ['products.id'], ),
+                        ['product_id'], ['products.id'], name='fk_review_product_id' ),
                     sa.ForeignKeyConstraint(
-                        ['shop_id'], ['users.id'], ),
+                        ['seller_id'], ['users.id'], name='fk_review_seller_id'),
                     sa.PrimaryKeyConstraint('id')
                     )
     # ### end Alembic commands ###
