@@ -6,6 +6,11 @@ export default function SearchBar() {
     const session = useSelector(state => state.session);
     const dispatch = useDispatch();
     return (
-        <input type="text" className={styles.searchBar} placeholder="Search for anything" />
+        <div className={styles.searchBarWrapper}>
+            <input type="text" className={styles.searchBar} placeholder="Search for anything" />
+            <div className={styles.iconWrapper}>
+                <i className={`fa-solid fa-magnifying-glass ${styles.icon}`} />
+            </div>
+        </div>
     )
 }
