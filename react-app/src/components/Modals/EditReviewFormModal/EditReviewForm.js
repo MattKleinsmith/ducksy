@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { setEditReviewModal } from '../../../store/ui';
 import { getReviewsByBuyerId, updateReview } from '../../../store/buyerReviews';
-import './editReviewForm.css';
+import styles from './EditReviewForm.module.css';
 
 export default function EditReviewForm() {
     const originalReview = useSelector(state => state.reviewDetails);
@@ -29,38 +29,45 @@ export default function EditReviewForm() {
 
     return (
         <>
-            <div>My review</div>
-            <form onSubmit={handleSubmit}>
-                <ul style={{ color: 'rgb(246, 18, 18)' }}>
-                    {errors.map((error, i) => <li key={i}>{error}</li>)}
-                </ul>
-                <div className='star-rating'><span>Select your rating   </span>
-                    {[...Array(5)].map((star, i) => {
-                        i += 1;
-                        return (
-                            <button
-                                type='button'
-                                key={i}
-                                className={i <= ((rating && hover) || hover) ? 'on' : 'off'}
-                                onClick={() => setRating(i)}
-                                onMouseEnter={() => setHover(i)}
-                                onMouseLeave={() => setHover(rating)}
-                            >
-                                <span className='star'><i className="fa-solid fa-star" style={{ fontSize: '25px' }}></i></span>
-                            </button>);
-                    })}
-                </div >
-
-                <textarea
-                    className='review-detail'
-                    placeholder='Update here'
-                    type='text'
-                    onChange={e => setReview(e.target.value)}
-                    value={review}
-                />
-                <button className='review-btn' type='submit'>Update review</button>
-            </form>
-            <div><button className='cancel-btn' onClick={() => dispatch(setEditReviewModal(false))}>Cancel</button></div>
+            <div className={styles.formWrapper}>
+                <form onSubmit={handleSubmit}>
+                    <ul className={styles.errors}>
+                        {errors.map((error, i) => <li key={i}>{error}</li>)}
+                    </ul>
+                    <div className={styles.myReview}>My review</div>
+                    <div className={styles.stars}>
+                        {[...Array(5)].map((star, i) => {
+                            i += 1;
+                            return (
+                                <button
+                                    type='button'
+                                    key={i}
+                                    className={i <= ((rating && hover) || hover) ? styles.on : styles.off}
+                                    onClick={() => setRating(i)}
+                                    onMouseEnter={() => setHover(i)}
+                                    onMouseLeave={() => setHover(rating)}
+                                >
+                                    <span className={styles.star}><i className="fa-solid fa-star" style={{ fontSize: '25px' }}></i></span>
+                                </button>);
+                        })}
+                    </div >
+                    <div>
+                        <p className={styles.tagline}>Help others by sharing your feedback</p>
+                        <p className={styles.suggestion}>What do you like about this? Did it ship on time? Describe your experience with this shop.</p>
+                    </div>
+                    <textarea
+                        className={styles.reviewDetail}
+                        placeholder='Update here'
+                        type='text'
+                        onChange={e => setReview(e.target.value)}
+                        value={review}
+                    />
+                    <div className={styles.btnWrapper}>
+                        <button className={styles.cancelBtn} onClick={() => dispatch(setEditReviewModal(false))}>Cancel</button>
+                        <button className={styles.reviewBtn} type='submit'>Update Your review</button>
+                    </div>
+                </form>
+            </div>
         </>
     );
 };

@@ -443,7 +443,7 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "{{url}}/products?categories=bag, gift",
+					"raw": "{{url}}/products?category=bag&category=gift",
 					"host": [
 						"{{url}}"
 					],
@@ -452,8 +452,12 @@
 					],
 					"query": [
 						{
-							"key": "categories",
-							"value": "bag, gift"
+							"key": "category",
+							"value": "bag"
+						},
+						{
+							"key": "category",
+							"value": "gift"
 						}
 					]
 				}

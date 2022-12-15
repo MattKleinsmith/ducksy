@@ -1,6 +1,6 @@
 import { useSelector } from 'react-redux';
 import ShopManagerItem from "./ShopManagerItem/ShopManagerItem";
-import "./ShopManager.css";
+import styles from "./ShopManager.module.css";
 
 export default function ShopManager() {
     const user = useSelector(state => state.session.user)
@@ -23,11 +23,11 @@ export default function ShopManager() {
     }
 
     return (
-        <div className="ShopManagerWrapper">
-            <div className="ShopManagerTitle">
+        <div className={styles.ShopManagerWrapper}>
+            <div className={styles.ShopManagerTitle}>
                 <h1>Add draft listings to your shop.</h1>
             </div>
-            <div className="ShopManager">
+            <div className={styles.ShopManager}>
                 {products.map((product, i) => <ShopManagerItem product={product} key={i} />)}
             </div>
         </div>

@@ -71,12 +71,12 @@ export default function ProductEditor() {
 
                 <img id="ProductEditorImage" className={styles.image} src={product?.preview_image} alt={product?.preview_image} />
 
-                <form className={styles.form} onSubmit={handleSubmit}>
+                <form className={styles.form}>
                     {imageErrors.length > 0 && <ul className="formErrors">
                         {imageErrors.map((error, i) => <li key={i}>{error}</li>)}
                     </ul>}
 
-                    <label>Select image:
+                    <label>Select image{" "}
                         <input
                             type="file"
                             name="image"
@@ -84,10 +84,11 @@ export default function ProductEditor() {
                             onChange={handleImageChange}
                         />
                     </label>
-                    <label>Is this a preview image?:
+                    <label>Is this a preview image?{" "}
                         <input
                             type="checkbox"
                             name="preview"
+                            className={styles.checkbox}
                             checked={preview}
                             onChange={() => setPreview(!preview)}
                         />
@@ -97,31 +98,36 @@ export default function ProductEditor() {
                         {errors.map((error, i) => <li key={i}>{error}</li>)}
                     </ul>}
 
-                    <label>Name
+                    <label>Name{" "}
                         <input
                             type="text"
                             value={name}
+                            className={styles.name}
                             onChange={e => setName(e.target.value)}
                         />
                     </label>
 
-                    <label>Description
-                        <input
-                            type="textarea"
+                    <div className={styles.descriptionWrapper}>
+
+                        <label className={styles.descriptionLabel} htmlFor="description">Description
+
+                        </label>
+                        <textarea
                             value={description}
+                            id="description"
+                            className={styles.description}
                             onChange={e => setDescription(e.target.value)}
                         />
-                    </label>
+                    </div>
 
-                    <label>Price
+
+                    <label>Price{" "}
                         <input
                             type="number"
                             value={price}
                             onChange={e => setPrice(e.target.value)}
                         />
                     </label>
-
-                    <button type="submit">Update product listing</button>
                 </form>
             </div>
             <div className={footerStyles.wrapper}>

@@ -8,7 +8,7 @@ import { setDeleteProductModal } from "../../../store/ui";
 export default function DeleteProductForm() {
     const dispatch = useDispatch();
     const navigate = useNavigate();
-    const productId = useSelector(state => state.productDetails).id
+    const productId = useSelector(state => state.productDetails).id;
     const [errors, setErrors] = useState([]);
 
     const handleSubmit = (e) => {
@@ -20,7 +20,7 @@ export default function DeleteProductForm() {
                 navigate("/your/shop");
             })
             .catch(errors => {
-                setErrors(Object.values(errors.errors))
+                setErrors(Object.values(errors.errors));
             });
     };
 
@@ -30,6 +30,7 @@ export default function DeleteProductForm() {
             <ul>
                 {errors.map((error, idx) => <li key={idx}>{error}</li>)}
             </ul>
+            <div><button className='cancel-x' onClick={() => dispatch(setDeleteProductModal(false))}>x</button></div>
             <button className="deleteFormButton" type="submit">Delete product</button>
         </form >
     );

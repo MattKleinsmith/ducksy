@@ -1631,7 +1631,7 @@ def undo_seed():
         db.session.execute(
             f"TRUNCATE table {SCHEMA}.orders RESTART IDENTITY CASCADE;")
         db.session.execute(
-            f"TRUNCATE table {SCHEMA}.orders_products RESTART IDENTITY CASCADE;")
+            f"TRUNCATE table {SCHEMA}.order_details RESTART IDENTITY CASCADE;")
     else:
         db.session.execute("DELETE FROM reviews")
         db.session.execute("DELETE FROM order_details")

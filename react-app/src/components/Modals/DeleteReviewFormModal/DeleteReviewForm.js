@@ -28,7 +28,7 @@ export default function DeleteReviewForm() {
                 {errors.map((error, i) => <li key={i}>{error}</li>)}
             </ul>
             <div><button className='cancel-x' onClick={() => dispatch(setDeleteReviewModal(false))}>x</button></div>
-            <h1 style={{ width: "300px" }}>Are you sure you want to delete this review?</h1>
+            <h4 style={{ width: "400px" }}>Are you sure you want to delete this review?</h4>
             <button className="deleteFormButton" type="submit">Delete review</button>
         </form >
     );

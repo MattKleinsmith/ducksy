@@ -16,3 +16,34 @@
     height: 10vw;
     object-fit: cover;
 }
+
+.form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.name {
+    width: 50vw;
+}
+
+.descriptionWrapper {
+    display: flex;
+    gap: 5px;
+}
+
+.description {
+    width: 25vw;
+    height: 5vw;
+    padding-top: 4px;
+    padding-left: 4px;
+}
+
+.descriptionLabel {
+    align-self: flex-start;
+}
+
+.checkbox {
+    margin-left: 5px;
+    transform: scale(1.25);
+}

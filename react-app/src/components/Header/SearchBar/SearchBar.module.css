@@ -28,19 +28,27 @@
     background-color: white;
 }
 
-.iconWrapper {
+.iconWrapperBase {
     display: flex;
     align-items: center;
     justify-content: center;
-    background-color: #222222;
-    border-top-right-radius: 100px;
-    border-bottom-right-radius: 100px;
+    border-top-right-radius: 19px;
+    border-bottom-right-radius: 19px;
     width: 60px;
+}
+
+.iconWrapperActive {
+    background-color: #222222;
+    border-right: 2px solid #222222;
 }
 
 .icon {
     font-size: 19px;
-    background-color: black;
-    color: white;
+    color: #222222;
     cursor: pointer;
+}
+
+.iconActive {
+    font-size: 19px;
+    color: white;
 }

@@ -1,0 +1,10 @@
+.wrapper {
+    display: flex;
+    align-items: center;
+    gap: 25px;
+}
+
+.signIn {
+    cursor: pointer;
+    width: 50px;
+}
