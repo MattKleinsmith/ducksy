@@ -40,7 +40,7 @@
     padding-top: 10px
 }
 
-input {
+.registerForm input {
     width: 100%;
     border: 1px solid rgba(34, 34, 34, 0.15);
     border-radius: 6px;
@@ -49,10 +49,10 @@ input {
     box-shadow: 0 1px 4px 0 rgb(34 34 34 / 10%) inset;
 }
 
-input:hover {
+.registerForm input:hover {
     outline: 1px solid rgb(133, 133, 133);
 }
 
-input:focus {
+.registerForm input:focus {
     outline: 1px solid rgb(27, 34, 169);
 }

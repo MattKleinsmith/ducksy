@@ -1,4 +1,4 @@
-import './SigninForm.css';
+import styles from './SigninForm.module.css';
 import { useState } from "react";
 import { useDispatch } from "react-redux";
 import * as sessionActions from "../../../store/session";
@@ -21,18 +21,20 @@ export default function SigninForm() {
     };
 
     return (
-        <form className="signinForm" onSubmit={handleSubmit}>
-            <div className="signinHeader">
-                <div className='signIn'>Sign in</div>
-                <div className="signInFormRegisterButton" onClick={() => {
+        <form className={styles.signinForm} onSubmit={handleSubmit}>
+            <div className={styles.signinHeader}>
+                <div className={styles.signIn}>Sign in</div>
+                <div className={styles.signInFormRegisterButton} onClick={() => {
                     dispatch(setRegisterModal(true));
                     dispatch(setSigninModal(false));
                 }}>Register
                 </div>
             </div>
-            {errors.length > 0 && <ul className="formErrors">
-                {errors.map((error, idx) => <li key={idx}>{error}</li>)}
-            </ul>}
+            {
+                errors.length > 0 && <ul className="formErrors">
+                    {errors.map((error, idx) => <li key={idx}>{error}</li>)}
+                </ul>
+            }
             <label >
                 Email address <br />
                 <input
@@ -54,7 +56,7 @@ export default function SigninForm() {
                 />
             </label>
 
-            <button type="submit" className="signinButton">Sign in</button>
+            <button type="submit" className={styles.signinButton}>Sign in</button>
 
             <button type="submit" className="demoButton" onClick={() => {
                 setEmail("email@email.com");
@@ -65,6 +67,6 @@ export default function SigninForm() {
                 setEmail("email2@email.com");
                 setPassword("password");
             }}>Log in as demo user: Brian</button>
-        </form>
+        </form >
     );
 }

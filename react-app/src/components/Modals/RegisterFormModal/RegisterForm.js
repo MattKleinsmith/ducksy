@@ -1,4 +1,4 @@
-import './RegisterForm.css';
+import styles from './RegisterForm.module.css';
 import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Navigate } from "react-router-dom";
@@ -26,13 +26,13 @@ export default function RegisterForm() {
     };
 
     return (
-        <form className="registerForm" onSubmit={handleSubmit}>
-            <div className='registerHeader'>Create your account</div>
-            <div className="tagline">Registration is easy.</div>
+        <form className={styles.registerForm} onSubmit={handleSubmit}>
+            <div className={styles.registerHeader}>Create your account</div>
+            <div className={styles.tagline}>Registration is easy.</div>
             {errors.length > 0 && <ul className="formErrors">
                 {errors.map((error, idx) => <li key={idx}>{error}</li>)}
             </ul>}
-            <label className='registerLabel'>
+            <label className={styles.registerLabel}>
                 Email address <span style={{ color: "red" }}>*</span><br />
                 <input
                     className="field"

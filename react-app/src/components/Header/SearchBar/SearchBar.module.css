@@ -28,6 +28,10 @@
     background-color: white;
 }
 
+.searchBar:hover {
+    border: 0;
+}
+
 .iconWrapperBase {
     display: flex;
     align-items: center;
