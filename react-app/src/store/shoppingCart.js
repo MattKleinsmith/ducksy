@@ -1,3 +1,5 @@
+import { csrfFetch } from "./csrf";
+
 export const saveCarts = (carts) => {
     window.localStorage.setItem('ducksyCarts', JSON.stringify(carts));
 }
@@ -33,18 +35,38 @@ export const addItemToCart = (product, user) => async dispatch => {
     const current_cart = user ? carts[user.id] : carts['guest'];
     if (String(product.id) in current_cart) current_cart[product.id] += 1;
     else current_cart[product.id] = 1;
-    console.log(carts)
     saveCarts(carts)
     dispatch({ type: GET_CARTS, carts })
 };
 
-export const deleteItem = (user_id, product_id) => async dispatch => {
-    const carts = dispatch(getCarts())
-    delete carts[user_id][product_id]
-    saveCarts()
+export const deleteItemFromCart = (product, user) => async dispatch => {
+    const carts = await dispatch(getCarts())
+    const current_cart = user ? carts[user.id] : carts['guest'];
+    delete current_cart[product.id]
+    console.log("delete item from cart", current_cart)
+    saveCarts(carts)
     dispatch({ type: GET_CARTS, carts })
 }
 
+
+export const updateItemAmount = (product, user, amount) => async dispatch => {
+    const carts = await dispatch(getCarts())
+    const current_cart = user ? carts[user.id] : carts['guest'];
+    current_cart[product.id] = Number(amount);
+    saveCarts(carts)
+    dispatch({ type: GET_CARTS, carts })
+}
+
+export const checkoutCart = (user) => async dispatch => {
+    const carts = await dispatch(getCarts())
+    const current_cart = user ? carts[user.id] : carts['guest'];
+
+    await csrfFetch('/api/orders', {
+        method: "POST",
+        body: JSON.stringify(current_cart)
+    });
+
+}
 
 const initialState = window.localStorage.getItem('ducksy');
 

@@ -1,11 +1,14 @@
+import { deleteItemFromCart } from '../../../../store/shoppingCart';
+import { useDispatch, useSelector } from 'react-redux';
 import './CartItem.css';
+import ItemAmount from './ItemAmount/ItemAmount';
 
 export default function CartItem({ product, amount }) {
-    const removeHandler = () => {
+    const dispatch = useDispatch()
+    const user = useSelector(state => state.session.user)
 
-    }
     return (
-        <div>
+        <div className='cartItem'>
             <div className="cart_seller_info">
                 <div className="seller_profile_picture">
                     D
@@ -23,12 +26,12 @@ export default function CartItem({ product, amount }) {
                     </div>
                     <div>
                         <button
-                            onClick={() => removeHandler()}
+                            onClick={() => dispatch(deleteItemFromCart(product, user))}
                         >Remove</button>
                     </div>
                 </div>
+                <ItemAmount amount={amount} user={user} product={product} />
             </div>
-            <div>{amount}</div>
         </div >
     )
 }
