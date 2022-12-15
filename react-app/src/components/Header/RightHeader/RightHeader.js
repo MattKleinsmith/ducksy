@@ -1,4 +1,4 @@
-import "./RightHeader.css";
+import styles from "./RightHeader.module.css";
 import { useDispatch, useSelector } from "react-redux";
 import ProfileButton from "./ProfileButton/ProfileButton";
 import CartButton from "./CartButton/CartButton";
@@ -9,9 +9,9 @@ export default function RightHeader() {
     const session = useSelector(state => state.session);
     const dispatch = useDispatch();
     return <span>
-        {<div className="rightHeader">
+        {<div className={styles.wrapper}>
             {session.user && <ShopButton />}
-            {!session.user && <div className="pointer" onClick={() => dispatch(setSigninModal(true))}>Sign in</div>}
+            {!session.user && <div className={styles.pointer} onClick={() => dispatch(setSigninModal(true))}>Sign in</div>}
             {session.user && <ProfileButton />}
             <CartButton />
         </div>}
