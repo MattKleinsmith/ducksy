@@ -43,7 +43,6 @@ export const deleteItemFromCart = (product, user) => async dispatch => {
     const carts = await dispatch(getCarts())
     const current_cart = user ? carts[user.id] : carts['guest'];
     delete current_cart[product.id]
-    console.log("delete item from cart", current_cart)
     saveCarts(carts)
     dispatch({ type: GET_CARTS, carts })
 }

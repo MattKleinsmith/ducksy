@@ -1,0 +1,30 @@
+.CartCheckout {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 1rem;
+    box-shadow: 0 0 2rem rgba(0, 0, 0, 0.1);
+    border: 0.1rem solid rgba(0, 0, 0, 0.1);
+    border-radius: 1.5rem;
+}
+
+.cart_subtotal {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 1rem;
+}
+
+.cart_checkout_button {
+    display: flex;
+    justify-content: center;
+}
+
+
+.cart_checkout_button button {
+    background-color: black;
+    width: 100%;
+    border-radius: 1rem;
+    color: white;
+    font-size: 1rem;
+    padding: 0.5rem 1rem;
+}
