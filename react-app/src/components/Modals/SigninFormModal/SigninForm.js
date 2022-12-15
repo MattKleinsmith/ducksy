@@ -33,7 +33,7 @@ export default function SigninForm() {
             {errors.length > 0 && <ul className="formErrors">
                 {errors.map((error, idx) => <li key={idx}>{error}</li>)}
             </ul>}
-            <label>
+            <label >
                 Email address <br />
                 <input
                     className="field"
