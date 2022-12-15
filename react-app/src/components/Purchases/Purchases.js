@@ -19,42 +19,46 @@ export default function Purchases() {
 
     return (
         <>
-            <div className={styles.body}>
-                <div className={styles.heading}>Purchases</div>
-                <div className={styles.orderInfo}>
+            <div>
+                <div className={styles.heading}>
+                    <p className={styles.purchases}>Purchases</p>
+                </div>
+                <div className={styles.orderInfoWrapper}>
                     {orderDetails.length && orderDetails.map(orderDetail =>
-                        <div>
+                        <div className={styles.orderInfo}>
                             <div className={styles.purchaseFromWrapper}>
-                                <div>Purchase from {orderDetail.seller.display_name} <span>on {orderDetail.purchase_date}</span></div>
+                                <div>Purchased from {orderDetail.seller.display_name} <span>on {orderDetail.purchase_date}</span></div>
                                 <div>{orderDetail.price}</div>
                             </div>
                             <div className={styles.productWrapper}>
-                                <div><img src={orderDetail.product ? orderDetail.product.preview_image : "/placeholder.png"} alt="previewImage" />
+                                <div><img className={styles.image} src={orderDetail.product ? orderDetail.product.preview_image : "/placeholder.png"} alt="previewImage" />
                                 </div>
                                 <div className={styles.infoWrapper}>
                                     <div className={styles.productName}>
                                         {orderDetail.product ? orderDetail.product.name : "Product is unavailable"}
                                     </div>
-                                    <div>
+                                    <div className={styles.yourReview}>
                                         {orderDetail.product_id in reviews ?
                                             <div>
-                                                <div>Your review {reviews[orderDetail.product_id].rating} </div>
+                                                <div className={styles.cancelWrapper}>
+                                                    <div>Your review {reviews[orderDetail.product_id].rating} </div>
+                                                    <button className={styles.removeReviewBtn} onClick={() => {
+                                                        dispatch(setReviewId(reviews[orderDetail.product_id].id, reviews[orderDetail.product_id].review));
+                                                        dispatch(setDeleteReviewModal(true));
+                                                    }}>x</button>
+                                                </div>
                                                 <div>{reviews[orderDetail.product_id].review} </div>
                                                 <div>
-                                                    <button onClick={() => {
+                                                    <button className={styles.editReviewBtn} onClick={() => {
                                                         dispatch(setProductId(orderDetail.product_id));
                                                         dispatch(setReviewId(reviews[orderDetail.product_id].id, reviews[orderDetail.product_id].review, reviews[orderDetail.product_id].rating));
                                                         dispatch(setEditReviewModal(true));
                                                     }}>Edit review</button>
-                                                    <button onClick={() => {
-                                                        dispatch(setReviewId(reviews[orderDetail.product_id].id, reviews[orderDetail.product_id].review));
-                                                        dispatch(setDeleteReviewModal(true));
-                                                    }}>Remove review</button>
                                                 </div>
                                             </div>
                                             :
-                                            <div className='styles.reviewBtn'>
-                                                <button onClick={() => {
+                                            <div className={styles.reviewBtn}>
+                                                <button className={styles.reviewBtn} onClick={() => {
                                                     dispatch(setProductId(orderDetail.product_id));
                                                     dispatch(setEditReviewModal(false));
                                                     dispatch(setReviewModal(true));
@@ -67,6 +71,10 @@ export default function Purchases() {
                                         <div>{orderDetail.price}</div>
                                     </div>
                                 </div>
+                            </div>
+                            <div className={styles.shopNote}>
+                                <p style={{ color: '#333' }}>Shop Note</p>
+                                <p>Thank you so much for your purchase!!! We will have it shipped out asap and send you an email to notify you when it ships. Again, your patronage is very much appreciated and keeps our small business running strong. Thanks for your support!</p>
                             </div>
                         </div>
                     )}
