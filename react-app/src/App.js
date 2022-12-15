@@ -22,19 +22,24 @@ export default function App() {
     dispatch(getProducts());
   }, [dispatch]);
 
-
   return (
     <>
       <Modals />
       <Header />
       <Routes>
         <Route path="/" element={<ProductGrid />} />
+
+        <Route path="/listings" element={<ProductGrid />} />
+
         <Route path="/listing/:productId" element={<ProductDetails />} />
+
         <Route path='/your/purchases' element={<Purchases />} />
+
         <Route path='/your/shop' element={<ShopManager />} />
         <Route path='/your/shop/listing/new' element={<ProductEditor />} />
         <Route path='/your/shop/listing/:productId' element={<ProductEditor />} />
-        <Route exact path='/cart' element={<ShoppingCart />} />
+
+        <Route path='/cart' element={<ShoppingCart />} />
         <Route path="/cart/checkout/:orderId" element={<OrderConfirmation />} />
       </Routes>
     </>

@@ -10,6 +10,7 @@ import ReviewDetailsReducer from "./reviewDetails";
 import productReviewsReducer from "./productReviews";
 import ShoppingCartReducer from "./shoppingCart";
 import productsBySearchReducer from "./productsBySearch";
+import searchQueryReducer from "./searchQuery";
 
 const rootReducer = combineReducers({
     session: sessionReducer,
@@ -22,6 +23,7 @@ const rootReducer = combineReducers({
     reviewDetails: ReviewDetailsReducer,
     shoppingCarts: ShoppingCartReducer,
     productsBySearch: productsBySearchReducer,
+    searchQuery: searchQueryReducer,
 });
 
 let enhancer;

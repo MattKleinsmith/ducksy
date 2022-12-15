@@ -76,6 +76,7 @@
 .iconWrapperActive {
     background-color: #222222;
     border-right: 2px solid #222222;
+    cursor: pointer;
 }
 
 .icon {

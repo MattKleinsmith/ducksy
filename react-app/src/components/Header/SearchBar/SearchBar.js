@@ -1,23 +1,24 @@
 import styles from "./SearchBar.module.css";
 import { useState, useEffect, useRef } from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { getProductsByKeywords } from "../../../store/productsBySearch";
+import { setSearchQuery } from "../../../store/searchQuery";
 
 export default function SearchBar() {
     const [isSearchBarActive, setIsSearchBarActive] = useState(false);
-    const [search, setSearch] = useState("");
+    const searchQuery = useSelector(state => state.searchQuery);
     const dispatch = useDispatch();
     const searchBar = useRef(null);
 
     useEffect(() => {
         if (!isSearchBarActive) return;
         const setSearchBarInactive = e => {
-            if (e.target === searchBar.current || search) return;
+            if (e.target === searchBar.current || searchQuery) return;
             setIsSearchBarActive(false);
         }
         document.addEventListener('click', setSearchBarInactive);
         return () => document.removeEventListener("click", setSearchBarInactive);
-    }, [isSearchBarActive, search]);
+    }, [isSearchBarActive, searchQuery]);
 
     const handleSearchBarClick = () => {
         setIsSearchBarActive(true);
@@ -25,11 +26,11 @@ export default function SearchBar() {
 
     const handleSearch = (e) => {
         if (e) e.preventDefault();
-        dispatch(getProductsByKeywords(search.split(" ")));
+        dispatch(getProductsByKeywords(searchQuery.split(" ")));
     }
 
     const onSearchChange = e => {
-        setSearch(e.target.value)
+        dispatch(setSearchQuery(e.target.value))
     }
 
     return (
@@ -40,7 +41,7 @@ export default function SearchBar() {
                         type="text"
                         ref={searchBar}
                         className={styles.searchBar}
-                        value={search}
+                        value={searchQuery}
                         onChange={onSearchChange}
                         placeholder="Search for anything" />
                 </form>
