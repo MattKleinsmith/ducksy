@@ -1,17 +1,17 @@
 from .db import db, environment, SCHEMA, add_prefix_for_prod
-from sqlalchemy.schema import Column, ForeignKey
+from sqlalchemy.schema import Column, ForeignKey, Table
 from sqlalchemy.orm import relationship
 from sqlalchemy.types import Integer, DateTime, VARCHAR, DECIMAL, TEXT, BOOLEAN
 from sqlalchemy.sql import func
 
 
-products_categories = db.Table(
+products_categories = Table(
     'products_categories',
     db.Model.metadata,
-    db.Column('product_id', db.Integer, db.ForeignKey(
-        'products.id', name='fk_product_category_product_id'), primary_key=True),
-    db.Column('category_id', db.Integer, db.ForeignKey(
-        'categories.id', name='fk_product_category_category_id'), primary_key=True)
+    Column('product_id', Integer, ForeignKey(
+        add_prefix_for_prod('products.id'), name='fk_product_category_product_id'), primary_key=True),
+    Column('category_id', Integer, ForeignKey(
+        add_prefix_for_prod('categories.id'), name='fk_product_category_category_id'), primary_key=True)
 )
 
 if environment == "production":
