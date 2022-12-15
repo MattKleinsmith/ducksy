@@ -12,6 +12,7 @@ bp = Blueprint("products", __name__, url_prefix="/products")
 @bp.route("", methods=['GET'])
 def get_products():
     category_names = request.args.getlist("category")
+    terms = request.args.getlist("q")
     if category_names:
         categories = Category.query.filter(
             Category.name.in_(category_names)).all()
@@ -23,6 +24,13 @@ def get_products():
             else:
                 products = products.intersection(set(category.products))
         return [product.to_dict() for product in products]
+    elif terms:
+        products = []
+        for term in terms:
+            products = Product.query.filter(Product.name.match(term)).all()
+            products += Product.query.filter(
+                Product.description.match(term)).all()
+        return [product.to_dict() for product in set(products)]
     else:
         return [product.to_dict() for product in Product.query]
 

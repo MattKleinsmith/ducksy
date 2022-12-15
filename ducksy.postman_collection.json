@@ -1,9 +1,9 @@
 {
 	"info": {
-		"_postman_id": "305ac051-1427-4347-97f4-05d9dab28d19",
+		"_postman_id": "ffd04778-d530-4df4-84f9-f96c2af5735e",
 		"name": "ducksy",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
-		"_exporter_id": "23440124"
+		"_exporter_id": "24025000"
 	},
 	"item": [
 		{
@@ -458,6 +458,33 @@
 						{
 							"key": "category",
 							"value": "gift"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "READ products by keywords",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{url}}/products?q=bag&q=men",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"products"
+					],
+					"query": [
+						{
+							"key": "q",
+							"value": "bag"
+						},
+						{
+							"key": "q",
+							"value": "men"
 						}
 					]
 				}
