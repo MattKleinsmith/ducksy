@@ -16,19 +16,20 @@ export default function SigninForm() {
         return dispatch(sessionActions.signIn({ email, password }))
             .then(() => dispatch(setSigninModal(false)))
             .catch(errors => {
-                setErrors(Object.values(errors.errors))
+                setErrors(Object.values(errors.errors));
             });
     };
 
     return (
         <form className="signinForm" onSubmit={handleSubmit}>
             <div className="signinHeader">
-                <div>Sign in</div>
+                <div className='signIn'>Sign in</div>
+                <div className="signInFormRegisterButton" onClick={() => {
+                    dispatch(setRegisterModal(true));
+                    dispatch(setSigninModal(false));
+                }}>Register
+                </div>
             </div>
-            <div className="signInFormRegisterButton" onClick={() => {
-                dispatch(setRegisterModal(true));
-                dispatch(setSigninModal(false));
-            }}>Register</div>
             {errors.length > 0 && <ul className="formErrors">
                 {errors.map((error, idx) => <li key={idx}>{error}</li>)}
             </ul>}
