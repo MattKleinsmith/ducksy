@@ -28,10 +28,11 @@ export default function Purchases() {
                         <div className={styles.orderInfo}>
                             <div className={styles.purchaseFromWrapper}>
                                 <div>Purchased from {orderDetail.seller.display_name} <span>on {orderDetail.purchase_date}</span></div>
-                                <div>{orderDetail.price}</div>
+                                <div>{`$${parseFloat(orderDetail.price).toFixed(2)}`}</div>
                             </div>
                             <div className={styles.productWrapper}>
-                                <div><img className={styles.image} src={orderDetail.product ? orderDetail.product.preview_image : "/placeholder.png"} alt="previewImage" />
+                                <div className={styles.imageWrapper}>
+                                    <img className={styles.image} src={orderDetail.product ? orderDetail.product.preview_image : "/placeholder.png"} alt="previewImage" />
                                 </div>
                                 <div className={styles.infoWrapper}>
                                     <div className={styles.productName}>
@@ -41,13 +42,43 @@ export default function Purchases() {
                                         {orderDetail.product_id in reviews ?
                                             <div>
                                                 <div className={styles.cancelWrapper}>
-                                                    <div>Your review {reviews[orderDetail.product_id].rating} </div>
+                                                    <div className={styles.rating}>
+                                                        {(reviews[orderDetail.product_id].rating === 1) ?
+                                                            <div><span>Your review </span><i class="fa-solid fa-star"></i></div> :
+                                                            (reviews[orderDetail.product_id].rating === 2) ?
+                                                                <div>
+                                                                    <span>Your review </span>
+                                                                    <i class="fa-solid fa-star"></i>
+                                                                    <i class="fa-solid fa-star"></i>
+                                                                </div> :
+                                                                (reviews[orderDetail.product_id].rating === 3) ? <div>
+                                                                    <span>Your review </span>
+                                                                    <i class="fa-solid fa-star"></i>
+                                                                    <i class="fa-solid fa-star"></i>
+                                                                    <i class="fa-solid fa-star"></i>
+                                                                </div> :
+                                                                    (reviews[orderDetail.product_id].rating === 4) ? <div>
+                                                                        <span>Your review </span>
+                                                                        <i class="fa-solid fa-star"></i>
+                                                                        <i class="fa-solid fa-star"></i>
+                                                                        <i class="fa-solid fa-star"></i>
+                                                                        <i class="fa-solid fa-star"></i>
+                                                                    </div> :
+                                                                        <div>
+                                                                            <span>Your review </span>
+                                                                            <i class="fa-solid fa-star"></i>
+                                                                            <i class="fa-solid fa-star"></i>
+                                                                            <i class="fa-solid fa-star"></i>
+                                                                            <i class="fa-solid fa-star"></i>
+                                                                            <i class="fa-solid fa-star"></i>
+                                                                        </div>
+                                                        } </div>
                                                     <button className={styles.removeReviewBtn} onClick={() => {
                                                         dispatch(setReviewId(reviews[orderDetail.product_id].id, reviews[orderDetail.product_id].review));
                                                         dispatch(setDeleteReviewModal(true));
                                                     }}>x</button>
                                                 </div>
-                                                <div>{reviews[orderDetail.product_id].review} </div>
+                                                <div className={styles.review}>{reviews[orderDetail.product_id].review} </div>
                                                 <div>
                                                     <button className={styles.editReviewBtn} onClick={() => {
                                                         dispatch(setProductId(orderDetail.product_id));
@@ -68,7 +99,7 @@ export default function Purchases() {
                                     </div>
                                     <div className={styles.buyAgain}>
                                         <div><button className={styles.buyAgainBtn}>Buy this again</button></div>
-                                        <div>{orderDetail.price}</div>
+                                        <div className={styles.price}>{`$${parseFloat(orderDetail.price).toFixed(2)}`}</div>
                                     </div>
                                 </div>
                             </div>
@@ -82,4 +113,4 @@ export default function Purchases() {
             </div>
         </>
     );
-}
+};
