@@ -1,4 +1,4 @@
-import './DeleteReviewForm.css';
+import styles from './DeleteReviewForm.module.css';
 import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { setDeleteReviewModal } from "../../../store/ui";
@@ -23,13 +23,13 @@ export default function DeleteReviewForm() {
     };
 
     return (
-        <form className="deleteForm" onSubmit={handleSubmit}>
+        <form className={styles.deleteForm} onSubmit={handleSubmit}>
             <ul style={{ color: 'rgb(246, 18, 18)' }}>
                 {errors.map((error, i) => <li key={i}>{error}</li>)}
             </ul>
-            <div><button className='cancel-x' onClick={() => dispatch(setDeleteReviewModal(false))}>x</button></div>
-            <h4 style={{ width: "400px" }}>Are you sure you want to delete this review?</h4>
-            <button className="deleteFormButton" type="submit">Delete review</button>
+            <div><button className={styles.cancel} onClick={() => dispatch(setDeleteReviewModal(false))}>x</button></div>
+            <h4>Are you sure you want to delete this review?</h4>
+            <button className={styles.deleteFormButton} type="submit">Delete review</button>
         </form >
     );
 }
