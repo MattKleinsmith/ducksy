@@ -1,15 +1,24 @@
 import styles from "./SearchBar.module.css";
-import { useDispatch, useSelector } from "react-redux";
-import { setSigninModal } from "../../../store/ui";
+import { useState, useEffect } from "react";
 
 export default function SearchBar() {
-    const session = useSelector(state => state.session);
-    const dispatch = useDispatch();
+    const [isSearchBarActive, setIsSearchBarActive] = useState(false);
+    console.log("isSearchBarActive", isSearchBarActive);
+
+    useEffect(() => {
+        if (!isSearchBarActive) return;
+        const setSearchBarInactive = e => {
+            setIsSearchBarActive(false);
+        }
+        document.addEventListener('click', setSearchBarInactive);
+        return () => document.removeEventListener("click", setSearchBarInactive);
+    }, [isSearchBarActive]);
+
     return (
-        <div className={styles.searchBarWrapper}>
+        <div className={styles.searchBarWrapper} onClick={() => setIsSearchBarActive(true)}>
             <input type="text" className={styles.searchBar} placeholder="Search for anything" />
-            <div className={styles.iconWrapper}>
-                <i className={`fa-solid fa-magnifying-glass ${styles.icon}`} />
+            <div className={`${styles.iconWrapperBase} ${isSearchBarActive && styles.iconWrapperActive}`}>
+                <i className={`fa-solid fa-magnifying-glass ${isSearchBarActive ? styles.iconActive : styles.icon}`} />
             </div>
         </div>
     )
