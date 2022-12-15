@@ -3,7 +3,6 @@ import { useState, useEffect } from "react";
 
 export default function SearchBar() {
     const [isSearchBarActive, setIsSearchBarActive] = useState(false);
-    console.log("isSearchBarActive", isSearchBarActive);
 
     useEffect(() => {
         if (!isSearchBarActive) return;
