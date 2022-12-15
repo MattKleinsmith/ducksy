@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { setEditReviewModal } from '../../../store/ui';
 import { getReviewsByBuyerId, updateReview } from '../../../store/buyerReviews';
-import './editReviewForm.css';
+import styles from './EditReviewForm.module.css';
 
 export default function EditReviewForm() {
     const originalReview = useSelector(state => state.reviewDetails);
@@ -41,12 +41,12 @@ export default function EditReviewForm() {
                             <button
                                 type='button'
                                 key={i}
-                                className={i <= ((rating && hover) || hover) ? 'on' : 'off'}
+                                className={i <= ((rating && hover) || hover) ? styles.on : styles.off}
                                 onClick={() => setRating(i)}
                                 onMouseEnter={() => setHover(i)}
                                 onMouseLeave={() => setHover(rating)}
                             >
-                                <span className='star'><i className="fa-solid fa-star" style={{ fontSize: '25px' }}></i></span>
+                                <span className={styles.star}><i className="fa-solid fa-star" style={{ fontSize: '25px' }}></i></span>
                             </button>);
                     })}
                 </div >

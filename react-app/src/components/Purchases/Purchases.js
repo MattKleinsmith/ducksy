@@ -88,7 +88,7 @@ export default function Purchases() {
                                                 </div>
                                             </div>
                                             :
-                                            <div className={styles.reviewBtn}>
+                                            <div className={styles.reviewBtnWrapper}>
                                                 <button className={styles.reviewBtn} onClick={() => {
                                                     dispatch(setProductId(orderDetail.product_id));
                                                     dispatch(setEditReviewModal(false));

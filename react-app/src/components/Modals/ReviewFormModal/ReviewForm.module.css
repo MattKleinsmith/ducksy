@@ -1,0 +1,84 @@
+/* REVIEW STARS */
+button {
+    background-color: transparent;
+    border: none;
+    outline: none;
+    cursor: pointer;
+}
+
+.on {
+    color: #222222
+}
+
+.off {
+    color: #ccc;
+}
+
+/*-----------------------------------------*/
+.errors {
+    color: rgb(246, 18, 18);
+    padding: 20px;
+}
+
+.formWrapper {
+    width: 500px;
+    padding: 25px;
+}
+
+.btnWrapper {
+    display: flex;
+    justify-content: space-between;
+    padding-top: 20px
+}
+
+.myReview {
+    padding-bottom: 10px;
+    font-weight: bold
+}
+
+.stars {
+    padding-bottom: 20px;
+}
+
+.tagline {
+    padding-bottom: 10px;
+    font-weight: 500
+}
+
+.suggestion {
+    padding-bottom: 20px;
+}
+
+.reviewDetail {
+    outline: none;
+    resize: none;
+    min-width: 100%;
+    height: 150px;
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #d2d2d2;
+    border-radius: 3px;
+    box-shadow: 2px 2px 0px rgb(0 0 0 / 10%);
+}
+
+.reviewDetail:focus {
+    border: 2px solid #222222;
+    box-shadow: 2px 2px 0px rgb(0 0 0 / 50%);
+}
+
+.reviewBtn {
+    background-color: #222222;
+    padding: 7px 15px 8px;
+    border-radius: 20px;
+    color: #FFF;
+    font-weight: 500;
+    font-size: 15px;
+}
+
+.reviewBtn:hover {
+    background-color: #3c3c3c
+}
+
+.cancelBtn {
+    font-weight: 500;
+}
