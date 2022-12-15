@@ -6,7 +6,9 @@ import ProductGridItem from "./ProductGridItem/ProductGridItem";
 // import { clearProductDetails } from "../../store/productDetails";
 
 export default function ProductGrid() {
-    const products = useSelector(state => Object.values(state.products));
+    const productsAll = useSelector(state => Object.values(state.products));
+    const productsByCategory = useSelector(state => Object.values(state.productsByCategory));
+    const products = productsByCategory.length ? productsByCategory : productsAll;
     return (
         <div className="ProductGridWrapper">
             <div className="ProductGrid">
