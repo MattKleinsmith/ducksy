@@ -12,6 +12,7 @@ import ShopManager from "./components/ShopManager/ShopManager";
 import ProductEditor from "./components/ProductEditor/ProductEditor";
 import { getProducts } from "./store/products";
 import ShoppingCart from "./components/ShoppingCart/ShoppingCart";
+import Homepage from "./components/Homepage/Homepage";
 
 export default function App() {
   const dispatch = useDispatch();
@@ -27,7 +28,7 @@ export default function App() {
       <Modals />
       <Header />
       <Routes>
-        <Route path="/" element={<ProductGrid />} />
+        <Route path="/" element={<Homepage />} />
         <Route path="/listing/:productId" element={<ProductDetails />} />
         <Route path='/your/purchases' element={<Purchases />} />
         <Route path='/your/shop' element={<ShopManager />} />
