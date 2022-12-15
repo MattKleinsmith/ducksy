@@ -1594,9 +1594,11 @@ def seed_all():
     db.session.add_all([
         OrderDetail(
             seller_id=anna.id,
-            price=product.id,
+            price=product.price,
             product=product,
-            order=order
+            order=order,
+            buyer_id=brian.id,
+            quantity=1
         )
     ])
 

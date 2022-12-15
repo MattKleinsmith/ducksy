@@ -25,7 +25,10 @@ class OrderDetail(db.Model):
         add_prefix_for_prod('products.id'), name='fk_order_detail_product_id', ondelete='SET NULL'), nullable=True)
     seller_id = Column(Integer, ForeignKey(
         add_prefix_for_prod('users.id'), name='fk_order_detail_seller_id', ondelete='CASCADE'), nullable=False)
+    buyer_id = Column(Integer, ForeignKey(
+        add_prefix_for_prod('users.id'), name='fk_order_detail_buyer_id', ondelete='CASCADE'), nullable=False)
     price = Column(DECIMAL, nullable=False)
+    quantity = Column(Integer, nullable=False)
 
     created_at = Column(DateTime(timezone=True),
                         server_default=func.now(), nullable=False)
@@ -35,7 +38,7 @@ class OrderDetail(db.Model):
 
     order = relationship("Order", back_populates="order_details")
     product = relationship("Product")
-    seller = relationship("User")
+    seller = relationship("User", foreign_keys=[seller_id])
 
     def to_dict(self):
         return {
