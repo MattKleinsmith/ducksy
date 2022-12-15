@@ -21,7 +21,7 @@ export default function ShoppingCart() {
                     <CartSummary cart_items={cart_items} />
                     <div className="cart_grid_container">
                         <CartList cart_items={cart_items} />
-                        <CartCheckout cart_items={cart_items} />
+                        <CartCheckout cart_items={cart_items} user={user} />
                     </div>
                 </div>)
                 :

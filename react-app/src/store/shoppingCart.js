@@ -1,3 +1,5 @@
+import { csrfFetch } from "./csrf";
+
 export const saveCarts = (carts) => {
     window.localStorage.setItem('ducksyCarts', JSON.stringify(carts));
 }
@@ -48,12 +50,22 @@ export const deleteItemFromCart = (product, user) => async dispatch => {
 
 
 export const updateItemAmount = (product, user, amount) => async dispatch => {
-    console.log(' HEYYYYYYYYYYYYYYY', amount)
     const carts = await dispatch(getCarts())
     const current_cart = user ? carts[user.id] : carts['guest'];
     current_cart[product.id] = Number(amount);
     saveCarts(carts)
     dispatch({ type: GET_CARTS, carts })
+}
+
+export const checkoutCart = (user) => async dispatch => {
+    const carts = await dispatch(getCarts())
+    const current_cart = user ? carts[user.id] : carts['guest'];
+
+    await csrfFetch('/api/orders', {
+        method: "POST",
+        body: JSON.stringify(current_cart)
+    });
+
 }
 
 const initialState = window.localStorage.getItem('ducksy');

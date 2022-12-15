@@ -1,7 +1,9 @@
-export default function CartCheckout({ cart_items }) {
+export default function CartCheckout({ cart_items, user }) {
+
+
     return (
-        <div>
-            Placeholder
+        <div className="CartCheckout">
+            <button>Proceed to checkout</button>
         </div>
     )
 }
