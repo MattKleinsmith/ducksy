@@ -21,7 +21,6 @@ export default function RegisterForm() {
         return dispatch(sessionActions.register({ email, display_name, password }))
             .then(() => dispatch(setRegisterModal(false)))
             .catch(e => {
-                console.log("RegistorForm", e)
                 const errors = Object.entries(e.errors).map(([errorField, errorMessage]) => `${errorField}: ${errorMessage}`)
                 setErrors(errors);
             });

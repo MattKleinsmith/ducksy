@@ -15,8 +15,9 @@ export default function SigninForm() {
         setErrors([]);
         return dispatch(sessionActions.signIn({ email, password }))
             .then(() => dispatch(setSigninModal(false)))
-            .catch(errors => {
-                setErrors(Object.values(errors.errors));
+            .catch(e => {
+                const errors = Object.entries(e.errors).map(([errorField, errorMessage]) => `${errorField}: ${errorMessage}`)
+                setErrors(errors);
             });
     };
 
