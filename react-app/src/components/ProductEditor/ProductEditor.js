@@ -49,8 +49,9 @@ export default function ProductEditor() {
                 setImageErrors(Object.values(responseBody.errors))
             }
         }
-        catch (responseBody) {
-            setErrors(Object.values(responseBody.errors))
+        catch (e) {
+            const errors = Object.entries(e.errors).map(([errorField, errorMessage]) => `${errorField}: ${errorMessage}`)
+            setErrors(errors);
         }
     };
 
