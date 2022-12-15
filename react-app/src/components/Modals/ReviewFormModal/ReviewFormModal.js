@@ -1,5 +1,5 @@
 import React from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { Modal } from '../../../context/Modal';
 import { setReviewModal } from '../../../store/ui';
 import ReviewForm from './ReviewForm';
