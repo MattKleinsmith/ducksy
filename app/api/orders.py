@@ -9,10 +9,11 @@ bp = Blueprint("orders", __name__, url_prefix="/orders")
 @login_required
 def create_order():
     data = request.get_json()
-    product_ids = data['product_ids']
+    product_ids = data.keys()
     if len(product_ids) == 0:
         return "No products given", 400
     products = Product.query.filter(Product.id.in_(product_ids)).all()
+    products_dict = {str(product.id): product for product in products}
     if len(products) == 0:
         return "No products found", 404
     # user cannot buy their own products
@@ -21,10 +22,12 @@ def create_order():
         return "Seller can't order their own product", 401
     order = Order(buyer_id=current_user.id)
     order_products = [OrderDetail(order=order,
-                                  product_id=product.id,
-                                  seller_id=product.seller_id,
-                                  price=product.price)
-                      for product in products]
+                                  product_id=product_id,
+                                  buyer_id = current_user.id,
+                                  seller_id=products_dict[product_id].seller_id,
+                                  price=products_dict[product_id].price,
+                                  quantity=quantity)
+                      for product_id, quantity in data.items()]
     db.session.add_all(order_products)
     db.session.commit()
     return {"order_id": order.id}
