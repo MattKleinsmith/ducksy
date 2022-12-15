@@ -8,7 +8,7 @@ export default function CartItem({ product, amount }) {
     const user = useSelector(state => state.session.user)
 
     return (
-        <div>
+        <div className='cartItem'>
             <div className="cart_seller_info">
                 <div className="seller_profile_picture">
                     D

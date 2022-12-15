@@ -1,3 +1,7 @@
+.cartItem {
+    margin-bottom: 2rem;
+}
+
 .cart_seller_info {
     display: flex;
     align-items: center;
@@ -19,8 +23,15 @@
         ". . .";
 }
 
-
 .cart_product_image img {
     width: 12rem;
+    height: 10rem;
+    object-fit: cover;
     border-radius: 0.5vw;
+}
+
+.cart_grid_middle_ele {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 }
