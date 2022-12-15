@@ -4,6 +4,7 @@
     gap: 25px;
 }
 
-.pointer {
+.signIn {
     cursor: pointer;
+    width: 50px;
 }
