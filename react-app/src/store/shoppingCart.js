@@ -20,10 +20,10 @@ export const getCarts = (user = null) => async dispatch => {
     return carts
 }
 
-export const mergeCarts = (user_id) => async dispatch => {
-    const carts = await dispatch(getCarts())
+export const mergeCarts = (user) => async dispatch => {
+    const carts = await dispatch(getCarts(user))
     // Merge guest cart to log-in user cart
-    carts[user_id] = Object.assign(carts[user_id], carts["guest"]);
+    carts[user.id] = Object.assign(carts[user.id], carts["guest"]);
     //  Clear guest cart
     carts["guest"] = {};
     saveCarts(carts)

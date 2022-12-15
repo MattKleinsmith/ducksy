@@ -1,14 +1,18 @@
 import { csrfFetch } from './csrf';
+import { getCarts, mergeCarts } from './shoppingCart';
 
 const SET_USER = 'session/setUser';
 
-const setUser = user => { return { type: SET_USER, user } };
+const setUser = user => {
+    return { type: SET_USER, user }
+};
 
 export const restoreUser = () => async dispatch => {
     try {
         const response = await csrfFetch('/api/session');
-        const data = await response.json();
-        dispatch(setUser(data));
+        const user = await response.json();
+        await dispatch(setUser(user))
+        dispatch(getCarts(user));
         return response;
     } catch (errorResponse) {
         console.log("Couldn't restore user");
@@ -22,24 +26,26 @@ export const signIn = credentials => async dispatch => {
     });
 
     const user = await response.json();
-    dispatch(setUser(user));
+    await dispatch(setUser(user));
+    dispatch(mergeCarts(user));
     return user;
 };
 
 export const signOut = () => async (dispatch) => {
-    const response = await csrfFetch('/api/session', { method: 'DELETE', });
-    dispatch(setUser(null));
-    return response;
+    await csrfFetch('/api/session', { method: 'DELETE', });
+    await dispatch(setUser(null));
+    dispatch(getCarts(null));
 };
 
-export const register = user => async (dispatch) => {
+export const register = body => async (dispatch) => {
     const response = await csrfFetch("/api/users", {
         method: "POST",
-        body: JSON.stringify(user)
+        body: JSON.stringify(body)
     });
-    const data = await response.json();
-    dispatch(setUser(data));
-    return response;
+    const user = await response.json();
+    console.log("register user", user, 'user_id', user.id);
+    await dispatch(setUser(user));
+    dispatch(mergeCarts(user));
 };
 
 export default function sessionReducer(state = { user: null }, action) {
