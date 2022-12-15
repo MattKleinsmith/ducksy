@@ -69,7 +69,6 @@ export default function ReviewForm() {
                         <button className={styles.reviewBtn} type='submit'>Post Your review</button>
                     </div>
                 </form>
-
             </div >
         </>
     );
