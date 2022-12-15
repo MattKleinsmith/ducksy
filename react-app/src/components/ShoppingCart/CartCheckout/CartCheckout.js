@@ -1,12 +1,16 @@
 import { useDispatch, useSelector } from "react-redux"
 import { checkoutCart } from "../../../store/shoppingCart"
+import { setRegisterModal } from "../../../store/ui";
 import './CartCheckout.css'
 
 export default function CartCheckout({ cart_items, user }) {
     const dispatch = useDispatch();
     const products = useSelector(state => state.products)
     const subtotal = cart_items.reduce((total, [product_id, quantity]) => total += products[product_id].price * quantity, 0)
-
+    const checkoutHandler = user => {
+        if (user) dispatch(checkoutCart(user))
+        else dispatch(setRegisterModal(true))
+    }
     return (
         <div className="CartCheckout">
             <div className="cart_subtotal">
@@ -18,7 +22,7 @@ export default function CartCheckout({ cart_items, user }) {
                 </div>
             </div>
             <div className="cart_checkout_button">
-                <button onClick={() => dispatch(checkoutCart(user))}
+                <button onClick={() => checkoutHandler(user)}
                 >Proceed to checkout</button>
             </div>
         </div>
