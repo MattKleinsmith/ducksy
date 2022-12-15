@@ -9,7 +9,7 @@ import uiReducer from "./ui";
 import ReviewDetailsReducer from "./reviewDetails";
 import productReviewsReducer from "./productReviews";
 import ShoppingCartReducer from "./shoppingCart";
-import productsByCategoryReducer from "./productsByCategory";
+import productsBySearchReducer from "./productsBySearch";
 
 const rootReducer = combineReducers({
     session: sessionReducer,
@@ -21,7 +21,7 @@ const rootReducer = combineReducers({
     buyerReviews: buyerReviewsReducer,
     reviewDetails: ReviewDetailsReducer,
     shoppingCarts: ShoppingCartReducer,
-    productsByCategory: productsByCategoryReducer,
+    productsBySearch: productsBySearchReducer,
 });
 
 let enhancer;

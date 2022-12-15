@@ -7,8 +7,8 @@ import ProductGridItem from "./ProductGridItem/ProductGridItem";
 
 export default function ProductGrid() {
     const productsAll = useSelector(state => Object.values(state.products));
-    const productsByCategory = useSelector(state => Object.values(state.productsByCategory));
-    const products = productsByCategory.length ? productsByCategory : productsAll;
+    const productsBySearch = useSelector(state => Object.values(state.productsBySearch));
+    const products = productsBySearch.length ? productsBySearch : productsAll;
     return (
         <div className="ProductGridWrapper">
             <div className="ProductGrid">
