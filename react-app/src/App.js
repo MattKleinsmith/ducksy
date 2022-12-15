@@ -1,5 +1,5 @@
 import { useEffect } from "react";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import { Route, Routes } from "react-router-dom";
 
 import Header from "./components/Header/Header";
@@ -12,21 +12,15 @@ import ShopManager from "./components/ShopManager/ShopManager";
 import ProductEditor from "./components/ProductEditor/ProductEditor";
 import { getProducts } from "./store/products";
 import ShoppingCart from "./components/ShoppingCart/ShoppingCart";
-import { getCarts, mergeCarts } from "./store/shoppingCart";
 
 export default function App() {
   const dispatch = useDispatch();
-  const user = useSelector(state => state.session.user);
 
   useEffect(() => {
     dispatch(restoreUser());
     dispatch(getProducts());
   }, [dispatch]);
 
-  useEffect(() => {
-    dispatch(getCarts(user));
-    if (user) dispatch(mergeCarts(user.id))
-  }, [dispatch, user]);
 
   return (
     <>

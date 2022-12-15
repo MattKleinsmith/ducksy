@@ -42,7 +42,7 @@ def post_product():
         db.session.add(product)
         db.session.commit()
         return product.to_dict(), 201
-    return {'errors': validation_errors_formatter(form.errors)}, 400
+    return {'errors': validation_errors_formatter(form, form.errors)}, 400
 
 
 @bp.route("<int:product_id>", methods=['GET'])
@@ -69,7 +69,7 @@ def put_product(product_id):
         product.description = form.description.data
         db.session.commit()
         return product.to_dict()
-    return {'errors': validation_errors_formatter(form.errors)}, 400
+    return {'errors': validation_errors_formatter(form, form.errors)}, 400
 
 
 @bp.route("<int:product_id>", methods=['DELETE'])
@@ -138,7 +138,7 @@ def review(product_id):
                     db.session.add(review)
                     db.session.commit()
                     return review.to_dict(), 201
-                return {'errors': validation_errors_formatter(form.errors)}, 400
+                return {'errors': validation_errors_formatter(form, form.errors)}, 400
     error_message = {
         'errors': {
             'message': "A user can only review a product they've purchased"}}
