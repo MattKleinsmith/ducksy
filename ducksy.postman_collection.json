@@ -1,9 +1,9 @@
 {
 	"info": {
-		"_postman_id": "3a91716c-10fb-4a33-a859-1ce4f1ab9ffc",
+		"_postman_id": "527cf750-a5b4-44a5-a5bf-3702e3893c6d",
 		"name": "ducksy",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
-		"_exporter_id": "23440124"
+		"_exporter_id": "24025000"
 	},
 	"item": [
 		{
@@ -515,7 +515,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    \"1\": 2,\r\n    \"2\": 1\r\n}",
+					"raw": "{\r\n    \"product_ids\": [1]\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
