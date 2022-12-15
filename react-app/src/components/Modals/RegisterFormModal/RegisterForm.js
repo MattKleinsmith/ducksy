@@ -21,21 +21,18 @@ export default function RegisterForm() {
         return dispatch(sessionActions.register({ email, firstName, password }))
             .then(() => dispatch(setRegisterModal(false)))
             .catch(errors => {
-                setErrors(Object.values(errors.errors))
+                setErrors(Object.values(errors.errors));
             });
     };
 
     return (
         <form className="registerForm" onSubmit={handleSubmit}>
-            <div className="registerHeader">
-                <div>Create your account</div>
-            </div>
-            <div className="line"></div>
-            <div className="loginTitle">Registration is easy.</div>
+            <div className='registerHeader'>Create your account</div>
+            <div className="tagline">Registration is easy.</div>
             {errors.length > 0 && <ul className="formErrors">
                 {errors.map((error, idx) => <li key={idx}>{error}</li>)}
             </ul>}
-            <label>
+            <label className='registerLabel'>
                 Email address <span style={{ color: "red" }}>*</span><br />
                 <input
                     className="field"
@@ -45,7 +42,7 @@ export default function RegisterForm() {
                     required
                 />
             </label>
-            <label>
+            <label className='registerLabel'>
                 First name <span style={{ color: "red" }}>*</span><br />
                 <input
                     className="field firstField"
@@ -55,7 +52,7 @@ export default function RegisterForm() {
                     required
                 />
             </label>
-            <label>
+            <label className='registerLabel'>
                 Password <span style={{ color: "red" }}>*</span><br />
                 <input
                     className="field"
@@ -65,7 +62,6 @@ export default function RegisterForm() {
                     required
                 />
             </label>
-
             <button type="submit" className="registerButton">Register</button>
         </form>
     );

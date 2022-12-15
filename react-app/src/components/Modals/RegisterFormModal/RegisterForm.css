@@ -1,51 +1,58 @@
 .registerForm {
-    width: 380px;
+    width: 350px;
     display: flex;
     flex-direction: column;
+    padding: 30px
 }
 
 .registerForm>.registerHeader {
-    font-size: 15px;
-    font-weight: bold;
-    display: flex;
-    align-items: center;
-    height: 64px;
-    padding: 0px;
-    margin: 0px;
-}
-
-.registerForm>.registerHeader img {
-    margin-left: 25px;
-    cursor: pointer;
-}
-
-.registerForm>.registerHeader div {
-    margin-left: 220px;
-}
-
-.registerTitle {
     font-size: 20px;
-    font-weight: bold;
-    margin-top: 30px;
-    margin-left: 25px;
+    font-weight: 500;
+}
+
+.tagline {
+    padding-top: 10px;
+    padding-bottom: 20px;
 }
 
 .registerButton {
-    height: 50px;
-    width: 75%;
+    background-color: rgba(34, 34, 34, 0.65);
+    border: 2px solid transparent;
+    border-radius: 20px;
+    color: #FFF;
+    font-weight: 500;
+    font-size: 13px;
+    padding: 9px 15px 9px 15px;
     cursor: pointer;
-    margin-bottom: 30px;
-    margin-top: 30px;
+    margin-top: 20px;
+}
 
-    border: 2px solid gray;
-    border-radius: 30px;
+.registerButton:hover {
+    transform: scale(1.01);
+    border: 2px solid #222;
+    background-color: #222222;
+}
 
+.registerLabel {
+    font-size: 14px;
     font-weight: bold;
-    font-size: 16px;
+    padding-bottom: 10px;
+    padding-top: 10px
+}
 
-    color: rgb(255, 255, 255);
+input {
+    width: 100%;
+    border: 1px solid rgba(34, 34, 34, 0.15);
+    border-radius: 6px;
+    outline: 3px solid transparent;
+    padding: 9px 12px;
+    box-shadow: 0 1px 4px 0 rgb(34 34 34 / 10%) inset;
+}
 
-    align-self: center;
+input:hover {
+    outline: 1px solid rgb(133, 133, 133);
+}
 
-    background-color: transparent;
+input:focus {
+    outline: 1px solid rgb(27, 34, 169);
 }
