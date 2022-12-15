@@ -4,6 +4,7 @@
 import './Header.css';
 import Logo from './Logo';
 import RightHeader from './RightHeader/RightHeader'
+import SearchBar from './SearchBar/SearchBar';
 
 export default function Header() {
     // const ui = useSelector(state => state.ui);
@@ -13,6 +14,7 @@ export default function Header() {
             <div className="headerWrapper">
                 <div className="header">
                     <Logo />
+                    <SearchBar />
                     <RightHeader />
                 </div>
             </div>

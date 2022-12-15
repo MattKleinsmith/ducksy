@@ -22,14 +22,14 @@ export default function Purchases() {
             <div className={styles.body}>
                 <div className={styles.heading}>Purchases</div>
                 <div className={styles.orderInfo}>
-                    {orderDetails.length && orderDetails.map(orderDetail =>
-                        <div>
+                    {orderDetails.length && orderDetails.map((orderDetail, i) =>
+                        <div key={i}>
                             <div className={styles.purchaseFromWrapper}>
                                 <div>Purchase from {orderDetail.seller.display_name} <span>on {orderDetail.purchase_date}</span></div>
                                 <div>{orderDetail.price}</div>
                             </div>
                             <div className={styles.productWrapper}>
-                                <div><img src={orderDetail.product ? orderDetail.product.preview_image : "/placeholder.png"} alt="previewImage" />
+                                <div><img className={styles.image} src={orderDetail.product ? orderDetail.product.preview_image : "/placeholder.png"} alt="previewImage" />
                                 </div>
                                 <div className={styles.infoWrapper}>
                                     <div className={styles.productName}>
