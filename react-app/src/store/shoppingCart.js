@@ -64,7 +64,9 @@ export const checkoutCart = (user) => async dispatch => {
         method: "POST",
         body: JSON.stringify(current_cart)
     });
-
+    user ? carts[user.id] = {} : carts['guest'] = {};
+    saveCarts(carts)
+    dispatch({ type: GET_CARTS, carts })
 }
 
 const initialState = window.localStorage.getItem('ducksy');

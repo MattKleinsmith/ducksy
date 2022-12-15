@@ -1,9 +1,13 @@
-export default function CartCheckout({ cart_items, user }) {
+import { useDispatch } from "react-redux"
+import { checkoutCart } from "../../../store/shoppingCart"
 
+export default function CartCheckout({ cart_items, user }) {
+    const dispatch = useDispatch();
 
     return (
         <div className="CartCheckout">
-            <button>Proceed to checkout</button>
+            <button onClick={() => dispatch(checkoutCart(user))}
+            >Proceed to checkout</button>
         </div>
     )
 }
