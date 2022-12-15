@@ -21,7 +21,6 @@ export default function RegisterForm() {
         return dispatch(sessionActions.register({ email, display_name, password }))
             .then(() => dispatch(setRegisterModal(false)))
             .catch(e => {
-                console.log("RegistorForm", e)
                 const errors = Object.entries(e.errors).map(([errorField, errorMessage]) => `${errorField}: ${errorMessage}`)
                 setErrors(errors);
             });
@@ -44,27 +43,25 @@ export default function RegisterForm() {
                     required
                 />
             </label>
-            <label className='registerLabel'>
+            <label className={styles.registerLabel}>
                 First name <span style={{ color: "red" }}>*</span><br />
                 <input
-                    className="field firstField"
                     type="text"
                     value={display_name}
                     onChange={(e) => setDisplay_Name(e.target.value)}
                     required
                 />
             </label>
-            <label className='registerLabel'>
+            <label className={styles.registerLabel}>
                 Password <span style={{ color: "red" }}>*</span><br />
                 <input
-                    className="field"
                     type="password"
                     value={password}
                     onChange={(e) => setPassword(e.target.value)}
                     required
                 />
             </label>
-            <button type="submit" className="registerButton">Register</button>
+            <button type="submit" className={styles.registerButton}>Register</button>
         </form>
     );
 }

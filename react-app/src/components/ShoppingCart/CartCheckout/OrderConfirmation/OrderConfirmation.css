@@ -1,0 +1,17 @@
+.OrderConfirmation {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    max-width: 1350px;
+    margin: 3rem auto;
+
+}
+
+
+.confirmation_message {
+    margin-bottom: 1rem;
+}
+
+.confirmation_order_id {
+    margin-bottom: 1rem;
+}
