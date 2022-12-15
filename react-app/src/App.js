@@ -12,6 +12,7 @@ import ShopManager from "./components/ShopManager/ShopManager";
 import ProductEditor from "./components/ProductEditor/ProductEditor";
 import { getProducts } from "./store/products";
 import ShoppingCart from "./components/ShoppingCart/ShoppingCart";
+import OrderConfirmation from "./components/ShoppingCart/CartCheckout/OrderConfirmation/OrderConfirmation";
 
 export default function App() {
   const dispatch = useDispatch();
@@ -33,7 +34,8 @@ export default function App() {
         <Route path='/your/shop' element={<ShopManager />} />
         <Route path='/your/shop/listing/new' element={<ProductEditor />} />
         <Route path='/your/shop/listing/:productId' element={<ProductEditor />} />
-        <Route path='/cart' element={<ShoppingCart />} />
+        <Route exact path='/cart' element={<ShoppingCart />} />
+        <Route path="/cart/checkout/:orderId" element={<OrderConfirmation />} />
       </Routes>
     </>
   );
