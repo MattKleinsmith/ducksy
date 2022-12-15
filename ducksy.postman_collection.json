@@ -1,6 +1,6 @@
 {
 	"info": {
-		"_postman_id": "b13a817b-73ef-4809-b6ca-a033419ba053",
+		"_postman_id": "527cf750-a5b4-44a5-a5bf-3702e3893c6d",
 		"name": "ducksy",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
 		"_exporter_id": "24025000"
@@ -443,7 +443,7 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "{{url}}/products?categories=bag, gift",
+					"raw": "{{url}}/products?category=bag&category=gift",
 					"host": [
 						"{{url}}"
 					],
@@ -452,8 +452,12 @@
 					],
 					"query": [
 						{
-							"key": "categories",
-							"value": "bag, gift"
+							"key": "category",
+							"value": "bag"
+						},
+						{
+							"key": "category",
+							"value": "gift"
 						}
 					]
 				}
