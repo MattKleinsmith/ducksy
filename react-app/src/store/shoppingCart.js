@@ -60,13 +60,15 @@ export const checkoutCart = (user) => async dispatch => {
     const carts = await dispatch(getCarts())
     const current_cart = user ? carts[user.id] : carts['guest'];
 
-    await csrfFetch('/api/orders', {
+    const response = await csrfFetch('/api/orders', {
         method: "POST",
         body: JSON.stringify(current_cart)
     });
+    const data = await response.json()
     user ? carts[user.id] = {} : carts['guest'] = {};
     saveCarts(carts)
     dispatch({ type: GET_CARTS, carts })
+    return data.order_id
 }
 
 const initialState = window.localStorage.getItem('ducksy');
