@@ -1,7 +1,7 @@
 .profileDropdown {
     position: absolute;
     top: 70px;
-    right: 75px;
+    right: 10vw;
 
     display: flex;
     flex-direction: column;
