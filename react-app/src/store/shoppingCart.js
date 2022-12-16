@@ -30,11 +30,12 @@ export const mergeCarts = (user) => async dispatch => {
     dispatch({ type: GET_CARTS, carts })
 }
 
-export const addItemToCart = (product, user) => async dispatch => {
+export const addItemToCart = (product, user, quantity = 1) => async dispatch => {
     const carts = await dispatch(getCarts())
     const current_cart = user ? carts[user.id] : carts['guest'];
-    if (String(product.id) in current_cart) current_cart[product.id] += 1;
-    else current_cart[product.id] = 1;
+    if (String(product.id) in current_cart) current_cart[product.id] += quantity;
+    else current_cart[product.id] = quantity;
+    current_cart[product.id] = Math.min(current_cart[product.id], 10)  // 10 max per product per cart
     saveCarts(carts)
     dispatch({ type: GET_CARTS, carts })
 };
@@ -48,10 +49,10 @@ export const deleteItemFromCart = (product, user) => async dispatch => {
 }
 
 
-export const updateItemAmount = (product, user, amount) => async dispatch => {
+export const updateItemQuantity = (product, user, quantity) => async dispatch => {
     const carts = await dispatch(getCarts())
     const current_cart = user ? carts[user.id] : carts['guest'];
-    current_cart[product.id] = Number(amount);
+    current_cart[product.id] = Number(quantity);
     saveCarts(carts)
     dispatch({ type: GET_CARTS, carts })
 }

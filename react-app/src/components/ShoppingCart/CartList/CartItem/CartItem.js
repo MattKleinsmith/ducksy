@@ -1,9 +1,9 @@
 import { deleteItemFromCart } from '../../../../store/shoppingCart';
 import { useDispatch, useSelector } from 'react-redux';
 import './CartItem.css';
-import ItemAmount from './ItemAmount/ItemAmount';
+import ItemQuantity from './ItemQuantity/ItemQuantity';
 
-export default function CartItem({ product, amount }) {
+export default function CartItem({ product, quantity }) {
     const dispatch = useDispatch()
     const user = useSelector(state => state.session.user)
 
@@ -30,7 +30,7 @@ export default function CartItem({ product, amount }) {
                         >Remove</button>
                     </div>
                 </div>
-                <ItemAmount amount={amount} user={user} product={product} />
+                <ItemQuantity initialQuantity={quantity} user={user} product={product} />
             </div>
         </div >
     )

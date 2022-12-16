@@ -10,7 +10,7 @@ export function CartList({ cart_items }) {
             {Object.keys(products).length > 0 &&
                 <div className="CartList">
                     {cart_items.length > 0
-                        && cart_items.map(([product_id, amount], i) => <CartItem product={products[product_id]} amount={amount} key={i} />)}
+                        && cart_items.map(([product_id, quantity], i) => <CartItem product={products[product_id]} quantity={quantity} key={i} />)}
                 </div>
             }
         </>
