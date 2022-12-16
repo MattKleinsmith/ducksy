@@ -1,7 +1,6 @@
 .welcome {
     background-color: #DDEBE3;
     width: 100%;
-    /* height: 23vh; */
     height: 170px;
     text-align: center;
     font-size: 32px;
@@ -9,27 +8,14 @@
     padding-top: 20px;
 }
 
-.wrapper {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    padding-left: 30px;
-    padding-right: 30px;
-    margin: auto;
-    max-width: 1350px;
-    height: 100%;
-    padding-top: 120px;
-}
-
 .categoryWrapper {
     display: flex;
     justify-content: space-evenly;
     z-index: 2;
     padding: 30px;
-    width: 90%;
+    max-width: 1350px;
     margin: auto;
 }
-
 
 .imageWrapper {
     width: 115px;
@@ -65,17 +51,27 @@
     transform: scale(1.1);
 }
 
+.wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin: auto;
+    max-width: 1350px;
+    height: 100%;
+    padding-top: 120px;
+}
+
+.recentViewed {
+    padding-left: 10px;
+}
+
 .homepage {
     display: grid;
     grid-template-columns: repeat(5, minmax(0, 1fr));
     max-width: 1350px;
     padding: 10px 10px;
-    column-gap: 10px;
-    row-gap: 10px;
-}
-
-.recentViewed {
-    padding-left: 10px;
+    gap: 10px;
+    overflow: hidden;
 }
 
 .price {
