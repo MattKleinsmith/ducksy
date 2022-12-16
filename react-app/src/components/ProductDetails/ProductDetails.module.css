@@ -2,12 +2,10 @@
     display: flex;
     justify-content: center;
     padding: 30px;
-
     margin: 0 auto;
 }
 
 .ProductDetails {
-    /* display: flex; */
     max-width: 1350px;
     gap: 10px;
     display: grid;
