@@ -8,6 +8,10 @@
     padding-top: 20px;
 }
 
+.welcomeText {
+    font-family: 'IBM Plex Serif', serif
+}
+
 .categoryWrapper {
     display: flex;
     justify-content: space-evenly;

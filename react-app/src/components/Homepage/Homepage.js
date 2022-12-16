@@ -15,8 +15,8 @@ export default function Homepage() {
     return (
         <div>
             <div className={styles.welcome}>{currentUser ?
-                <div style={{ fontFamily: 'IBM Plex Serif, serif' }}>Welcome back, {currentUser.display_name}</div> :
-                <div>Find things you'll love. Support independent sellers. Only on Ducksy.</div>}
+                <div className={styles.welcomeText}>Welcome back, {currentUser.display_name}</div> :
+                <div className={styles.welcomeText}>Find things you'll love. Support independent sellers. Only on Ducksy.</div>}
                 <div className={styles.categoryWrapper}>
                     <div className={styles.imageWrapper}
                         onClick={async () => {
