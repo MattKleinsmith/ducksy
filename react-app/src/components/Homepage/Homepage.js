@@ -31,8 +31,8 @@ export default function Homepage() {
                 <div className={styles.recentViewed}>Recently viewed & more</div>
                 <div className={styles.homepage}>
                     {products.map((product, i) =>
-                        <div className={styles.productInfos}>
-                            <NavLink key={i} to={`/listing/${product.id}`} style={{ textDecoration: 'none' }}>
+                        <div className={styles.productInfos} key={i}>
+                            <NavLink to={`/listing/${product.id}`} style={{ textDecoration: 'none' }}>
                                 <HomepageItem product={product} />
                             </NavLink>
                             <div className={styles.price}>
@@ -40,8 +40,8 @@ export default function Homepage() {
                             </div>
                         </div>
                     )}
-                </div >
+                </div>
             </div>
-        </div >
+        </div>
     );
 }

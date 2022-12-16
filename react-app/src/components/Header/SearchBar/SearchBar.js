@@ -3,12 +3,14 @@ import { useState, useEffect, useRef } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { getProductsByKeywords } from "../../../store/productsBySearch";
 import { setSearchQuery } from "../../../store/searchQuery";
+import { useNavigate } from "react-router";
 
 export default function SearchBar() {
     const [isSearchBarActive, setIsSearchBarActive] = useState(false);
     const searchQuery = useSelector(state => state.searchQuery);
     const dispatch = useDispatch();
     const searchBar = useRef(null);
+    const navigate = useNavigate();
 
     useEffect(() => {
         if (!isSearchBarActive) return;
@@ -24,13 +26,14 @@ export default function SearchBar() {
         setIsSearchBarActive(true);
     }
 
-    const handleSearch = (e) => {
-        if (e) e.preventDefault();
-        dispatch(getProductsByKeywords(searchQuery.split(" ")));
-    }
-
     const onSearchChange = e => {
         dispatch(setSearchQuery(e.target.value))
+    }
+
+    const handleSearch = async (e) => {
+        if (e) e.preventDefault();
+        await dispatch(getProductsByKeywords(searchQuery.split(" ")));
+        navigate("/listings");
     }
 
     return (
