@@ -5,6 +5,11 @@
     margin-top: 5px;
 }
 
+.signInWrapper {
+    display: flex;
+    align-items: center;
+}
+
 .signIn {
     cursor: pointer;
     width: 50px;
