@@ -1,19 +1,15 @@
 import styles from './RegisterForm.module.css';
 import { useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { Navigate } from "react-router-dom";
+import { useDispatch } from "react-redux";
 import * as sessionActions from "../../../store/session";
 import { setRegisterModal } from "../../../store/ui";
 
 export default function RegisterForm() {
     const dispatch = useDispatch();
-    const sessionUser = useSelector((state) => state.session.user);
     const [email, setEmail] = useState("");
     const [display_name, setDisplay_Name] = useState("");
     const [password, setPassword] = useState("");
     const [errors, setErrors] = useState([]);
-
-    if (sessionUser) return <Navigate to="/" />;
 
     const handleSubmit = (e) => {
         e.preventDefault();
