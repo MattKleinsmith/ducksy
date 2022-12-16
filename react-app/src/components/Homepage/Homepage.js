@@ -6,13 +6,25 @@ import HomepageItem from "./HomepageItem/HomepageItem";
 // import { clearProductDetails } from "../../store/productDetails";
 
 export default function Homepage() {
-    const products = useSelector(state => Object.values(state.products));
+    const allproducts = useSelector(state => Object.values(state.products));
     const currentUser = useSelector(state => state.session.user);
+    const products = allproducts.slice(0, 10);
     return (
         <div>
             <div className={styles.welcome}>{currentUser ?
-                <div>`Welcome back, ${currentUser.display_name}`</div> :
+                <div>Welcome back, {currentUser.display_name}</div> :
                 <div>Find things you'll love. Support independent sellers. Only on Ducksy.</div>}
+                <div>
+                    <div>
+                        <img href='' alt=''></img>
+                        <div>Gift</div>
+                    </div>
+                    <div>Wedding</div>
+                    <div>Personalized Gifts</div>
+                    <div>Home Decor</div>
+                    <div>Bag</div>
+                    <div>Boyfriend</div>
+                </div>
             </div>
             <div className={styles.welcome}></div>
             <div className={styles.wrapper}>
