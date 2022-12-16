@@ -69,6 +69,7 @@ The following are screenshots of this user flow:
 ### Roadmap
 
 - [ ] Refactor database schemas
+- [ ] Decompose big React components into a hiearchy of small components
 - [ ] Add the nice-to-have features
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
@@ -77,7 +78,7 @@ The following are screenshots of this user flow:
 
 From within the project folder: <code>sh ./setup.sh</code>
 
-And then navigate to http://localhost:300.
+And then navigate to http://localhost:3000.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
