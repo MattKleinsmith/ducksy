@@ -2970,6 +2970,476 @@ def seed_all():
 
     db.session.commit()
 
+    product = Product(
+        seller=anna,
+        categories=[toy],
+        name="Toy Bow and Arrow Set - For All Ages: Kids to Adults - Bow and Arrow for Kids, Kids Bow and Arrow, Archery, Bow and Arrow Toy",
+        price="25.50",
+        description="Handmade, custom Toy Bow and Arrow kit for all ages."
+    )
+
+    db.session.add_all([
+        ProductImage(
+            product=product,
+            url=upload_image_to_bucket_from_url(
+                "https://i.etsystatic.com/25823893/r/il/9550c1/3673765573/il_794xN.3673765573_s8qy.jpg"),
+            preview=True
+        ),
+
+        Review(
+            buyer=brian,
+            product=product,
+            rating=5,
+            review="This bow was exactly what I was looking for, and made my grandson very happy, the colourful arrow tips look like golf balls, but are super soft, perfect for a kid to learn how to handle a bow ! Great product !"
+        ),
+
+        Review(
+            buyer=caitlynn,
+            product=product,
+            rating=5,
+            review="I had this shipped to my sisters house for my nephews birthday & he loves it! His parents even had some fun with it while he was at school. The shop owners are also awesome! First I put my gift message in the ‘note to seller’ section by mistake & they still printed the message out for me & put it inside of the package. Then I ran into a problem with shipping (my fault) & they were super helpful with getting it resolved quickly. I would definitely buy from them again!"
+        ),
+
+        Review(
+            buyer=derrik,
+            product=product,
+            rating=5,
+            review="Christmas gift for my son, came very quickly, nicely made. My husband and I played around with it upon arrival. Very excited for our son to open this item. A nice hand written note on our order was a nice touch!!!!"
+        ),
+
+        Review(
+            buyer=elizabeth,
+            product=product,
+            rating=5,
+            review="Shipped super fast and great quality! Love it for little kids!"
+        ),
+    ])
+
+    db.session.commit()
+
+    product = Product(
+        seller=anna,
+        categories=[toy],
+        name="Personalized Wooden Handmade Music Box,Christmas Music Box,Wooden Horse Musical Carousel,Horse Music Box, Musical Carousel,Heirloom Carousel",
+        price="34.31",
+        description="Personalized Wooden Handmade Music Box,Christmas Music Box,Wooden Horse Musical Carousel,Horse Music Box, Musical Carousel,Heirloom Carousel"
+    )
+
+    db.session.add_all([
+        ProductImage(
+            product=product,
+            url=upload_image_to_bucket_from_url(
+                "https://i.etsystatic.com/38145326/r/il/43d06c/4380917599/il_794xN.4380917599_oqhq.jpg"),
+            preview=True
+        ),
+
+        Review(
+            buyer=brian,
+            product=product,
+            rating=5,
+            review="Absolutely beautiful! The craftsmanship is remarkable. So happy with purchase! Bought for my new granddaughter so hoping it will be a treasure for her as she gets older."
+        ),
+
+        Review(
+            buyer=caitlynn,
+            product=product,
+            rating=5,
+            review="LOVE! We got the carousel for our son's first Christmas, and it is absolutely adorable. Beautifully made, incredible talent. Highly recommend!"
+        ),
+
+        Review(
+            buyer=derrik,
+            product=product,
+            rating=2,
+            review="Item came not working and the top part of the carousel was loose and crooked. There is also glue residue all over the joints of the product where it looks hastily assembled. I was able to fix the loose top part and now it looks fine, except for all of the glue residue. Not a bad product for the price, but I was expecting more than a glued together pre-fab music box. Not too great, not too bad."
+        ),
+
+        Review(
+            buyer=elizabeth,
+            product=product,
+            rating=5,
+            review="Better than the pictures! It’s absolutely stunning. Can’t stop looking at it."
+        ),
+    ])
+
+    db.session.commit()
+
+    product = Product(
+        seller=anna,
+        categories=[toy],
+        name="Drylands Board Game - Two Player Abstract Game Set in Africa - Beautiful Hand Drawn Art - Ages 5 and Up - Nature Themed Science Game",
+        price="34.00",
+        description="Our new game “Drylands” is now available!"
+    )
+
+    db.session.add_all([
+        ProductImage(
+            product=product,
+            url=upload_image_to_bucket_from_url(
+                "https://i.etsystatic.com/22868680/r/il/eca102/4423387730/il_794xN.4423387730_rfp9.jpg"),
+            preview=True
+        ),
+
+        Review(
+            buyer=brian,
+            product=product,
+            rating=5,
+            review="I got this as a gift for someone. I can’t wait to play it. The illustrations are so beautiful!"
+        ),
+
+        Review(
+            buyer=caitlynn,
+            product=product,
+            rating=5,
+            review="Our all time FAVORITE game! We have purchased every edition for our own collection and really enjoy our Ecologies nights! This is also a go-to gift! We love spreading the Ecologies love by gifting for weddings, holidays, birthdays, and even White Elephant parties! 10/10!"
+        ),
+
+        Review(
+            buyer=derrik,
+            product=product,
+            rating=5,
+            review="These cards are gorgeous. Far and away better than I even expected."
+        ),
+
+        Review(
+            buyer=elizabeth,
+            product=product,
+            rating=5,
+            review="Disclaimer: As with all children's products, adult supervision is required. Products that contain small parts may pose a choking hazard and should not be used by children under 3. Sellers are responsible for following applicable laws and regulations, including posting items with accurate labeling and warnings. Etsy assumes no responsibility for the accuracy, labeling, or content of sellers' listings and products. Always read labels, warnings, directions and other information provided with the product before using it. If you have any questions, message the seller. See Etsy's Terms of Use for more information."
+        ),
+    ])
+
+    db.session.commit()
+
+    product = Product(
+        seller=anna,
+        categories=[toy],
+        name="Safecracker 40 Math Puzzle",
+        price="24.00",
+        description="Fantastic and unique puzzle based on a 1911 design. The object is to get each of the 16 columns of numbers to add to 40 at the same time. Can you find the combination?"
+    )
+
+    db.session.add_all([
+        ProductImage(
+            product=product,
+            url=upload_image_to_bucket_from_url(
+                "https://i.etsystatic.com/6191225/r/il/7ce851/2292691349/il_794xN.2292691349_9lju.jpg"),
+            preview=True
+        ),
+
+        Review(
+            buyer=brian,
+            product=product,
+            rating=5,
+            review="This item looks exactly as pictured. I was very pleased when I received it. I have it 3 stars for shipping only because I was surprised I had to pay for shipping on each one individually. I ordered three and had to pay separate shipping on each, even though it was all shipped in the same box."
+        ),
+
+        Review(
+            buyer=caitlynn,
+            product=product,
+            rating=5,
+            review="I cannot for the life of me measure the challenge presented by this here puzzle - suffice to say I cannot afford to have my brain melt in this day and age. But I can vouch for the high quality of workmanship, the swift and unimpeachable time in which it arrived, and the care that was provided in delivering this puzzle. Surely, this is a craftsman who is worthy of your business."
+        ),
+
+        Review(
+            buyer=derrik,
+            product=product,
+            rating=5,
+            review="Love this! It is beautiful and so well done. I haven't tried it since it is a gift. Definitely will purchase other items from this shop."
+        ),
+
+        Review(
+            buyer=elizabeth,
+            product=product,
+            rating=5,
+            review="I can’t believe that the shipment is here already…..ordered Wednesday and delivered Friday. The puzzle is very well made and I know my son will love it. Very impressed with with this seller"
+        ),
+    ])
+
+    db.session.commit()
+
+    product = Product(
+        seller=anna,
+        categories=[toy],
+        name="Montessori toys, human body puzzle, toddler toys wooden human puzzle kids anatomy puzzle human anatomy preschool anatomy gifts for kids toys",
+        price="39.32",
+        description="The main goal of our shop EcoBabyPuzzle is to create wonderful educational toys for kids and make the process of learning more interesting and fun. We’re very proud of our quality wooden puzzles that motivate children to explore the world around them and learn more about themselves."
+    )
+
+    db.session.add_all([
+        ProductImage(
+            product=product,
+            url=upload_image_to_bucket_from_url(
+                "https://i.etsystatic.com/32753543/r/il/8c72f6/3842617767/il_794xN.3842617767_gft1.jpg"),
+            preview=True
+        ),
+
+        Review(
+            buyer=brian,
+            product=product,
+            rating=5,
+            review="Love love love! I am so impressed with the quality of the two puzzles I received from this shop. The shipping was really fast too! My son absolutely loved them and started playing with them as soon as we opened the package. I will buy from this seller again!"
+        ),
+
+        Review(
+            buyer=caitlynn,
+            product=product,
+            rating=5,
+            review="Love the puzzle and my interactions with the seller have so far been great! They are super helpful at getting me extra pieces!"
+        ),
+
+        Review(
+            buyer=derrik,
+            product=product,
+            rating=5,
+            review="The item is a wonderful learning puzzle. It is what I expected. I do think it is very overpriced. I knew it was when I ordered, but my daughter wanted it for her little girl so I bought it. I even got it for half price, but by the time I paid shipping, it was almost $50. That’s just way too much for a small puzzle."
+        ),
+
+        Review(
+            buyer=elizabeth,
+            product=product,
+            rating=5,
+            review="It is for a Christmas gift! My kiddo is obsessed with learning body parts! She should love this"
+        ),
+    ])
+
+    db.session.commit()
+
+    product = Product(
+        seller=anna,
+        categories=[toy],
+        name="Ready to Ship - Natural Wood Toddler Sized Bowling Set Christmas Toy",
+        price="30.00",
+        description="Our Wooden 10 Pin Bowling Set is a MUST for any little kid."
+    )
+
+    db.session.add_all([
+        ProductImage(
+            product=product,
+            url=upload_image_to_bucket_from_url(
+                "https://i.etsystatic.com/6005933/r/il/1afc76/692697609/il_794xN.692697609_khof.jpg"),
+            preview=True
+        ),
+
+        Review(
+            buyer=brian,
+            product=product,
+            rating=5,
+            review="This set is SO PRECIOUS!!! I got it for a toddler for Christmas and admittedly did not read the description clearly enough to know the size to expect… but I was so pleasantly delighted by this set when it arrived. The pins are beautifully made and the little bowling ball is adorable and the whole thing comes in a wonderful bag. I could not be happier and I can’t recommend these enough. I know a small kiddo who is going to think this is the greatest thing ever. And the shipping was super fast! I would absolutely buy from this shop again!!"
+        ),
+
+        Review(
+            buyer=caitlynn,
+            product=product,
+            rating=5,
+            review="I bought these for my nephew's birthday and my brother just called to tell me they are his favorite gift! He is picky! What make these such a hot item is that the kids like to play with them, and in years to come they will make great handmade antiques. Thanks for the card you threw in and making Zach (and his sister) so happy!!!!!"
+        ),
+
+        Review(
+            buyer=derrik,
+            product=product,
+            rating=5,
+            review="Love it! No splinters!"
+        ),
+
+        Review(
+            buyer=elizabeth,
+            product=product,
+            rating=5,
+            review="Perfect! Was a hit at the birthday party"
+        ),
+    ])
+
+    db.session.commit()
+
+    product = Product(
+        seller=anna,
+        categories=[toy],
+        name="Handmade in USA, Montessori Balance board for kids, Wobble Board, Award-winning Open-ended design - Bunny Hopkins",
+        price="56.00",
+        description="The Bunny Hopkins™ Wobble Board is an International Award-winning Open-ended Wooden toy."
+    )
+
+    db.session.add_all([
+        ProductImage(
+            product=product,
+            url=upload_image_to_bucket_from_url(
+                "https://i.etsystatic.com/22270458/r/il/2cf3d4/4467928587/il_794xN.4467928587_2njg.jpg"),
+            preview=True
+        ),
+
+        Review(
+            buyer=brian,
+            product=product,
+            rating=5,
+            review="Love it! My 2 year old loves it, too! Been using it to roll our cars down exclaiming, “Hoovay!” (aka “hooray” in toddler speak). Our stuffed friends and the 2 year old also use it as a slide. Excellent craftsmanship! Beautifully sanded— I got it unfinished. I may apply a coat of finish for durability purposes, but it’s sanded so well that it is smooth enough as is without being too slippery for the kiddo. I have one questionable situation that I will need to evaluate over time: I thought I heard a slight crack whilst my 138 lbs. was balancing on it— like the ply board split. It looks fine, so I hopefully it was just some crumbs underneath or something. Not sure my 200+ lbs. hubby should use it, though. Glad I purchased from here instead of Amazon. It really is a beautiful piece of wood with so many possibilities!"
+        ),
+
+        Review(
+            buyer=caitlynn,
+            product=product,
+            rating=5,
+            review="We were so stoked about this purchase for our little one since she just turned a year old. We decided on the smaller version as she’s never used one before and we expected for it to take some time for her to get the hang of. To our surprise she actually rocks it and uses it ALL the time, and now we’re planning on ordering the larger one! The finish on this product is insanely beautiful and the quality is absolutely phenomenal. I have no concerns for safety issues and it seems to be quite durable. Overall we’re very pleased with this purchase and intend to make future purchases with this seller. Thank you so much for your efforts and amazing customer service!"
+        ),
+
+        Review(
+            buyer=derrik,
+            product=product,
+            rating=5,
+            review="Got the item in 2 days! Mind you, I'm only 6hrs away but that is insane! Amazon Prime doesn't even get me goods that quickly. The board arrived safely and is perfect. No unevenness in coloring, no rough edges. It's a great, reliable weight though still light enough for my 1.5yr old to flip and move. Will definitely buy the larger board if she ends up using this one enough!!!"
+        ),
+
+        Review(
+            buyer=elizabeth,
+            product=product,
+            rating=5,
+            review="Beautifully made, sturdy beyond belief, and has been a huge hit with our tiny gymnast. The rainbow stripes are bright and fun without being garish. We’ll keep this for ages."
+        ),
+    ])
+
+    db.session.commit()
+
+    product = Product(
+        seller=anna,
+        categories=[toy],
+        name="Talking Cactus with Hat Toy Rechargeable Upgraded Version Toy Singing, Recording, and Repeating What You Say with 120 Songs and LED Lighting",
+        price="12.45",
+        description="Perfect Gift for Kids over 3 Years Old"
+    )
+
+    db.session.add_all([
+        ProductImage(
+            product=product,
+            url=upload_image_to_bucket_from_url(
+                "https://i.etsystatic.com/23795241/r/il/684f5e/4245323807/il_794xN.4245323807_7ubv.jpg"),
+            preview=True
+        ),
+
+        Review(
+            buyer=brian,
+            product=product,
+            rating=5,
+            review="This item is exactly as I expected. Our lab and cats love it! Really funny to watch them interact with it!"
+        ),
+
+        Review(
+            buyer=caitlynn,
+            product=product,
+            rating=1,
+            review="The boxes they came in were crushed.😢 They were supposed to be gifts for my Grandkids."
+        ),
+
+        Review(
+            buyer=derrik,
+            product=product,
+            rating=5,
+            review="Brilliant, made me laugh straight away Thank you for speedy delivery too"
+        ),
+
+        Review(
+            buyer=elizabeth,
+            product=product,
+            rating=4,
+            review="Missing adapter contacted seller Disapointed"
+        ),
+    ])
+
+    db.session.commit()
+
+    product = Product(
+        seller=anna,
+        categories=[toy],
+        name="Rivajam Nature Scavenger Hunt Games for Kids, Toddlers & Family Fun | Outdoor Toys and Treasure Hunt Family Games | Backyard Camping Games",
+        price="25.99",
+        description="Rivajam’s Roll & Seek Nature Scavenger Hunt dice game helps children engage in conversation and increase their awareness of the wondrous natural world around them. They learn to observe small details, identify shapes and colors, ask thought-provoking questions, and most importantly, share the excitement of discovery with their friends."
+    )
+
+    db.session.add_all([
+        ProductImage(
+            product=product,
+            url=upload_image_to_bucket_from_url(
+                "https://i.etsystatic.com/24029016/r/il/158033/3447328824/il_794xN.3447328824_6ex0.jpg"),
+            preview=True
+        ),
+
+        Review(
+            buyer=brian,
+            product=product,
+            rating=5,
+            review="Perfect! Bought these for my niece and nephew to use while camping. Exactly as pictured. The foam looks durable and easy to wipe off any dirt or mud. Quick shipping."
+        ),
+
+        Review(
+            buyer=caitlynn,
+            product=product,
+            rating=4,
+            review="This is such a fun and educational idea for outdoor play. The only reason I left off one star is because the print was faded on a couple blocks. Otherwise, it’s great!"
+        ),
+
+        Review(
+            buyer=derrik,
+            product=product,
+            rating=5,
+            review="Fun and very useful teaching tool. Only reason quality is a four is that I don’t know how well the dice will hold up. As far as customer service, I put the wrong shipping address in, then emailed the seller hoping to correct it, and the response was immediate and they fixed it. Shipping time was incredibly fast, too. Thank you!"
+        ),
+
+        Review(
+            buyer=elizabeth,
+            product=product,
+            rating=5,
+            review="This was the 2nd time I bought this for a gift. This time for a cousin's 3 year old. She recently texted me and said that of all the gifts her son received for his birthday, THIS gift was the most played with. He has an older brother and sister and they all love playing it together!!"
+        ),
+    ])
+
+    db.session.commit()
+
+    product = Product(
+        seller=anna,
+        categories=[toy],
+        name="Large Musical Marble Tree| Visual Tracking Skills Toy| High Quality Wooden Toy",
+        price="54.00",
+        description="**SHIPPING UPDATE 12/11/22** This specific item need 1 week of processing and we will ship it out according to the processing timeframe shown at checkout. Thank you all for your support and attention!**"
+    )
+
+    db.session.add_all([
+        ProductImage(
+            product=product,
+            url=upload_image_to_bucket_from_url(
+                "https://i.etsystatic.com/14382159/r/il/8a6969/4380591413/il_794xN.4380591413_pxyh.jpg"),
+            preview=True
+        ),
+
+        Review(
+            buyer=brian,
+            product=product,
+            rating=5,
+            review="This is a beautiful piece!! Larger than I thought. Almost 3 ft. The sounds are lovely! I’m curious how my kids like it but I anticipate it being a favorite! Also I’m so glad there are so many marbles… less chances of fighting for a turn. Beautiful. Thanks you!"
+        ),
+
+        Review(
+            buyer=caitlynn,
+            product=product,
+            rating=5,
+            review="Absolutely gorgeous!"
+        ),
+
+        Review(
+            buyer=derrik,
+            product=product,
+            rating=5,
+            review="My daughter in law was pretty impressed when I picked this one out! A handcrafted toy for our 3 years old and 9 month old grandchildren. We cannot wait til they open it on Christmas day!!"
+        ),
+
+        Review(
+            buyer=elizabeth,
+            product=product,
+            rating=5,
+            review="Beautiful toys! I am so excited to give these to my 2 year old for his birthday. They're excellent quality. Shipping was incredibly fast as well."
+        ),
+    ])
+
+    db.session.commit()
+
     # Insert seeder code above this line
 
     reviews = Review.query.all()
