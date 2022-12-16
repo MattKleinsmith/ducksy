@@ -1,12 +1,13 @@
 .headerWrapper {
     display: flex;
     justify-content: center;
+    padding: 10px 20px;
 }
 
 .header {
     display: flex;
     justify-content: space-between;
-    align-items: center;
+    align-items: flex-start;
 
     width: 100vw;
     max-width: 1350px;
@@ -15,10 +16,11 @@
     padding-bottom: 16px;
 }
 
-#logo {
+.logo {
     font-family: serif;
     color: #f1641e;
     font-size: 40px;
+    cursor: pointer;
 }
 
 .line {

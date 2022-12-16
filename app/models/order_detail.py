@@ -45,6 +45,7 @@ class OrderDetail(db.Model):
             "product_id": self.product_id,
             "product": self.product.to_dict() if self.product is not None else None,
             "price": self.price,
+            "quantity": self.quantity,
             "seller_id": self.seller_id,
             "seller": self.seller.to_dict(),
             "order_id": self.order_id,

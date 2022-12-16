@@ -1,0 +1,14 @@
+.item {
+    height: 10vw;
+}
+
+.item>img {
+    border-radius: 5px;
+    min-width: 100%;
+    height: 100%;
+    aspect-ratio: 1;
+    object-fit: cover;
+    overflow: hidden;
+    z-index: 1;
+    position: relative;
+}

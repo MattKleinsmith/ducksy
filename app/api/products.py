@@ -11,23 +11,26 @@ bp = Blueprint("products", __name__, url_prefix="/products")
 
 @bp.route("", methods=['GET'])
 def get_products():
-    query = request.args.getlist("categories")
-    if query:
-        products = []
-        query_params = query[0].split(', ')
+    category_names = request.args.getlist("category")
+    terms = request.args.getlist("q")
+    if category_names:
         categories = Category.query.filter(
-            Category.name.in_(query_params)).all()
-        query_categories = [category.name for category in categories]
+            Category.name.in_(category_names)).all()
 
-        for category in categories:
-            for product in category.products:
-                product_categories = [
-                    category.name for category in product.categories]
-                if product_categories == query_categories:
-                    product = product.to_dict()
-                    product['categories'] = product_categories
-                    products.append(product)
-        return products
+        products = set()
+        for i, category in enumerate(categories):
+            if i == 0:
+                products = set(category.products)
+            else:
+                products = products.intersection(set(category.products))
+        return [product.to_dict() for product in products]
+    elif terms:
+        products = []
+        for term in terms:
+            products = Product.query.filter(Product.name.match(term)).all()
+            products += Product.query.filter(
+                Product.description.match(term)).all()
+        return [product.to_dict() for product in set(products)]
     else:
         return [product.to_dict() for product in Product.query]
 
@@ -47,7 +50,7 @@ def post_product():
         db.session.add(product)
         db.session.commit()
         return product.to_dict(), 201
-    return {'errors': validation_errors_formatter(form.errors)}, 400
+    return {'errors': validation_errors_formatter(form, form.errors)}, 400
 
 
 @bp.route("<int:product_id>", methods=['GET'])
@@ -74,7 +77,7 @@ def put_product(product_id):
         product.description = form.description.data
         db.session.commit()
         return product.to_dict()
-    return {'errors': validation_errors_formatter(form.errors)}, 400
+    return {'errors': validation_errors_formatter(form, form.errors)}, 400
 
 
 @bp.route("<int:product_id>", methods=['DELETE'])
@@ -143,7 +146,7 @@ def review(product_id):
                     db.session.add(review)
                     db.session.commit()
                     return review.to_dict(), 201
-                return {'errors': validation_errors_formatter(form.errors)}, 400
+                return {'errors': validation_errors_formatter(form, form.errors)}, 400
     error_message = {
         'errors': {
             'message': "A user can only review a product they've purchased"}}

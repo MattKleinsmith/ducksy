@@ -63,7 +63,8 @@ class Product(db.Model):
             "preview_image": preview_images[-1].url if len(preview_images) else None,
             "seller": self.seller.to_dict(),
             "seller_rating": seller_rating,
-            "num_seller_ratings": num_seller_ratings
+            "num_seller_ratings": num_seller_ratings,
+            "categories": [x.id for x in self.categories]
         }
 
 

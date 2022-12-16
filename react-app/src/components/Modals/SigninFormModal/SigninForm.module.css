@@ -1,0 +1,98 @@
+.signinForm {
+    width: 350px;
+    display: flex;
+    flex-direction: column;
+    padding: 30px
+}
+
+.signinHeader {
+    font-size: 15px;
+    font-weight: bold;
+    display: flex;
+    justify-content: space-between;
+}
+
+.signIn {
+    font-size: 20px;
+    line-height: 28px;
+    padding-top: 5px;
+}
+
+.signinTitle {
+    font-size: 20px;
+    font-weight: bold;
+    margin-top: 30px;
+    margin-left: 25px;
+}
+
+.signInFormRegisterButton {
+    background-color: transparent;
+    border: 2px solid #222;
+    border-radius: 20px;
+    color: #222;
+    font-weight: 500;
+    font-size: 13px;
+    padding: 9px 15px 9px 15px;
+    cursor: pointer;
+}
+
+.signInFormRegisterButton:hover {
+    transform: scale(1.01)
+}
+
+.demoButton {
+    background-color: transparent;
+    border: 2px solid #222;
+    border-radius: 20px;
+    color: #222;
+    font-weight: 500;
+    font-size: 13px;
+    padding: 9px 15px 9px 15px;
+    cursor: pointer;
+    margin-bottom: 20px;
+}
+
+.demoButton:hover {
+    transform: scale(1.01)
+}
+
+.signinButton {
+    background-color: #222222;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    border-radius: 25px;
+    color: #FFF;
+    font-weight: 500;
+    font-size: 15px;
+    height: 40px;
+    width: 100%;
+    cursor: pointer;
+}
+
+.signinButton:hover {
+    background-color: #3c3c3c
+}
+
+.signinForm label {
+    font-size: 14px;
+    font-weight: bold;
+    padding-bottom: 10px;
+    padding-top: 10px
+}
+
+.signinForm input {
+    width: 100%;
+    border: 1px solid rgba(34, 34, 34, 0.15);
+    border-radius: 6px;
+    outline: 3px solid transparent;
+    padding: 9px 12px;
+    box-shadow: 0 1px 4px 0 rgb(34 34 34 / 10%) inset;
+}
+
+.signinForm input:hover {
+    outline: 1px solid rgb(133, 133, 133);
+}
+
+.signinForm input:focus {
+    outline: 1px solid rgb(27, 34, 169);
+}

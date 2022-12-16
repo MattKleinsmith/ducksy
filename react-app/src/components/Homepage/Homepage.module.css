@@ -1,0 +1,45 @@
+.welcome {
+    background-color: #DDEBE3;
+    width: 100%;
+    text-align: center;
+    font-size: 28px;
+    line-height: 36px;
+    padding: 20px;
+    padding-bottom: 50px;
+}
+
+.wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 30px;
+    margin: auto;
+    max-width: 1024px;
+}
+
+.homepage {
+    display: grid;
+    grid-template-columns: repeat(5, minmax(0, 1fr));
+    max-width: 1350px;
+    padding: 10px 10px;
+    column-gap: 20px;
+    row-gap: 20px;
+}
+
+.recentViewed {
+    padding-left: 10px;
+}
+
+.price {
+    font-size: 13px;
+    padding: 3px 6px;
+    border: 1px solid #DDEBE3;
+    background-color: #FFF;
+    border-radius: 15px;
+    min-width: fit-content;
+    max-width: 50px;
+    z-index: 2;
+    position: absolute;
+    margin-top: -30px;
+    margin-left: 5px
+}

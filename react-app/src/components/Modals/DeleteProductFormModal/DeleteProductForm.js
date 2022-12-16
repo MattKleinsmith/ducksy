@@ -1,4 +1,4 @@
-import './DeleteProductForm.css';
+import styles from './DeleteProductForm.module.css';
 import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from 'react-router-dom';
@@ -8,7 +8,7 @@ import { setDeleteProductModal } from "../../../store/ui";
 export default function DeleteProductForm() {
     const dispatch = useDispatch();
     const navigate = useNavigate();
-    const productId = useSelector(state => state.productDetails).id
+    const productId = useSelector(state => state.productDetails).id;
     const [errors, setErrors] = useState([]);
 
     const handleSubmit = (e) => {
@@ -20,17 +20,18 @@ export default function DeleteProductForm() {
                 navigate("/your/shop");
             })
             .catch(errors => {
-                setErrors(Object.values(errors.errors))
+                setErrors(Object.values(errors.errors));
             });
     };
 
     return (
-        <form className="deleteForm" onSubmit={handleSubmit}>
-            <h1 style={{ width: "300px" }}>Are you sure you want to delete this product?</h1>
+        <form className={styles.deleteForm} onSubmit={handleSubmit}>
+            <h1>Are you sure you want to delete this product?</h1>
             <ul>
                 {errors.map((error, idx) => <li key={idx}>{error}</li>)}
             </ul>
-            <button className="deleteFormButton" type="submit">Delete product</button>
+            <div><button className={styles.cancel} onClick={() => dispatch(setDeleteProductModal(false))}>x</button></div>
+            <button className={styles.deleteFormButton} type="submit">Delete product</button>
         </form >
     );
 }

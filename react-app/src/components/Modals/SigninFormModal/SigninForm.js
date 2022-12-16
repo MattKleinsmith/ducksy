@@ -1,4 +1,4 @@
-import './SigninForm.css';
+import styles from './SigninForm.module.css';
 import { useState } from "react";
 import { useDispatch } from "react-redux";
 import * as sessionActions from "../../../store/session";
@@ -15,24 +15,28 @@ export default function SigninForm() {
         setErrors([]);
         return dispatch(sessionActions.signIn({ email, password }))
             .then(() => dispatch(setSigninModal(false)))
-            .catch(errors => {
-                setErrors(Object.values(errors.errors))
+            .catch(e => {
+                const errors = Object.entries(e.errors).map(([errorField, errorMessage]) => `${errorField}: ${errorMessage}`)
+                setErrors(errors);
             });
     };
 
     return (
-        <form className="signinForm" onSubmit={handleSubmit}>
-            <div className="signinHeader">
-                <div>Sign in</div>
+        <form className={styles.signinForm} onSubmit={handleSubmit}>
+            <div className={styles.signinHeader}>
+                <div className={styles.signIn}>Sign in</div>
+                <div className={styles.signInFormRegisterButton} onClick={() => {
+                    dispatch(setRegisterModal(true));
+                    dispatch(setSigninModal(false));
+                }}>Register
+                </div>
             </div>
-            <div className="signInFormRegisterButton" onClick={() => {
-                dispatch(setRegisterModal(true));
-                dispatch(setSigninModal(false));
-            }}>Register</div>
-            {errors.length > 0 && <ul className="formErrors">
-                {errors.map((error, idx) => <li key={idx}>{error}</li>)}
-            </ul>}
-            <label>
+            {
+                errors.length > 0 && <ul className="formErrors">
+                    {errors.map((error, idx) => <li key={idx}>{error}</li>)}
+                </ul>
+            }
+            <label >
                 Email address <br />
                 <input
                     className="field"
@@ -53,7 +57,7 @@ export default function SigninForm() {
                 />
             </label>
 
-            <button type="submit" className="signinButton">Sign in</button>
+            <button type="submit" className={styles.signinButton}>Sign in</button>
 
             <button type="submit" className="demoButton" onClick={() => {
                 setEmail("email@email.com");
@@ -64,6 +68,6 @@ export default function SigninForm() {
                 setEmail("email2@email.com");
                 setPassword("password");
             }}>Log in as demo user: Brian</button>
-        </form>
+        </form >
     );
 }

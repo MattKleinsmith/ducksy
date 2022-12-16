@@ -20,10 +20,10 @@ export const getCarts = (user = null) => async dispatch => {
     return carts
 }
 
-export const mergeCarts = (user_id) => async dispatch => {
-    const carts = await dispatch(getCarts())
+export const mergeCarts = (user) => async dispatch => {
+    const carts = await dispatch(getCarts(user))
     // Merge guest cart to log-in user cart
-    carts[user_id] = Object.assign(carts[user_id], carts["guest"]);
+    carts[user.id] = Object.assign(carts[user.id], carts["guest"]);
     //  Clear guest cart
     carts["guest"] = {};
     saveCarts(carts)
@@ -43,7 +43,6 @@ export const deleteItemFromCart = (product, user) => async dispatch => {
     const carts = await dispatch(getCarts())
     const current_cart = user ? carts[user.id] : carts['guest'];
     delete current_cart[product.id]
-    console.log("delete item from cart", current_cart)
     saveCarts(carts)
     dispatch({ type: GET_CARTS, carts })
 }
@@ -61,11 +60,15 @@ export const checkoutCart = (user) => async dispatch => {
     const carts = await dispatch(getCarts())
     const current_cart = user ? carts[user.id] : carts['guest'];
 
-    await csrfFetch('/api/orders', {
+    const response = await csrfFetch('/api/orders', {
         method: "POST",
         body: JSON.stringify(current_cart)
     });
-
+    const data = await response.json()
+    user ? carts[user.id] = {} : carts['guest'] = {};
+    saveCarts(carts)
+    dispatch({ type: GET_CARTS, carts })
+    return data.order_id
 }
 
 const initialState = window.localStorage.getItem('ducksy');

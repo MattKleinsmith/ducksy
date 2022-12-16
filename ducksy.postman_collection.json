@@ -1,6 +1,6 @@
 {
 	"info": {
-		"_postman_id": "b13a817b-73ef-4809-b6ca-a033419ba053",
+		"_postman_id": "ffd04778-d530-4df4-84f9-f96c2af5735e",
 		"name": "ducksy",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
 		"_exporter_id": "24025000"
@@ -65,7 +65,7 @@
 					"urlencoded": [
 						{
 							"key": "email",
-							"value": "email@email.com",
+							"value": "email2@email.com",
 							"type": "text"
 						},
 						{
@@ -443,7 +443,7 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "{{url}}/products?categories=bag, gift",
+					"raw": "{{url}}/products?category=bag&category=gift",
 					"host": [
 						"{{url}}"
 					],
@@ -452,8 +452,39 @@
 					],
 					"query": [
 						{
-							"key": "categories",
-							"value": "bag, gift"
+							"key": "category",
+							"value": "bag"
+						},
+						{
+							"key": "category",
+							"value": "gift"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "READ products by keywords",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{url}}/products?q=bag&q=men",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"products"
+					],
+					"query": [
+						{
+							"key": "q",
+							"value": "bag"
+						},
+						{
+							"key": "q",
+							"value": "men"
 						}
 					]
 				}
@@ -511,7 +542,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    \"product_ids\": [1]\r\n}",
+					"raw": "{\r\n    \"1\": 2,\r\n    \"2\": 2\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
