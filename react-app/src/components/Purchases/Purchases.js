@@ -110,7 +110,7 @@ export default function Purchases() {
                             </div>
                         </div>
                     )}
-                    {orderDetails.length == 0 && <div>No purchases yet.</div>}
+                    {orderDetails.length === 0 && <div>No purchases yet.</div>}
                 </div>
             </div>
         </>
