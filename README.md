@@ -69,7 +69,7 @@ The following are screenshots of this user flow:
 ### Roadmap
 
 - [ ] Refactor database schemas
-- [ ] Decompose big React components into a hiearchy of small components
+- [ ] Decompose big React components into a hierarchy of small components
 - [ ] Add the nice-to-have features
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
