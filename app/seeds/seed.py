@@ -3440,6 +3440,429 @@ def seed_all():
 
     db.session.commit()
 
+    product = Product(
+        seller=anna,
+        categories=[bag],
+        name="Briefcase for women, brown briefcase for laptop, 13 inches tote bag, strap tote bag for women, leather briefcase with compartment for laptop",
+        price="134.00",
+        description="Elegantly designed, Adele laptop bag is a true implementation of fashion and convenience. We made every effort to create the most functional design for maximum comfort. An outer pocket for small things has a simple design and reliable closure. Short handles that are also made of genuine leather are dense and could handle heavy things for sure. An optional shoulder strap is available to make the bag more versatile."
+    )
+
+    db.session.add_all([
+        ProductImage(
+            product=product,
+            url=upload_image_to_bucket_from_url(
+                "https://i.etsystatic.com/31475762/r/il/fd23fc/3446078359/il_794xN.3446078359_ezvx.jpg"),
+            preview=True
+        ),
+
+        Review(
+            buyer=brian,
+            product=product,
+            rating=5,
+            review="This bag is beautiful! The leather, the color of the brown, the personalization was an added bonus! The communication with DiOleBags was immediate and the shipping time was fast! I would highly recommend these products. You can't beat the price for the quality! Thanks so much DiOleBags!"
+        ),
+
+        Review(
+            buyer=caitlynn,
+            product=product,
+            rating=5,
+            review="Great quality! Genuine feel/leather and great structure!"
+        ),
+
+        Review(
+            buyer=derrik,
+            product=product,
+            rating=5,
+            review="So pleased to hear it. Hope to see you in our shop again :)"
+        ),
+
+        Review(
+            buyer=elizabeth,
+            product=product,
+            rating=2,
+            review="Excellent product! Will enjoy using my new case!"
+        ),
+    ])
+
+    db.session.commit()
+
+    product = Product(
+        seller=anna,
+        categories=[bag],
+        name="Large Capacity Canvas Cotton Bags, Canvas Cotton Tote Bags, Canvas Crossbody Bags ,Canvas Shoulder Bags, Canvas Handbag, Class Book",
+        price="21.39",
+        description="★★Fast Shipping: Shipping within 24 hours"
+    )
+
+    db.session.add_all([
+        ProductImage(
+            product=product,
+            url=upload_image_to_bucket_from_url(
+                "https://i.etsystatic.com/32518999/r/il/65b6bf/3660014160/il_794xN.3660014160_bx3r.jpg"),
+            preview=True
+        ),
+
+        Review(
+            buyer=brian,
+            product=product,
+            rating=5,
+            review="Very nice bag! Good quality and I've been taking it to class with me, it fits multiple notebooks, my pencil case, my laptop and my water bottle (its relatively small) and a few other miscellaneous items - the extra straps are super useful and I'm very glad i got it!"
+        ),
+
+        Review(
+            buyer=caitlynn,
+            product=product,
+            rating=5,
+            review="So awesome! It looks exactly like all of the pictures. It's spacious, convenient, and I love it so much!"
+        ),
+
+        Review(
+            buyer=derrik,
+            product=product,
+            rating=4,
+            review="Really excited about this bag. My purse has not been large enough for the amount of notebooks I now carry. This is large and sturdy without looking like a backpack. My only wish is for a few more pockets on the inside to organize small things away from the larger books. Otherwise, super cute and I've received several compliments. Went outside my normal zone and got the yellow and it's very understated and adorable!"
+        ),
+
+        Review(
+            buyer=elizabeth,
+            product=product,
+            rating=5,
+            review="I LOVE this bag! 1st day & I already got compliments on it. Great quality, bright color, & the magnet snaps on it work great!"
+        ),
+    ])
+
+    db.session.commit()
+
+    product = Product(
+        seller=anna,
+        categories=[boyfriend],
+        name="Personalized PS5 and Xbox Controller and Headphone Stand, Graduation Gift for Him, Gamer Room Decor, Headset Stand, Boyfriend Gift Teen Gift",
+        price="92.45",
+        description="The Personalized Wooden Controller Stand is a versatile desk organizer. A stand where you can put your controllers."
+    )
+
+    db.session.add_all([
+        ProductImage(
+            product=product,
+            url=upload_image_to_bucket_from_url(
+                "https://i.etsystatic.com/27005739/r/il/77842b/3751624698/il_794xN.3751624698_cwve.jpg"),
+            preview=True
+        ),
+
+        Review(
+            buyer=brian,
+            product=product,
+            rating=5,
+            review="It's perfect ! I am obsessed!"
+        ),
+
+        Review(
+            buyer=caitlynn,
+            product=product,
+            rating=5,
+            review="It arrived in such a timely manner, almost within the week! And it smelled of fresh wood, very lovely. The quality is pretty great from what I can tell, and the assembly was easy to do. The parts don't just slide in which I like, they feel secure once they are placed. I also made a custom designed to be engraved and Sadettin was great about it. Very excited to gift it!"
+        ),
+
+        Review(
+            buyer=derrik,
+            product=product,
+            rating=5,
+            review="OMG AMAZING. I ordered for my bf for Christmas and I know hell love it! 6/5 stars. The quality of wood, the designs, the DELIVERY TIME. I order this on 11/30 and received this on 12/06. Thank you so so much!"
+        ),
+
+        Review(
+            buyer=elizabeth,
+            product=product,
+            rating=5,
+            review="Very pretty and exactly like what I imagined . I don’t know why but I thought it would come all put together but the fact that you can break it down is a bonus for moving and storage . Thank you very much my boyfriend will love this for Christmas !"
+        ),
+    ])
+
+    db.session.commit()
+
+    product = Product(
+        seller=anna,
+        categories=[boyfriend],
+        name="Heart Keychain Set - Made with Authentic LEGO® Bricks, Matching keychains, Gift Set for Couples, Best Friends - Very High Quality & DURABLE",
+        price="8.48",
+        description="Matching Heart Friendship Keychain Set, Handmade with Real LEGO® Bricks!"
+    )
+
+    db.session.add_all([
+        ProductImage(
+            product=product,
+            url=upload_image_to_bucket_from_url(
+                "https://i.etsystatic.com/27890741/r/il/31a0dd/4028709894/il_794xN.4028709894_i6tr.jpg"),
+            preview=True
+        ),
+
+        Review(
+            buyer=brian,
+            product=product,
+            rating=5,
+            review="Love my keychains!! Amazing quality and super fast shipping!"
+        ),
+
+        Review(
+            buyer=caitlynn,
+            product=product,
+            rating=5,
+            review="I got this for my boyfriend, it's very cute and the size is great! I'm so excited for him to get it."
+        ),
+
+        Review(
+            buyer=derrik,
+            product=product,
+            rating=5,
+            review="So cute!"
+        ),
+
+        Review(
+            buyer=elizabeth,
+            product=product,
+            rating=5,
+            review="Came as expected. Love it!"
+        ),
+    ])
+
+    db.session.commit()
+
+    product = Product(
+        seller=anna,
+        categories=[boyfriend],
+        name="Leather Wallet, Personalized Wallet, Engraved Wallet, Gift For Him, Mens Wallet, Gift For Boyfriend, Gift For Dad, wallet for Son, RFID",
+        price="15.99",
+        description="How to add your personalization:"
+    )
+
+    db.session.add_all([
+        ProductImage(
+            product=product,
+            url=upload_image_to_bucket_from_url(
+                "https://i.etsystatic.com/15037991/r/il/d35a34/3121890041/il_794xN.3121890041_pjaw.jpg"),
+            preview=True
+        ),
+
+        Review(
+            buyer=brian,
+            product=product,
+            rating=5,
+            review="I bought this early so I am ready for Father's day for my boyfriend and I can not express how happy I am with the wallet I got. I also received it way faster than expected."
+        ),
+
+        Review(
+            buyer=caitlynn,
+            product=product,
+            rating=5,
+            review="Product was perfect and exactly what I was hoping for. The packaging is what blew my mind! It was in a very nice box and bubble wrapped twice!! Shipping was also faster than expected. Amazing shop to work with!!!"
+        ),
+
+        Review(
+            buyer=derrik,
+            product=product,
+            rating=5,
+            review="Absolutely AMAZING! I’m so excited to give it to my boyfriend! And the customer service was fantastic they were so sweet! I’m so in love with this wallet 🥺"
+        ),
+
+        Review(
+            buyer=elizabeth,
+            product=product,
+            rating=5,
+            review="Absolutely perfect! Fast shipping, great pricing. My personalized engraving came out exactly as I’d imagined. I know my fiancé will love it when I give it to him as a wedding gift! Highly recommend this shop!"
+        ),
+    ])
+
+    db.session.commit()
+
+    product = Product(
+        seller=anna,
+        categories=[boyfriend],
+        name="The Night We Met - 100% Accurate Star Map and the Perfect Anniversary Gift! (Gold Foil Look)",
+        price="18.50",
+        description="❤️ The Perfect Anniversary Gift: Gold Foil Look Star Map by Date and Location ❤️"
+    )
+
+    db.session.add_all([
+        ProductImage(
+            product=product,
+            url=upload_image_to_bucket_from_url(
+                "https://i.etsystatic.com/21320634/r/il/ec9c96/3248220667/il_794xN.3248220667_3f92.jpg"),
+            preview=True
+        ),
+
+        Review(
+            buyer=brian,
+            product=product,
+            rating=5,
+            review="I’m obsessed with this. It’s so stunning and sentimental. I’m so glad I purchased from this shop."
+        ),
+
+        Review(
+            buyer=caitlynn,
+            product=product,
+            rating=5,
+            review="Printed at Office Depot and it turned out perfectly!"
+        ),
+
+        Review(
+            buyer=derrik,
+            product=product,
+            rating=5,
+            review="I can’t wait to give this to my boyfriend for our anniversary. The creator was kind and helpful and the product looks great."
+        ),
+
+        Review(
+            buyer=elizabeth,
+            product=product,
+            rating=5,
+            review="I got mine back the same day I ordered it! Super fast and fast responses as well from the seller. Got mine for me and my bfs 1 year anniversary"
+        ),
+    ])
+
+    db.session.commit()
+
+    product = Product(
+        seller=anna,
+        categories=[boyfriend],
+        name="Anniversary Gift for Him, Wood Watch, Personalized Watch, Engraved Watch,Wooden Watch,Groomsmen Watch,Mens Watch,Boyfriend Gift,Gift for Dad",
+        price="44.99",
+        description="⌚Complimentary adjustment tool for wood link."
+    )
+
+    db.session.add_all([
+        ProductImage(
+            product=product,
+            url=upload_image_to_bucket_from_url(
+                "https://i.etsystatic.com/17860793/r/il/582f59/1766951619/il_794xN.1766951619_sww3.jpg"),
+            preview=True
+        ),
+
+        Review(
+            buyer=brian,
+            product=product,
+            rating=5,
+            review="I gave this watch to my husband for our 10 year wedding anniversary. He absolutely loved it and the engraving on the back came out great! The turnaround time and shipping was much quicker than I expected and I highly recommend!!"
+        ),
+
+        Review(
+            buyer=caitlynn,
+            product=product,
+            rating=5,
+            review="Second item purchased from them! Very sleek with great quality!! They fit my long engraving on the back with ease!"
+        ),
+
+        Review(
+            buyer=derrik,
+            product=product,
+            rating=5,
+            review="I love love love this watch! And I know that my fiancé will love it too. Thank you so much for a beautiful piece! I will definitely be shopping here again."
+        ),
+
+        Review(
+            buyer=elizabeth,
+            product=product,
+            rating=4,
+            review="Shop responded fast when I miss wrote my engraved statement. Shipped quickly. Watch is beautiful. Wish had a tad more color contrast."
+        ),
+    ])
+
+    db.session.commit()
+
+    product = Product(
+        seller=anna,
+        categories=[boyfriend],
+        name="POCKET HUG •a love token• Im always with you• long distance relationship• gifts for him •organza gift bag for giving",
+        price="16.00",
+        description="Send a POCKET HUG ."
+    )
+
+    db.session.add_all([
+        ProductImage(
+            product=product,
+            url=upload_image_to_bucket_from_url(
+                "https://i.etsystatic.com/6443042/r/il/ab7ed0/2844836111/il_794xN.2844836111_djny.jpg"),
+            preview=True
+        ),
+
+        Review(
+            buyer=brian,
+            product=product,
+            rating=5,
+            review="The cutest little gift ever! I got it for my boyfriend for his birthday at the end of this month and I am so excited to be able to give it to him! Shipping was fast and the product is well made! Would definitely buy from Heather - Debbie again:) Thank y’all so much for this!"
+        ),
+
+        Review(
+            buyer=caitlynn,
+            product=product,
+            rating=1,
+            review="I expected to have something to be on the back side. It's just a blank slug!"
+        ),
+
+        Review(
+            buyer=derrik,
+            product=product,
+            rating=4,
+            review="Very cute packaging and fast delivery. The lettering came out a bit crooked but cute overall. My boyfriend loved it."
+        ),
+
+        Review(
+            buyer=elizabeth,
+            product=product,
+            rating=5,
+            review="I love it and I know my boyfriend will too!! Not only does it look perfect but after it was delivered I got a message from the seller making sure it got to me and it was in good condition!!"
+        ),
+    ])
+
+    db.session.commit()
+
+    product = Product(
+        seller=anna,
+        categories=[boyfriend],
+        name="Men Docking Station,Anniversary Gift Him,Gift for Him Boyfriend,Wood Desk Organizer,Gift for Men Birthday,Gift for Husband,Father's Day Gift",
+        price="26.73",
+        description="Docking Station,Desk Organizer Wood,Gift for Him Boyfriend,Gift for Men Birthday,Gift for Husband,Anniversary Gifts Him,Father's Day Gift,Office Desk Gift"
+    )
+
+    db.session.add_all([
+        ProductImage(
+            product=product,
+            url=upload_image_to_bucket_from_url(
+                "https://i.etsystatic.com/38091196/r/il/9753c9/4404296664/il_794xN.4404296664_aj3g.jpg"),
+            preview=True
+        ),
+
+        Review(
+            buyer=brian,
+            product=product,
+            rating=1,
+            review="Item arrived broken and you can barely see the etching. Woods seem is very fragile and the recipe pages are completely unsatisfactory. They have a random red stamp that I think says “new” on the page corner but it is cut off and the 3 wholes are cut on the lines you are supposed to write on. Etching does not look like the picture. It is very thin, small, and light so you can barely see it. Shipping took a very long time."
+        ),
+
+        Review(
+            buyer=caitlynn,
+            product=product,
+            rating=2,
+            review="Update: because of my initial disappoint with the product, the seller did give me a partial refund. The binder itself is nice, but I still might replace the pages. Disappointed with this. The recipe pages look like they had taken a picture of someone else’s work and printed them out."
+        ),
+
+        Review(
+            buyer=derrik,
+            product=product,
+            rating=2,
+            review="Quality of the item was not the greatest my biggest disappointment was that the book design cover and writing is very small looks nothing like what the picture showed. This item did not meet my expectations."
+        ),
+
+        Review(
+            buyer=elizabeth,
+            product=product,
+            rating=3,
+            review="It arrived with the back broken off. I was disappointed as this was to be a Christmas gift. The customization is small and hard to read, but the seller did give me a full refund due to my disappointment with the product and is sending me a brand new one. Customer service gets 5 stars, but the product more like 2-3."
+        ),
+    ])
+
+    db.session.commit()
+
     # Insert seeder code above this line
 
     reviews = Review.query.all()
