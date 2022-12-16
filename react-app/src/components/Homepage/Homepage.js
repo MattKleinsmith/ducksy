@@ -41,7 +41,6 @@ export default function Homepage() {
                     </div>
                 </div>
             </div>
-            <div className={styles.welcome2}></div>
             <div className={styles.wrapper}>
                 <div className={styles.recentViewed}>Recently viewed & more</div>
                 <div className={styles.homepage}>
