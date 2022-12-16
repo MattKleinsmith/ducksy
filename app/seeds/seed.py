@@ -1604,6 +1604,49 @@ def seed_all():
 
     db.session.commit()
 
+    product = Product(
+        seller=anna,
+        categories=[personalized_gift],
+        name="Personalized Leather Engraved Key Chain Key Ring with Wood Box Handsome Groomsmen, Corporate or Promotional Gift (024917)",
+        price="8.59",
+        description="These functional stylish key chains are a sure winner. With polished stainless steel accessories, this nifty key chain makes the perfect groomsmen gift, or corporate promotional gift. We can add about 4 lines of text and include an image (as long as the image isn't too complicated)."
+    )
+
+    db.session.add_all([
+        ProductImage(
+            product=product,
+            url=upload_image_to_bucket_from_url(
+                "https://i.etsystatic.com/8057725/r/il/41a291/757727885/il_794xN.757727885_9nnk.jpg"),
+            preview=True
+        ),
+
+        Review(
+            author=brian,
+            seller=anna,
+            product=product,
+            rating=5,
+            review="tech accessories"
+        ),
+
+        Review(
+            author=caitlynn,
+            seller=anna,
+            product=product,
+            rating=5,
+            review="keychain for men"
+        ),
+
+        Review(
+            author=derrik,
+            seller=anna,
+            product=product,
+            rating=4,
+            review="personalized keychain for men"
+        ),
+    ])
+
+    db.session.commit()
+
     # Insert seeder code above this line
 
     reviews = Review.query.all()
