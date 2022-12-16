@@ -5,13 +5,11 @@ import styles from "./ProductGrid.module.css";
 import ProductGridItem from "./ProductGridItem/ProductGridItem";
 import { getProductsByCategory } from "../../store/productsBySearch";
 import { useEffect } from "react";
-// import { clearProductDetails } from "../../store/productDetails";
 
 export default function ProductGrid() {
     const dispatch = useDispatch();
     const { categoryName } = useParams();
     const productsAll = useSelector(state => Object.values(state.products));
-    // either products by search and by category is selected
     const productsBySearch = useSelector(state => Object.values(state.productsBySearch));
     const products = productsBySearch.length ? productsBySearch : productsAll;
     if (categoryName) products.reverse()

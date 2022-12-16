@@ -7,7 +7,11 @@ import ProductDetailsRight from "./ProductDetailsRight/ProductDetailsRight";
 
 export default function ProductDetails() {
     const { productId } = useParams();
-    const product = useSelector(state => state.products)[productId];
+
+    const productsAll = useSelector(state => state.products);
+    const productsBySearch = useSelector(state => state.productsBySearch);
+    const products = productId in productsBySearch ? productsBySearch : productsAll;
+    const product = products[productId];
 
     if (!product) return;
     return (
