@@ -1,11 +1,11 @@
 .welcome {
     background-color: #DDEBE3;
     width: 100%;
+    height: 23vh;
     text-align: center;
     font-size: 32px;
     line-height: 36px;
-    padding-top: 30px;
-    padding-bottom: 6vh;
+    padding-top: 20px;
 }
 
 .wrapper {
@@ -14,28 +14,21 @@
     justify-content: center;
     padding-left: 30px;
     padding-right: 30px;
-    padding-top: 150px;
     margin: auto;
     max-width: 1350px;
-}
-
-.welcome2 {
-    display: flex;
-    justify-content: center;
-    position: relative;
-    background-color: #DDEBE3;
-    width: 100%;
-    padding-bottom: 50px;
+    height: 100vh;
+    margin-top: -40px;
 }
 
 .categoryWrapper {
     display: flex;
-    justify-content: space-between;
-    position: absolute;
+    justify-content: space-evenly;
     z-index: 2;
-    padding: 40px 30px 40px 30px;
-    width: 100%;
+    padding: 30px;
+    width: 90%;
+    margin: auto;
 }
+
 
 .imageWrapper {
     width: 115px;
@@ -43,6 +36,8 @@
     max-width: fit-content;
     min-width: auto;
     cursor: pointer;
+    line-height: 25px;
+    text-decoration: none;
 }
 
 .categoryImage {
@@ -56,10 +51,16 @@
 
 .categoryName {
     font-size: 18px;
-    text-decoration: underline;
     font-weight: 500;
-    line-height: 20px;
-    color: #333;
+    color: #333
+}
+
+.imageWrapper:hover {
+    border-bottom: 2px solid #333;
+}
+
+.categoryImage:hover {
+    transform: scale(1.1);
 }
 
 .homepage {
@@ -67,8 +68,8 @@
     grid-template-columns: repeat(5, minmax(0, 1fr));
     max-width: 1350px;
     padding: 10px 10px;
-    column-gap: 20px;
-    row-gap: 20px;
+    column-gap: 10px;
+    row-gap: 10px;
 }
 
 .recentViewed {

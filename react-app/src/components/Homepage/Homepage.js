@@ -15,33 +15,32 @@ export default function Homepage() {
                 <div>Welcome back, {currentUser.display_name}</div> :
                 <div>Find things you'll love. Support independent sellers. Only on Ducksy.</div>}
                 <div className={styles.categoryWrapper}>
-                    <div className={styles.imageWrapper}>
+                    <a className={styles.imageWrapper} href='https://wwww.ducksy.onrender.com/listing/5'>
                         <img className={styles.categoryImage} src='/images/personalized_gifts.jpg' alt='img'></img>
-                        <div className={styles.categoryName}>Personalized Gifts</div>
-                    </div>
-                    <div className={styles.imageWrapper}>
-                        <img className={styles.categoryImage} src='/images/wedding.jpg' alt='img'></img>
-                        <div className={styles.categoryName}>Wedding</div>
-                    </div>
-                    <div className={styles.imageWrapper}>
-                        <img className={styles.categoryImage} src='/images/home_decor.jpg' alt='img'></img>
-                        <div className={styles.categoryName}>Home Decor</div>
-                    </div>
-                    <div className={styles.imageWrapper}>
-                        <img className={styles.categoryImage} src='/images/toy.jpg' alt='img'></img>
-                        <div className={styles.categoryName}>Toy</div>
-                    </div>
-                    <div className={styles.imageWrapper}>
-                        <img className={styles.categoryImage} src='/images/bag.jpg' alt='img'></img>
-                        <div className={styles.categoryName}>Bag</div>
-                    </div>
-                    <div className={styles.imageWrapper}>
-                        <img className={styles.categoryImage} src='/images/boyfriend.jpg' alt='img'></img>
-                        <div className={styles.categoryName}>Boyfriend</div>
-                    </div>
+                        <span className={styles.categoryName}>Personalized Gifts</span>
+                    </a>
+                    <a className={styles.imageWrapper} href='https://wwww.ducksy.onrender.com/listing/8'>
+                        <span><img className={styles.categoryImage} src='/images/wedding.jpg' alt='img'></img></span>
+                        <span className={styles.categoryName}>Wedding</span>
+                    </a>
+                    <a className={styles.imageWrapper} href='https://wwww.ducksy.onrender.com/listing/16'>
+                        <span><img className={styles.categoryImage} src='/images/home_decor.jpg' alt='img'></img></span>
+                        <span className={styles.categoryName}>Home Decor</span>
+                    </a>
+                    <a className={styles.imageWrapper} href='https://wwww.ducksy.onrender.com/listing/13'>
+                        <span><img className={styles.categoryImage} src='/images/toy.jpg' alt='img'></img></span>
+                        <span className={styles.categoryName}>Toy</span>
+                    </a>
+                    <a className={styles.imageWrapper} href='https://wwww.ducksy.onrender.com/listing/7'>
+                        <span><img className={styles.categoryImage} src='/images/bag.jpg' alt='img'></img></span>
+                        <span className={styles.categoryName}>Bag</span>
+                    </a>
+                    <a className={styles.imageWrapper} href='https://wwww.ducksy.onrender.com/listing/14'>
+                        <span><img className={styles.categoryImage} src='/images/boyfriend.jpg' alt='img'></img></span>
+                        <span className={styles.categoryName}>Boyfriend</span>
+                    </a>
                 </div>
             </div>
-            <div className={styles.welcome2}></div>
             <div className={styles.wrapper}>
                 <div className={styles.recentViewed}>Recently viewed & more</div>
                 <div className={styles.homepage}>
@@ -57,6 +56,6 @@ export default function Homepage() {
                     )}
                 </div>
             </div>
-        </div>
+        </div >
     );
 }
