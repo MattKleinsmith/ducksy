@@ -136,6 +136,11 @@
     color: #333
 }
 
+.addedToCart {
+    text-align: left;
+    color: #f1641e;
+}
+
 .shopNote {
     color: #999;
     line-height: 22px;
