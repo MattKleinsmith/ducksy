@@ -36,7 +36,8 @@
     max-width: fit-content;
     min-width: auto;
     cursor: pointer;
-    line-height: 25px
+    line-height: 25px;
+    text-decoration: none;
 }
 
 .categoryImage {
@@ -56,6 +57,10 @@
 
 .imageWrapper:hover {
     border-bottom: 2px solid #333;
+}
+
+.categoryImage:hover {
+    transform: scale(1.1);
 }
 
 .homepage {
