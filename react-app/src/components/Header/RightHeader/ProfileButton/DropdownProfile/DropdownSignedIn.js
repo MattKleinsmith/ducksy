@@ -14,7 +14,7 @@ export default function DropdownSignedIn({ user }) {
     };
     return <>
         <div className={styles.iconInfoWrapper}>
-            <span className={styles.icon}><i className="fas fa-user-circle" /></span>
+            <span className={styles.icon} style={{ color: 'rgb(110, 110, 110)' }}><i className="fas fa-user-circle" /></span>
             <div>
                 <div className={styles.dropdownInfo}>{user.display_name}</div>
                 <div className={styles.dropdownInfo}>{user.email}</div>
