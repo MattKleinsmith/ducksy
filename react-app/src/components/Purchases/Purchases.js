@@ -24,7 +24,7 @@ export default function Purchases() {
                     <p className={styles.purchases}>Purchases</p>
                 </div>
                 <div className={styles.orderInfoWrapper}>
-                    {orderDetails.length && orderDetails.map(orderDetail =>
+                    {orderDetails.length > 0 && orderDetails.map(orderDetail =>
                         <div className={styles.orderInfo}>
                             <div className={styles.purchaseFromWrapper}>
                                 <div>Purchased from {orderDetail.seller.display_name} <span>on {orderDetail.purchase_date}</span></div>
@@ -109,6 +109,7 @@ export default function Purchases() {
                             </div>
                         </div>
                     )}
+                    {orderDetails.length == 0 && <div>No purchases yet.</div>}
                 </div>
             </div>
         </>
