@@ -7,8 +7,10 @@ export default function OrderConfirmation() {
     const { orderId } = useParams()
     const navigate = useNavigate()
     useEffect(() => {
-        setTimeout(() => navigate('/'), 5000)
+        const timeout = setTimeout(() => navigate('/'), 5000);
+        return () => clearTimeout(timeout);
     })
+
     return (
         <div className='OrderConfirmation'>
             <div className='confirmation_message'>
