@@ -9,7 +9,7 @@ import styles from './Purchases.module.css';
 
 export default function Purchases() {
     const dispatch = useDispatch();
-    const orderDetails = useSelector(state => Object.values(state.order_details));
+    const orderDetails = useSelector(state => state.order_details);
     const reviews = useSelector(state => state.buyerReviews);
 
     useEffect(() => {
