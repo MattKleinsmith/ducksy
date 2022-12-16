@@ -2,11 +2,18 @@
     display: flex;
     justify-content: center;
     padding: 30px;
+
     margin: 0 auto;
 }
 
 .ProductDetails {
-    display: flex;
+    /* display: flex; */
     max-width: 1350px;
     gap: 10px;
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    grid-template-rows: 1fr;
+    gap: 0px 0px;
+    grid-template-areas:
+        ". .";
 }

@@ -23,7 +23,7 @@ export default function ProductDetailsRight({ product }) {
         <div className={styles.ProductDetailsRightWrapper}>
             <div className={styles.ProductDetailsRight}>
                 <div>{product.seller.display_name}</div>
-                <div style={{ "display": "flex" }}><span>1000 sales | <FiveStars /></span></div>
+                <div style={{ "display": "flex" }}><span>1000 sales | <FiveStars rating={product.seller_rating} /></span></div>
                 <div>{product.name}</div>
                 <div>{product.price}</div>
                 {!user || user.id !== product.seller_id ?
