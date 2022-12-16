@@ -26,9 +26,11 @@ It was built using this stack:
 
 ## Features
 
-The usual user flow is this:
+The most common user flow is this:
 
-A user lands on the homepage, uses the search bar, sees a list of products, inspects a product, adds it to their cart, registers for an account, purchases the product, and eventually leaves a review. The following are screenshots of this user flow:
+A user lands on the homepage, uses the search bar, sees a list of products, inspects a product, adds it to their cart, registers for an account, purchases the product, and eventually leaves a review.
+
+The following are screenshots of this user flow:
 
 #### A user lands on the homepage
 
@@ -58,13 +60,9 @@ A user lands on the homepage, uses the search bar, sees a list of products, insp
 
 #### Eventually, leaves a review
 
-<img src="https://user-images.githubusercontent.com/8968171/208164856-ebd01c81-8cc1-4344-8d4c-cab6906c988f.png" width="250px">
-<img src="https://user-images.githubusercontent.com/8968171/208164899-6dad793c-660f-4518-ace8-38c59e84dee6.png" width="500px">
-<img src="https://user-images.githubusercontent.com/8968171/208165425-d27365ad-787a-4bc6-9830-1a9c349d6648.png" width="500px">
-<img src="https://user-images.githubusercontent.com/8968171/208165500-8b72e96d-205d-4a2b-9ce9-323b9a41c93a.png" width="500px">
-
-
-
+<img src="https://user-images.githubusercontent.com/8968171/208164899-6dad793c-660f-4518-ace8-38c59e84dee6.png" width="750px">
+<img src="https://user-images.githubusercontent.com/8968171/208165425-d27365ad-787a-4bc6-9830-1a9c349d6648.png" width="750px">
+<img src="https://user-images.githubusercontent.com/8968171/208165500-8b72e96d-205d-4a2b-9ce9-323b9a41c93a.png" width="750px">
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -78,13 +76,17 @@ A user lands on the homepage, uses the search bar, sees a list of products, insp
 ### Getting started
 
 From within the project folder: <code>sh ./setup.sh</code>
-And then navigate to http://localhost:8000.
+
+And then navigate to http://localhost:300.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 ### Contact
 
+This was a group project completed by Jade Vie Tran, Huishi An, and Matthew Kleinsmith.
+
 https://www.linkedin.com/in/huishi-an-8397311b1/
+
 https://www.linkedin.com/in/matthewkleinsmith/
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
