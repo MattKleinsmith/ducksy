@@ -14,9 +14,10 @@
     justify-content: center;
     padding-left: 30px;
     padding-right: 30px;
-    padding-top: 130px;
     margin: auto;
     max-width: 1350px;
+    height: 100vh;
+    margin-top: -40px;
 }
 
 .categoryWrapper {
@@ -28,12 +29,14 @@
     margin: auto;
 }
 
+
 .imageWrapper {
     width: 115px;
     height: 180px;
     max-width: fit-content;
     min-width: auto;
     cursor: pointer;
+    line-height: 25px
 }
 
 .categoryImage {
@@ -47,10 +50,12 @@
 
 .categoryName {
     font-size: 18px;
-    text-decoration: underline;
     font-weight: 500;
-    line-height: 20px;
-    color: #333;
+    color: #333
+}
+
+.imageWrapper:hover {
+    border-bottom: 2px solid #333;
 }
 
 .homepage {
@@ -58,8 +63,8 @@
     grid-template-columns: repeat(5, minmax(0, 1fr));
     max-width: 1350px;
     padding: 10px 10px;
-    column-gap: 20px;
-    row-gap: 20px;
+    column-gap: 10px;
+    row-gap: 10px;
 }
 
 .recentViewed {
