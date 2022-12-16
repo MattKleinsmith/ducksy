@@ -6,12 +6,12 @@ import { setProductId } from '../../store/productDetails';
 import { getReviewsByBuyerId } from '../../store/buyerReviews';
 import { setReviewId } from '../../store/reviewDetails';
 import styles from './Purchases.module.css';
+import BuyItAgain from './BuyItAgain';
 
 export default function Purchases() {
     const dispatch = useDispatch();
     const orderDetails = useSelector(state => state.order_details);
     const reviews = useSelector(state => state.buyerReviews);
-    console.log("reviews", reviews);
 
     useEffect(() => {
         dispatch(getCurrentUserOrders());
@@ -98,10 +98,7 @@ export default function Purchases() {
                                             </div>
                                         }
                                     </div>
-                                    <div className={styles.buyAgain}>
-                                        <div><button className={styles.buyAgainBtn}>Buy this again</button></div>
-                                        <div className={styles.price}>{`$${parseFloat(orderDetail.price).toFixed(2)}`}</div>
-                                    </div>
+                                    <BuyItAgain product={orderDetail.product} />
                                 </div>
                             </div>
                             <div className={styles.shopNote}>

@@ -1,18 +1,17 @@
-.cartWrapper {
+.wrapper {
     display: flex;
     flex-direction: column;
     align-items: center;
     margin-top: 20px;
 }
 
-.cartWrapper h1 {
+.wrapper h1 {
     font-weight: 100;
     font-size: 32px;
     padding: 10px 0px;
 }
 
-
-.cart_grid_container {
+.grid {
     display: grid;
     width: 1350px;
     grid-template-columns: 5fr 2fr;

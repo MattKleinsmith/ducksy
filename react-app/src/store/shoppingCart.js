@@ -72,6 +72,17 @@ export const checkoutCart = (user) => async dispatch => {
     return data.order_id
 }
 
+export const checkoutNow = (product_id, quantity) => async () => {
+    const requestBody = {};
+    requestBody[product_id] = quantity;
+    const response = await csrfFetch('/api/orders', {
+        method: "POST",
+        body: JSON.stringify(requestBody)
+    });
+    const data = await response.json()
+    return data.order_id
+}
+
 const initialState = window.localStorage.getItem('ducksy');
 
 export default function ShoppingCartReducer(state = initialState, action) {

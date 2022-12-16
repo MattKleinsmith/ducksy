@@ -1,19 +1,15 @@
 import styles from './RegisterForm.module.css';
 import { useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { Navigate } from "react-router-dom";
+import { useDispatch } from "react-redux";
 import * as sessionActions from "../../../store/session";
 import { setRegisterModal } from "../../../store/ui";
 
 export default function RegisterForm() {
     const dispatch = useDispatch();
-    const sessionUser = useSelector((state) => state.session.user);
     const [email, setEmail] = useState("");
     const [display_name, setDisplay_Name] = useState("");
     const [password, setPassword] = useState("");
     const [errors, setErrors] = useState([]);
-
-    if (sessionUser) return <Navigate to="/" />;
 
     const handleSubmit = (e) => {
         e.preventDefault();
@@ -27,13 +23,13 @@ export default function RegisterForm() {
     };
 
     return (
-        <form className={styles.registerForm} onSubmit={handleSubmit}>
-            <div className={styles.registerHeader}>Create your account</div>
+        <form className={styles.form} onSubmit={handleSubmit}>
+            <div className={styles.header}>Create your account</div>
             <div className={styles.tagline}>Registration is easy.</div>
             {errors.length > 0 && <ul className="formErrors">
                 {errors.map((error, i) => <li key={i}>{error}</li>)}
             </ul>}
-            <label className={styles.registerLabel}>
+            <label className={styles.label}>
                 Email address <span style={{ color: "#A61A2E" }}>*</span><br />
                 <input
                     className="field"
@@ -43,7 +39,7 @@ export default function RegisterForm() {
                     required
                 />
             </label>
-            <label className={styles.registerLabel}>
+            <label className={styles.label}>
                 First name <span style={{ color: "#A61A2E" }}>*</span><br />
                 <input
                     type="text"
@@ -52,7 +48,7 @@ export default function RegisterForm() {
                     required
                 />
             </label>
-            <label className={styles.registerLabel}>
+            <label className={styles.label}>
                 Password <span style={{ color: "#A61A2E" }}>*</span><br />
                 <input
                     type="password"
@@ -61,7 +57,7 @@ export default function RegisterForm() {
                     required
                 />
             </label>
-            <button type="submit" className={styles.registerButton}>Register</button>
+            <button type="submit" className={`${styles.button} ${email && display_name && password ? styles.buttonReady : styles.buttonNotReady}`}>Register</button>
         </form>
     );
 }
