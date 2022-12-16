@@ -18,7 +18,7 @@ export default function ShopManagerItem({ product }) {
     return (
         <div className={styles.ShopManagerItem}>
             <NavLink to={url} style={{ textDecoration: 'none' }}>
-                <img src={product.preview_image} alt={product.preview_image} onError={(e) => { e.target.src = "/placeholder.png" }} />
+                <img src={product.preview_image} alt={product.preview_image} onError={(e) => { e.target.src = "/images/placeholder.png" }} />
                 <ShopManagerItemDescription product={product} />
             </NavLink>
             {product.name && <div className={styles.delete} onClick={onDeleteClick}>Delete</div>}

@@ -33,7 +33,7 @@ export default function Purchases() {
                             </div>
                             <div className={styles.productWrapper}>
                                 <div className={styles.imageWrapper}>
-                                    <img className={styles.image} src={orderDetail.product ? orderDetail.product.preview_image : "/placeholder.png"} alt="previewImage" />
+                                    <img className={styles.image} src={orderDetail.product ? orderDetail.product.preview_image : "/images/placeholder.png"} alt="previewImage" />
                                 </div>
                                 <div className={styles.infoWrapper}>
                                     <div className={styles.productName}>

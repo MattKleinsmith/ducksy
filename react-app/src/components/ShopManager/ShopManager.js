@@ -9,7 +9,7 @@ export default function ShopManager() {
         .filter(product => product.seller_id === user.id);
 
     products = [{
-        preview_image: "/add_a_listing.png"
+        preview_image: "/images/add_a_listing.png"
     }].concat(products);
 
     const minItems = 10
@@ -17,7 +17,7 @@ export default function ShopManager() {
         const diff = minItems - products.length;
         for (let i = 0; i < diff; i++) {
             products.push({
-                preview_image: "/placeholder.png"
+                preview_image: "/images/placeholder.png"
             })
         }
     }

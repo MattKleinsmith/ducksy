@@ -16,27 +16,27 @@ export default function Homepage() {
                 <div>Find things you'll love. Support independent sellers. Only on Ducksy.</div>}
                 <div className={styles.categoryWrapper}>
                     <div className={styles.imageWrapper}>
-                        <img className={styles.categoryImage} src='https://i.etsystatic.com/17766621/r/il/16e3f0/4236608158/il_794xN.4236608158_aztc.jpg' alt='img'></img>
+                        <img className={styles.categoryImage} src='/images/personalized_gifts.jpg' alt='img'></img>
                         <div className={styles.categoryName}>Personalized Gifts</div>
                     </div>
                     <div className={styles.imageWrapper}>
-                        <img className={styles.categoryImage} src='https://i.etsystatic.com/8617622/r/il/0c6972/2264040092/il_794xN.2264040092_5oim.jpg' alt='img'></img>
+                        <img className={styles.categoryImage} src='/images/wedding.jpg' alt='img'></img>
                         <div className={styles.categoryName}>Wedding</div>
                     </div>
                     <div className={styles.imageWrapper}>
-                        <img className={styles.categoryImage} src='https://i.etsystatic.com/27235619/r/il/b029b4/2847834009/il_794xN.2847834009_nd9k.jpg' alt='img'></img>
+                        <img className={styles.categoryImage} src='/images/home_decor.jpg' alt='img'></img>
                         <div className={styles.categoryName}>Home Decor</div>
                     </div>
                     <div className={styles.imageWrapper}>
-                        <img className={styles.categoryImage} src='https://i.etsystatic.com/17305851/r/il/95b009/3398360096/il_794xN.3398360096_rpcp.jpg' alt='img'></img>
+                        <img className={styles.categoryImage} src='/images/toy.jpg' alt='img'></img>
                         <div className={styles.categoryName}>Toy</div>
                     </div>
                     <div className={styles.imageWrapper}>
-                        <img className={styles.categoryImage} src='https://i.etsystatic.com/21515874/r/il/70440b/2916023872/il_794xN.2916023872_agns.jpg' alt='img'></img>
+                        <img className={styles.categoryImage} src='/images/bag.jpg' alt='img'></img>
                         <div className={styles.categoryName}>Bag</div>
                     </div>
                     <div className={styles.imageWrapper}>
-                        <img className={styles.categoryImage} src='https://i.etsystatic.com/20811748/r/il/824d8a/3906405268/il_794xN.3906405268_aubi.jpg' alt='img'></img>
+                        <img className={styles.categoryImage} src='/images/boyfriend.jpg' alt='img'></img>
                         <div className={styles.categoryName}>Boyfriend</div>
                     </div>
                 </div>
