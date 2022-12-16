@@ -1,14 +1,17 @@
 .shopButton {
     border: none;
-    background-color: white;
+    background-color: #FFF;
     cursor: pointer;
     font-size: 20px;
+    padding: 10px 12px;
+    border-radius: 50%;
 }
 
 .shopButton i {
-    color: black;
+    color: #333;
 }
 
 .shopButton:hover {
     box-shadow: 0px 2px 5px rgb(217, 217, 217);
+    background-color: #f4f4f4;
 }
