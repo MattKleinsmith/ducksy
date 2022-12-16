@@ -15,7 +15,6 @@ export default function DeleteReviewForm() {
         return dispatch(deleteReview(reviewId.id))
             .then(() => {
                 dispatch(setDeleteReviewModal(false));
-                dispatch(getReviewsByBuyerId());
             })
             .catch(response => {
                 if (response.errors) setErrors(Object.values(response.errors));

@@ -36,7 +36,7 @@ export default function ProductEditor() {
         e.preventDefault();
         setErrors([]);
         const body = { name, description, price };
-        if (image) {
+        if (image || product.preview_image) {
             try {
                 const productThunkAction = product ? putProduct(productId, body) : postProduct(body)
                 const newProductId = await dispatch(productThunkAction)

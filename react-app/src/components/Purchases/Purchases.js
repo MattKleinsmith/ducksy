@@ -11,6 +11,7 @@ export default function Purchases() {
     const dispatch = useDispatch();
     const orderDetails = useSelector(state => state.order_details);
     const reviews = useSelector(state => state.buyerReviews);
+    console.log("reviews", reviews);
 
     useEffect(() => {
         dispatch(getCurrentUserOrders());
@@ -24,7 +25,7 @@ export default function Purchases() {
                     <p className={styles.purchases}>Purchases</p>
                 </div>
                 <div className={styles.orderInfoWrapper}>
-                    {orderDetails.length && orderDetails.map(orderDetail =>
+                    {orderDetails.length > 0 && orderDetails.map(orderDetail =>
                         <div className={styles.orderInfo}>
                             <div className={styles.purchaseFromWrapper}>
                                 <div>Purchased from {orderDetail.seller.display_name} <span>on {orderDetail.purchase_date}</span></div>
@@ -32,7 +33,7 @@ export default function Purchases() {
                             </div>
                             <div className={styles.productWrapper}>
                                 <div className={styles.imageWrapper}>
-                                    <img className={styles.image} src={orderDetail.product ? orderDetail.product.preview_image : "/placeholder.png"} alt="previewImage" />
+                                    <img className={styles.image} src={orderDetail.product ? orderDetail.product.preview_image : "/images/placeholder.png"} alt="previewImage" />
                                 </div>
                                 <div className={styles.infoWrapper}>
                                     <div className={styles.productName}>
@@ -44,33 +45,33 @@ export default function Purchases() {
                                                 <div className={styles.cancelWrapper}>
                                                     <div className={styles.rating}>
                                                         {(reviews[orderDetail.product_id].rating === 1) ?
-                                                            <div><span>Your review </span><i class="fa-solid fa-star"></i></div> :
+                                                            <div><span>Your review </span><i className="fa-solid fa-star"></i></div> :
                                                             (reviews[orderDetail.product_id].rating === 2) ?
                                                                 <div>
                                                                     <span>Your review </span>
-                                                                    <i class="fa-solid fa-star"></i>
-                                                                    <i class="fa-solid fa-star"></i>
+                                                                    <i className="fa-solid fa-star"></i>
+                                                                    <i className="fa-solid fa-star"></i>
                                                                 </div> :
                                                                 (reviews[orderDetail.product_id].rating === 3) ? <div>
                                                                     <span>Your review </span>
-                                                                    <i class="fa-solid fa-star"></i>
-                                                                    <i class="fa-solid fa-star"></i>
-                                                                    <i class="fa-solid fa-star"></i>
+                                                                    <i className="fa-solid fa-star"></i>
+                                                                    <i className="fa-solid fa-star"></i>
+                                                                    <i className="fa-solid fa-star"></i>
                                                                 </div> :
                                                                     (reviews[orderDetail.product_id].rating === 4) ? <div>
                                                                         <span>Your review </span>
-                                                                        <i class="fa-solid fa-star"></i>
-                                                                        <i class="fa-solid fa-star"></i>
-                                                                        <i class="fa-solid fa-star"></i>
-                                                                        <i class="fa-solid fa-star"></i>
+                                                                        <i className="fa-solid fa-star"></i>
+                                                                        <i className="fa-solid fa-star"></i>
+                                                                        <i className="fa-solid fa-star"></i>
+                                                                        <i className="fa-solid fa-star"></i>
                                                                     </div> :
                                                                         <div>
                                                                             <span>Your review </span>
-                                                                            <i class="fa-solid fa-star"></i>
-                                                                            <i class="fa-solid fa-star"></i>
-                                                                            <i class="fa-solid fa-star"></i>
-                                                                            <i class="fa-solid fa-star"></i>
-                                                                            <i class="fa-solid fa-star"></i>
+                                                                            <i className="fa-solid fa-star"></i>
+                                                                            <i className="fa-solid fa-star"></i>
+                                                                            <i className="fa-solid fa-star"></i>
+                                                                            <i className="fa-solid fa-star"></i>
+                                                                            <i className="fa-solid fa-star"></i>
                                                                         </div>
                                                         } </div>
                                                     <button className={styles.removeReviewBtn} onClick={() => {
@@ -109,6 +110,7 @@ export default function Purchases() {
                             </div>
                         </div>
                     )}
+                    {orderDetails.length == 0 && <div>No purchases yet.</div>}
                 </div>
             </div>
         </>

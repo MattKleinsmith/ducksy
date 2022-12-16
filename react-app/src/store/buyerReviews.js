@@ -7,7 +7,7 @@ const DELETE_REVIEW = 'buyerReviews/DELETE_REVIEW';
 
 
 export const getReviewsByBuyerId = () => async dispatch => {
-    const response = await csrfFetch(`/api/users/reviews`);
+    const response = await csrfFetch(`/api/reviews/current`);
     const reviews = await response.json();
     dispatch({ type: GET_REVIEWS_BY_BUYER_ID, reviews });
     return response;
@@ -27,11 +27,9 @@ export const postReview = (productId, data) => async dispatch => {
 };
 
 export const deleteReview = (reviewId) => async dispatch => {
-    const response = await csrfFetch(`/api/reviews/${reviewId}`, { method: "DELETE" });
-    if (response.ok) {
-        dispatch({ type: DELETE_REVIEW, reviewId });
-        return await response.json();
-    };
+    await csrfFetch(`/api/reviews/${reviewId}`, { method: "DELETE" });
+    await dispatch({ type: DELETE_REVIEW, reviewId });
+    dispatch(getReviewsByBuyerId());
 };
 
 export const updateReview = (reviewId, body) => async dispatch => {

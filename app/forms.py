@@ -9,7 +9,7 @@ def validation_errors_formatter(form, validation_errors):
     Simple function that turns the WTForms validation errors into a simple list
     """
     errorMessages = {
-        form[field].label.text : error
+        form[field].label.text: error
         for field in validation_errors
         for error in validation_errors[field]
     }
@@ -57,6 +57,6 @@ class ProductImageForm(FlaskForm):
 
 
 class ReviewForm(FlaskForm):
-    rating = StringField("Review this product", validators=[DataRequired()])
-    review = TextAreaField("My review", validators=[DataRequired()])
-    submit = SubmitField("Post My Review")
+    rating = StringField("Star rating", validators=[DataRequired()])
+    review = TextAreaField("Review text", validators=[DataRequired()])
+    submit = SubmitField()

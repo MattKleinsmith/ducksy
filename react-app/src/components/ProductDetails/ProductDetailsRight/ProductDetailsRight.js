@@ -7,6 +7,7 @@ import "./ProductDetailsRight.css";
 
 export default function ProductDetailsRight({ product }) {
     const [quantity, setQuantity] = useState(1);
+    const [hasAddedToCart, setHasAddedToCart] = useState(false);
     const dispatch = useDispatch();
     const user = useSelector(state => state.session.user);
     const navigate = useNavigate();
@@ -36,9 +37,10 @@ export default function ProductDetailsRight({ product }) {
                         </label>
                         <button>Buy it now</button>
                         <button onClick={() => {
-                            console.log("onClick AddToCart");
+                            setHasAddedToCart(true)
                             dispatch(addItemToCart(product, user, quantity));
                         }}>Add to cart</button>
+                        {hasAddedToCart && <div style={{ textAlign: "center" }}>Added to cart!</div>}
                     </>
                     :
                     <button onClick={() => navigate(`/your/shop/listing/${product.id}`)}>Edit listing</button>

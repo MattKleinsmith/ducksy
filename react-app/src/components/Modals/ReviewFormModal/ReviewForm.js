@@ -24,8 +24,9 @@ export default function ReviewForm() {
                     setRating(0);
                     setReview("");
                 })
-                .catch(response => {
-                    if (response.errors) setErrors(Object.values(response.errors));
+                .catch(e => {
+                    const errors = Object.entries(e.errors).map(([errorField, errorMessage]) => `${errorField}: ${errorMessage}`);
+                    setErrors(errors);
                 });
         }
     };

@@ -1,11 +1,11 @@
 import { useNavigate } from "react-router";
-import "./ShopButton.css";
+import styles from "./ShopButton.module.css";
 
 export default function ShopButton() {
-    const navigate = useNavigate()
+    const navigate = useNavigate();
     return (
         <>
-            <button className="shopButton" onClick={() => navigate("/your/shop")}>
+            <button className={styles.shopButton} onClick={() => navigate("/your/shop")}>
                 <i className="fa-solid fa-shop" />
             </button>
         </>
