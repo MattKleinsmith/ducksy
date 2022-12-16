@@ -42,8 +42,10 @@ class Review(db.Model):
         return {
             "id": self.id,
             "buyer_id": self.buyer_id,
+            "buyer": self.buyer.to_dict(),
             "seller_id": self.seller_id,
             "product_id": self.product_id,
             "rating": self.rating,
-            "review": self.review
+            "review": self.review,
+            "created_at": self.created_at
         }

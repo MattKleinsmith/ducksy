@@ -1,0 +1,32 @@
+.reviewList {
+    display: flex;
+    flex-direction: column;
+}
+
+.reviewText {
+    font-size: 0.9rem;
+    line-height: 1.2rem;
+    max-height: 3.8rem;
+    overflow-y: hidden;
+}
+
+.buyerInfo {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+
+}
+
+.buyerPicture {
+    font-family: serif;
+    color: #f1641e;
+    font-size: 20px;
+}
+
+.buyerName {
+    font-size: 12px;
+}
+
+.reviewDate {
+    font-size: 12px;
+}
