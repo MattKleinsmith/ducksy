@@ -48,6 +48,7 @@ class OrderDetail(db.Model):
             "quantity": self.quantity,
             "seller_id": self.seller_id,
             "seller": self.seller.to_dict(),
+            "buyer_id": self.buyer_id,
             "order_id": self.order_id,
             "purchase_date": self.created_at
         }

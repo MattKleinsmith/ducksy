@@ -13,8 +13,8 @@ export default function ShoppingCart() {
     if (!carts || !Object.keys(products).length) return;
     let current_cart = user ? carts[user.id] : carts["guest"]
     if (!current_cart) current_cart = {};
-    console.log('ShoppingCart - catrs', carts)
-    const cart_items = Object.entries(current_cart).filter(([product_id, amount]) => product_id in products);
+    const cart_items = Object.entries(current_cart).filter(([product_id, quantity]) => product_id in products);
+    console.log('ShoppingCart cart_items', cart_items)
 
     return (
         <div>

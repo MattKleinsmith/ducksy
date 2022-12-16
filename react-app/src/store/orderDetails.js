@@ -9,11 +9,10 @@ export const getCurrentUserOrders = () => async dispatch => {
     return order_details;
 };
 
-export default function orderDetailsReducer(state = {}, action) {
+export default function orderDetailsReducer(state = [], action) {
     switch (action.type) {
         case GET_ORDER_DETAILS:
-            const newState = { ...state, ...action.order_details };
-            return newState;
+            return action.order_details;
         default:
             return state;
     }

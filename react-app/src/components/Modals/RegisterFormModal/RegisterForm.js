@@ -21,7 +21,7 @@ export default function RegisterForm() {
         return dispatch(sessionActions.register({ email, display_name, password }))
             .then(() => dispatch(setRegisterModal(false)))
             .catch(e => {
-                const errors = Object.entries(e.errors).map(([errorField, errorMessage]) => `${errorField}: ${errorMessage}`)
+                const errors = Object.entries(e.errors).map(([errorField, errorMessage]) => `${errorField}: ${errorMessage}`);
                 setErrors(errors);
             });
     };
@@ -34,7 +34,7 @@ export default function RegisterForm() {
                 {errors.map((error, i) => <li key={i}>{error}</li>)}
             </ul>}
             <label className={styles.registerLabel}>
-                Email address <span style={{ color: "red" }}>*</span><br />
+                Email address <span style={{ color: "#A61A2E" }}>*</span><br />
                 <input
                     className="field"
                     type="text"
@@ -44,7 +44,7 @@ export default function RegisterForm() {
                 />
             </label>
             <label className={styles.registerLabel}>
-                First name <span style={{ color: "red" }}>*</span><br />
+                First name <span style={{ color: "#A61A2E" }}>*</span><br />
                 <input
                     type="text"
                     value={display_name}
@@ -53,7 +53,7 @@ export default function RegisterForm() {
                 />
             </label>
             <label className={styles.registerLabel}>
-                Password <span style={{ color: "red" }}>*</span><br />
+                Password <span style={{ color: "#A61A2E" }}>*</span><br />
                 <input
                     type="password"
                     value={password}
