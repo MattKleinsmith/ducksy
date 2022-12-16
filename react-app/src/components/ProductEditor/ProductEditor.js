@@ -37,21 +37,27 @@ export default function ProductEditor() {
         setErrors([]);
         const body = { name, description, price };
         const productThunkAction = product ? putProduct(productId, body) : postProduct(body)
-        try {
-            const newProductId = await dispatch(productThunkAction)
+        if (image) {
             try {
-                setImageErrors([]);
-                if (image)
-                    await dispatch(postProductImage(newProductId ? newProductId : productId, image, preview))
-                navigate("/your/shop")
+                const newProductId = await dispatch(productThunkAction)
+                try {
+                    setImageErrors([]);
+                    if (image)
+                        await dispatch(postProductImage(newProductId ? newProductId : productId, image, preview))
+                    navigate("/your/shop")
+                }
+                catch (responseBody) {
+                    setImageErrors(Object.values(responseBody.errors))
+                }
             }
             catch (responseBody) {
-                setImageErrors(Object.values(responseBody.errors))
+                setErrors(Object.values(responseBody.errors))
             }
         }
-        catch (responseBody) {
-            setErrors(Object.values(responseBody.errors))
+        else {
+            setErrors(["Please upload an image for the product listing"])
         }
+
     };
 
     const handleImageChange = (e) => {
