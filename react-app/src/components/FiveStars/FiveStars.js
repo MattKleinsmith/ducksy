@@ -1,8 +1,8 @@
 import "./FiveStars.css"
 
-export default function FiveStars({ avgRating }) {
-    const fullStarNum = Math.round(avgRating)
-    const halfStar = (avgRating - fullStarNum) * 10
+export default function FiveStars({ rating }) {
+    const fullStarNum = Math.round(rating)
+    const halfStar = (rating - fullStarNum) * 10
     return (<>
         {[...Array(fullStarNum).keys()].map(_ => (<i className="fa-solid fa-star FiveStars" />))}
         {fullStarNum < 5 && ((halfStar > 5 || halfStar == 0) ?
