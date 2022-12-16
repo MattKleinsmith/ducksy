@@ -1,16 +1,23 @@
 import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router";
-import { addItemToCart } from "../../../store/shoppingCart";
+import { addItemToCart, checkoutNow } from "../../../store/shoppingCart";
+import { setRegisterModal } from "../../../store/ui";
 import FiveStars from "../../FiveStars/FiveStars";
 import "./ProductDetailsRight.css";
 
+
 export default function ProductDetailsRight({ product }) {
-    const [quantity, setQuantity] = useState(1);
-    const [hasAddedToCart, setHasAddedToCart] = useState(false);
+    const navigate = useNavigate();
     const dispatch = useDispatch();
     const user = useSelector(state => state.session.user);
-    const navigate = useNavigate();
+    const [quantity, setQuantity] = useState(1);
+    const [hasAddedToCart, setHasAddedToCart] = useState(false);
+    const checkoutHandler = user => {
+        if (user) dispatch(checkoutNow(product.id, quantity))
+            .then((orderId) => navigate(`/cart/checkout/${orderId}`))
+        else dispatch(setRegisterModal(true))
+    }
 
     return (
         <div className="ProductDetailsRightWrapper">
@@ -35,7 +42,9 @@ export default function ProductDetailsRight({ product }) {
                                         {num}</option>))}
                             </select>
                         </label>
-                        <button>Buy it now</button>
+                        <button
+                            onClick={() => checkoutHandler(user)}
+                        >Buy it now</button>
                         <button onClick={() => {
                             setHasAddedToCart(true)
                             dispatch(addItemToCart(product, user, quantity));
