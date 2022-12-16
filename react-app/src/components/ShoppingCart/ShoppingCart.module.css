@@ -13,7 +13,7 @@
 
 .grid {
     display: grid;
-    width: 1350px;
+    width: 1200px;
     grid-template-columns: 5fr 2fr;
     grid-template-rows: 1fr;
     gap: 0px 0px;

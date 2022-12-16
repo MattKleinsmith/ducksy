@@ -6,7 +6,7 @@
 }
 
 .ProductDetails {
-    max-width: 1350px;
+    max-width: 1200px;
     gap: 10px;
     display: grid;
     grid-template-columns: 2fr 1fr;

@@ -6,7 +6,7 @@
 .ProductEditor {
     display: flex;
     flex-direction: column;
-    max-width: 1350px;
+    max-width: 1200px;
     gap: 10px;
     width: 100vw;
 }
