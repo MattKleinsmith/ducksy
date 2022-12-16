@@ -49,7 +49,7 @@ def seed_all():
     gift = Category(name="gift")
     bag = Category(name="bag")
     case = Category(name="case")
-    personalized_gift = Category(name="personalized gift")
+    personalized_gift = Category(name="personalized_gift")
     leather = Category(name="leather")
     home_decor = Category(name="home_decor")
     newborn = Category(name="newborn")
