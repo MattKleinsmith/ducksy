@@ -1604,6 +1604,1372 @@ def seed_all():
 
     db.session.commit()
 
+    product = Product(
+        seller=anna,
+        categories=[personalized_gift],
+        name="Personalized Leather Engraved Key Chain Key Ring with Wood Box Handsome Groomsmen, Corporate or Promotional Gift (024917)",
+        price="8.59",
+        description="These functional stylish key chains are a sure winner. With polished stainless steel accessories, this nifty key chain makes the perfect groomsmen gift, or corporate promotional gift. We can add about 4 lines of text and include an image (as long as the image isn't too complicated)."
+    )
+
+    db.session.add_all([
+        ProductImage(
+            product=product,
+            url=upload_image_to_bucket_from_url(
+                "https://i.etsystatic.com/8057725/r/il/41a291/757727885/il_794xN.757727885_9nnk.jpg"),
+            preview=True
+        ),
+
+        Review(
+            buyer=brian,
+            product=product,
+            rating=5,
+            review="tech accessories"
+        ),
+
+        Review(
+            buyer=caitlynn,
+            product=product,
+            rating=5,
+            review="keychain for men"
+        ),
+
+        Review(
+            buyer=derrik,
+            product=product,
+            rating=4,
+            review="personalized keychain for men"
+        ),
+    ])
+
+    db.session.commit()
+
+    product = Product(
+        seller=anna,
+        categories=[personalized_gift],
+        name="Custom 10” Family Name Hand Embroidered Wall Hanging, Wreath, Wall Decor, Greenery, Brass Bells, Minimal, Christmas, Winter, Personalized",
+        price="60.00",
+        description="This beautiful minimal wall hanging is the perfect touch to your winter decor. It can be hung in your entryway, on the inside of a door, in the kitchen, by the fireplace... the options are endless."
+    )
+
+    db.session.add_all([
+        ProductImage(
+            product=product,
+            url=upload_image_to_bucket_from_url(
+                "https://i.etsystatic.com/23853452/r/il/e89522/2620894123/il_794xN.2620894123_oxii.jpg"),
+            preview=True
+        ),
+
+        Review(
+            buyer=brian,
+            product=product,
+            rating=5,
+            review="seasonal decor"
+        ),
+
+        Review(
+            buyer=caitlynn,
+            product=product,
+            rating=5,
+            review="personalized holiday decor"
+        ),
+
+        Review(
+            buyer=derrik,
+            product=product,
+            rating=5,
+            review="last name embroidery hoop"
+        ),
+    ])
+
+    db.session.commit()
+
+    product = Product(
+        seller=anna,
+        categories=[personalized_gift],
+        name="Christmas Gift for Him, Custom Leather Wallet, Personalized Wallet, Engraved Wallet, Gift For Boyfriend, Mens Wallet, Dad Birthday Gift",
+        price="14.99",
+        description="Anniversary Gift for Him, Custom Leather Wallet, Personalized Wallet, Engraved Wallet, Gift For Boyfriend, Mens Wallet, Dad Birthday Gift"
+    )
+
+    db.session.add_all([
+        ProductImage(
+            product=product,
+            url=upload_image_to_bucket_from_url(
+                "https://i.etsystatic.com/32404941/r/il/984a6e/3788291077/il_794xN.3788291077_enuv.jpg"),
+            preview=True
+        ),
+
+        Review(
+            buyer=brian,
+            product=product,
+            rating=5,
+            review="It was perfect. I apologize for the profanity. It has been mine and my brothers little saying to each other for the longest time. He loved it and it turned out beautifully."
+        ),
+
+        Review(
+            buyer=caitlynn,
+            product=product,
+            rating=5,
+            review="This is my second purchase from this shop and once again I’m absolutely pleased! Everything came out beautifully and on time for Christmas!!!"
+        ),
+
+        Review(
+            buyer=derrik,
+            product=product,
+            rating=5,
+            review="Got here sooo fast and was so pretty when i got it. I got it for my boyfriend for christmas and i know hes gonna love it."
+        ),
+
+        Review(
+            buyer=elizabeth,
+            product=product,
+            rating=5,
+            review="Such great leatherwork. So artistic and great looking. I’m in love"
+        ),
+    ])
+
+    db.session.commit()
+
+    product = Product(
+        seller=anna,
+        categories=[personalized_gift],
+        name="Personalized Gift for Dad from Daughter, Toiletry Bag Leather Men, Gift for Husband, Engraved Leather Dopp Kit, Christmas Gift for Husband",
+        price="15.00",
+        description="Our personalized Dopp kits are just what you are looking for. This is a perfect gift for your dad, husband, or any man in your life. The leather Toiletry bag has plenty of room for all his grooming supplies. And you can make it even more special by engraving his name on the kit!"
+    )
+
+    db.session.add_all([
+        ProductImage(
+            product=product,
+            url=upload_image_to_bucket_from_url(
+                "https://i.etsystatic.com/38065945/r/il/cb3273/4287587457/il_794xN.4287587457_jcw2.jpg"),
+            preview=True
+        ),
+
+        Review(
+            buyer=brian,
+            product=product,
+            rating=5,
+            review="Logo not as appears in listing. Much smaller. Would not purchase again. Posted picture of listing photo and mine under. Update: seller reached out and is working to correct it!"
+        ),
+
+        Review(
+            buyer=caitlynn,
+            product=product,
+            rating=2,
+            review="Wonderful customer service! Absolutely amazing bags! I had bags made with a custom picture put on them. Every detail in the picture was on the bag. Great work!"
+        ),
+
+        Review(
+            buyer=derrik,
+            product=product,
+            rating=5,
+            review="The seller was so kind as to send me a preview of the design. After seeing it I decided to change the design and the seller had no issues doing that for me. The bag is so nice, beautiful quality, and shipped very quickly! Thank you!"
+        ),
+
+        Review(
+            buyer=elizabeth,
+            product=product,
+            rating=5,
+            review="Leather Toiletry Bag"
+        ),
+    ])
+
+    db.session.commit()
+
+    product = Product(
+        seller=anna,
+        categories=[personalized_gift],
+        name="Custom Royal Portrait from Photo | Renaissance Portrait | Custom Portrait | Human Portraits | Custom Man Woman Portrait |Historical Portrait",
+        price="26.79",
+        description="If you are a human portrait lover like us, you will find the best custom human portraits for you and you're loved ones! We are aware that when it comes to our special ones, everyone wants to get attention! Our main goal is to make each customer satisfied and happy with your portrait design! You will love the way our design team works along the process. We will provide numerous options to add your artwork! More Customization is available with different types of styles. Our designer team will work hard until you get the most astonishing artwork of you and your loved ones! We will send you the preview every time the changes are made and if you are not satisfied with it, you have an option to cancel your order!"
+    )
+
+    db.session.add_all([
+        ProductImage(
+            product=product,
+            url=upload_image_to_bucket_from_url(
+                "https://i.etsystatic.com/26335741/r/il/19e4ce/3162498762/il_794xN.3162498762_8ghk.jpg"),
+            preview=True
+        ),
+
+        Review(
+            buyer=brian,
+            product=product,
+            rating=5,
+            review="Absolutely love it. So did my friend. He was so amazed what you can do with a head shot. Arrived very quickly. Neatly packaged . I certainly made a good choice selecting this shop . Already planning my next purchase !!! Thank you Canvas Archive"
+        ),
+
+        Review(
+            buyer=caitlynn,
+            product=product,
+            rating=5,
+            review="Met and exceeded my expectations for graphic editing abilities, quality, and turnaround times. I bought this as a gift for my brother. He and his wife loved it so much, they want portraits for the whole family!"
+        ),
+
+        Review(
+            buyer=derrik,
+            product=product,
+            rating=5,
+            review="I ordered one for my dad's birthday and he absolutely loved it! Quality is awesome and delivery was fast. This product definitely met my expectations. I am very happy. Thank you so much CanvasArchive for wonderful work and quick response to all my requests ! I will definitely order again."
+        ),
+
+        Review(
+            buyer=elizabeth,
+            product=product,
+            rating=5,
+            review="Hands down the best gift I’ve ever given. My dad loved it and the whole family can’t stop talking about it. The perfect gift for that person in your life who is hard to buy for. 10/10 recommend."
+        ),
+    ])
+
+    db.session.commit()
+
+    product = Product(
+        seller=anna,
+        categories=[personalized_gift],
+        name="Whiskey Sets Bourbon Decanter Set Gifts for Men Fathers Day Birthday Scotch Glasses Drinkware College Graduation Gift Engraved Monogram",
+        price="9.98",
+        description="This listing is for Customized Whiskey Rock Glasses Laser Engraved Personalized with Name and Initial."
+    )
+
+    db.session.add_all([
+        ProductImage(
+            product=product,
+            url=upload_image_to_bucket_from_url(
+                "https://i.etsystatic.com/5703048/r/il/6c410e/2255509652/il_794xN.2255509652_dng4.jpg"),
+            preview=True
+        ),
+
+        Review(
+            buyer=brian,
+            product=product,
+            rating=5,
+            review="Second set we have purchased. O e for us and this one for a friend!! Great quality and shipping packaging!!"
+        ),
+
+        Review(
+            buyer=caitlynn,
+            product=product,
+            rating=5,
+            review="Absolutely gorgeous glasses, nice and heavy weight to them and beautiful engraving! My husband will love these!"
+        ),
+
+        Review(
+            buyer=derrik,
+            product=product,
+            rating=5,
+            review="I ordered glasses for my dad and they are beautiful! I needed a lot of help with the order because of my own error and they were patient, kind and super helpful! Will definitely order other items in the future! Customer service is amazing!"
+        ),
+
+        Review(
+            buyer=elizabeth,
+            product=product,
+            rating=5,
+            review="It’s beautiful! Came well packaged and got here quicker than expected. The set of glasses and decanter are very nice. The etching is very well done"
+        ),
+    ])
+
+    db.session.commit()
+
+    product = Product(
+        seller=anna,
+        categories=[personalized_gift],
+        name="Personalized Waxed Canvas Dopp Kit , Men's Shaving Dopp Kit , Large Makeup Bag , Travel Case Groomsmen , Unique Gift For Him Her",
+        price="72.00",
+        description="** ITEM PROCESSING TIME IS 4-6 WEEKS"
+    )
+
+    db.session.add_all([
+        ProductImage(
+            product=product,
+            url=upload_image_to_bucket_from_url(
+                "https://i.etsystatic.com/9696294/r/il/ac0ff4/3114605483/il_794xN.3114605483_giix.jpg"),
+            preview=True
+        ),
+
+        Review(
+            buyer=brian,
+            product=product,
+            rating=5,
+            review="personalized gifts"
+        ),
+
+        Review(
+            buyer=caitlynn,
+            product=product,
+            rating=5,
+            review="accessories"
+        ),
+
+        Review(
+            buyer=derrik,
+            product=product,
+            rating=5,
+            review="personalized gifts for him"
+        ),
+    ])
+
+    db.session.commit()
+
+    product = Product(
+        seller=anna,
+        categories=[personalized_gift],
+        name="custom phrase mug . funny mug . christmas gift . surprise gift . personalized mug . bottom of the mug . inside the mug phrase",
+        price="20.00",
+        description="An all white, 13 oz. ceramic mug with a hand painted phrase placed on the inside bottom, inside rim or outside of the mug. A fun gift and surprising way to start the morning. Surprise someone with a proposal, announcement, inside joke, or personal sentiment. Leave your specific phrases in the personalization box and where you'd like it placed on the mug (OR just leave it blank for the “poisoned” message.) GENTLY HAND WASH- NO SCRUBBING."
+    )
+
+    db.session.add_all([
+        ProductImage(
+            product=product,
+            url=upload_image_to_bucket_from_url(
+                "https://i.etsystatic.com/8026669/r/il/cabbf2/4378368846/il_794xN.4378368846_74to.jpg"),
+            preview=True
+        ),
+
+        Review(
+            buyer=brian,
+            product=product,
+            rating=5,
+            review="mugs custom phrase mug . white m..."
+        ),
+
+        Review(
+            buyer=caitlynn,
+            product=product,
+            rating=5,
+            review="mugs mugs"
+        ),
+
+        Review(
+            buyer=derrik,
+            product=product,
+            rating=5,
+            review="custom mug"
+        ),
+    ])
+
+    db.session.commit()
+
+    product = Product(
+        seller=anna,
+        categories=[personalized_gift],
+        name="Personalized Cheese Board, Personalized Cutting Board, Christmas Gifts, Gifts For Men, Gifts For Women, Closing Gift, Gift For Her, Husband",
+        price="39.32",
+        description="Our personalized cheese boards, like our cutting boards, are made from multiple strips of premium wood that are edge glued and sanded for lasting strength and beauty. Not only are our home goods functional kitchen tools but they are the perfect heartfelt gift to commemorate any occasion. SHOWN IN HARD MAPLE"
+    )
+
+    db.session.add_all([
+        ProductImage(
+            product=product,
+            url=upload_image_to_bucket_from_url(
+                "https://i.etsystatic.com/8503074/r/il/22598d/1048352440/il_794xN.1048352440_ebp2.jpg"),
+            preview=True
+        ),
+
+        Review(
+            buyer=brian,
+            product=product,
+            rating=5,
+            review="gift for the home"
+        ),
+
+        Review(
+            buyer=caitlynn,
+            product=product,
+            rating=4,
+            review="gift for the home christmas"
+        ),
+
+        Review(
+            buyer=derrik,
+            product=product,
+            rating=5,
+            review="gift for the home wood signs"
+        ),
+    ])
+
+    db.session.commit()
+
+    product = Product(
+        seller=anna,
+        categories=[personalized_gift],
+        name="Mother's Day Gift - Handwriting Bracelet, Children's Actual Handwriting, Engraved Cuff Bracelet, Custom Bangle, Handwriting Gift, Medium HND",
+        price="42.50",
+        description="Our custom Handwriting Cuff Bracelet is made from actual children's handwriting, handwriting from grandparents, parents, and loved ones from cards and documents. All we need is a photo of the writing - phone photos work great! Cuff measures 3/8' wide made with the highest quality stainless steel materials with a glossy mirror finish, or brushed satin finish. Packaged in our Tom Design logo-stamped gift boxes with optional gift wrap."
+    )
+
+    db.session.add_all([
+        ProductImage(
+            product=product,
+            url=upload_image_to_bucket_from_url(
+                "https://i.etsystatic.com/5395361/r/il/592588/1458870688/il_794xN.1458870688_b6l5.jpg"),
+            preview=True
+        ),
+
+        Review(
+            buyer=brian,
+            product=product,
+            rating=5,
+            review="personalized jewelry"
+        ),
+
+        Review(
+            buyer=caitlynn,
+            product=product,
+            rating=5,
+            review="personalized jewelry for mom"
+        ),
+
+        Review(
+            buyer=derrik,
+            product=product,
+            rating=5,
+            review="personalized jewelry for her"
+        ),
+    ])
+
+    db.session.commit()
+
+    product = Product(
+        seller=anna,
+        categories=[wedding],
+        name="Let Love Grow- Custom Seed Wedding Favors Personalized SEALED with SEEDS INCLUDED, Wedding Favors, Elegant Wedding Favors, Florals, Favors",
+        price="10.00",
+        description="*If you would like to order your packets without seeds they are $1 per packet. Message us for a custom listing*"
+    )
+
+    db.session.add_all([
+        ProductImage(
+            product=product,
+            url=upload_image_to_bucket_from_url(
+                "https://i.etsystatic.com/10627719/r/il/baafa1/2270730350/il_794xN.2270730350_4zud.jpg"),
+            preview=True
+        ),
+
+        Review(
+            buyer=brian,
+            product=product,
+            rating=5,
+            review="Got to me on time and were so cute!!! Gave them out at our engagement party with our wedding date on them. What a gorgeous lil favor!"
+        ),
+
+        Review(
+            buyer=caitlynn,
+            product=product,
+            rating=5,
+            review="I love these! I couldn’t find the proper sized pot, but hot glueing the packages to popsicle sticks worked really well. These are going to make perfect favors."
+        ),
+
+        Review(
+            buyer=derrik,
+            product=product,
+            rating=5,
+            review="Yes everyone loved them such a beautiful thing to add to our thank you bags."
+        ),
+
+        Review(
+            buyer=elizabeth,
+            product=product,
+            rating=5,
+            review="These were the most perfect favour - our guests loved them and they came packaged so well, very elegant. Would order again!"
+        ),
+    ])
+
+    db.session.commit()
+
+    product = Product(
+        seller=anna,
+        categories=[wedding],
+        name="Set of 2 - Champagne Flutes Personalized, Wedding Gifts, Mr and Mrs Champagne Glasses, Toasting Flutes for Couples - Bride and Groom",
+        price="29.95",
+        description="Set of 2 - Wedding Champagne Flutes, Mr. and Mrs. Champagne Glasses, Wedding Gifts for Couples, Toasting Flutes"
+    )
+
+    db.session.add_all([
+        ProductImage(
+            product=product,
+            url=upload_image_to_bucket_from_url(
+                "https://i.etsystatic.com/14466987/r/il/40ede1/2584790379/il_794xN.2584790379_pwyg.jpg"),
+            preview=True
+        ),
+
+        Review(
+            buyer=brian,
+            product=product,
+            rating=5,
+            review="These were great for my champagne toast during the cake cutting at my wedding! The product came in very quickly!"
+        ),
+
+        Review(
+            buyer=caitlynn,
+            product=product,
+            rating=5,
+            review="We love our wedding champagne glasses! Packaged perfectly in a box! We could not be happier with how they turned out!"
+        ),
+
+        Review(
+            buyer=derrik,
+            product=product,
+            rating=5,
+            review="These are extremely high quality. The weight of the glasses are perfect and the seller worked with me to get a custom message put on them. Highly reccomend."
+        ),
+
+        Review(
+            buyer=elizabeth,
+            product=product,
+            rating=5,
+            review="They are beautiful I can't wait for our wedding day to drink out of them!!!!!! It looked just like the photo and is made great comes in a very good padded box!!!!!"
+        ),
+    ])
+
+    db.session.commit()
+
+    product = Product(
+        seller=anna,
+        categories=[wedding],
+        name="Mother of the Bride Gift & Father of the Bride Gift from the Bride, Mother of Bride Gift, wedding handkerchief from daughter - POB-POG",
+        price="18.80",
+        description="Mommy, it's happening! Your little girl has found a man and he's going to marry her! They're planning a wedding soon, and we want you to make that day extra special. From the bride...with love!"
+    )
+
+    db.session.add_all([
+        ProductImage(
+            product=product,
+            url=upload_image_to_bucket_from_url(
+                "https://i.etsystatic.com/11936504/r/il/00119a/4437647866/il_794xN.4437647866_scem.jpg"),
+            preview=True
+        ),
+
+        Review(
+            buyer=brian,
+            product=product,
+            rating=5,
+            review="I bought one for my mom and dad to gift to them on wedding day and their reaction was priceless! I’m so glad I got one for the both of them. The one for my mom was in Spanish. The quality is good and arrived fast. My dad kept showing it off to guests as he thought it was such a beautiful gift. Both of my parents cried when they read the message and I’m happy they have something to remember my wedding and how much I love them."
+        ),
+
+        Review(
+            buyer=caitlynn,
+            product=product,
+            rating=5,
+            review="These turned out so pretty! I did a custom note and was so pleased with the outcome. Shipped quickly. So excited to gift these to my parents on my wedding day."
+        ),
+
+        Review(
+            buyer=derrik,
+            product=product,
+            rating=5,
+            review="I gifted this to my parents & to my In laws and everyone cried! It was such a sweet gift that they will cherish forever. Beautiful package and work done!"
+        ),
+
+        Review(
+            buyer=elizabeth,
+            product=product,
+            rating=5,
+            review="My parents loved these and it created such a sweet moment at my wedding. Thank you!"
+        ),
+    ])
+
+    db.session.commit()
+
+    product = Product(
+        seller=anna,
+        categories=[wedding],
+        name="Vintage style Pearl cluster earrings Crystal bridal earrings Simple marquise star earrings Rhinestone earrings Wedding jewelry for Brides",
+        price="65.00",
+        description="A brilliant combination of the finest European crystal and crystal pearl create this modern take on a classic look! The rhinestone marquise stones fan out from the cabochon pearl to give this bridal earring elegant style and simple sophistication."
+    )
+
+    db.session.add_all([
+        ProductImage(
+            product=product,
+            url=upload_image_to_bucket_from_url(
+                "https://i.etsystatic.com/10677293/r/il/f5c02c/1391204021/il_794xN.1391204021_cbux.jpg"),
+            preview=True
+        ),
+
+        Review(
+            buyer=brian,
+            product=product,
+            rating=5,
+            review="Loved the design! The pearl and crystal combination was perfect with my wedding gown!"
+        ),
+
+        Review(
+            buyer=caitlynn,
+            product=product,
+            rating=5,
+            review="Absolutely beautiful! Shipped so quickly and came in the most amazing handcrafted box! I can't wait to wear these on my wedding day!"
+        ),
+
+        Review(
+            buyer=derrik,
+            product=product,
+            rating=5,
+            review="These are so pretty! They are not heavy and don’t make your ears droopy. I love them and can’t wait to wear on my big day!"
+        ),
+
+        Review(
+            buyer=elizabeth,
+            product=product,
+            rating=5,
+            review="Absolutely beautiful!!! Came in a darling little box too. Thank you so much! Will ad a photo after my daughters wedding."
+        ),
+    ])
+
+    db.session.commit()
+
+    product = Product(
+        seller=anna,
+        categories=[wedding],
+        name="Personalized leather photo album, free shipping, leather scrapbook, junk journal, anniversary, wedding, baby album scrapbook",
+        price="29.59",
+        description="Handmade item, with high quality genuine top-grain leather"
+    )
+
+    db.session.add_all([
+        ProductImage(
+            product=product,
+            url=upload_image_to_bucket_from_url(
+                "https://i.etsystatic.com/12712405/r/il/d7040c/1847147403/il_794xN.1847147403_fr4e.jpg"),
+            preview=True
+        ),
+
+        Review(
+            buyer=brian,
+            product=product,
+            rating=5,
+            review="I am absolutely in love with this little photo album. I wanted to do something really special with wedding photos for my family for Christmas and this was the perfect gift! It turned out so amazing. I can’t wait to order one for myself."
+        ),
+
+        Review(
+            buyer=caitlynn,
+            product=product,
+            rating=5,
+            review="I CANT RECOMMEND THIS ENOUGH!! It may be a little more work putting in the photo sleeves or stickers yourself but it's worth it. Good things take effort and it will be worth it. As I add pictures it doesn't stretch the spine or look over filled because that was planned into it. It's so unique when it comes to photo books, I looked for days and only found this for the kind of look we want on our book shelf and to take out and show family/our kids. Its great quality and I have no doubt it will last:)"
+        ),
+
+        Review(
+            buyer=derrik,
+            product=product,
+            rating=5,
+            review="Better than expected! Great purchase! This is quality leather and the name is professionally printed. The photo album worked well with old photos of my great grandmother. The item was shipped and arrived as promised in time for my mother’s 70th birthday. This seller is great to work with!!!"
+        ),
+
+        Review(
+            buyer=elizabeth,
+            product=product,
+            rating=3,
+            review="The quality of this journal was nice, but to call it a photo album seems to me a misnomer. There is no way to attach or insert photos, but rather blank pages. I'd definitely not have purchased this had I known that. I'd suggest calling it something else or being very transparent about the fact that there is no actual way to insert photos. Thanks - Tracy"
+        ),
+    ])
+
+    db.session.commit()
+
+    product = Product(
+        seller=anna,
+        categories=[wedding],
+        name="Monto - Australian Native flower Men's Buttonhole / Boutonniere. Wattle, blue Geraldton wax flower and gumnuts.",
+        price="17.17",
+        description="Monto is a big splash of Australian colour in a buttonhole. Bright yellow wattle flower, sparkling blue Geraldton wax and bright green gumnuts surrounded by soft grey native foliages."
+    )
+
+    db.session.add_all([
+        ProductImage(
+            product=product,
+            url=upload_image_to_bucket_from_url(
+                "https://i.etsystatic.com/6383615/r/il/97adca/900068619/il_794xN.900068619_pmzs.jpg"),
+            preview=True
+        ),
+
+        Review(
+            buyer=brian,
+            product=product,
+            rating=5,
+            review="This was purchased for my husband to be, to wear on our wedding day, and I adore it! I can’t wait to see it in action, but my initial impressions are that it’s light and beautifully made! Thank you!"
+        ),
+
+        Review(
+            buyer=caitlynn,
+            product=product,
+            rating=5,
+            review="Love this very Australian very pretty thanks guys"
+        ),
+
+        Review(
+            buyer=derrik,
+            product=product,
+            rating=5,
+            review="Beautiful. Karen was helpful and accomodating with my requests. Definitely recommended!"
+        ),
+
+        Review(
+            buyer=elizabeth,
+            product=product,
+            rating=5,
+            review="Very beautiful, delivered very fast also. Thank you"
+        ),
+    ])
+
+    db.session.commit()
+
+    product = Product(
+        seller=anna,
+        categories=[wedding],
+        name="Beauty and the Beast Bracelet Rose Charm Bracelet Bridesmaid Gifts Birthday Gift Belle Costume Wedding Jewelry Personalized Initial -3MRBR",
+        price="11.50",
+        description="Beauty and the Beast Bracelet Rose Charm Bracelet Bridesmaid Gifts Birthday Gift Belle Costume Wedding Jewelry Personalized Initial"
+    )
+
+    db.session.add_all([
+        ProductImage(
+            product=product,
+            url=upload_image_to_bucket_from_url(
+                "https://i.etsystatic.com/10158348/r/il/b95792/4400761752/il_794xN.4400761752_447e.jpg"),
+            preview=True
+        ),
+
+        Review(
+            buyer=brian,
+            product=product,
+            rating=5,
+            review="Such a beautiful piece!! It was my second time ordering. I got a rose gold first and ended up loving it and wanting the gold version! I’m obsessed!"
+        ),
+
+        Review(
+            buyer=caitlynn,
+            product=product,
+            rating=5,
+            review="So so cute! Looks exactly like the picture. Fast shipping!!"
+        ),
+
+        Review(
+            buyer=derrik,
+            product=product,
+            rating=5,
+            review="Such a beautiful product. I love it!! The shipping was lightning fast! I ordered this on Thursday and it was shipped the next day and delivered to me by Saturday!"
+        ),
+
+        Review(
+            buyer=elizabeth,
+            product=product,
+            rating=5,
+            review="It was shipped out really fast and the quality and looks were really well done. im so happy with it!!!!!"
+        ),
+    ])
+
+    db.session.commit()
+
+    product = Product(
+        seller=anna,
+        categories=[wedding],
+        name="Personalized wedding place table cards Laser cut names Guest names Weddings place cards Laser cut name signs Place settings Bride and Groom",
+        price="1.05",
+        description="Personalized wedding place cards."
+    )
+
+    db.session.add_all([
+        ProductImage(
+            product=product,
+            url=upload_image_to_bucket_from_url(
+                "https://i.etsystatic.com/10797415/r/il/958742/1164600927/il_794xN.1164600927_idts.jpg"),
+            preview=True
+        ),
+
+        Review(
+            buyer=brian,
+            product=product,
+            rating=5,
+            review="Amazing quality, I almost cried when I saw these nameplates!!!"
+        ),
+
+        Review(
+            buyer=caitlynn,
+            product=product,
+            rating=5,
+            review="The names are so lovely and they arrived so quickly! I am thrilled with this purchase and really appreciate the quickness of the shop on getting them to me."
+        ),
+
+        Review(
+            buyer=derrik,
+            product=product,
+            rating=5,
+            review="They came out amazing! They are so delicate and cute. Going to make for a nice simple detail!"
+        ),
+
+        Review(
+            buyer=elizabeth,
+            product=product,
+            rating=5,
+            review="Loved these little name tags. Perfect little touch for my wedding"
+        ),
+    ])
+
+    db.session.commit()
+
+    product = Product(
+        seller=anna,
+        categories=[wedding],
+        name="Rustic Wedding Cake Server Set & Knife Cake Cutting Set Wedding Cake Knife Set Wedding Cake Servers Wedding Cake Cutter Cake Decoration",
+        price="49.99",
+        description="Rustic Wedding Cake Server Set & Knife Cake Cutting Set Wedding Cake Knife Set Wedding Cake Servers Wedding Cake Cutter Cake Decoration"
+    )
+
+    db.session.add_all([
+        ProductImage(
+            product=product,
+            url=upload_image_to_bucket_from_url(
+                "https://i.etsystatic.com/8931561/r/il/41b247/1708909197/il_794xN.1708909197_t7zj.jpg"),
+            preview=True
+        ),
+
+        Review(
+            buyer=brian,
+            product=product,
+            rating=4,
+            review="These turned out to be SO cute! I went with the sage green and it was perfect for my color scheme. One thing is that I noticed the quality of the stainless still was a bit iffy. The scratches aren’t a big deal but I did see a good size flaw on the back side of one of them. I’ll put a photo. Other than that, they’re great! The scratches you can’t see from far away so I really don’t mind. Just thought I’d note it for anyone else!"
+        ),
+
+        Review(
+            buyer=caitlynn,
+            product=product,
+            rating=5,
+            review="SUPER SUPER CUTE CAKE CUTTING SET and it perfectly fits our rustic white barn theme :) I am SOOO in love and can't wait to use them to cut our cake in a month from today!"
+        ),
+
+        Review(
+            buyer=derrik,
+            product=product,
+            rating=5,
+            review="My set came out so perfect!"
+        ),
+
+        Review(
+            buyer=elizabeth,
+            product=product,
+            rating=5,
+            review="Absolutely love them!!!! Beautiful! They're even more beautiful than in the picture! So happy with my purchase! Great quality!"
+        ),
+    ])
+
+    db.session.commit()
+
+    product = Product(
+        seller=anna,
+        categories=[wedding],
+        name="Rainbow Paper Flower Bouquet, Colorful Paper Flowers",
+        price="27.00",
+        description="This beautiful rainbow paper flower bouquet encompasses a variety of bright and colorful roses made from high quality card stock paper. They make a great pop of color in your ceremony and a keepsake in the house as a conversation piece or table arrangement. They’re also the perfect gift for any occasion; birthdays, Anniversaries, Showers, or simply just because. Handmade in the USA!"
+    )
+
+    db.session.add_all([
+        ProductImage(
+            product=product,
+            url=upload_image_to_bucket_from_url(
+                "https://i.etsystatic.com/11935929/r/il/2d9e82/1265469165/il_794xN.1265469165_abzk.jpg"),
+            preview=True
+        ),
+
+        Review(
+            buyer=brian,
+            product=product,
+            rating=5,
+            review="Very pleased! Just as described. Perfect 1st Anniversary gift. Speedy turn around and shipped safely. Thanks so much."
+        ),
+
+        Review(
+            buyer=caitlynn,
+            product=product,
+            rating=5,
+            review="These turned out so adorable and shipped so quickly!"
+        ),
+
+        Review(
+            buyer=derrik,
+            product=product,
+            rating=5,
+            review="These turned out so adorable and shipped so quickly!"
+        ),
+
+        Review(
+            buyer=elizabeth,
+            product=product,
+            rating=5,
+            review="Rainbow Flowers"
+        ),
+    ])
+
+    db.session.commit()
+
+    product = Product(
+        seller=anna,
+        categories=[home_decor],
+        name="Japan Art Matsumoto Hoji frog Sad Frog art print Japanese woodblock reproduction Ugly cute toad Print Wabi sabi wall art frog painting",
+        price="17.45",
+        description="Get 60% discount when you buy 6 (or more) prints at our store. Discount shown at checkout."
+    )
+
+    db.session.add_all([
+        ProductImage(
+            product=product,
+            url=upload_image_to_bucket_from_url(
+                "https://i.etsystatic.com/10533774/r/il/717449/3262011801/il_794xN.3262011801_d3re.jpg"),
+            preview=True
+        ),
+
+        Review(
+            buyer=brian,
+            product=product,
+            rating=5,
+            review="Unfortunately, my package seemed to got lost on the way - but the shop owner Sintija was very accomodating! The package showed up eventually and the quality of the print is just as good as the customer service. I ordered the print in a very large size. Ordering prints in that size is always risky because most of them don‘t have a good quality because of the scaling, but this one marked every box. I love it and it earned it‘s place right above my bed, in my favorite frame. That‘s the highest honor a print can earn in my house."
+        ),
+
+        Review(
+            buyer=caitlynn,
+            product=product,
+            rating=5,
+            review="Fantastic print- exactly as pictured- brilliantly vibrant with good quality ink and durable, high quality paper. What’s more- when my dog ate the first print when posted through our post box- the seller send ANOTHER completely free of charge- including free international shipping. He really went above and beyond with his generosity and customer service. I can’t recommend highly enough!!!"
+        ),
+
+        Review(
+            buyer=derrik,
+            product=product,
+            rating=3,
+            review="First of all: a super nice customer service (fast response and very accommodating), unfortunately the first package got lost on the way from France, but I was immediately sent a new one at no extra charge, unfortunately it was damaged during shipping and the pictures arrived slightly kinked at the edge - otherwise really nice pictures and good quality😊"
+        ),
+
+        Review(
+            buyer=elizabeth,
+            product=product,
+            rating=5,
+            review="very great quality and print. arrived on time, estimated delivery was the 24th and i got it today, the 26th."
+        ),
+    ])
+
+    db.session.commit()
+
+    product = Product(
+        seller=anna,
+        categories=[home_decor],
+        name="Whale Painting, Watercolor Painting, Whale Print, Whale and Boat, Whale Art, Whale Nursery, Humpback Whale, Print titled, \"Fathoms Below\"",
+        price="10.20",
+        description="This is a fine art giclée print made from my original watercolor painting titled 'Fathoms Below'."
+    )
+
+    db.session.add_all([
+        ProductImage(
+            product=product,
+            url=upload_image_to_bucket_from_url(
+                "https://i.etsystatic.com/8585009/r/il/18ea08/1207942531/il_794xN.1207942531_78qo.jpg"),
+            preview=True
+        ),
+
+        Review(
+            buyer=brian,
+            product=product,
+            rating=5,
+            review="I love these! We combined the whale and the manta for our hall, and the atmosphere is so much better. We got arctic matte as paper, the quality is superb, but our frame is a bit shiny, so that's why it seems that way on the photo. To get it fit in our frames, we got passepartouts additionally, I am very happy with the result. Big recommendation!"
+        ),
+
+        Review(
+            buyer=caitlynn,
+            product=product,
+            rating=5,
+            review="This is one of my favorite pictures in my room now. It’s literally beautiful and I’m so happy with this purchase!"
+        ),
+
+        Review(
+            buyer=derrik,
+            product=product,
+            rating=5,
+            review="Another beautiful print in the collection I purchased! I found a complimentary mat and frame that will enhance this artwork even more. I am very pleased with this print and how quickly and safely it arrived to me!"
+        ),
+
+        Review(
+            buyer=elizabeth,
+            product=product,
+            rating=5,
+            review="smaller than I thought but that mistake was mine. The picture is gorgeous and I love it. It's going in my young grandson's room. I know he will love looking at it."
+        ),
+    ])
+
+    db.session.commit()
+
+    product = Product(
+        seller=anna,
+        categories=[home_decor],
+        name="Botanical Print Set of 4 - Botanical Illustration - Botanical Art Print - Art Prints - Vintage Botanical Print Set of 4 - Botanical Poster",
+        price="38.00",
+        description="This is for a set of 4 prints of a Botanical Floral illustration that has been hand painted and were found in an Antique natural history text book. The original has been digitally enhanced and are printed on heavy matte photo paper."
+    )
+
+    db.session.add_all([
+        ProductImage(
+            product=product,
+            url=upload_image_to_bucket_from_url(
+                "https://i.etsystatic.com/12324116/r/il/8c7815/4325208654/il_794xN.4325208654_ppzn.jpg"),
+            preview=True
+        ),
+
+        Review(
+            buyer=brian,
+            product=product,
+            rating=5,
+            review="Prints were well packaged and good quality. The enhanced colors are a little uncanny up close but look great and vibrant when displayed on the wall."
+        ),
+
+        Review(
+            buyer=caitlynn,
+            product=product,
+            rating=5,
+            review="The prints arrived quickly, the colors are as pictured on Etsy. The prints are a great addition to my dining space."
+        ),
+
+        Review(
+            buyer=derrik,
+            product=product,
+            rating=5,
+            review="These prints are beautiful! A perfect addition to our walls."
+        ),
+
+        Review(
+            buyer=elizabeth,
+            product=product,
+            rating=5,
+            review="Fabulous! Framed in black over my bed. Plan to have the current glass changed to anti-glare glass to enhance these lovely prints."
+        ),
+    ])
+
+    db.session.commit()
+
+    product = Product(
+        seller=anna,
+        categories=[home_decor],
+        name="Cardinal Candle Holder - Hand Made In Ukraine - Blown Glass - Hand Painted - Cardinal On Frosted Glass",
+        price="14.95",
+        description="Old world craftsmanship comes to life in these elegant, hand painted, Cardinal candle holders. These charming mouth blown glass candle holders are a great addition to any home. Both beautiful and symbolic, the Cardinal candle holder is a unique gift for your loved ones that they will cherish forever."
+    )
+
+    db.session.add_all([
+        ProductImage(
+            product=product,
+            url=upload_image_to_bucket_from_url(
+                "https://i.etsystatic.com/19998115/r/il/f39930/2158794765/il_794xN.2158794765_a9n5.jpg"),
+            preview=True
+        ),
+
+        Review(
+            buyer=brian,
+            product=product,
+            rating=5,
+            review="The cardinal candle holder is so beautiful! The colors are vibrant and I love the design. It is a lovely reminder of lost loved ones. The package arrived so quickly and it is extra special that it is made in Ukraine. Thank you!"
+        ),
+
+        Review(
+            buyer=caitlynn,
+            product=product,
+            rating=5,
+            review="This candleholder is so beautiful, I love it! Smaller than expected but that’s on me because I didn’t read the specs. It’s perfect!"
+        ),
+
+        Review(
+            buyer=derrik,
+            product=product,
+            rating=5,
+            review="Absolutely beautiful candle!!Artwork is superb ! Customer service awesome! Highly recommend!"
+        ),
+
+        Review(
+            buyer=elizabeth,
+            product=product,
+            rating=5,
+            review="I had this beautiful candle holder sent to a dear friend who loves cardinals. She loves it!!! She said that the seller hand wrote my note to her. She said the gift and the note made her smile. Thank you for putting a smile on her face and taking great care in sending it to her! Shipping was very fast too!"
+        ),
+    ])
+
+    db.session.commit()
+
+    product = Product(
+        seller=anna,
+        categories=[home_decor],
+        name="Monarch butterfly stained glass window hangings Christmas gifts Fairy garden decor Custom stained glass butterfly suncatcher",
+        price="54.90",
+        description="You've never seen such a beautiful monarch butterfly in your life 🙈 Just imagine how you are wandering through the valley full of wildflowers and butterflies 🌼 I am sure it has already caught your attention 😉 Capture the endless summer in your house with this monarch stained glass window hanging. Besides, it may be a fairy garden decor too 🏡"
+    )
+
+    db.session.add_all([
+        ProductImage(
+            product=product,
+            url=upload_image_to_bucket_from_url(
+                "https://i.etsystatic.com/16555624/r/il/7bb5e7/4407431844/il_794xN.4407431844_27eu.jpg"),
+            preview=True
+        ),
+
+        Review(
+            buyer=brian,
+            product=product,
+            rating=5,
+            review="The monarch handmade glass butterfly is even more beautiful than I imagined before seeing it in person. The colors, workmanship, and artistry is excellent. Ivan of GlassArtStories is wonderful to work with as he contacted me before starting the work to make sure he was making exactly what I wanted, and to thank me for choosing to do business with his shop, which I in turn appreciated as well. Based on the product I bought, and received I’d recommend the variety of beautiful artwork presented, and handmade by Ivan on his website to anyone for purchase. I know you will love his products as much as I do. Thank you Ivan, and staff. #Support Ukraine, and all Ukrainians."
+        ),
+
+        Review(
+            buyer=caitlynn,
+            product=product,
+            rating=5,
+            review="I have a small collection of stained glass sun catchers and this one is by far the most beautiful!"
+        ),
+
+        Review(
+            buyer=derrik,
+            product=product,
+            rating=5,
+            review="Ivan did an awesome job on making my monarch butterfly. I love it. The colors and detail are beautiful. He packaged it well and boxed it. I like the size if it The leaf on the stem adds a nice touch. I'm glad I found his shop. He offers so many beautiful stained glass items. Plus he is a pleasure to communicate with. I would recommend his shop. You won't be disappointed."
+        ),
+
+        Review(
+            buyer=elizabeth,
+            product=product,
+            rating=5,
+            review="I wrote a review of another sun catcher which is a beautiful blue bird. The monarch butterfly is stunning and the quality is beautiful. I’m looking forward to buying more pieces in the future. Shipping wasn’t bad considering it comes from the Ukraine. Packaging was great too! Thank you!"
+        ),
+    ])
+
+    product = Product(
+        seller=anna,
+        categories=[home_decor],
+        name="Wedding Gift, Wedding Gifts, Personalized Pillow, Newlywed Gift, Engagement Gift, Rustic Wedding Gift, Linen Pillow, Gift for bride",
+        price="24.00",
+        description="CYBER MONDAY SALE GOING ON NOW!!! 25% OFF OR SIGN UP FOR OUR INSIDER'S CLUB FOR 30% OFF"
+    )
+
+    db.session.add_all([
+        ProductImage(
+            product=product,
+            url=upload_image_to_bucket_from_url(
+                "https://i.etsystatic.com/7384426/r/il/10a116/4294165579/il_794xN.4294165579_acag.jpg"),
+            preview=True
+        ),
+
+        Review(
+            buyer=brian,
+            product=product,
+            rating=5,
+            review="I received my pillow in less than a week. The pillow is beautiful, and shipping was fast. I would definitely recommend placing an order. 🤍"
+        ),
+
+        Review(
+            buyer=caitlynn,
+            product=product,
+            rating=5,
+            review="Best customer service, ordered one day and received it 4 days later! Beautiful work! This was the 4th item I have ordered from Willow Creek and always happy with the results!!"
+        ),
+
+        Review(
+            buyer=derrik,
+            product=product,
+            rating=5,
+            review="Item turned out great and was an awesome git for my newlywed pals. :) They loved it and so happy with how the pillow turned out!"
+        ),
+
+        Review(
+            buyer=elizabeth,
+            product=product,
+            rating=5,
+            review="It's beautiful and exactly what I wanted! The seller responded to me very quickly and it shipped very quickly. Loooove it!"
+        ),
+    ])
+
+    db.session.commit()
+
+    product = Product(
+        seller=anna,
+        categories=[home_decor],
+        name="Nursery Name Sign, Nursery Decor, Nursery Wall Art, Wooden Name Sign, Name Sign for Nursery, Woodland Nursery Decor, Woodland Wooden Letters",
+        price="20.95",
+        description="The price of the listing is for INDIVIDUAL LETTERS. (ie. If ordering for the name EMILY you would add a quantity of 5 letters to the cart). Please include the desired name & font choice in the personalization box. If no font is specified Arial will be used."
+    )
+
+    db.session.add_all([
+        ProductImage(
+            product=product,
+            url=upload_image_to_bucket_from_url(
+                "https://i.etsystatic.com/8815198/r/il/38546c/2437884391/il_794xN.2437884391_6d5h.jpg"),
+            preview=True
+        ),
+
+        Review(
+            buyer=brian,
+            product=product,
+            rating=5,
+            review="Communication with seller was great. My package went missing off my pouch and the seller tried their best to help. I was lucky enough that a few days later my package reappeared (I just they realized they would have no use for a personalized letters, lol). Beautiful work! Love how the nursery looks with his name about the crib!"
+        ),
+
+        Review(
+            buyer=caitlynn,
+            product=product,
+            rating=5,
+            review="I absolutely love them! It's a great addition to my nephew's room. The wait is definitely worth it. You can tell how much hard work and attention to detail is put into each lettering. So very pleased!!!"
+        ),
+
+        Review(
+            buyer=derrik,
+            product=product,
+            rating=5,
+            review="We absolutely are in love with the way that these turned out for our little man’s nursery! They are the finishing touch. Thank you so much, and I would totally recommend this store."
+        ),
+
+        Review(
+            buyer=elizabeth,
+            product=product,
+            rating=5,
+            review="So cute! She did such a good job, it exceeded my expectations! Was perfect for the woodland theme of our sons room. I had requested specific animals and it was just as I asked for !"
+        ),
+    ])
+
+    db.session.commit()
+
+    product = Product(
+        seller=anna,
+        categories=[home_decor],
+        name="Palestine Sheep Wool Table Top Nativity Scene & Trees Set",
+        price="135.00",
+        description="* Set of wool nativity scene and christmas trees"
+    )
+
+    db.session.add_all([
+        ProductImage(
+            product=product,
+            url=upload_image_to_bucket_from_url(
+                "https://i.etsystatic.com/18758094/r/il/f99ce1/4253097582/il_794xN.4253097582_kfqz.jpg"),
+            preview=True
+        ),
+
+        Review(
+            buyer=brian,
+            product=product,
+            rating=5,
+            review="I try hard to buy through the Fair Trade from around the world. This Nativity was even cooler than it looked. I have it in my curio cabinet!"
+        ),
+
+        Review(
+            buyer=caitlynn,
+            product=product,
+            rating=5,
+            review="Dear Holidays"
+        ),
+
+        Review(
+            buyer=derrik,
+            product=product,
+            rating=5,
+            review="Israel"
+        ),
+
+        Review(
+            buyer=elizabeth,
+            product=product,
+            rating=5,
+            review="Nativity Figurines"
+        ),
+    ])
+
+    db.session.commit()
+
+    product = Product(
+        seller=anna,
+        categories=[home_decor],
+        name="SUPER HUGE Jumbo Rustic 12\" Decorative Clothespin in Walnut Finish, Photo Note Holder for Home Office, Kids Drawing Display, Bathroom Hooks",
+        price="28.00",
+        description="What a unique and fun way to hang your towels in your bathroom or laundry room. Can also be a fun way to display photos, kids drawings, or notes in your home, nursery or office with a large rustic decorative walnut stained clothespin."
+    )
+
+    db.session.add_all([
+        ProductImage(
+            product=product,
+            url=upload_image_to_bucket_from_url(
+                "https://i.etsystatic.com/10462935/r/il/34db35/4298852076/il_794xN.4298852076_pqqz.jpg"),
+            preview=True
+        ),
+
+        Review(
+            buyer=brian,
+            product=product,
+            rating=5,
+            review="LOVE this! So cute but small! I don't know why I was thinking it would be bigger. I put a picture of my kids, when they were very little, clipped in it. It just looks perfect in my bathroom in the one little space I had."
+        ),
+
+        Review(
+            buyer=caitlynn,
+            product=product,
+            rating=5,
+            review="Thought they were smaller than expected but was happy with their size once they were all set up. Good grip, nice finish, great quality! Shown in photo: Super Huge Jumbo size, with weathered oak stain."
+        ),
+
+        Review(
+            buyer=derrik,
+            product=product,
+            rating=5,
+            review="Absolutely love them!! Excited to add them to my bathroom project!!"
+        ),
+
+        Review(
+            buyer=elizabeth,
+            product=product,
+            rating=4,
+            review="So cute!!! The only draw back is it took a month to get to my house, so I don’t think I would order again. But very very cute!"
+        ),
+    ])
+
+    db.session.commit()
+
+    product = Product(
+        seller=anna,
+        categories=[home_decor],
+        name="Knife Abstract art,Acrylic paintings on canvas,Landscape Colorful Forest Painting,Bedroom Wall Decor,Textured Impasto Painting,painting gift",
+        price="99.20",
+        description="Abstract Painting on Canvas, Original Art, Modern Art, Landscape Art, Abstract Art, Textured Wall Art, Wall Decor Living Room, Impasto Art abstract art canvas original Knife Abstract Art"
+    )
+
+    db.session.add_all([
+        ProductImage(
+            product=product,
+            url=upload_image_to_bucket_from_url(
+                "https://i.etsystatic.com/6624893/r/il/62da02/4419545477/il_794xN.4419545477_5mso.jpg"),
+            preview=True
+        ),
+
+        Review(
+            buyer=brian,
+            product=product,
+            rating=5,
+            review="LOVE LOVE LOVE this painting! It arrived very timely and it's beautiful; very high quality, and exceeded my high expectations! It's already displayed on the mantle and bringing a much needed pop of color to the family room! I'll definitely look to purchase additional art from Xiangwuchen for other rooms in the house."
+        ),
+
+        Review(
+            buyer=caitlynn,
+            product=product,
+            rating=5,
+            review="What an amazing art piece created by Chen! Loved every bit of it, and this is currently hanging pretty on our living room wall. It shipped on time, Chen was super responsive, and we were able to track our shipment. Chen, hope you keep creating these amazing paintings! Cheers"
+        ),
+
+        Review(
+            buyer=derrik,
+            product=product,
+            rating=5,
+            review="It looks much better in real life then on photo! A very eye-catching piece, I receive a lot of compliments on it. We have it in our breakfast nook/kitchen and it’s a true pleasure to see it every day. Highly recommend!"
+        ),
+
+        Review(
+            buyer=elizabeth,
+            product=product,
+            rating=5,
+            review="LOVE this artwork! The colors are so vibrant and the piece is amazing. It’s a statement piece in my office. Size was true to specs. It’s an actual painting, not a print. It’s beautiful!"
+        ),
+    ])
+
+    db.session.commit()
+
     # Insert seeder code above this line
 
     reviews = Review.query.all()
