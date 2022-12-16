@@ -2,7 +2,7 @@ import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { getReviewsByProductId } from "../../../../store/productReviews";
 import ProductDetailsReview from "./ProductDetailsReview/ProductDetailsReview";
-import "./ProductDetailsReviewList.css";
+import styles from "./ProductDetailsReviewList.module.css";
 
 export default function ProductDetailsReviewList({ product }) {
     const dispatch = useDispatch();
@@ -13,8 +13,8 @@ export default function ProductDetailsReviewList({ product }) {
 
     if (!reviews) return;
     return (
-        <div className="ProductDetailsReviewListWrapper">
-            <div className="ProductDetailsReviewList">
+        <div className={styles.ProductDetailsReviewListWrapper}>
+            <div className={styles.ProductDetailsReviewList}>
                 {reviews.map((review, i) => <ProductDetailsReview key={i} review={review} />)}
             </div>
         </div>
