@@ -25,7 +25,7 @@ export default function ShopManager() {
     return (
         <div className={styles.ShopManagerWrapper}>
             <div className={styles.ShopManagerTitle}>
-                <h1>Add draft listings to your shop.</h1>
+                <h1>Add listings to your shop.</h1>
             </div>
             <div className={styles.ShopManager}>
                 {products.map((product, i) => <ShopManagerItem product={product} key={i} />)}
