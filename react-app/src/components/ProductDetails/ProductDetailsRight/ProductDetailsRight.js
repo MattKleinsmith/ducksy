@@ -4,7 +4,7 @@ import { useNavigate } from "react-router";
 import { addItemToCart, checkoutNow } from "../../../store/shoppingCart";
 import { setRegisterModal } from "../../../store/ui";
 import FiveStars from "../../FiveStars/FiveStars";
-import "./ProductDetailsRight.css";
+import styles from "./ProductDetailsRight.module.css";
 
 
 export default function ProductDetailsRight({ product }) {
@@ -20,8 +20,8 @@ export default function ProductDetailsRight({ product }) {
     }
 
     return (
-        <div className="ProductDetailsRightWrapper">
-            <div className="ProductDetailsRight">
+        <div className={styles.ProductDetailsRightWrapper}>
+            <div className={styles.ProductDetailsRight}>
                 <div>{product.seller.display_name}</div>
                 <div style={{ "display": "flex" }}><span>1000 sales | <FiveStars /></span></div>
                 <div>{product.name}</div>
@@ -46,7 +46,7 @@ export default function ProductDetailsRight({ product }) {
                             onClick={() => checkoutHandler(user)}
                         >Buy it now</button>
                         <button onClick={() => {
-                            setHasAddedToCart(true)
+                            setHasAddedToCart(true);
                             dispatch(addItemToCart(product, user, quantity));
                         }}>Add to cart</button>
                         {hasAddedToCart && <div style={{ textAlign: "center" }}>Added to cart!</div>}
