@@ -38,8 +38,7 @@ class SignupForm(FlaskForm):
 
 class ProductForm(FlaskForm):
     name = StringField("Name", validators=[DataRequired(), Length(max=140)])
-    price = FloatField("Price", validators=[
-                       DataRequired(), NumberRange(min=0)])
+    price = FloatField("Price", validators=[NumberRange(min=0)])
     description = TextAreaField("Description")
 
     submit = SubmitField("List product")

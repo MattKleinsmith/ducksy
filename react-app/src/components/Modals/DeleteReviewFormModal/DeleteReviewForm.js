@@ -2,7 +2,7 @@ import styles from './DeleteReviewForm.module.css';
 import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { setDeleteReviewModal } from "../../../store/ui";
-import { deleteReview, getReviewsByBuyerId } from '../../../store/buyerReviews';
+import { deleteReview } from '../../../store/buyerReviews';
 
 
 export default function DeleteReviewForm() {
