@@ -11,7 +11,6 @@ export default function Purchases() {
     const dispatch = useDispatch();
     const orderDetails = useSelector(state => state.order_details);
     const reviews = useSelector(state => state.buyerReviews);
-    console.log("reviews", reviews);
 
     useEffect(() => {
         dispatch(getCurrentUserOrders());
