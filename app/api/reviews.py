@@ -1,7 +1,7 @@
 from flask import Blueprint, request
 from flask_login import login_required, current_user
 from app.models import db, Review
-from app.forms import ReviewForm
+from app.forms import ReviewForm, validation_errors_formatter
 from sqlalchemy.exc import IntegrityError
 
 
@@ -23,12 +23,10 @@ def get_review(review_id):
 @login_required
 def update_review(review_id):
     review = Review.query.get(review_id)
-    print(review)
     if not review:
-        errors = {
+        return {
             "message": {"Review not found"}
-        }
-        return errors, 404
+        }, 404
 
     form = ReviewForm()
     form['csrf_token'].data = request.cookies['csrf_token']
@@ -38,18 +36,13 @@ def update_review(review_id):
             review.rating = form.data["rating"]
             review.review = form.data["review"]
             db.session.commit()
-            return {
-                "rating": review.rating,
-                "review": review.review
-            }
-
-        if form.errors:
-            return {
-                "message": "Validation Error",
-                "statusCode": 400,
-                "errors": form.errors
-            }, 400, {"Content-Type": "application/json"}
-    return "Fail to update", 404
+            return review.to_dict()
+        return {'errors': validation_errors_formatter(form, form.errors)}, 400
+    return {
+        'errors': {
+            'user': "Must own review to update it"
+        }
+    }, 400
 
 
 @bp.route("/<int:review_id>", methods=["DELETE"])

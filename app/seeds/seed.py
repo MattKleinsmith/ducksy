@@ -795,7 +795,7 @@ def seed_all():
     db.session.commit()
 
     product = Product(
-        seller=anna,
+        seller=brian,
         categories=[boyfriend, leather, bag, case],
         name="Leather briefcase man, leather bag man, mens briefcase, shoulder bag, laptop messenger bag, satchel bag, new job gift, graduation gift",
         price="147.00",

@@ -26,17 +26,11 @@ export default function ProductEditor() {
     const [price, setPrice] = useState(product?.price || 0);
     const [errors, setErrors] = useState([]);
 
-    useEffect(() => {
-        setName(product?.name || "")
-        setDescription(product?.description || "")
-        setPrice(product?.price || 0)
-    }, [product])
-
     const handleSubmit = async (e) => {
         e.preventDefault();
         setErrors([]);
         const body = { name, description, price };
-        if (image || product.preview_image) {
+        if (image || product?.preview_image) {
             try {
                 const productThunkAction = product ? putProduct(productId, body) : postProduct(body)
                 const newProductId = await dispatch(productThunkAction)
