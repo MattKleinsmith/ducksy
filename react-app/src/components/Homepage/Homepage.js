@@ -16,14 +16,14 @@ export default function Homepage() {
             </div>
             <div className={styles.welcome}></div>
             <div className={styles.wrapper}>
-                <div>Recently viewed & more</div>
+                <div className={styles.recentViewed}>Recently viewed & more</div>
                 <div className={styles.homepage}>
                     {products.map((product, i) =>
                         <div className={styles.productInfos}>
                             <NavLink key={i} to={`/listing/${product.id}`} style={{ textDecoration: 'none' }}>
                                 <HomepageItem product={product} />
                             </NavLink>
-                            <div>
+                            <div className={styles.price}>
                                 <span>$</span>{parseFloat(product.price).toFixed(2)}
                             </div>
                         </div>
