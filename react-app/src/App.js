@@ -33,7 +33,7 @@ export default function App() {
         <Route path="/listings" element={<ProductGrid />} />
 
         <Route path="/listing/:productId" element={<ProductDetails />} />
-
+        <Route path="/category/:categoryName" element={<ProductGrid />} />
         <Route path='/your/purchases' element={<Purchases />} />
 
         <Route path='/your/shop' element={<ShopManager />} />
