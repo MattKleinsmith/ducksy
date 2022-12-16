@@ -83,7 +83,7 @@ And then navigate to http://localhost:300.
 
 ### Contact
 
-This was a group project completed by Jade Vie Tran, Huishi An, and Matthew Kleinsmith.
+This was a group project completed by Jade Vie Tran, [Huishi An](https://www.linkedin.com/in/huishi-an-8397311b1/), and [Matthew Kleinsmith](https://www.linkedin.com/in/matthewkleinsmith/).
 
 https://www.linkedin.com/in/huishi-an-8397311b1/
 
