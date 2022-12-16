@@ -36,9 +36,9 @@ export default function ProductEditor() {
         e.preventDefault();
         setErrors([]);
         const body = { name, description, price };
-        const productThunkAction = product ? putProduct(productId, body) : postProduct(body)
         if (image) {
             try {
+                const productThunkAction = product ? putProduct(productId, body) : postProduct(body)
                 const newProductId = await dispatch(productThunkAction)
                 try {
                     setImageErrors([]);
@@ -51,7 +51,8 @@ export default function ProductEditor() {
                 }
             }
             catch (responseBody) {
-                setErrors(Object.values(responseBody.errors))
+                const errors = Object.entries(responseBody.errors).map(([errorField, errorMessage]) => `${errorField}: ${errorMessage}`)
+                setErrors(errors);
             }
         }
         else {
@@ -130,7 +131,7 @@ export default function ProductEditor() {
                     <label>Price{" "}
                         <input
                             type="number"
-                            value={price}
+                            value={(Math.round(price * 100) / 100).toFixed(2)}
                             onChange={e => setPrice(e.target.value)}
                         />
                     </label>
