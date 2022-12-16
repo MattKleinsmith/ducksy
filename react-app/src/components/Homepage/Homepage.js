@@ -15,13 +15,13 @@ export default function Homepage() {
     return (
         <div>
             <div className={styles.welcome}>{currentUser ?
-                <div>Welcome back, {currentUser.display_name}</div> :
+                <div style={{ fontFamily: 'IBM Plex Serif, serif' }}>Welcome back, {currentUser.display_name}</div> :
                 <div>Find things you'll love. Support independent sellers. Only on Ducksy.</div>}
                 <div className={styles.categoryWrapper}>
                     <div className={styles.imageWrapper}
                         onClick={async () => {
                             await dispatch(getProductsByCategory('personalized_gift'));
-                            navigate('/category/personalized_gift')
+                            navigate('/category/personalized_gift');
                         }}
                     >
                         <img className={styles.categoryImage} src='/images/personalized_gifts.jpg' alt='img'></img>
