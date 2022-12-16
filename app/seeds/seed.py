@@ -119,7 +119,7 @@ def seed_all():
         ),
 
         Review(
-            buyer=brian,
+            buyer=bobbie,
             product=product,
             rating=5,
             review="I love, love how the bag turned out!!! So cute!! Amazing buyer service and quick delivery… My only complaint was the packaging for shipping. I felt like the basket got a little banged up in transit because it was just in like a bag. Otherwise couldn’t recommend any more!"
@@ -222,7 +222,7 @@ def seed_all():
         ),
 
         Review(
-            buyer=brian,
+            buyer=bobbie,
             product=product,
             rating=5,
             review="Of all the things I’ve ever ordered from Etsy, this one is my ultimate favorite! WOW! Words cannot express how beautiful this toiletry bag is! I almost want to give the gift to my FIL now! (Haha) I’ve shown all of my friends and family and am encouraging them to seller from this seller. It shipped so quickly and the added keychain was just the cherry on top! Absolutely wonderful product!! I will be shipping with this seller again and again!"
@@ -325,7 +325,7 @@ def seed_all():
         ),
 
         Review(
-            buyer=brian,
+            buyer=bobbie,
             product=product,
             rating=5,
             review="I LOVE this bag!!!! It is perfect size to put some personal stuff and a place for cards and an outside pocket for your phone. I will be ordering another color! The only thing I regret was not getting my initials on the bag because I needed it fast for a trip. This seller shipped with a week and half when expected to be closer to 2-3 weeks!! buyer service was great! Responding to all my messages in a timely manner. Thank you so much!"
@@ -415,7 +415,7 @@ def seed_all():
         ),
 
         Review(
-            buyer=brian,
+            buyer=bobbie,
             product=product,
             rating=5,
             review="These are beautiful! Great size too !! Shipped super quick! Love them!"
@@ -462,7 +462,7 @@ def seed_all():
         ),
 
         Review(
-            buyer=brian,
+            buyer=bobbie,
             product=product,
             rating=5,
             review="This came out perfect. With my wording on my canvas I think it's best I don't post a picture. (Kinda explicit.) You did an amazing job. Thank you so much."
@@ -572,7 +572,7 @@ def seed_all():
         ),
 
         Review(
-            buyer=brian,
+            buyer=bobbie,
             product=product,
             rating=5,
             review="I actually had my strap and needed a purse due to my purse breaking. I wax sent a picture of this purse! It worked perfect"
@@ -668,7 +668,7 @@ def seed_all():
         ),
 
         Review(
-            buyer=brian,
+            buyer=bobbie,
             product=product,
             rating=5,
             review="These bags are simply beautiful. I ordered them for my bridesmaids for our wedding morning and I was concerned about the quality because some other sellers had poor reviews for similar items. However these bags are divine. They are so sturdy the entire inside is coded with a waterproof material they are beautiful the stitching is Flawless and I’m so glad that I had the idea of ordering one for myself because I would definitely be jealous of my girls if I hadn’t!"
@@ -764,7 +764,7 @@ def seed_all():
         ),
 
         Review(
-            buyer=brian,
+            buyer=bobbie,
             product=product,
             rating=5,
             review="This seller is amazing! Unfortunately, my original shipment was lost/stolen and this seller worked with me on the replacement shipment and even expedited the shipping! Make up bags and mirrors are gorgeous, pictures really do not do the make up bags any justice. The pink with rose gold lettering is my fave combo and the pink is so pretty and flattering. Great buyer service. Incredibly happy with my items and my experience with this seller."
@@ -860,7 +860,7 @@ def seed_all():
         ),
 
         Review(
-            buyer=brian,
+            buyer=bobbie,
             product=product,
             rating=5,
             review="I love my new briefcase bag!! It’s such a great feeling supporting a small business and having a handmade, leather bag that is very functional, unique, personalized, and durable! I already purchased another matching bag from Jordan (the duffel bag) because I’m so pleased."
@@ -963,7 +963,7 @@ def seed_all():
         ),
 
         Review(
-            buyer=brian,
+            buyer=bobbie,
             product=product,
             rating=3,
             review="The product is nice but the picture is deceiving, it is a lot smaller than the posted picture. The quality is okay! The shipping was very quick but I did pay for fast shipping. I gave it 3 stars because I had wrote down under personalization the wrong name; after I noticed that I msged them hrs later and they were able to change it for me."
@@ -1073,7 +1073,7 @@ def seed_all():
         ),
 
         Review(
-            buyer=brian,
+            buyer=bobbie,
             product=product,
             rating=5,
             review="Beautiful! The photos don’t do them justice. Very satisfied!"
@@ -1183,7 +1183,7 @@ def seed_all():
         ),
 
         Review(
-            buyer=brian,
+            buyer=bobbie,
             product=product,
             rating=3,
             review="Received purple. Asked for pink. Name looks like Liuz instead of Liz"
@@ -1286,7 +1286,7 @@ def seed_all():
         ),
 
         Review(
-            buyer=brian,
+            buyer=bobbie,
             product=product,
             rating=5,
             review="I was at a loss at what to get my nephew for his 1st birthday. And then I found this awesome seller with these beautiful puzzles. I paid the extra to get the pegs put on to make it easier for my nephew to use and it was perfect. Someone different and special to celebrate turning 1. Thank you for the lovely puzzle."
@@ -1375,7 +1375,7 @@ def seed_all():
         ),
 
         Review(
-            buyer=brian,
+            buyer=bobbie,
             product=product,
             rating=5,
             review="So cute! Such good quality and the seller was so nice and responded quick! Great price also! I think all the groomsmen for our wedding will be very excited with these! :)"
@@ -1471,7 +1471,7 @@ def seed_all():
         ),
 
         Review(
-            buyer=brian,
+            buyer=bobbie,
             product=product,
             rating=5,
             review="The nightlight is exactly as described! I am so impressed at the quality and how beautiful they are! I bought them as Christmas presents so we haven't lighten them up yet but the craftsmanship is stunning! I love it! ❤️"
@@ -1560,7 +1560,7 @@ def seed_all():
         ),
 
         Review(
-            buyer=brian,
+            buyer=bobbie,
             product=product,
             rating=5,
             review="I'm in love! This is, BY FAR, the most beautiful gift I've ever given myself. I am constantly showering myself with gifts (because who else knows what I like better than myself?!) and let me just say that this is next level gorgeous. I am an avid reader, and I love The Little Prince sooo much that my original copy has 70% of the pages falling out. So when I saw this light, I KNEW I must have it. I cannot stress enough how perfect it is. Even as good as the photos make this look, they do not do it justice, so imagine it about 10,000 times more amazing. I just got it, and honestly, I cannot tear my eyes away; I just keep staring at the whole thing. I am over the moon thrilled with this purchase and 100% satisfied with my care. Infinity % recommend. Synopsis: GET IT. I guarantee you will not be disappointed. It's truly lovely."
@@ -1590,14 +1590,14 @@ def seed_all():
 
     db.session.commit()
 
-    order = Order(buyer_id=brian.id)
+    order = Order(buyer_id=bobbie.id)
     db.session.add_all([
         OrderDetail(
             seller_id=anna.id,
             price=product.price,
             product=product,
             order=order,
-            buyer_id=brian.id,
+            buyer_id=bobbie.id,
             quantity=1
         )
     ])

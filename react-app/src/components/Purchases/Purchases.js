@@ -11,6 +11,7 @@ export default function Purchases() {
     const dispatch = useDispatch();
     const orderDetails = useSelector(state => state.order_details);
     const reviews = useSelector(state => state.buyerReviews);
+    console.log("reviews", reviews);
 
     useEffect(() => {
         dispatch(getCurrentUserOrders());
@@ -44,33 +45,33 @@ export default function Purchases() {
                                                 <div className={styles.cancelWrapper}>
                                                     <div className={styles.rating}>
                                                         {(reviews[orderDetail.product_id].rating === 1) ?
-                                                            <div><span>Your review </span><i class="fa-solid fa-star"></i></div> :
+                                                            <div><span>Your review </span><i className="fa-solid fa-star"></i></div> :
                                                             (reviews[orderDetail.product_id].rating === 2) ?
                                                                 <div>
                                                                     <span>Your review </span>
-                                                                    <i class="fa-solid fa-star"></i>
-                                                                    <i class="fa-solid fa-star"></i>
+                                                                    <i className="fa-solid fa-star"></i>
+                                                                    <i className="fa-solid fa-star"></i>
                                                                 </div> :
                                                                 (reviews[orderDetail.product_id].rating === 3) ? <div>
                                                                     <span>Your review </span>
-                                                                    <i class="fa-solid fa-star"></i>
-                                                                    <i class="fa-solid fa-star"></i>
-                                                                    <i class="fa-solid fa-star"></i>
+                                                                    <i className="fa-solid fa-star"></i>
+                                                                    <i className="fa-solid fa-star"></i>
+                                                                    <i className="fa-solid fa-star"></i>
                                                                 </div> :
                                                                     (reviews[orderDetail.product_id].rating === 4) ? <div>
                                                                         <span>Your review </span>
-                                                                        <i class="fa-solid fa-star"></i>
-                                                                        <i class="fa-solid fa-star"></i>
-                                                                        <i class="fa-solid fa-star"></i>
-                                                                        <i class="fa-solid fa-star"></i>
+                                                                        <i className="fa-solid fa-star"></i>
+                                                                        <i className="fa-solid fa-star"></i>
+                                                                        <i className="fa-solid fa-star"></i>
+                                                                        <i className="fa-solid fa-star"></i>
                                                                     </div> :
                                                                         <div>
                                                                             <span>Your review </span>
-                                                                            <i class="fa-solid fa-star"></i>
-                                                                            <i class="fa-solid fa-star"></i>
-                                                                            <i class="fa-solid fa-star"></i>
-                                                                            <i class="fa-solid fa-star"></i>
-                                                                            <i class="fa-solid fa-star"></i>
+                                                                            <i className="fa-solid fa-star"></i>
+                                                                            <i className="fa-solid fa-star"></i>
+                                                                            <i className="fa-solid fa-star"></i>
+                                                                            <i className="fa-solid fa-star"></i>
+                                                                            <i className="fa-solid fa-star"></i>
                                                                         </div>
                                                         } </div>
                                                     <button className={styles.removeReviewBtn} onClick={() => {

@@ -73,7 +73,9 @@ def delete_review(review_id):
             "statusCode": 200
         }
 
+
 @bp.route("/current", methods=["GET"])
+@login_required
 def get_current_reviews():
     """For debugging"""
     reviews = Review.query.filter(Review.buyer_id == current_user.id)
