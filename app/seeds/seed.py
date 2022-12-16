@@ -2502,6 +2502,474 @@ def seed_all():
 
     db.session.commit()
 
+    product = Product(
+        seller=anna,
+        categories=[home_decor],
+        name="Japan Art Matsumoto Hoji frog Sad Frog art print Japanese woodblock reproduction Ugly cute toad Print Wabi sabi wall art frog painting",
+        price="17.45",
+        description="Get 60% discount when you buy 6 (or more) prints at our store. Discount shown at checkout."
+    )
+
+    db.session.add_all([
+        ProductImage(
+            product=product,
+            url=upload_image_to_bucket_from_url(
+                "https://i.etsystatic.com/10533774/r/il/717449/3262011801/il_794xN.3262011801_d3re.jpg"),
+            preview=True
+        ),
+
+        Review(
+            buyer=brian,
+            product=product,
+            rating=5,
+            review="Unfortunately, my package seemed to got lost on the way - but the shop owner Sintija was very accomodating! The package showed up eventually and the quality of the print is just as good as the customer service. I ordered the print in a very large size. Ordering prints in that size is always risky because most of them don‘t have a good quality because of the scaling, but this one marked every box. I love it and it earned it‘s place right above my bed, in my favorite frame. That‘s the highest honor a print can earn in my house."
+        ),
+
+        Review(
+            buyer=caitlynn,
+            product=product,
+            rating=5,
+            review="Fantastic print- exactly as pictured- brilliantly vibrant with good quality ink and durable, high quality paper. What’s more- when my dog ate the first print when posted through our post box- the seller send ANOTHER completely free of charge- including free international shipping. He really went above and beyond with his generosity and customer service. I can’t recommend highly enough!!!"
+        ),
+
+        Review(
+            buyer=derrik,
+            product=product,
+            rating=3,
+            review="First of all: a super nice customer service (fast response and very accommodating), unfortunately the first package got lost on the way from France, but I was immediately sent a new one at no extra charge, unfortunately it was damaged during shipping and the pictures arrived slightly kinked at the edge - otherwise really nice pictures and good quality😊"
+        ),
+
+        Review(
+            buyer=elizabeth,
+            product=product,
+            rating=5,
+            review="very great quality and print. arrived on time, estimated delivery was the 24th and i got it today, the 26th."
+        ),
+    ])
+
+    db.session.commit()
+
+    product = Product(
+        seller=anna,
+        categories=[home_decor],
+        name="Whale Painting, Watercolor Painting, Whale Print, Whale and Boat, Whale Art, Whale Nursery, Humpback Whale, Print titled, \"Fathoms Below\"",
+        price="10.20",
+        description="This is a fine art giclée print made from my original watercolor painting titled 'Fathoms Below'."
+    )
+
+    db.session.add_all([
+        ProductImage(
+            product=product,
+            url=upload_image_to_bucket_from_url(
+                "https://i.etsystatic.com/8585009/r/il/18ea08/1207942531/il_794xN.1207942531_78qo.jpg"),
+            preview=True
+        ),
+
+        Review(
+            buyer=brian,
+            product=product,
+            rating=5,
+            review="I love these! We combined the whale and the manta for our hall, and the atmosphere is so much better. We got arctic matte as paper, the quality is superb, but our frame is a bit shiny, so that's why it seems that way on the photo. To get it fit in our frames, we got passepartouts additionally, I am very happy with the result. Big recommendation!"
+        ),
+
+        Review(
+            buyer=caitlynn,
+            product=product,
+            rating=5,
+            review="This is one of my favorite pictures in my room now. It’s literally beautiful and I’m so happy with this purchase!"
+        ),
+
+        Review(
+            buyer=derrik,
+            product=product,
+            rating=5,
+            review="Another beautiful print in the collection I purchased! I found a complimentary mat and frame that will enhance this artwork even more. I am very pleased with this print and how quickly and safely it arrived to me!"
+        ),
+
+        Review(
+            buyer=elizabeth,
+            product=product,
+            rating=5,
+            review="smaller than I thought but that mistake was mine. The picture is gorgeous and I love it. It's going in my young grandson's room. I know he will love looking at it."
+        ),
+    ])
+
+    db.session.commit()
+
+    product = Product(
+        seller=anna,
+        categories=[home_decor],
+        name="Botanical Print Set of 4 - Botanical Illustration - Botanical Art Print - Art Prints - Vintage Botanical Print Set of 4 - Botanical Poster",
+        price="38.00",
+        description="This is for a set of 4 prints of a Botanical Floral illustration that has been hand painted and were found in an Antique natural history text book. The original has been digitally enhanced and are printed on heavy matte photo paper."
+    )
+
+    db.session.add_all([
+        ProductImage(
+            product=product,
+            url=upload_image_to_bucket_from_url(
+                "https://i.etsystatic.com/12324116/r/il/8c7815/4325208654/il_794xN.4325208654_ppzn.jpg"),
+            preview=True
+        ),
+
+        Review(
+            buyer=brian,
+            product=product,
+            rating=5,
+            review="Prints were well packaged and good quality. The enhanced colors are a little uncanny up close but look great and vibrant when displayed on the wall."
+        ),
+
+        Review(
+            buyer=caitlynn,
+            product=product,
+            rating=5,
+            review="The prints arrived quickly, the colors are as pictured on Etsy. The prints are a great addition to my dining space."
+        ),
+
+        Review(
+            buyer=derrik,
+            product=product,
+            rating=5,
+            review="These prints are beautiful! A perfect addition to our walls."
+        ),
+
+        Review(
+            buyer=elizabeth,
+            product=product,
+            rating=5,
+            review="Fabulous! Framed in black over my bed. Plan to have the current glass changed to anti-glare glass to enhance these lovely prints."
+        ),
+    ])
+
+    db.session.commit()
+
+    product = Product(
+        seller=anna,
+        categories=[home_decor],
+        name="Cardinal Candle Holder - Hand Made In Ukraine - Blown Glass - Hand Painted - Cardinal On Frosted Glass",
+        price="14.95",
+        description="Old world craftsmanship comes to life in these elegant, hand painted, Cardinal candle holders. These charming mouth blown glass candle holders are a great addition to any home. Both beautiful and symbolic, the Cardinal candle holder is a unique gift for your loved ones that they will cherish forever."
+    )
+
+    db.session.add_all([
+        ProductImage(
+            product=product,
+            url=upload_image_to_bucket_from_url(
+                "https://i.etsystatic.com/19998115/r/il/f39930/2158794765/il_794xN.2158794765_a9n5.jpg"),
+            preview=True
+        ),
+
+        Review(
+            buyer=brian,
+            product=product,
+            rating=5,
+            review="The cardinal candle holder is so beautiful! The colors are vibrant and I love the design. It is a lovely reminder of lost loved ones. The package arrived so quickly and it is extra special that it is made in Ukraine. Thank you!"
+        ),
+
+        Review(
+            buyer=caitlynn,
+            product=product,
+            rating=5,
+            review="This candleholder is so beautiful, I love it! Smaller than expected but that’s on me because I didn’t read the specs. It’s perfect!"
+        ),
+
+        Review(
+            buyer=derrik,
+            product=product,
+            rating=5,
+            review="Absolutely beautiful candle!!Artwork is superb ! Customer service awesome! Highly recommend!"
+        ),
+
+        Review(
+            buyer=elizabeth,
+            product=product,
+            rating=5,
+            review="I had this beautiful candle holder sent to a dear friend who loves cardinals. She loves it!!! She said that the seller hand wrote my note to her. She said the gift and the note made her smile. Thank you for putting a smile on her face and taking great care in sending it to her! Shipping was very fast too!"
+        ),
+    ])
+
+    db.session.commit()
+
+    product = Product(
+        seller=anna,
+        categories=[home_decor],
+        name="Monarch butterfly stained glass window hangings Christmas gifts Fairy garden decor Custom stained glass butterfly suncatcher",
+        price="54.90",
+        description="You've never seen such a beautiful monarch butterfly in your life 🙈 Just imagine how you are wandering through the valley full of wildflowers and butterflies 🌼 I am sure it has already caught your attention 😉 Capture the endless summer in your house with this monarch stained glass window hanging. Besides, it may be a fairy garden decor too 🏡"
+    )
+
+    db.session.add_all([
+        ProductImage(
+            product=product,
+            url=upload_image_to_bucket_from_url(
+                "https://i.etsystatic.com/16555624/r/il/7bb5e7/4407431844/il_794xN.4407431844_27eu.jpg"),
+            preview=True
+        ),
+
+        Review(
+            buyer=brian,
+            product=product,
+            rating=5,
+            review="The monarch handmade glass butterfly is even more beautiful than I imagined before seeing it in person. The colors, workmanship, and artistry is excellent. Ivan of GlassArtStories is wonderful to work with as he contacted me before starting the work to make sure he was making exactly what I wanted, and to thank me for choosing to do business with his shop, which I in turn appreciated as well. Based on the product I bought, and received I’d recommend the variety of beautiful artwork presented, and handmade by Ivan on his website to anyone for purchase. I know you will love his products as much as I do. Thank you Ivan, and staff. #Support Ukraine, and all Ukrainians."
+        ),
+
+        Review(
+            buyer=caitlynn,
+            product=product,
+            rating=5,
+            review="I have a small collection of stained glass sun catchers and this one is by far the most beautiful!"
+        ),
+
+        Review(
+            buyer=derrik,
+            product=product,
+            rating=5,
+            review="Ivan did an awesome job on making my monarch butterfly. I love it. The colors and detail are beautiful. He packaged it well and boxed it. I like the size if it The leaf on the stem adds a nice touch. I'm glad I found his shop. He offers so many beautiful stained glass items. Plus he is a pleasure to communicate with. I would recommend his shop. You won't be disappointed."
+        ),
+
+        Review(
+            buyer=elizabeth,
+            product=product,
+            rating=5,
+            review="I wrote a review of another sun catcher which is a beautiful blue bird. The monarch butterfly is stunning and the quality is beautiful. I’m looking forward to buying more pieces in the future. Shipping wasn’t bad considering it comes from the Ukraine. Packaging was great too! Thank you!"
+        ),
+    ])
+
+    product = Product(
+        seller=anna,
+        categories=[home_decor],
+        name="Wedding Gift, Wedding Gifts, Personalized Pillow, Newlywed Gift, Engagement Gift, Rustic Wedding Gift, Linen Pillow, Gift for bride",
+        price="24.00",
+        description="CYBER MONDAY SALE GOING ON NOW!!! 25% OFF OR SIGN UP FOR OUR INSIDER'S CLUB FOR 30% OFF"
+    )
+
+    db.session.add_all([
+        ProductImage(
+            product=product,
+            url=upload_image_to_bucket_from_url(
+                "https://i.etsystatic.com/7384426/r/il/10a116/4294165579/il_794xN.4294165579_acag.jpg"),
+            preview=True
+        ),
+
+        Review(
+            buyer=brian,
+            product=product,
+            rating=5,
+            review="I received my pillow in less than a week. The pillow is beautiful, and shipping was fast. I would definitely recommend placing an order. 🤍"
+        ),
+
+        Review(
+            buyer=caitlynn,
+            product=product,
+            rating=5,
+            review="Best customer service, ordered one day and received it 4 days later! Beautiful work! This was the 4th item I have ordered from Willow Creek and always happy with the results!!"
+        ),
+
+        Review(
+            buyer=derrik,
+            product=product,
+            rating=5,
+            review="Item turned out great and was an awesome git for my newlywed pals. :) They loved it and so happy with how the pillow turned out!"
+        ),
+
+        Review(
+            buyer=elizabeth,
+            product=product,
+            rating=5,
+            review="It's beautiful and exactly what I wanted! The seller responded to me very quickly and it shipped very quickly. Loooove it!"
+        ),
+    ])
+
+    db.session.commit()
+
+    product = Product(
+        seller=anna,
+        categories=[home_decor],
+        name="Nursery Name Sign, Nursery Decor, Nursery Wall Art, Wooden Name Sign, Name Sign for Nursery, Woodland Nursery Decor, Woodland Wooden Letters",
+        price="20.95",
+        description="The price of the listing is for INDIVIDUAL LETTERS. (ie. If ordering for the name EMILY you would add a quantity of 5 letters to the cart). Please include the desired name & font choice in the personalization box. If no font is specified Arial will be used."
+    )
+
+    db.session.add_all([
+        ProductImage(
+            product=product,
+            url=upload_image_to_bucket_from_url(
+                "https://i.etsystatic.com/8815198/r/il/38546c/2437884391/il_794xN.2437884391_6d5h.jpg"),
+            preview=True
+        ),
+
+        Review(
+            buyer=brian,
+            product=product,
+            rating=5,
+            review="Communication with seller was great. My package went missing off my pouch and the seller tried their best to help. I was lucky enough that a few days later my package reappeared (I just they realized they would have no use for a personalized letters, lol). Beautiful work! Love how the nursery looks with his name about the crib!"
+        ),
+
+        Review(
+            buyer=caitlynn,
+            product=product,
+            rating=5,
+            review="I absolutely love them! It's a great addition to my nephew's room. The wait is definitely worth it. You can tell how much hard work and attention to detail is put into each lettering. So very pleased!!!"
+        ),
+
+        Review(
+            buyer=derrik,
+            product=product,
+            rating=5,
+            review="We absolutely are in love with the way that these turned out for our little man’s nursery! They are the finishing touch. Thank you so much, and I would totally recommend this store."
+        ),
+
+        Review(
+            buyer=elizabeth,
+            product=product,
+            rating=5,
+            review="So cute! She did such a good job, it exceeded my expectations! Was perfect for the woodland theme of our sons room. I had requested specific animals and it was just as I asked for !"
+        ),
+    ])
+
+    db.session.commit()
+
+    product = Product(
+        seller=anna,
+        categories=[home_decor],
+        name="Palestine Sheep Wool Table Top Nativity Scene & Trees Set",
+        price="135.00",
+        description="* Set of wool nativity scene and christmas trees"
+    )
+
+    db.session.add_all([
+        ProductImage(
+            product=product,
+            url=upload_image_to_bucket_from_url(
+                "https://i.etsystatic.com/18758094/r/il/f99ce1/4253097582/il_794xN.4253097582_kfqz.jpg"),
+            preview=True
+        ),
+
+        Review(
+            buyer=brian,
+            product=product,
+            rating=5,
+            review="I try hard to buy through the Fair Trade from around the world. This Nativity was even cooler than it looked. I have it in my curio cabinet!"
+        ),
+
+        Review(
+            buyer=caitlynn,
+            product=product,
+            rating=5,
+            review="Dear Holidays"
+        ),
+
+        Review(
+            buyer=derrik,
+            product=product,
+            rating=5,
+            review="Israel"
+        ),
+
+        Review(
+            buyer=elizabeth,
+            product=product,
+            rating=5,
+            review="Nativity Figurines"
+        ),
+    ])
+
+    db.session.commit()
+
+    product = Product(
+        seller=anna,
+        categories=[home_decor],
+        name="SUPER HUGE Jumbo Rustic 12\" Decorative Clothespin in Walnut Finish, Photo Note Holder for Home Office, Kids Drawing Display, Bathroom Hooks",
+        price="28.00",
+        description="What a unique and fun way to hang your towels in your bathroom or laundry room. Can also be a fun way to display photos, kids drawings, or notes in your home, nursery or office with a large rustic decorative walnut stained clothespin."
+    )
+
+    db.session.add_all([
+        ProductImage(
+            product=product,
+            url=upload_image_to_bucket_from_url(
+                "https://i.etsystatic.com/10462935/r/il/34db35/4298852076/il_794xN.4298852076_pqqz.jpg"),
+            preview=True
+        ),
+
+        Review(
+            buyer=brian,
+            product=product,
+            rating=5,
+            review="LOVE this! So cute but small! I don't know why I was thinking it would be bigger. I put a picture of my kids, when they were very little, clipped in it. It just looks perfect in my bathroom in the one little space I had."
+        ),
+
+        Review(
+            buyer=caitlynn,
+            product=product,
+            rating=5,
+            review="Thought they were smaller than expected but was happy with their size once they were all set up. Good grip, nice finish, great quality! Shown in photo: Super Huge Jumbo size, with weathered oak stain."
+        ),
+
+        Review(
+            buyer=derrik,
+            product=product,
+            rating=5,
+            review="Absolutely love them!! Excited to add them to my bathroom project!!"
+        ),
+
+        Review(
+            buyer=elizabeth,
+            product=product,
+            rating=4,
+            review="So cute!!! The only draw back is it took a month to get to my house, so I don’t think I would order again. But very very cute!"
+        ),
+    ])
+
+    db.session.commit()
+
+    product = Product(
+        seller=anna,
+        categories=[home_decor],
+        name="Knife Abstract art,Acrylic paintings on canvas,Landscape Colorful Forest Painting,Bedroom Wall Decor,Textured Impasto Painting,painting gift",
+        price="99.20",
+        description="Abstract Painting on Canvas, Original Art, Modern Art, Landscape Art, Abstract Art, Textured Wall Art, Wall Decor Living Room, Impasto Art abstract art canvas original Knife Abstract Art"
+    )
+
+    db.session.add_all([
+        ProductImage(
+            product=product,
+            url=upload_image_to_bucket_from_url(
+                "https://i.etsystatic.com/6624893/r/il/62da02/4419545477/il_794xN.4419545477_5mso.jpg"),
+            preview=True
+        ),
+
+        Review(
+            buyer=brian,
+            product=product,
+            rating=5,
+            review="LOVE LOVE LOVE this painting! It arrived very timely and it's beautiful; very high quality, and exceeded my high expectations! It's already displayed on the mantle and bringing a much needed pop of color to the family room! I'll definitely look to purchase additional art from Xiangwuchen for other rooms in the house."
+        ),
+
+        Review(
+            buyer=caitlynn,
+            product=product,
+            rating=5,
+            review="What an amazing art piece created by Chen! Loved every bit of it, and this is currently hanging pretty on our living room wall. It shipped on time, Chen was super responsive, and we were able to track our shipment. Chen, hope you keep creating these amazing paintings! Cheers"
+        ),
+
+        Review(
+            buyer=derrik,
+            product=product,
+            rating=5,
+            review="It looks much better in real life then on photo! A very eye-catching piece, I receive a lot of compliments on it. We have it in our breakfast nook/kitchen and it’s a true pleasure to see it every day. Highly recommend!"
+        ),
+
+        Review(
+            buyer=elizabeth,
+            product=product,
+            rating=5,
+            review="LOVE this artwork! The colors are so vibrant and the piece is amazing. It’s a statement piece in my office. Size was true to specs. It’s an actual painting, not a print. It’s beautiful!"
+        ),
+    ])
+
+    db.session.commit()
+
     # Insert seeder code above this line
 
     reviews = Review.query.all()
