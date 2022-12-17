@@ -125,7 +125,7 @@ export default function ProductEditor() {
                     <label>Price{" "}
                         <input
                             type="number"
-                            value={(Math.round(price * 100) / 100).toFixed(2)}
+                            value={price}
                             onChange={e => setPrice(e.target.value)}
                         />
                     </label>
