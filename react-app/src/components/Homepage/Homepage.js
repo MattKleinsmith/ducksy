@@ -5,7 +5,6 @@ import styles from "./Homepage.module.css";
 import HomepageItem from "./HomepageItem/HomepageItem";
 import { getProductsByCategory } from "../../store/productsBySearch";
 import ProductGrid from "../ProductGrid/ProductGrid";
-import HomepageFooter from "./HomepageFooter/HomepageFooter";
 
 export default function Homepage() {
     const dispatch = useDispatch();
@@ -96,7 +95,6 @@ export default function Homepage() {
                 </div>
             </div >
             <ProductGrid isHomepage={true} />
-            <HomepageFooter />
         </>
     );
 }

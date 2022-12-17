@@ -1,0 +1,34 @@
+.wrapper {
+    position: absolute;
+    bottom: 0;
+
+    width: 100%;
+}
+
+.line {
+    height: 1px;
+    background-color: #dedede;
+}
+
+.footer {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+
+    background-color: #232347;
+    color: white;
+
+    height: 80px;
+}
+
+.left {}
+
+.right {
+    display: flex;
+    gap: 20px;
+}
+
+.right a {
+    color: white;
+    font-size: 14px;
+}
