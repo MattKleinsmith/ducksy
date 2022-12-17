@@ -1,0 +1,16 @@
+.wrapper {
+    color: #222;
+    font-family: "Merriweather", sans-serif;
+    font-size: 18px;
+    font-weight: 600;
+    text-decoration: none;
+}
+
+.wrapper div {
+    font-family: "Merriweather", sans-serif;
+}
+
+.wrapper:hover {
+    color: #595959;
+    text-decoration: underline;
+}

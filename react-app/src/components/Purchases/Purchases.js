@@ -17,14 +17,10 @@ export default function Purchases() {
 
     return (
         <>
-            <div>
-                <PurchasesHeading />
-                <div className={styles.orderInfoWrapper}>
-                    {orderDetails.map((orderDetail, i) =>
-                        <PurchasesItem key={i} orderDetail={orderDetail} />
-                    )}
-                    {orderDetails.length === 0 && "No purchases yet."}
-                </div>
+            <PurchasesHeading />
+            <div className={styles.PurchasesItemsWrapper}>
+                {orderDetails.map((orderDetail, i) => <PurchasesItem key={i} orderDetail={orderDetail} />)}
+                {orderDetails.length === 0 && "No purchases yet."}
             </div>
         </>
     );
