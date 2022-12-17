@@ -1,4 +1,9 @@
-.FiveStars {
+.FiveStarsDiv i {
+    margin: 0 0.05rem
+}
+
+
+.FiveStar {
     font-size: inherit;
     margin-bottom: 0.5rem;
 }

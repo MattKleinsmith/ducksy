@@ -20,7 +20,7 @@ export default function ProductDetailsReviewList({ product }) {
                     {reviews.length} reviews
                 </div>
                 <div className={styles.reviewStars}>
-                    <FiveStars style={{ fontSize: '1rem' }} rating={product.seller_rating} />
+                    <FiveStars style={{ fontSize: '1rem' }} rating={product.product_rating} />
                 </div>
             </div>
             <div className={styles.ProductDetailsReviewList}>
