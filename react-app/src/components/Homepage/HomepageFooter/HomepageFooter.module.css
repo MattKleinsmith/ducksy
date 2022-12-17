@@ -1,0 +1,11 @@
+.line {
+    height: 1px;
+    background-color: #dedede;
+}
+
+.footer {
+    display: flex;
+
+    background-color: #232347;
+    color: white;
+}

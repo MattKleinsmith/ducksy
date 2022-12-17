@@ -22,7 +22,7 @@ export default function DropdownSignedIn({ user }) {
         </div>
         <div className={styles.iconInfoWrapper}>
             <span className={styles.icon}><i className="fa-regular fa-clipboard"></i></span>
-            <div className={styles.dropdownLink}><Link to='/your/purchases' className={styles.dropdownLink}>Purchases and Reviews</Link></div>
+            <div className={styles.dropdownLink}><Link to='/your/purchases' className={styles.dropdownLink}>Purchases</Link></div>
         </div>
         <div className={styles.iconInfoWrapper}>
             <span className={styles.icon}><i className="fa-solid fa-arrow-right-from-bracket"></i></span>
