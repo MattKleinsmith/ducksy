@@ -4,3 +4,17 @@
     margin: 0;
     font-family: 'DM Sans', sans-serif;
 }
+
+button {
+    background-color: transparent;
+    border: none;
+    outline: none;
+    cursor: pointer;
+}
+
+button:focus {
+    background-color: transparent;
+    border: none;
+    outline: none;
+    cursor: pointer;
+}

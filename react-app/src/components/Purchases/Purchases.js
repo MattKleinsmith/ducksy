@@ -5,7 +5,7 @@ import { getCurrentUserOrders } from '../../store/orderDetails';
 import { setReviewModal, setEditReviewModal, setDeleteReviewModal } from '../../store/ui';
 import { setProductId } from '../../store/productDetails';
 import { getReviewsByBuyerId } from '../../store/buyerReviews';
-import { setReviewId } from '../../store/reviewDetails';
+import { clearReviewDetails, setReviewDetails } from '../../store/reviewDetails';
 import styles from './Purchases.module.css';
 import BuyItAgain from './BuyItAgain';
 
@@ -54,26 +54,31 @@ export default function Purchases() {
                                                 <div className={styles.cancelWrapper}>
                                                     <div className={styles.rating}>
                                                         {(reviews[orderDetail.product_id].rating === 1) ?
-                                                            <div><span>Your review </span><i className="fa-solid fa-star"></i></div> :
+                                                            <div><span>Your review </span>
+                                                                <i className="fa-solid fa-star"></i></div>
+                                                            :
                                                             (reviews[orderDetail.product_id].rating === 2) ?
                                                                 <div>
                                                                     <span>Your review </span>
                                                                     <i className="fa-solid fa-star"></i>
                                                                     <i className="fa-solid fa-star"></i>
-                                                                </div> :
+                                                                </div>
+                                                                :
                                                                 (reviews[orderDetail.product_id].rating === 3) ? <div>
                                                                     <span>Your review </span>
                                                                     <i className="fa-solid fa-star"></i>
                                                                     <i className="fa-solid fa-star"></i>
                                                                     <i className="fa-solid fa-star"></i>
-                                                                </div> :
+                                                                </div>
+                                                                    :
                                                                     (reviews[orderDetail.product_id].rating === 4) ? <div>
                                                                         <span>Your review </span>
                                                                         <i className="fa-solid fa-star"></i>
                                                                         <i className="fa-solid fa-star"></i>
                                                                         <i className="fa-solid fa-star"></i>
                                                                         <i className="fa-solid fa-star"></i>
-                                                                    </div> :
+                                                                    </div>
+                                                                        :
                                                                         <div>
                                                                             <span>Your review </span>
                                                                             <i className="fa-solid fa-star"></i>
@@ -84,24 +89,24 @@ export default function Purchases() {
                                                                         </div>
                                                         } </div>
                                                     <button className={styles.removeReviewBtn} onClick={() => {
-                                                        dispatch(setReviewId(reviews[orderDetail.product_id].id, reviews[orderDetail.product_id].review));
+                                                        dispatch(setReviewDetails(reviews[orderDetail.product_id].id, reviews[orderDetail.product_id].review));
                                                         dispatch(setDeleteReviewModal(true));
                                                     }}>x</button>
                                                 </div>
                                                 <div className={styles.review}>{reviews[orderDetail.product_id].review} </div>
                                                 <div>
-                                                    <button className={styles.editReviewBtn} onClick={() => {
+                                                    <button className={`${styles.editReviewBtn}`} onClick={() => {
                                                         dispatch(setProductId(orderDetail.product_id));
-                                                        dispatch(setReviewId(reviews[orderDetail.product_id].id, reviews[orderDetail.product_id].review, reviews[orderDetail.product_id].rating));
-                                                        dispatch(setEditReviewModal(true));
+                                                        dispatch(setReviewDetails(reviews[orderDetail.product_id].id, reviews[orderDetail.product_id].review, reviews[orderDetail.product_id].rating));
+                                                        dispatch(setReviewModal(true));
                                                     }}>Edit review</button>
                                                 </div>
                                             </div>
                                             :
                                             <div className={styles.reviewBtnWrapper}>
-                                                <button className={styles.reviewBtn} onClick={() => {
+                                                <button className={`${styles.reviewBtn}`} onClick={() => {
                                                     dispatch(setProductId(orderDetail.product_id));
-                                                    dispatch(setEditReviewModal(false));
+                                                    dispatch(clearReviewDetails());
                                                     dispatch(setReviewModal(true));
                                                 }}>Review this item</button>
                                             </div>

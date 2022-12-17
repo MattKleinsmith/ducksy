@@ -1,33 +1,33 @@
-import React, { useState } from 'react';
+import styles from './ReviewForm.module.css';
+import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { setReviewModal } from '../../../store/ui';
-import { getReviewsByBuyerId, postReview } from '../../../store/buyerReviews';
-import styles from './ReviewForm.module.css';
+import { getReviewsByBuyerId, postReview, updateReview } from '../../../store/buyerReviews';
 
 
 export default function ReviewForm() {
-    const [review, setReview] = useState('');
-    const [rating, setRating] = useState(0);
-    const [hover, setHover] = useState(0);
+    const originalReview = useSelector(state => state.reviewDetails);
+    const [review, setReview] = useState(originalReview?.review || '');
+    const [rating, setRating] = useState(originalReview?.rating || 0);
+    const [hover, setHover] = useState(rating);
     const [errors, setErrors] = useState([]);
     const dispatch = useDispatch();
 
-    const id = useSelector(state => state.productDetails.id);
+    const productId = useSelector(state => state.productDetails.id);
     const handleSubmit = async e => {
         e.preventDefault();
-        const newReview = { rating, review };
-        if (newReview) {
-            return await dispatch(postReview(id, newReview))
-                .then(() => {
-                    dispatch(setReviewModal(false));
-                    dispatch(getReviewsByBuyerId());
-                    setRating(0);
-                    setReview("");
-                })
-                .catch(e => {
-                    const errors = Object.entries(e.errors).map(([errorField, errorMessage]) => `${errorField}: ${errorMessage}`);
-                    setErrors(errors);
-                });
+        const body = { rating, review };
+        const thunk = originalReview ?
+            updateReview(originalReview.id, body) : postReview(productId, body);
+        try {
+            await dispatch(thunk);
+            dispatch(setReviewModal(false));
+            dispatch(getReviewsByBuyerId());
+        }
+        catch (e) {
+            const errors = Object.entries(e.errors)
+                .map(([errorField, errorMessage]) => `${errorField}: ${errorMessage}`);
+            setErrors(errors);
         }
     };
 
@@ -46,12 +46,12 @@ export default function ReviewForm() {
                                 <button
                                     type='button'
                                     key={i}
-                                    className={i <= ((rating && hover) || hover) ? styles.on : styles.off}
+                                    className={`${styles.button} ${i <= ((rating && hover) || hover) ? styles.on : styles.off}`}
                                     onClick={() => setRating(i)}
                                     onMouseEnter={() => setHover(i)}
                                     onMouseLeave={() => setHover(rating)}
                                 >
-                                    <i className="fa-solid fa-star" style={{ fontSize: '25px' }}></i>
+                                    <span className={styles.star}><i className="fa-solid fa-star" style={{ fontSize: '25px' }} /></span>
                                 </button>);
                         })}
                     </div >
@@ -60,14 +60,14 @@ export default function ReviewForm() {
                         <p className={styles.suggestion}>What do you like about this? Did it ship on time? Describe your experience with this shop.</p>
                     </div>
                     <textarea className={styles.reviewDetail}
-                        placeholder='Review here'
+                        placeholder='Write your review here'
                         type='text'
                         onChange={e => setReview(e.target.value)}
                         value={review}
                     />
                     <div className={styles.btnWrapper}>
                         <button className={styles.cancelBtn} onClick={() => dispatch(setReviewModal(false))}>Cancel</button>
-                        <button className={styles.reviewBtn} type='submit'>Post Your review</button>
+                        <button className={styles.reviewBtn} type='submit'>{originalReview ? "Update" : "Post"} your review</button>
                     </div>
                 </form>
             </div >

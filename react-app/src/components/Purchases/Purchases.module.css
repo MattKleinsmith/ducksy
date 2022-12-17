@@ -1,3 +1,10 @@
+/* .button {
+    background-color: transparent;
+    border: none;
+    outline: none;
+    cursor: pointer;
+} */
+
 .imageWrapper {
     width: 100px;
     padding: 10px;

@@ -27,7 +27,7 @@
     opacity: 1;
 }
 
-button:focus {
+.moreiImagesBtn:focus {
     border: 2px solid #222;
     border-radius: 6px;
 }
