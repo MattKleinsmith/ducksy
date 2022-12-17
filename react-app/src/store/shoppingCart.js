@@ -1,4 +1,5 @@
 import { csrfFetch } from "./csrf";
+import { getProducts } from "./products";
 
 export const saveCarts = (carts) => {
     window.localStorage.setItem('ducksyCarts', JSON.stringify(carts));
@@ -69,10 +70,11 @@ export const checkoutCart = (user) => async dispatch => {
     user ? carts[user.id] = {} : carts['guest'] = {};
     saveCarts(carts)
     dispatch({ type: GET_CARTS, carts })
+    dispatch(getProducts())
     return data.order_id
 }
 
-export const checkoutNow = (product_id, quantity) => async () => {
+export const checkoutNow = (product_id, quantity) => async dispatch => {
     const requestBody = {};
     requestBody[product_id] = quantity;
     const response = await csrfFetch('/api/orders', {
@@ -80,6 +82,7 @@ export const checkoutNow = (product_id, quantity) => async () => {
         body: JSON.stringify(requestBody)
     });
     const data = await response.json()
+    dispatch(getProducts())
     return data.order_id
 }
 
