@@ -57,7 +57,7 @@ export default function ProductDetailsRight({ product }) {
                                     dispatch(addItemToCart(product, user, quantity));
                                 }}>Add to cart</button>
                         </div>
-                        {hasAddedToCart && <div style={{ textAlign: "center" }}>Added to cart!</div>}
+                        {hasAddedToCart && <div className={styles.addToCartText} style={{ textAlign: "center" }}>Added to cart!</div>}
                     </div>
                     :
                     <button onClick={() => navigate(`/your/shop/listing/${product.id}`)}>Edit listing</button>

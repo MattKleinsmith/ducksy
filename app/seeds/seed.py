@@ -1,5 +1,6 @@
 from app.models import db, environment, SCHEMA, User, Product, ProductImage, Review, Category, Order, OrderDetail
 from app.seeds.upload import upload_image_to_bucket_from_url
+from random import randint
 
 # Adds a demo user, you can add other users here if you want
 
@@ -1590,19 +1591,19 @@ def seed_all():
 
     db.session.commit()
 
-    order = Order(buyer_id=bobbie.id)
-    db.session.add_all([
-        OrderDetail(
-            seller_id=anna.id,
-            price=product.price,
-            product=product,
-            order=order,
-            buyer_id=bobbie.id,
-            quantity=1
-        )
-    ])
+    # order = Order(buyer_id=bobbie.id)
+    # db.session.add_all([
+    #     OrderDetail(
+    #         seller_id=anna.id,
+    #         price=product.price,
+    #         product=product,
+    #         order=order,
+    #         buyer_id=bobbie.id,
+    #         quantity=1
+    #     )
+    # ])
 
-    db.session.commit()
+    # db.session.commit()
 
     product = Product(
         seller=anna,
@@ -3865,11 +3866,19 @@ def seed_all():
 
     # Insert seeder code above this line
 
-    reviews = Review.query.all()
-    for review in reviews:
-        review.seller = anna
+    for review in Review.query:
+        review.seller_id = anna.id
+        order=Order(buyer_id=review.buyer_id)
+        purchase = OrderDetail(
+            order=order,
+            product_id=review.product_id,
+            seller_id=review.seller_id,
+            buyer_id=review.buyer_id,
+            price=review.product.price,
+            quantity=randint(1, 10)
+        )
+        db.session.add(purchase)
     db.session.commit()
-
 
 # Uses a raw SQL query to TRUNCATE or DELETE the users table. SQLAlchemy doesn't
 # have a built in function to do this. With postgres in production TRUNCATE
