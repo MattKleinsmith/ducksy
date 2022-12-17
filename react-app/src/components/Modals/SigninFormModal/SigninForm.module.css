@@ -70,7 +70,8 @@
 }
 
 .signinButton:hover {
-    background-color: #3c3c3c
+    background-color: #3c3c3c;
+    transform: scale(1.01);
 }
 
 .signinForm label {
