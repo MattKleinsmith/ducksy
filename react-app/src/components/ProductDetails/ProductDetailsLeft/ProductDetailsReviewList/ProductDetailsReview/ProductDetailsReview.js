@@ -12,7 +12,7 @@ export default function ProductDetailsReview({ review }) {
                     {review.review}
                 </div>
                 <div className={styles.buyerInfo}>
-                    <div className={styles.buyerPicture}>D</div>
+                    <div className={styles.buyerPicture}>{review.buyer.display_name[0].toUpperCase()}</div>
                     <div className={styles.buyerName}>{review.buyer.display_name}</div>
                     <div className={styles.reviewDate}>{review.created_at.slice(5, 17)}</div>
                 </div>
