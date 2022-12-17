@@ -4,8 +4,8 @@ import { useDispatch, useSelector } from 'react-redux';
 import styles from "./Homepage.module.css";
 import HomepageItem from "./HomepageItem/HomepageItem";
 import { getProductsByCategory } from "../../store/productsBySearch";
-import ProductGrid from "../ProductGrid/ProductGrid"
-import HomepageFooter from "./HomepageFooter/HomepageFooter"
+import ProductGrid from "../ProductGrid/ProductGrid";
+import HomepageFooter from "./HomepageFooter/HomepageFooter";
 
 export default function Homepage() {
     const dispatch = useDispatch();
@@ -85,7 +85,7 @@ export default function Homepage() {
                                     <HomepageItem product={product} />
                                 </NavLink>
                                 <div className={styles.price}>
-                                    <span>$</span>{parseFloat(product.price).toFixed(2)}
+                                    <strong><span>$</span>{parseFloat(product.price).toFixed(2)}</strong>
                                 </div>
                             </div>
                         )}
