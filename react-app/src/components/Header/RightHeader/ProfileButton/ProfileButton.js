@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import { useSelector } from 'react-redux';
 
 import styles from "./ProfileButton.module.css";
-import DropdownProfile from "./DropdownProfile/DropdownProfile";
+import ProfileDropdown from "./ProfileDropdown/ProfileDropdown";
 
 export default function ProfileButton() {
     const [showMenu, setShowMenu] = useState(false);
@@ -22,7 +22,7 @@ export default function ProfileButton() {
                 <i className="fas fa-user-circle" />
                 <span className={styles.arrow} >▼</span>
             </button>
-            {showMenu && <DropdownProfile user={user} ui={ui} />}
+            {showMenu && <ProfileDropdown user={user} ui={ui} />}
         </>
     );
 }
