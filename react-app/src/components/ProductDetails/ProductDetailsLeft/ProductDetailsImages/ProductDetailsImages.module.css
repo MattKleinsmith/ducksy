@@ -1,6 +1,6 @@
 .ProductDetailsImagesWrapper {
     display: flex;
-    height: 516px;
+    height: 512px;
 }
 
 .moreImagesWrapper {
@@ -13,9 +13,9 @@
 
 .moreImages {
     width: 100%;
+    height: 60px;
     margin-right: 5px;
     border-radius: 6px;
-    height: 60px;
     top: 50%;
     left: 50%;
     object-fit: cover;
