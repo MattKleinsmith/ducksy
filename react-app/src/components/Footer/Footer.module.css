@@ -1,4 +1,10 @@
 .wrapper {
+    position: relative;
+    margin-top: 150px;
+    font-size: 14px;
+}
+
+.subWrapper {
     position: absolute;
     bottom: 0;
 
@@ -21,7 +27,10 @@
     height: 80px;
 }
 
-.left {}
+.left {
+    display: flex;
+    gap: 10px;
+}
 
 .right {
     display: flex;
@@ -30,5 +39,4 @@
 
 .right a {
     color: white;
-    font-size: 14px;
 }
