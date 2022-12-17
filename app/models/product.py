@@ -67,7 +67,8 @@ class Product(db.Model):
             "seller_rating": seller_rating,
             "num_seller_ratings": num_seller_ratings,
             "categories": [x.id for x in self.categories],
-            "sales": len(self.sales)
+            "sales": len(self.sales),
+            "product_images" : [x.to_dict() for x in self.product_images]
         }
 
 
