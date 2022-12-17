@@ -1,0 +1,31 @@
+.buyAgain {
+    display: flex;
+    font-size: 18px;
+}
+
+.buyAgainBtn {
+    background-color: #222222;
+    padding: 7px 15px 8px;
+    border-width: 1px;
+    border-style: solid;
+    border-color: rgba(0, 0, 0, 0.1);
+    border-radius: 3px;
+    color: #FFFFFF;
+    font-weight: 500;
+    font-size: 15px;
+    border-bottom: 1px solid #E2E2E2;
+}
+
+.buyAgainBtn:hover {
+    background-color: #3c3c3c;
+}
+
+.price {
+    padding: 7px 15px 8px;
+    color: #333333;
+}
+
+.addedToCart {
+    text-align: left;
+    color: #f1641e;
+}

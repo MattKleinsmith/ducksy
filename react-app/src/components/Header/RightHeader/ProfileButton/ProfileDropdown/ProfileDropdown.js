@@ -29,7 +29,7 @@ export default function ProfileDropdown({ user, ui }) {
             <Link className={`${styles.row} ${styles.link}`} to='/your/purchases'>
                 <div className={styles.iconWrapper}><i className={`fa-regular fa-clipboard`} /></div>
                 <div className={`${styles.right} ${styles.purchases}`}>
-                    Purchases
+                    Purchases and reviews
                 </div>
             </Link>
 

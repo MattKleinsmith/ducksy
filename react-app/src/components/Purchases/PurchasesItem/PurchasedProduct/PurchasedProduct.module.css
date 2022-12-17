@@ -1,0 +1,43 @@
+.wrapper {
+    display: flex;
+    border-bottom: 1px solid #E2E2E2;
+    border-left: 1px solid #E2E2E2;
+    border-right: 1px solid #E2E2E2;
+    padding: 20px;
+}
+
+.name {
+    color: #222;
+    font-family: "Merriweather", sans-serif;
+    font-size: 18px;
+    font-weight: 600;
+    text-decoration: none;
+}
+
+.name div {
+    font-family: "Merriweather", sans-serif;
+}
+
+.name:hover {
+    color: #595959;
+    text-decoration: underline;
+}
+
+.imageWrapper {
+    width: 100px;
+    padding: 10px;
+}
+
+.image {
+    max-width: 107px;
+    border: 1px solid #d2d2d2;
+    border-radius: 3px;
+    padding: 3px;
+}
+
+.infoWrapper {
+    padding: 10px 10px 10px 40px;
+    display: flex;
+    flex-direction: column;
+    row-gap: 10px;
+}
