@@ -43,9 +43,8 @@ export const register = body => async (dispatch) => {
         body: JSON.stringify(body)
     });
     const user = await response.json();
-    console.log("register user", user, 'user_id', user.id);
-    await dispatch(setUser(user));
-    dispatch(mergeCarts(user));
+    await dispatch(mergeCarts(user));
+    dispatch(setUser(user));
 };
 
 export default function sessionReducer(state = { user: null }, action) {

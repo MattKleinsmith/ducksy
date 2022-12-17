@@ -18,7 +18,7 @@ export default function Homepage() {
             <div>
                 <div className={styles.welcome}>
                     {currentUser ?
-                        <div className={styles.welcomeText}>Welcome back,
+                        <div className={styles.welcomeText}>{`Welcome back, `}
                             <NavLink className={styles.NavlinkToPurchases} to='/your/purchases'>{currentUser.display_name}</NavLink>!</div>
                         :
                         <div className={styles.welcomeText}>Find things you'll love. Support independent sellers. Only on Ducksy.</div>}
