@@ -17,7 +17,7 @@ export default function Homepage() {
         <>
             <div>
                 <div className={styles.welcome}>{currentUser ?
-                    <div className={styles.welcomeText}>Welcome back, {currentUser.display_name}</div> :
+                    <div className={styles.welcomeText}>Welcome back, <span>{currentUser.display_name}</span>!</div> :
                     <div className={styles.welcomeText}>Find things you'll love. Support independent sellers. Only on Ducksy.</div>}
                     <div className={styles.categoryWrapper}>
                         <div className={styles.imageWrapper}
@@ -27,7 +27,7 @@ export default function Homepage() {
                             }}
                         >
                             <img className={styles.categoryImage} src='/images/personalized_gifts.jpg' alt='img'></img>
-                            <span className={styles.categoryName}>Personalized Gifts</span>
+                            <span className={styles.categoryName}>personalized gifts</span>
                         </div>
                         <div className={styles.imageWrapper}
                             onClick={async () => {
@@ -36,7 +36,7 @@ export default function Homepage() {
                             }}
                         >
                             <span><img className={styles.categoryImage} src='/images/wedding.jpg' alt='img'></img></span>
-                            <span className={styles.categoryName}>Wedding</span>
+                            <span className={styles.categoryName}>wedding</span>
                         </div>
                         <div className={styles.imageWrapper}
                             onClick={async () => {
@@ -45,7 +45,7 @@ export default function Homepage() {
                             }}
                         >
                             <span><img className={styles.categoryImage} src='/images/home_decor.jpg' alt='img'></img></span>
-                            <span className={styles.categoryName}>Home Decor</span>
+                            <span className={styles.categoryName}>home decor</span>
                         </div>
                         <div className={styles.imageWrapper}
                             onClick={async () => {
@@ -54,7 +54,7 @@ export default function Homepage() {
                             }}
                         >
                             <span><img className={styles.categoryImage} src='/images/toy.jpg' alt='img'></img></span>
-                            <span className={styles.categoryName}>Toy</span>
+                            <span className={styles.categoryName}>toy</span>
                         </div>
                         <div className={styles.imageWrapper}
                             onClick={async () => {
@@ -63,7 +63,7 @@ export default function Homepage() {
                             }}
                         >
                             <span><img className={styles.categoryImage} src='/images/bag.jpg' alt='img'></img></span>
-                            <span className={styles.categoryName}>Bag</span>
+                            <span className={styles.categoryName}>bag</span>
                         </div>
                         <div className={styles.imageWrapper}
                             onClick={async () => {
@@ -72,7 +72,7 @@ export default function Homepage() {
                             }}
                         >
                             <span><img className={styles.categoryImage} src='/images/boyfriend.jpg' alt='img'></img></span>
-                            <span className={styles.categoryName}>Boyfriend</span>
+                            <span className={styles.categoryName}>boyfriend</span>
                         </div>
                     </div>
                 </div>
