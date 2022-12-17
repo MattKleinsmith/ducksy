@@ -1,3 +1,4 @@
+import styles from "./App.module.css";
 import { useEffect } from "react";
 import { useDispatch } from "react-redux";
 import { restoreUser } from "./store/session";
@@ -17,10 +18,13 @@ export default function App() {
 
   return (
     <>
-      <Header />
-      <AppRoutes />
-      <Footer />
-
+      <div className={styles.pageContainer}>
+        <div className={styles.contentWrapper}>
+          <Header />
+          <AppRoutes />
+        </div>
+        <Footer />
+      </div>
       <Modals />
     </>
   );

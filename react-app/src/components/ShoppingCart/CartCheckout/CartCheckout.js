@@ -1,8 +1,8 @@
+import styles from './CartCheckout.module.css'
 import { useDispatch, useSelector } from "react-redux"
 import { useNavigate } from "react-router";
 import { checkoutCart } from "../../../store/shoppingCart"
 import { setRegisterModal } from "../../../store/ui";
-import './CartCheckout.css'
 
 
 export default function CartCheckout({ cart_items, user }) {
@@ -16,8 +16,8 @@ export default function CartCheckout({ cart_items, user }) {
         else dispatch(setRegisterModal(true))
     }
     return (
-        <div className="CartCheckout">
-            <div className="cart_subtotal">
+        <div className={styles.CartCheckout}>
+            <div className={styles.cart_subtotal}>
                 <div>
                     Item(s) total
                 </div>
@@ -25,7 +25,7 @@ export default function CartCheckout({ cart_items, user }) {
                     {`$${(Math.round(subtotal * 100) / 100).toFixed(2)}`}
                 </div>
             </div>
-            <div className="cart_checkout_button">
+            <div className={styles.cart_checkout_button}>
                 <button onClick={() => checkoutHandler(user)}
                 >Proceed to checkout</button>
             </div>

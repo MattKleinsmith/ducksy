@@ -6,7 +6,7 @@ import ShopManager from "./components/ShopManager/ShopManager";
 import ProductEditor from "./components/ProductEditor/ProductEditor";
 import ShoppingCart from "./components/ShoppingCart/ShoppingCart";
 import Homepage from "./components/Homepage/Homepage";
-import OrderConfirmation from "./components/ShoppingCart/CartCheckout/OrderConfirmation/OrderConfirmation";
+import OrderConfirmation from "./components/OrderConfirmation/OrderConfirmation";
 
 export default function AppRoutes() {
     return (
