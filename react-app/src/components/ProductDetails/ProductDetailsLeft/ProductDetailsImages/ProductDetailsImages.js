@@ -11,15 +11,15 @@ export default function ProductDetailsImages({ product }) {
 
     return (
         <div className={styles.ProductDetailsImagesWrapper}>
-            <div className={styles.moreImagesWrapper}>
+            <div type='checkbox' className={styles.moreImagesWrapper}>
                 {product.product_images.map(product_image =>
-                    <div className={styles.moreiImagesBtn} onClick={() => onClickHandler(product_image.id)}>
+                    <button className={styles.moreImagesBtn} onClick={() => onClickHandler(product_image.id)}>
                         <img src={product_image.url} alt="ProductDetailsImages" className={styles.moreImages} />
-                    </div>)}
+                    </button>)}
             </div>
             <div className={styles.defaultImageWrapper}>
                 <img src={url} alt="ProductDetailsImages" className={styles.defaultImage} />
             </div>
-        </div>
+        </div >
     );
 }
