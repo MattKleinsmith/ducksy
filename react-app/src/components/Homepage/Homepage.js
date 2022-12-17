@@ -30,7 +30,7 @@ export default function Homepage() {
                             }}
                         >
                             <img className={styles.categoryImage} src='/images/personalized_gifts.jpg' alt='img'></img>
-                            <span className={styles.categoryName}>personalized gifts</span>
+                            <span className={styles.categoryName}>Personalized Gifts</span>
                         </div>
                         <div className={styles.imageWrapper}
                             onClick={async () => {
@@ -39,7 +39,7 @@ export default function Homepage() {
                             }}
                         >
                             <span><img className={styles.categoryImage} src='/images/wedding.jpg' alt='img'></img></span>
-                            <span className={styles.categoryName}>wedding</span>
+                            <span className={styles.categoryName}>Wedding</span>
                         </div>
                         <div className={styles.imageWrapper}
                             onClick={async () => {
@@ -48,7 +48,7 @@ export default function Homepage() {
                             }}
                         >
                             <span><img className={styles.categoryImage} src='/images/home_decor.jpg' alt='img'></img></span>
-                            <span className={styles.categoryName}>home decor</span>
+                            <span className={styles.categoryName}>Home decor</span>
                         </div>
                         <div className={styles.imageWrapper}
                             onClick={async () => {
@@ -57,7 +57,7 @@ export default function Homepage() {
                             }}
                         >
                             <span><img className={styles.categoryImage} src='/images/toy.jpg' alt='img'></img></span>
-                            <span className={styles.categoryName}>toy</span>
+                            <span className={styles.categoryName}>Toy</span>
                         </div>
                         <div className={styles.imageWrapper}
                             onClick={async () => {
@@ -66,7 +66,7 @@ export default function Homepage() {
                             }}
                         >
                             <span><img className={styles.categoryImage} src='/images/bag.jpg' alt='img'></img></span>
-                            <span className={styles.categoryName}>bag</span>
+                            <span className={styles.categoryName}>Bag</span>
                         </div>
                         <div className={styles.imageWrapper}
                             onClick={async () => {
@@ -75,7 +75,7 @@ export default function Homepage() {
                             }}
                         >
                             <span><img className={styles.categoryImage} src='/images/boyfriend.jpg' alt='img'></img></span>
-                            <span className={styles.categoryName}>boyfriend</span>
+                            <span className={styles.categoryName}>Boyfriend</span>
                         </div>
                     </div>
                 </div>

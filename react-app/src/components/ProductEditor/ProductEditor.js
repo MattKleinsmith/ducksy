@@ -8,7 +8,7 @@ import styles from "./ProductEditor.module.css";
 import footerStyles from "./ProductEditorFooter/ProductEditorFooter.module.css"
 
 export default function ProductEditor() {
-    const navigate = useNavigate()
+    const navigate = useNavigate();
     const { productId } = useParams();
     const dispatch = useDispatch();
     const product = useSelector(state => state.products)[productId]
