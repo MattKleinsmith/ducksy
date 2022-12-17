@@ -1,4 +1,5 @@
 import { useSelector, useDispatch } from 'react-redux';
+import { NavLink } from "react-router-dom";
 import { useEffect } from "react";
 import { getCurrentUserOrders } from '../../store/orderDetails';
 import { setReviewModal, setEditReviewModal, setDeleteReviewModal } from '../../store/ui';
@@ -32,13 +33,21 @@ export default function Purchases() {
                                 <div>{`$${parseFloat(orderDetail.price).toFixed(2)}`}</div>
                             </div>
                             <div className={styles.productWrapper}>
-                                <div className={styles.imageWrapper}>
-                                    <img className={styles.image} src={orderDetail.product ? orderDetail.product.preview_image : "/images/placeholder.png"} alt="previewImage" />
-                                </div>
-                                <div className={styles.infoWrapper}>
-                                    <div className={styles.productName}>
-                                        {orderDetail.product ? orderDetail.product.name : "Product is unavailable"}
+                                <NavLink
+                                    className={styles.productName}
+                                    to={`/listing/${orderDetail.product.id}`}>
+                                    <div className={styles.imageWrapper}>
+                                        <img className={styles.image} src={orderDetail.product ? orderDetail.product.preview_image : "/images/placeholder.png"} alt="previewImage" />
                                     </div>
+                                </NavLink>
+                                <div className={styles.infoWrapper}>
+                                    <NavLink
+                                        className={styles.productName}
+                                        to={`/listing/${orderDetail.product.id}`}>
+                                        <div>
+                                            {orderDetail.product ? orderDetail.product.name : "Product is unavailable"}
+                                        </div>
+                                    </NavLink>
                                     <div className={styles.yourReview}>
                                         {orderDetail.product_id in reviews ?
                                             <div>
