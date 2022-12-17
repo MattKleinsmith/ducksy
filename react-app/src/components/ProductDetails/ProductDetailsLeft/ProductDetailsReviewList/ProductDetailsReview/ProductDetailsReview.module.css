@@ -2,7 +2,6 @@
     margin-top: 1rem;
 }
 
-
 .reviewList {
     display: flex;
     flex-direction: column;
@@ -13,6 +12,7 @@
     line-height: 1.5rem;
     max-height: 4.6rem;
     overflow-y: hidden;
+    font-family: 'IBM Plex Serif', serif;
 }
 
 .buyerInfo {

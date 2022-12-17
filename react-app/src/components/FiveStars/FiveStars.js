@@ -1,4 +1,4 @@
-import "./FiveStars.css"
+import "./FiveStars.css";
 
 export default function FiveStars({ rating }) {
     const fullStarNum = Math.floor(rating);
