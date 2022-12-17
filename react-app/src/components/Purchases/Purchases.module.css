@@ -67,13 +67,18 @@
 
 .productName {
     color: #222;
-    font-family: serif;
+    font-family: "Merriweather", sans-serif;
     font-size: 18px;
     font-weight: 600;
     text-decoration: none;
 }
 
-.productName :hover {
+
+.productName div {
+    font-family: "Merriweather", sans-serif;
+}
+
+.productName:hover {
     color: #595959;
     text-decoration: underline;
 }
