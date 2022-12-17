@@ -64,7 +64,8 @@ class Product(db.Model):
             "seller": self.seller.to_dict(),
             "seller_rating": seller_rating,
             "num_seller_ratings": num_seller_ratings,
-            "categories": [x.id for x in self.categories]
+            "categories": [x.id for x in self.categories],
+            "product_images" : [x.to_dict() for x in self.product_images]
         }
 
 

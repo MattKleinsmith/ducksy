@@ -1,3 +1,35 @@
-.ProductDetailsImages>img {
-    width: 200px;
+.ProductDetailsImagesWrapper {
+    display: flex;
+    border: 3px solid red;
+    position: relative;
+    height: 100%;
+}
+
+.moreImagesWrapper {
+    display: flex;
+    flex-direction: column;
+    width: 60px;
+    height: 60px;
+    position: relative;
+    overflow: hidden;
+}
+
+.moreImages {
+    width: 115px;
+    position: absolute;
+}
+
+.defaultImageWrapper {
+    overflow: hidden;
+    position: relative;
+}
+
+.defaultImage {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    object-fit: cover;
 }
