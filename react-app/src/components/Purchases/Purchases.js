@@ -18,7 +18,7 @@ export default function Purchases() {
     return (
         <>
             <PurchasesHeading />
-            <div className={styles.PurchasesItemsWrapper}>
+            <div className={styles.wrapper}>
                 {orderDetails.map((orderDetail, i) => <PurchasesItem key={i} orderDetail={orderDetail} />)}
                 {orderDetails.length === 0 && "No purchases yet."}
             </div>
