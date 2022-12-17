@@ -62,7 +62,8 @@ export default function ProductDetailsRight({ product }) {
                     :
                     <button onClick={() => navigate(`/your/shop/listing/${product.id}`)}>Edit listing</button>
                 }
-                <div>{product.description}</div>
+                <div className={styles.description}>Description</div>
+                <div className={styles.productDescription}>{product.description}</div>
             </div>
         </div>
     );
