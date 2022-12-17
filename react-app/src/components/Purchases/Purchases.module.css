@@ -66,9 +66,16 @@
 }
 
 .productName {
-    color: 222;
+    color: #222;
+    font-family: serif;
     font-size: 18px;
-    font-weight: bold;
+    font-weight: 600;
+    text-decoration: none;
+}
+
+.productName :hover {
+    color: #595959;
+    text-decoration: underline;
 }
 
 .editReviewBtn {
