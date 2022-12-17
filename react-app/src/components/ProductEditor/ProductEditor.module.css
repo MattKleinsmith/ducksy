@@ -1,15 +1,30 @@
 .ProductEditorWrapper {
     display: flex;
     justify-content: center;
+    padding-top: 1.5rem;
+    margin: 0 auto;
 }
 
 .ProductEditor {
     display: flex;
     flex-direction: column;
-    max-width: 1200px;
-    gap: 10px;
     width: 100vw;
+    width: 1200px;
+    gap: 10px;
+    padding: 0 2vw;
 }
+
+.ProductEditor h1 {
+    font-family: "Merriweather", sans-serif;
+    font-weight: 200;
+    margin: 1rem 0;
+}
+
+.ProductEditor p {
+    font-size: 0.9rem;
+    margin-bottom: 1rem;
+}
+
 
 .image {
     width: 16vw;
@@ -21,7 +36,40 @@
     display: flex;
     flex-direction: column;
     gap: 10px;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.8rem;
+
 }
+
+.formSectionName {
+    font-weight: 600;
+    font-size: 1.1rem;
+}
+
+.formForImage {
+    display: flex;
+    border: 0.05rem rgba(0, 0, 0, 0.2) solid;
+    border-radius: 0.3rem;
+    align-items: flex-start;
+}
+
+
+.formImageOptions {
+    display: flex;
+    flex-direction: column;
+    padding: 1.5vw;
+    row-gap: 1rem;
+}
+
+.formForDetails {
+    display: flex;
+    flex-direction: column;
+    border: 0.05rem rgba(0, 0, 0, 0.2) solid;
+    padding: 1.5vw;
+    border-radius: 0.3rem;
+    row-gap: 1rem;
+}
+
 
 .name {
     width: 50vw;

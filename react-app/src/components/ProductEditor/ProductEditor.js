@@ -68,67 +68,75 @@ export default function ProductEditor() {
     return (
         <div className={styles.ProductEditorWrapper}>
             <div className={styles.ProductEditor}>
-                <h1>{productId ? "Editing" : "Creating"} product {productId}</h1>
-
-                <img id="ProductEditorImage" className={styles.image} src={product?.preview_image} alt={product?.preview_image} />
+                <h1>{productId ? "Editing" : "Creating"} a listing {productId}</h1>
+                <p>Add some photos and details about your item. Fill out what you can for now—you’ll be able to edit this later.</p>
 
                 <form className={styles.form}>
-                    {imageErrors.length > 0 && <ul className="formErrors">
-                        {imageErrors.map((error, i) => <li key={i}>{error}</li>)}
-                    </ul>}
-
-                    <label>Select image{" "}
-                        <input
-                            type="file"
-                            name="image"
-                            accept="image/png, image/jpeg"
-                            onChange={handleImageChange}
-                        />
-                    </label>
-                    <label>Is this a preview image?{" "}
-                        <input
-                            type="checkbox"
-                            name="preview"
-                            className={styles.checkbox}
-                            checked={preview}
-                            onChange={() => setPreview(!preview)}
-                        />
-                    </label>
-
-                    {errors.length > 0 && <ul className="formErrors">
-                        {errors.map((error, i) => <li key={i}>{error}</li>)}
-                    </ul>}
-
-                    <label>Name{" "}
-                        <input
-                            type="text"
-                            value={name}
-                            className={styles.name}
-                            onChange={e => setName(e.target.value)}
-                        />
-                    </label>
-
-                    <div className={styles.descriptionWrapper}>
-
-                        <label className={styles.descriptionLabel} htmlFor="description">Description
-
-                        </label>
-                        <textarea
-                            value={description}
-                            id="description"
-                            className={styles.description}
-                            onChange={e => setDescription(e.target.value)}
-                        />
+                    <div className={styles.formForImage}>
+                        {imageErrors.length > 0 && <ul className="formErrors">
+                            {imageErrors.map((error, i) => <li key={i}>{error}</li>)}
+                        </ul>}
+                        <div className={styles.formImageOptions}>
+                            <div className={styles.formSectionName}>Photos</div>
+                            <label>Add a photo*{" "}
+                                <input
+                                    type="file"
+                                    name="image"
+                                    accept="image/png, image/jpeg"
+                                    onChange={handleImageChange}
+                                />
+                            </label>
+                            <label>Is this a preview image?{" "}
+                                <input
+                                    type="checkbox"
+                                    name="preview"
+                                    className={styles.checkbox}
+                                    checked={preview}
+                                    onChange={() => setPreview(!preview)}
+                                />
+                            </label>
+                        </div>
+                        <img id="ProductEditorImage" className={styles.image} src={product?.preview_image} alt={product?.preview_image} />
                     </div>
+                    <div className={styles.formForDetails}>
+                        <div className={styles.formSectionName}>Listing details</div>
+
+                        {errors.length > 0 && <ul className="formErrors">
+                            {errors.map((error, i) => <li key={i}>{error}</li>)}
+                        </ul>}
+
+                        <label>Name{" "}
+                            <input
+                                type="text"
+                                value={name}
+                                className={styles.name}
+                                onChange={e => setName(e.target.value)}
+                            />
+                        </label>
+
+                        <div className={styles.descriptionWrapper}>
+
+                            <label className={styles.descriptionLabel} htmlFor="description">Description
+
+                            </label>
+                            <textarea
+                                value={description}
+                                id="description"
+                                className={styles.description}
+                                onChange={e => setDescription(e.target.value)}
+                            />
+                        </div>
 
 
-                    <label>Price{" "}
-                        <input
-                            type="number"
-                            value={price}
-                            onChange={e => setPrice(e.target.value)}
-                        />
-                    </label>
+                        <label>Price{" "}
+                            <input
+                                type="number"
+                                value={price}
+                                onChange={e => setPrice(e.target.value)}
+                            />
+                        </label>
+
+                    </div>
                 </form>
             </div>
             <div className={footerStyles.wrapper}>
