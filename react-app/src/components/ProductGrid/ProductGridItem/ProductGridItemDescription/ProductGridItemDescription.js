@@ -1,4 +1,4 @@
-import "./ProductGridItemDescription.css"
+import "./ProductGridItemDescription.css";
 
 export default function ProductGridItemDescription({ product }) {
     return (
@@ -14,7 +14,7 @@ export default function ProductGridItemDescription({ product }) {
                     ({product.num_seller_ratings})
                 </div>
             }
-            <div className="ProductGridItemPrice"><strong>${product.price}</strong></div>
+            <div className="ProductGridItemPrice"><strong>${parseFloat(product.price).toFixed(2)}</strong></div>
         </div>
     );
 }
