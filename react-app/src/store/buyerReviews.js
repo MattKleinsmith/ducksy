@@ -1,4 +1,5 @@
 import { csrfFetch } from './csrf';
+import { getProducts } from './products';
 
 const GET_REVIEWS_BY_BUYER_ID = 'buyerReviews/GET_REVIEWS_BY_BUYER_ID';
 const POST_REVIEW = 'buyerReviews/POST_REVIEW';
@@ -22,6 +23,7 @@ export const postReview = (productId, data) => async dispatch => {
     if (response.ok) {
         const review = await response.json();
         dispatch({ type: POST_REVIEW, review });
+        dispatch(getProducts());
         return review;
     }
 };
@@ -30,6 +32,7 @@ export const deleteReview = (reviewId) => async dispatch => {
     await csrfFetch(`/api/reviews/${reviewId}`, { method: "DELETE" });
     await dispatch({ type: DELETE_REVIEW, reviewId });
     dispatch(getReviewsByBuyerId());
+    dispatch(getProducts());
 };
 
 export const updateReview = (reviewId, body) => async dispatch => {
@@ -40,6 +43,7 @@ export const updateReview = (reviewId, body) => async dispatch => {
     if (response.ok) {
         const review = await response.json();
         dispatch({ type: UPDATE_REVIEW, review });
+        dispatch(getProducts());
         return review;
     }
 };
