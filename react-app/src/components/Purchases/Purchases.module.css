@@ -17,22 +17,6 @@
     padding: 3px;
 }
 
-.heading {
-    border-bottom: 1px solid #d2d2d2;
-    position: relative;
-
-}
-
-.purchases {
-    display: flex;
-    font-size: 26px;
-    font-weight: 500;
-    color: #333;
-    padding: 25px;
-    margin: auto;
-    width: 750px;
-}
-
 .orderInfoWrapper {
     margin: auto;
     padding: 40px;
@@ -158,15 +142,4 @@
 .addedToCart {
     text-align: left;
     color: #f1641e;
-}
-
-.shopNote {
-    color: #999;
-    line-height: 22px;
-    border-bottom: 1px solid #E2E2E2;
-    border-left: 1px solid #E2E2E2;
-    border-right: 1px solid #E2E2E2;
-    padding: 10px;
-    border-radius: 3px;
-    box-shadow: 0 2px 0 rgb(0 0 0 / 10%);
 }

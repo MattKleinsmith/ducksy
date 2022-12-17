@@ -2,12 +2,14 @@ import { useSelector, useDispatch } from 'react-redux';
 import { NavLink } from "react-router-dom";
 import { useEffect } from "react";
 import { getCurrentUserOrders } from '../../store/orderDetails';
-import { setReviewModal, setEditReviewModal, setDeleteReviewModal } from '../../store/ui';
+import { setReviewModal, setDeleteReviewModal } from '../../store/ui';
 import { setProductId } from '../../store/productDetails';
 import { getReviewsByBuyerId } from '../../store/buyerReviews';
 import { clearReviewDetails, setReviewDetails } from '../../store/reviewDetails';
 import styles from './Purchases.module.css';
 import BuyItAgain from './BuyItAgain';
+import ShopNote from './ShopNote/ShopNote';
+import PurchasesHeading from './PurchasesHeading/PurchasesHeading';
 
 export default function Purchases() {
     const dispatch = useDispatch();
@@ -22,9 +24,7 @@ export default function Purchases() {
     return (
         <>
             <div>
-                <div className={styles.heading}>
-                    <p className={styles.purchases}>Purchases</p>
-                </div>
+                <PurchasesHeading />
                 <div className={styles.orderInfoWrapper}>
                     {orderDetails.length > 0 && orderDetails.map((orderDetail, i) =>
                         <div key={i} className={styles.orderInfo}>
@@ -83,10 +83,7 @@ export default function Purchases() {
                                     <BuyItAgain product={orderDetail.product} />
                                 </div>
                             </div>
-                            <div className={styles.shopNote}>
-                                <p style={{ color: '#333' }}>Shop Note</p>
-                                <p>Thank you so much for your purchase!!! We will have it shipped out asap and send you an email to notify you when it ships. Again, your patronage is very much appreciated and keeps our small business running strong. Thanks for your support!</p>
-                            </div>
+                            <ShopNote />
                         </div>
                     )}
                     {orderDetails.length === 0 && <div>No purchases yet.</div>}
