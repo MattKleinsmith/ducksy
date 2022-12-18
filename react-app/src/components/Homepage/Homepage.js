@@ -9,7 +9,7 @@ import ProductGrid from "../ProductGrid/ProductGrid";
 export default function Homepage() {
     const dispatch = useDispatch();
     const navigate = useNavigate();
-    const allproducts = useSelector(state => state.products);
+    const allproducts = useSelector(state => Object.values(state.products));
     const currentUser = useSelector(state => state.session.user);
     const products = allproducts.slice(0, 8);
     return (
