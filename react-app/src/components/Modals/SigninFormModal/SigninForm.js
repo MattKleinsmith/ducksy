@@ -16,7 +16,7 @@ export default function SigninForm() {
         return dispatch(sessionActions.signIn({ email, password }))
             .then(() => dispatch(setSigninModal(false)))
             .catch(e => {
-                const errors = Object.entries(e.errors).map(([errorField, errorMessage]) => `${errorField}: ${errorMessage}`)
+                const errors = Object.entries(e.errors).map(([errorField, errorMessage]) => `${errorField}: ${errorMessage}`);
                 setErrors(errors);
             });
     };
@@ -32,7 +32,7 @@ export default function SigninForm() {
                 </div>
             </div>
             {
-                errors.length > 0 && <ul className="formErrors">
+                errors.length > 0 && <ul className={styles.formErrors}>
                     {errors.map((error, idx) => <li key={idx}>{error}</li>)}
                 </ul>
             }
