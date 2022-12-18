@@ -11,7 +11,7 @@ export default function Homepage() {
     const navigate = useNavigate();
     const allproducts = useSelector(state => Object.values(state.products));
     const currentUser = useSelector(state => state.session.user);
-    const products = allproducts.slice(0, 10);
+    const products = allproducts.slice(0, 8);
     return (
         <>
             <div>
@@ -94,6 +94,7 @@ export default function Homepage() {
                     </div>
                 </div>
             </div >
+            <div>Popular gifts right now</div>
             <ProductGrid isHomepage={true} />
         </>
     );

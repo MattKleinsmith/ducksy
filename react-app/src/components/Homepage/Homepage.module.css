@@ -82,17 +82,26 @@
 
 .homepage {
     display: grid;
-    grid-template-columns: repeat(5, minmax(0, 1fr));
+    grid-template-columns: repeat(4, 1fr);
     max-width: 1200px;
     padding: 10px 30px;
-    column-gap: 10px;
-    row-gap: 1vh;
+    gap: 1vh;
     overflow: hidden;
 }
 
-.productInfos {
-    height: 14vw;
-    max-width: 18vw;
+.productInfos:nth-child(2n + 2),
+.productInfos:nth-child(5n + 2) {
+    height: 180px;
+    width: 280px;
+}
+
+.productInfos:nth-child(8n + 1),
+.productInfos:nth-child(8n + 3),
+.productInfos:nth-child(8n + 5),
+.productInfos:nth-child(8n + 6) {
+    height: 280px;
+    width: 240px;
+    grid-row: span 2;
 }
 
 .price {
