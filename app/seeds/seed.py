@@ -67,6 +67,635 @@ def seed_all():
     ## Products ##
     ##############
 
+
+    product = Product(
+        seller=anna,
+        categories=[home_decor, gift,personalized_gift],
+        name="Christmas Tree Decoration - Librarian Ornament - Personalized Acrylic Ornament - Book Lovers Gift - Lover Bookworm - Bookshelf Custom Name",
+        price="12.99",
+        description="🎁Any Problem,Pls contact me any time."
+    )
+
+    db.session.add_all([
+        ProductImage(
+            product=product,
+            url=upload_image_to_bucket_from_url("https://i.etsystatic.com/5594537/r/il/23d3e4/4313384449/il_794xN.4313384449_duqj.jpg"),
+            preview=True
+        ),
+        ProductImage(
+            product=product,
+            url=upload_image_to_bucket_from_url("https://i.etsystatic.com/5594537/r/il/066703/4265998012/il_1588xN.4265998012_ay31.jpg"),
+            preview=False
+        ),
+        ProductImage(
+            product=product,
+            url=upload_image_to_bucket_from_url("https://i.etsystatic.com/5594537/r/il/957e42/4313395869/il_1588xN.4313395869_9ium.jpg"),
+            preview=False
+        ),
+        ProductImage(
+            product=product,
+            url=upload_image_to_bucket_from_url("https://i.etsystatic.com/5594537/r/il/c7fe11/4313392445/il_1588xN.4313392445_dfj4.jpg"),
+            preview=False
+        ),
+        ProductImage(
+            product=product,
+            url=upload_image_to_bucket_from_url("https://i.etsystatic.com/5594537/r/il/9464a9/4265993564/il_1588xN.4265993564_b94k.jpg"),
+            preview=False
+        ),
+        ProductImage(
+            product=product,
+            url=upload_image_to_bucket_from_url("https://i.etsystatic.com/5594537/r/il/8a3c8d/4265987390/il_1588xN.4265987390_l8lf.jpg"),
+            preview=False
+        ),
+        ProductImage(
+            product=product,
+            url=upload_image_to_bucket_from_url("https://i.etsystatic.com/5594537/r/il/c9fca9/4313394981/il_1588xN.4313394981_jjwl.jpg"),
+            preview=False
+        ),
+        ProductImage(
+            product=product,
+            url=upload_image_to_bucket_from_url("https://i.etsystatic.com/5594537/r/il/3d4650/4265997396/il_1588xN.4265997396_owq4.jpg"),
+            preview=False
+        ),
+
+        Review(
+            user=brian,
+            product=product,
+            rating=2,
+            review="It wasn’t what I expected. The colors are more vibrant on the Etsy photo which makes the books stand out more and look more dimensional. The one I received seems muted and all the same color palette so it just isn’t very interesting. I think I misinterpreted the Etsy photo. It arrived on time."
+        ),
+
+        Review(
+            user=caitlynn,
+            product=product,
+            rating=3,
+            review="For me this item didn’t match the pic or description, I assumed the ornament and books were more 3D, sticking out and that’s what attracted me to it. I didn’t want just a photo of books laminated on the ornament but if that’s what you’re looking for this is it. Quality is good but I don’t think the look of it is very bright as it shows in the photo."
+        ),
+
+        Review(
+            user=derrik,
+            product=product,
+            rating=5,
+            review="Adorable! Perfect tree ornament for daughter who makes her living selling, reading, writing & loving books. Looks just like the picture; Thanks for sending it 'gift-ready' in nice little box."
+        ),
+
+        Review(
+            user=elizabeth,
+            product=product,
+            rating=2,
+            review="Very cheap-looking. Plastic coating was bubbled over the picture of books. Not what I was expecting. Cannot give this to the intended recipient."
+        ),
+    ])
+
+    db.session.commit()
+
+
+    product = Product(
+        seller=anna,
+        categories=[gift,personalized_gift],
+        name="Goal Journal, Custom Planner, Planner 2023, Goal Planner, Planner Journal, 2023 Planner, Customized Planner, Personal Planner",
+        price="49.99",
+        description="BEATI FIC HAPPY DAILY PLANNER 2023 - 2024 and beyond."
+    )
+
+    db.session.add_all([
+        ProductImage(
+            product=product,
+            url=upload_image_to_bucket_from_url("https://i.etsystatic.com/14788844/r/il/8d9242/2807422358/il_794xN.2807422358_g54t.jpg"),
+            preview=True
+        ),
+        ProductImage(
+            product=product,
+            url=upload_image_to_bucket_from_url("https://i.etsystatic.com/14788844/r/il/4d18f7/4120791184/il_1588xN.4120791184_ly6c.jpg"),
+            preview=False
+        ),
+        ProductImage(
+            product=product,
+            url=upload_image_to_bucket_from_url("https://i.etsystatic.com/14788844/r/il/df9e47/4120791468/il_1588xN.4120791468_sin6.jpg"),
+            preview=False
+        ),
+        ProductImage(
+            product=product,
+            url=upload_image_to_bucket_from_url("https://i.etsystatic.com/14788844/r/il/ce79bd/4168456809/il_1588xN.4168456809_lokd.jpg"),
+            preview=False
+        ),
+        ProductImage(
+            product=product,
+            url=upload_image_to_bucket_from_url("https://i.etsystatic.com/14788844/r/il/93842d/4120791584/il_1588xN.4120791584_cat3.jpg"),
+            preview=False
+        ),
+        ProductImage(
+            product=product,
+            url=upload_image_to_bucket_from_url("https://i.etsystatic.com/14788844/r/il/e4f79a/4230055159/il_1588xN.4230055159_6i39.jpg"),
+            preview=False
+        ),
+        ProductImage(
+            product=product,
+            url=upload_image_to_bucket_from_url("https://i.etsystatic.com/14788844/r/il/8a3dd7/4168457247/il_1588xN.4168457247_ete0.jpg"),
+            preview=False
+        ),
+        ProductImage(
+            product=product,
+            url=upload_image_to_bucket_from_url("https://i.etsystatic.com/14788844/r/il/4d18f7/4120791184/il_1588xN.4120791184_ly6c.jpg"),
+            preview=False
+        ),
+        ProductImage(
+            product=product,
+            url=upload_image_to_bucket_from_url("https://i.etsystatic.com/14788844/r/il/cae788/4174206891/il_1588xN.4174206891_l13p.jpg"),
+            preview=False
+        ),
+
+        Review(
+            user=brian,
+            product=product,
+            rating=5,
+            review="In love with it! So beautiful, thank you so much."
+        ),
+
+        Review(
+            user=caitlynn,
+            product=product,
+            rating=5,
+            review="Very happy with my purchase, so far. I’ve been using it every day and I just got it a week ago. So far so good! I like the simple design and simplicity overall. Other planners I’ve tried were just way too detailed and I think completely derail any effort you have of being organized because it just gives you too many options. I ordered this one specifically because it was just straight to the point and not too overwhelming. The shipping I only gave four stars because it just took longer than I thought. That’s all. But I got it and the quality of the product is really well done! 🙂"
+        ),
+
+        Review(
+            user=derrik,
+            product=product,
+            rating=5,
+            review="I added customization on this notebook and it turned out better than I expected. Completely in love. 🥰😍"
+        ),
+
+        Review(
+            user=elizabeth,
+            product=product,
+            rating=5,
+            review="I had purchased 6 books total from Gvan. I had customized 4 of the 6 books and Gvan did a wonderful job. She went above and beyond to make sure I was happy with the draft before production started. She kept me in the loop from draft, to production, to shipped. Amazing customer service and everything was shipped very well. 1000% recommend. These are gifts and I can’t wait to hand them out. 😍"
+        ),
+    ])
+
+    db.session.commit()
+
+    product = Product(
+        seller=anna,
+        categories=[home_decor],
+        name="Pineapple Print, Pineapple Wall Art Prints, Printable Kitchen Decor, Botanical Print, Tropical Watercolor Print, Printable Wall Art, Posters",
+        price="6.99",
+        description="Pineapple print is a high quality instantly downloadable printable wall art. Decor your home, nursery or office in an affordable way! Print it and frame it - it's really that easy!"
+    )
+
+    db.session.add_all([
+        ProductImage(
+            product=product,
+            url=upload_image_to_bucket_from_url("https://i.etsystatic.com/12421481/r/il/5be307/1223735702/il_794xN.1223735702_d1fk.jpg"),
+            preview=True
+        ),
+         ProductImage(
+            product=product,
+            url=upload_image_to_bucket_from_url("https://i.etsystatic.com/12421481/r/il/96a486/1073878972/il_1588xN.1073878972_awum.jpg"),
+            preview=False
+        ),
+         ProductImage(
+            product=product,
+            url=upload_image_to_bucket_from_url("https://i.etsystatic.com/12421481/r/il/48f330/1073877922/il_1588xN.1073877922_swdt.jpg"),
+            preview=False
+        ),
+         ProductImage(
+            product=product,
+            url=upload_image_to_bucket_from_url("https://i.etsystatic.com/12421481/r/il/bd7a12/976145786/il_1588xN.976145786_728c.jpg"),
+            preview=False
+        ),
+
+        Review(
+            buyer=brian,
+            product=product,
+            rating=5,
+            review="I WILL DEFINITELY BE ORDERING AGAIN!! This print looks so great hanging in my kitchen- it was the perfect addition to the bare wall I was trying to beautify!"
+        ),
+
+        Review(
+            buyer=caitlynn,
+            product=product,
+            rating=5,
+            review="Was looking for some simple art to frame on the wall and this fit the bill. Was easy to print and turned out great!"
+        ),
+
+        Review(
+            buyer=derrik,
+            product=product,
+            rating=5,
+            review="I love the print, and told my friends about it. It's going to hang in my living room - the quality was wonderful."
+        ),
+
+        Review(
+            buyer=elizabeth,
+            product=product,
+            rating=5,
+            review="Fun print, very pleased with my purchase. It looks great in my kitchen!"
+        ),
+    ])
+
+    db.session.commit()
+
+    product = Product(
+        seller=anna,
+        categories=[boyfriend],
+        name="Pineapple Watercolor Print Kitchen Art by HippieHoppy",
+        price="Price: 9.10",
+        description="This is a print of my original watercolor painting that I hand painted in 2018. All prints are gallery quality Giclée prints on Pure white, ultra smooth, 100% cotton rag, acid and lignin free archival paper using archival inks and are individually signed."
+    )
+
+    db.session.add_all([
+        ProductImage(
+            product=product,
+            url=upload_image_to_bucket_from_url("https://i.etsystatic.com/9084215/r/il/d66b2d/2601849206/il_794xN.2601849206_mug7.jpg"),
+            preview=True
+        ),
+        ProductImage(
+            product=product,
+            url=upload_image_to_bucket_from_url("https://i.etsystatic.com/9084215/r/il/f79c30/1580617794/il_1588xN.1580617794_177j.jpg"),
+            preview=False
+        ),
+         ProductImage(
+            product=product,
+            url=upload_image_to_bucket_from_url("https://i.etsystatic.com/9084215/r/il/887e53/1628058903/il_1588xN.1628058903_4omv.jpg"),
+            preview=False
+        ),
+         ProductImage(
+            product=product,
+            url=upload_image_to_bucket_from_url("https://i.etsystatic.com/9084215/r/il/727e0e/1580617896/il_1588xN.1580617896_hopj.jpg"),
+            preview=False
+        ),
+         ProductImage(
+            product=product,
+            url=upload_image_to_bucket_from_url("https://i.etsystatic.com/9084215/r/il/02171a/1580617984/il_1588xN.1580617984_dbd9.jpg"),
+            preview=False
+        ),
+         ProductImage(
+            product=product,
+            url=upload_image_to_bucket_from_url("https://i.etsystatic.com/9084215/r/il/dfe805/1628059351/il_1588xN.1628059351_ouao.jpg"),
+            preview=False
+        ),
+
+        Review(
+            buyer=brian,
+            product=product,
+            rating=5,
+            review="I bought 4 pieces for my pantry wall and I love them. They are even prettier than they were on the site. They are perfect for what I wanted them for. Would highly recommend."
+        ),
+
+        Review(
+            buyer=caitlynn,
+            product=product,
+            rating=5,
+            review="Purchased for my daughter, who loves pineapples and is moving from Hawaii. The painting itself is adorable, and arrived quickly. I'm sure she will love it. My only disappointment is the signature is very tiny and on the bottom edge. I like to see the signature on artwork, but when I get this matted/framed the signature is so close to the edge that it will get covered up. That will make me sad."
+        ),
+
+        Review(
+            buyer=derrik,
+            product=product,
+            rating=5,
+            review="Absolutely beautiful piece! I am so happy with my purchase. Mahalo."
+        ),
+
+        Review(
+            buyer=elizabeth,
+            product=product,
+            rating=5,
+            review="Crystal nice crystal leave nice card. But in all seriousness it's a great quality and it's very pretty. All you need is the frame and you're good! It shipped extremely quick and it came with a nice card which I very much enjoyed. 10/10."
+        ),
+    ])
+
+    db.session.commit()
+
+
+    product = Product(
+        seller=anna,
+        categories=[gift, personalized_gift,home_decor],
+        name="Best Christmas Gift,Hand-Carved Painted Orange Cat Figurines | Wooden Animal | Home Decor Sculpture Ornament | Personalized Gift",
+        price="Price:15.99",
+        description="Painted wooden orange cat ornaments are handcrafted from carved wood and hand-painted in different shades of paint. the orange cat looks cute and funny and comes to life."
+    )
+
+    db.session.add_all([
+        ProductImage(
+            product=product,
+            url=upload_image_to_bucket_from_url("https://i.etsystatic.com/18840488/r/il/4f6762/4193569941/il_794xN.4193569941_k6q7.jpg"),
+            preview=True
+        ),
+        ProductImage(
+            product=product,
+            url=upload_image_to_bucket_from_url("https://i.etsystatic.com/18840488/r/il/1621e6/4374499176/il_1588xN.4374499176_oob5.jpg"),
+            preview=False
+        ),
+        ProductImage(
+            product=product,
+            url=upload_image_to_bucket_from_url("https://i.etsystatic.com/18840488/r/il/b202e1/4374477426/il_1588xN.4374477426_23w4.jpg"),
+            preview=False
+        ),
+        ProductImage(
+            product=product,
+            url=upload_image_to_bucket_from_url("https://i.etsystatic.com/18840488/r/il/c25f9d/4374477544/il_1588xN.4374477544_qyym.jpg"),
+            preview=False
+        ),
+        ProductImage(
+            product=product,
+            url=upload_image_to_bucket_from_url("https://i.etsystatic.com/18840488/r/il/13c33e/4374477170/il_1588xN.4374477170_3rh5.jpg"),
+            preview=False
+        ),
+        ProductImage(
+            product=product,
+            url=upload_image_to_bucket_from_url("https://i.etsystatic.com/18840488/r/il/b63529/4421883813/il_1588xN.4421883813_muy3.jpg"),
+            preview=False
+        ),
+        ProductImage(
+            product=product,
+            url=upload_image_to_bucket_from_url("https://i.etsystatic.com/18840488/r/il/e7712f/4421887263/il_1588xN.4421887263_n06a.jpg"),
+            preview=False
+        ),
+        ProductImage(
+            product=product,
+            url=upload_image_to_bucket_from_url("https://i.etsystatic.com/18840488/r/il/86b359/4421887219/il_1588xN.4421887219_t0lj.jpg"),
+            preview=False
+        ),
+
+        Review(
+            buyer=brian,
+            product=product,
+            rating=5,
+            review="The Wooden Cat arrived wrapped up safely, and I love the feature of the little bell around the necklace and how it actually makes noise when you move it, it’s so adorable that I constantly pause what I’m doing and take a few moments to admire it. It was worth every penny for this little cat sculpture!"
+        ),
+
+        Review(
+            buyer=caitlynn,
+            product=product,
+            rating=4,
+            review="It's a very cute tiny cat. Perfect for a stocking stuffer. It did quite a long time to get to me. When I told the seller that I hadn't received it yet, they shipped one right out (so now I have it in time for Christmas)."
+        ),
+
+        Review(
+            buyer=derrik,
+            product=product,
+            rating=5,
+            review="This cat is really adorable! It makes me smile looking at it - it reminds me of our cat who we had to put down recently and it feels like he's smiling at me when I look at it. It's quite small, which is fine, but something to note that the other reviews have mentioned as well."
+        ),
+
+        Review(
+            buyer=elizabeth,
+            product=product,
+            rating=5,
+            review="Super cute!!! Smaller than I anticipated, but I didn't look at the dimensions before buying, so make sure you do to understand their size. Shipped quickly and good quality. Really recommend and will be giving as a gift."
+        ),
+    ])
+
+    db.session.commit()
+
+    product = Product(
+        seller=anna,
+        categories=[home_decor, gift],
+        name="Crystal Suncatchers, Light Catcher, Boho Decor, Moon Evil Eye Window Prism, Witchy Decor, Housewarming Gift, Indie Room Decor",
+        price="Price:11.59",
+        description="PERSONALIZED ZODIAC & BIRTHSTONE CHARMS:"
+    )
+
+    db.session.add_all([
+        ProductImage(
+            product=product,
+            url=upload_image_to_bucket_from_url("https://i.etsystatic.com/26343368/r/il/bcff5a/4260582323/il_794xN.4260582323_jp01.jpg"),
+            preview=True
+        ),
+        ProductImage(
+            product=product,
+            url=upload_image_to_bucket_from_url("https://i.etsystatic.com/26343368/r/il/bf8536/4352523970/il_1588xN.4352523970_qwbb.jpg"),
+            preview=False
+        ),
+        ProductImage(
+            product=product,
+            url=upload_image_to_bucket_from_url("https://i.etsystatic.com/26343368/r/il/c43f70/4352523944/il_1588xN.4352523944_gibm.jpg"),
+            preview=False
+        ),
+        ProductImage(
+            product=product,
+            url=upload_image_to_bucket_from_url("https://i.etsystatic.com/26343368/r/il/410c70/4233610206/il_1588xN.4233610206_d4y3.jpg"),
+            preview=False
+        ),
+        ProductImage(
+            product=product,
+            url=upload_image_to_bucket_from_url("https://i.etsystatic.com/26343368/r/il/070c58/4409831209/il_1588xN.4409831209_3v8r.jpg"),
+            preview=False
+        ),
+        ProductImage(
+            product=product,
+            url=upload_image_to_bucket_from_url("https://i.etsystatic.com/26343368/r/il/a9c656/4352524038/il_1588xN.4352524038_gze4.jpg"),
+            preview=False
+        ),
+        ProductImage(
+            product=product,
+            url=upload_image_to_bucket_from_url("https://i.etsystatic.com/26343368/r/il/57cc37/4454377091/il_1588xN.4454377091_k1jy.jpg"),
+            preview=False
+        ),
+        ProductImage(
+            product=product,
+            url=upload_image_to_bucket_from_url("https://i.etsystatic.com/26343368/r/il/f3020d/4240042263/il_1588xN.4240042263_4z31.jpg"),
+            preview=False
+        ),
+
+        Review(
+            buyer=brian,
+            product=product,
+            rating=5,
+            review="They’re even more beautiful in person and I can’t wait to give it to my best friend for Christmas. I just know he’s going to love it. The sun catcher got to me sooner than expected and was packaged so thoughtfully. Will purchase another one for myself after the holidays."
+        ),
+
+        Review(
+            buyer=caitlynn,
+            product=product,
+            rating=5,
+            review="Beautifully made, and came in so quick! The little pouch it’s placed in is so cute as well. Very satisfied."
+        ),
+
+        Review(
+            buyer=derrik,
+            product=product,
+            rating=5,
+            review="Love. Love. Love. These will be the perfect gift for all of my girl friends. The hardest part... picking the 2 I want to keep."
+        ),
+
+        Review(
+            buyer=elizabeth,
+            product=product,
+            rating=5,
+            review="So cute! It’s absolutely gorgeous when the sun hits it too!"
+        ),
+    ])
+
+    db.session.commit()
+
+    product = Product(
+        seller=anna,
+        categories=[personalized_gift, gift, girlfriend],
+        name="Birth Month Flower Jewelry Case, Personalized Birth Flower Travel Box, Birthday Gift, Christmas & Holiday Gift, Wedding Gifts, Jewelry Case",
+        price="Price:16.06",
+        description="A perfect Italian velvet, traveler's customizable zipper jewelry case for personal gift - especially for Christmas!"
+    )
+
+    db.session.add_all([
+        ProductImage(
+            product=product,
+            url=upload_image_to_bucket_from_url("https://i.etsystatic.com/22038730/r/il/486b73/4337247972/il_794xN.4337247972_3ffm.jpg"),
+            preview=True
+        ),
+        ProductImage(
+            product=product,
+            url=upload_image_to_bucket_from_url("https://i.etsystatic.com/22038730/r/il/e4520c/4370065950/il_1588xN.4370065950_m71z.jpg"),
+            preview=False
+        ),
+          ProductImage(
+            product=product,
+            url=upload_image_to_bucket_from_url("https://i.etsystatic.com/22038730/r/il/5c8192/4201608692/il_1588xN.4201608692_9fe8.jpg"),
+            preview=False
+        ),
+          ProductImage(
+            product=product,
+            url=upload_image_to_bucket_from_url("https://i.etsystatic.com/22038730/r/il/1dce16/4262239210/il_1588xN.4262239210_l9mp.jpg"),
+            preview=False
+        ),
+
+        ProductImage(
+            product=product,
+            url=upload_image_to_bucket_from_url("https://i.etsystatic.com/22038730/r/il/de00c2/4283903357/il_1588xN.4283903357_fr1x.jpg"),
+            preview=False
+        ),
+
+        ProductImage(
+            product=product,
+            url=upload_image_to_bucket_from_url("https://i.etsystatic.com/22038730/r/il/36b5fd/4240400934/il_1588xN.4240400934_e845.jpg"),
+            preview=False
+        ),
+
+         ProductImage(
+            product=product,
+            url=upload_image_to_bucket_from_url("https://i.etsystatic.com/22038730/r/il/bc503b/4201613894/il_1588xN.4201613894_j0u7.jpg"),
+            preview=False
+        ),
+
+        ProductImage(
+            product=product,
+            url=upload_image_to_bucket_from_url("https://i.etsystatic.com/22038730/r/il/4a61d5/4394804761/il_1588xN.4394804761_6e2w.jpg"),
+            preview=False
+        ),
+
+        Review(
+            buyer=brian,
+            product=product,
+            rating=5,
+            review="The jewelry box came out very well, and the embroidery looks amazing. The box feels nice as well, and the interior has a lot of room"
+        ),
+
+        Review(
+            buyer=caitlynn,
+            product=product,
+            rating=5,
+            review="Absolutely beautiful!! The color is perfect and it feels very high quality. I bought these for all the girls in my wedding party. I love them, thank you so much!!"
+        ),
+
+        Review(
+            buyer=derrik,
+            product=product,
+            rating=5,
+            review="My jaw dropped opening up this package. Their work is beautiful and I am so excited to give my nieces this gift. So happy.!"
+        ),
+
+        Review(
+            buyer=elizabeth,
+            product=product,
+            rating=4,
+            review="Absolutely amazing!!!! Perfect quality and look is absolutely perfection!!!!"
+        ),
+    ])
+
+    db.session.commit()
+
+
+    product = Product(
+        seller=anna,
+        categories=[gift, girlfriend],
+        name="Feminist Sticker, holographic sticker , intersectional feminist, feminism sticker, car decal, laptop sticker",
+        price="Price:2.39",
+        description="You will receive one 3' x 2.84' sticker printed with high quality opaque ink on durable thick vinyl. The adhesive is permanent, though -- so make sure you'll want it forever wherever you do stick it!"
+    )
+
+    db.session.add_all([
+        ProductImage(
+            product=product,
+            url=upload_image_to_bucket_from_url("https://i.etsystatic.com/7916159/r/il/b507e8/2479497621/il_794xN.2479497621_qw87.jpg"),
+            preview=True
+        ),
+        ProductImage(
+            product=product,
+            url=upload_image_to_bucket_from_url("https://i.etsystatic.com/7916159/r/il/273317/2479443123/il_1588xN.2479443123_izuu.jpg"),
+            preview=False
+        ),
+         ProductImage(
+            product=product,
+            url=upload_image_to_bucket_from_url("https://i.etsystatic.com/7916159/r/il/e17a99/2479398277/il_1588xN.2479398277_ntwi.jpg"),
+            preview=False
+        ),
+         ProductImage(
+            product=product,
+            url=upload_image_to_bucket_from_url("https://i.etsystatic.com/7916159/r/il/de3799/2479398281/il_1588xN.2479398281_cktd.jpg"),
+            preview=False
+        ),
+         ProductImage(
+            product=product,
+            url=upload_image_to_bucket_from_url("https://i.etsystatic.com/7916159/r/il/90ae69/2479492811/il_1588xN.2479492811_8tq2.jpg"),
+            preview=False
+        ),
+         ProductImage(
+            product=product,
+            url=upload_image_to_bucket_from_url("https://i.etsystatic.com/7916159/r/il/4638c9/2281777236/il_1588xN.2281777236_avxv.jpg"),
+            preview=False
+        ),
+         ProductImage(
+            product=product,
+            url=upload_image_to_bucket_from_url("https://i.etsystatic.com/7916159/r/il/49e238/2455792394/il_1588xN.2455792394_4dat.jpg"),
+            preview=False
+        ),
+
+        Review(
+            buyer=brian,
+            product=product,
+            rating=5,
+            review="Gorgeous! Just perfect - it’s exactly the sweet loving message I wanted to express my love of equality and my own femininity!"
+        ),
+
+        Review(
+            buyer=caitlynn,
+            product=product,
+            rating=5,
+            review="Sticker is beautiful and I love it! It looks so great on my subie!"
+        ),
+
+        Review(
+            buyer=derrik,
+            product=product,
+            rating=5,
+            review="Looks amazing on my laptop."
+        ),
+
+        Review(
+            buyer=elizabeth,
+            product=product,
+            rating=5,
+            review="Love it! Perfect!"
+        ),
+    ])
+
+    db.session.commit()
+
+
+    ################################
+
     product = Product(
         seller=anna,
         categories=[wedding, gift, girlfriend, bag],
