@@ -7,6 +7,8 @@
 }
 
 .salesData {
+    display: flex;
+    gap: 5px;
     font-size: 0.8rem;
 }
 

@@ -24,7 +24,7 @@ export default function ProductDetailsRight({ product }) {
             <div className={styles.ProductDetailsRight}>
                 <div className={styles.sellerInfo}>
                     <div>{product.seller.display_name}</div>
-                    <div className={styles.salesData}><span>{product.sales} sales | <FiveStars rating={product.product_rating} /></span></div>
+                    <div className={styles.salesData}>{product.sales} sales<div>|</div><FiveStars rating={product.product_rating} /></div>
                 </div>
                 <div className={styles.productName}>{product.name}</div>
                 <div className={styles.productPrice}>${(Math.round(product.price * 100) / 100).toFixed(2)}</div>
