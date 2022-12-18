@@ -25,6 +25,9 @@
 
 .cancel {
     font-weight: bold;
-    font-size: 16px;
+    font-size: 20px;
     margin-left: 400px;
+    align-self: flex-end;
+    margin-top: -10px;
+    margin-bottom: 5px;
 }
