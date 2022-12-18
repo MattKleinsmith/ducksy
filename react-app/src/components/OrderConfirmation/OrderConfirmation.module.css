@@ -2,11 +2,9 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    max-width: 1350px;
+    max-width: 1200px;
     margin: 3rem auto;
-
 }
-
 
 .confirmation_message {
     margin-bottom: 1rem;

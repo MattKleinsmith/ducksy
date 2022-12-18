@@ -1,0 +1,37 @@
+.wrapper {
+    background: #f5f5f1;
+    padding: 10px;
+    line-height: 20px;
+}
+
+.cancelWrapper {
+    display: flex;
+    justify-content: space-between;
+}
+
+.removeReviewBtn {
+    font-weight: bold;
+    font-size: 15px;
+}
+
+.rating {
+    font-weight: bold;
+}
+
+.review {
+    color: #656565;
+}
+
+.editReviewBtn {
+    text-decoration: underline;
+}
+
+.reviewBtnWrapper {
+    background: #f5f5f1;
+    min-width: 420px;
+}
+
+.reviewBtn {
+    font-weight: bold;
+    font-size: 14px;
+}

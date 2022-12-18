@@ -6,12 +6,12 @@
 
 .ProductGrid {
     display: grid;
-    grid-template-columns: repeat(5, minmax(0, 1fr));
+    grid-template-columns: repeat(4, minmax(0, 1fr));
 
-    max-width: 1350px;
+    max-width: 1200px;
 
-    padding-top: 40px;
+    padding-top: 2vh;
 
-    column-gap: 24px;
-    row-gap: 40px;
+    column-gap: 1vw;
+    row-gap: 1vh;
 }

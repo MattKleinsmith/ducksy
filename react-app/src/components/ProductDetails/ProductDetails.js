@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import { useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
 
@@ -12,6 +13,10 @@ export default function ProductDetails() {
     const productsBySearch = useSelector(state => state.productsBySearch);
     const products = productId in productsBySearch ? productsBySearch : productsAll;
     const product = products[productId];
+
+    useEffect(() => {
+        window.scrollTo(0, 0);
+    })
 
     if (!product) return;
     return (

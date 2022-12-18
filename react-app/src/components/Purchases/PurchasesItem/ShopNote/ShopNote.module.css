@@ -1,0 +1,14 @@
+.wrapper {
+    color: #999;
+    line-height: 22px;
+    border-bottom: 1px solid #E2E2E2;
+    border-left: 1px solid #E2E2E2;
+    border-right: 1px solid #E2E2E2;
+    padding: 10px;
+    border-radius: 3px;
+    box-shadow: 0 2px 0 rgb(0 0 0 / 10%);
+}
+
+.heading {
+    color: #333333;
+}

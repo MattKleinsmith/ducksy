@@ -6,13 +6,14 @@ import ProductGridItem from "./ProductGridItem/ProductGridItem";
 import { getProductsByCategory } from "../../store/productsBySearch";
 import { useEffect } from "react";
 
-export default function ProductGrid() {
+export default function ProductGrid({ isHomepage = false }) {
     const dispatch = useDispatch();
     const { categoryName } = useParams();
     const productsAll = useSelector(state => Object.values(state.products));
     const productsBySearch = useSelector(state => Object.values(state.productsBySearch));
-    const products = productsBySearch.length ? productsBySearch : productsAll;
+    let products = productsBySearch.length ? productsBySearch : productsAll;
     if (categoryName) products.reverse()
+    if (isHomepage) products = products.slice(products.length - 10)
 
     useEffect(() => {
         if (categoryName) dispatch(getProductsByCategory(categoryName));

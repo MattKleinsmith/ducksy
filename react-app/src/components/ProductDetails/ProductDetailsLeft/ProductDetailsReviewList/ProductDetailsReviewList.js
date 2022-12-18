@@ -16,7 +16,12 @@ export default function ProductDetailsReviewList({ product }) {
     return (
         <div className={styles.ProductDetailsReviewListWrapper}>
             <div className={styles.reviewSummary}>
-                {reviews.length} reviews {(Math.round(product.seller_rating * 100) / 100).toFixed(2)} <FiveStars rating={product.seller_rating} />
+                <div className={styles.reviewNumber}>
+                    {reviews.length} reviews
+                </div>
+                <div className={styles.reviewStars}>
+                    <FiveStars style={{ fontSize: '1rem' }} rating={product.product_rating} />
+                </div>
             </div>
             <div className={styles.ProductDetailsReviewList}>
                 {reviews.map((review, i) => <ProductDetailsReview key={i} review={review} />)}

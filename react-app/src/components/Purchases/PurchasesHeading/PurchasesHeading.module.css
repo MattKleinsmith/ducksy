@@ -1,0 +1,18 @@
+.wrapper {
+    border-bottom: 1px solid #d2d2d2;
+    position: relative;
+}
+
+.heading {
+    display: flex;
+
+    width: 750px;
+    padding: 25px;
+    margin: auto;
+
+    font-family: "Merriweather", sans-serif;
+    font-weight: 600;
+    font-size: 26px;
+
+    color: #333;
+}

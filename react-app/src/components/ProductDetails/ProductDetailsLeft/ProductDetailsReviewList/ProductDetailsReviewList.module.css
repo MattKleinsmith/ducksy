@@ -1,0 +1,24 @@
+.ProductDetailsReviewList {
+    padding-top: 5px;
+}
+
+.reviewSummary {
+    display: flex;
+    align-items: baseline;
+    gap: 0.8rem;
+    padding-bottom: 20px;
+    border-bottom: 2px solid rgba(34, 34, 34, 0.15);
+}
+
+.reviewNumber {
+    font-size: 26px;
+    line-height: 42px;
+    font-family: "Merriweather", sans-serif;
+    font-weight: 100;
+    padding-top: 20px;
+    color: #3e3e3e;
+}
+
+.reviewStars {
+    font-size: 1rem;
+}

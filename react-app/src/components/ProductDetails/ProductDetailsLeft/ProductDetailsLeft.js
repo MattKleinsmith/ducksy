@@ -5,10 +5,8 @@ import ProductDetailsReviewList from "./ProductDetailsReviewList/ProductDetailsR
 export default function ProductDetailsLeft({ product }) {
     return (
         <div className={styles.ProductDetailsLeftWrapper}>
-            <div className={styles.ProductDetailsLeft}>
-                <ProductDetailsImages product={product} />
-                <ProductDetailsReviewList product={product} />
-            </div>
+            <ProductDetailsImages product={product} />
+            <ProductDetailsReviewList product={product} />
         </div>
     );
 }

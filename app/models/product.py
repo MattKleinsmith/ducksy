@@ -46,13 +46,16 @@ class Product(db.Model):
         "Review", back_populates="product", cascade="all, delete-orphan")
     categories = relationship(
         "Category", secondary=products_categories, back_populates="products")
+    purchases = relationship("OrderDetail", back_populates="product")
 
     def to_dict(self):
         preview_images = list(filter(lambda x: x.preview, self.product_images))
         print(self.id, list(map(lambda x: x.id, preview_images)))
-        seller_rating = sum(
+        product_rating = sum(
             [review.rating for review in self.reviews]) / len(self.reviews) if len(self.reviews) > 0 else None
-        num_seller_ratings = len(self.reviews)
+        num_product_ratings = len(self.reviews)
+        sales_num = sum([purchase.quantity for purchase in self.purchases])
+
         return {
             "id": self.id,
             "seller_id": self.seller_id,
@@ -62,9 +65,11 @@ class Product(db.Model):
             "description": self.description,
             "preview_image": preview_images[-1].url if len(preview_images) else None,
             "seller": self.seller.to_dict(),
-            "seller_rating": seller_rating,
-            "num_seller_ratings": num_seller_ratings,
-            "categories": [x.id for x in self.categories]
+            "product_rating": product_rating,
+            "num_product_ratings": num_product_ratings,
+            "categories": [x.id for x in self.categories],
+            "sales": sales_num,
+            "product_images": [x.to_dict() for x in self.product_images]
         }
 
 

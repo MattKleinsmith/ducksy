@@ -22,39 +22,48 @@ export default function ProductDetailsRight({ product }) {
     return (
         <div className={styles.ProductDetailsRightWrapper}>
             <div className={styles.ProductDetailsRight}>
-                <div>{product.seller.display_name}</div>
-                <div style={{ "display": "flex" }}><span>1000 sales | <FiveStars rating={product.seller_rating} /></span></div>
-                <div>{product.name}</div>
-                <div>{product.price}</div>
+                <div className={styles.sellerInfo}>
+                    <div>{product.seller.display_name}</div>
+                    <div className={styles.salesData}>{product.sales} sales<div>|</div><FiveStars rating={product.product_rating} /></div>
+                </div>
+                <div className={styles.productName}>{product.name}</div>
+                <div className={styles.productPrice}>${(Math.round(product.price * 100) / 100).toFixed(2)}</div>
                 {!user || user.id !== product.seller_id ?
-                    <>
-                        <label>Quantity
-                            <select
-                                value={quantity}
-                                onChange={(e) => {
-                                    setQuantity(e.target.value);
-                                }}>
-                                {[...Array(11).keys()].slice(1).map((num) => (
-                                    <option
-                                        key={num}
-                                        value={num}
-                                    >
-                                        {num}</option>))}
-                            </select>
-                        </label>
-                        <button
-                            onClick={() => checkoutHandler(user)}
-                        >Buy it now</button>
-                        <button onClick={() => {
-                            setHasAddedToCart(true);
-                            dispatch(addItemToCart(product, user, quantity));
-                        }}>Add to cart</button>
-                        {hasAddedToCart && <div style={{ textAlign: "center" }}>Added to cart!</div>}
-                    </>
+                    <div className={styles.purchaseOptions}>
+                        <label htmlFor="quantity">Quantity</label>
+                        <select
+                            name="quantity"
+                            value={quantity}
+                            onChange={(e) => {
+                                setQuantity(e.target.value);
+                            }}>
+                            {[...Array(11).keys()].slice(1).map((num) => (
+                                <option
+                                    key={num}
+                                    value={num}
+                                >
+                                    {num}</option>))}
+                        </select>
+
+                        <div>
+                            <button className={styles.buyItNow}
+                                onClick={() => checkoutHandler(user)}
+                            >Buy it now</button>
+                        </div>
+                        <div>
+                            <button className={styles.addToCart}
+                                onClick={() => {
+                                    setHasAddedToCart(true);
+                                    dispatch(addItemToCart(product, user, quantity));
+                                }}>Add to cart</button>
+                        </div>
+                        {hasAddedToCart && <div className={styles.addToCartText} style={{ textAlign: "center" }}>Added to cart!</div>}
+                    </div>
                     :
                     <button onClick={() => navigate(`/your/shop/listing/${product.id}`)}>Edit listing</button>
                 }
-                <div>{product.description}</div>
+                <div className={styles.description}>Description</div>
+                <div className={styles.productDescription}>{product.description}</div>
             </div>
         </div>
     );

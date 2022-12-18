@@ -26,11 +26,11 @@ export default function DeleteProductForm() {
 
     return (
         <form className={styles.deleteForm} onSubmit={handleSubmit}>
+            <button className={styles.cancel} onClick={() => dispatch(setDeleteProductModal(false))}>x</button>
             <h1>Are you sure you want to delete this product?</h1>
             <ul>
                 {errors.map((error, idx) => <li key={idx}>{error}</li>)}
             </ul>
-            <div><button className={styles.cancel} onClick={() => dispatch(setDeleteProductModal(false))}>x</button></div>
             <button className={styles.deleteFormButton} type="submit">Delete product</button>
         </form >
     );

@@ -1,3 +1,13 @@
-.FiveStars {
-    font-size: 11px;
+.FiveStarsDiv i {
+    margin: 0 0.1rem
+}
+
+.FiveStar {
+    font-size: inherit;
+    margin-bottom: 0.5rem;
+    color: #222222;
+}
+
+.black {
+    color: #000000;
 }

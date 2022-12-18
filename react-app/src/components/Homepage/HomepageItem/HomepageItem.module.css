@@ -1,6 +1,6 @@
 .item {
-    height: 11vw;
-    width: 17vw;
+    height: 100%;
+    width: 100%;
 }
 
 .item>img {

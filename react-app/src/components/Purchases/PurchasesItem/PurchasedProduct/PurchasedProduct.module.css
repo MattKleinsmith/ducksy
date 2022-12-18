@@ -1,0 +1,14 @@
+.wrapper {
+    display: flex;
+    border-bottom: 1px solid #E2E2E2;
+    border-left: 1px solid #E2E2E2;
+    border-right: 1px solid #E2E2E2;
+    padding: 20px;
+}
+
+.right {
+    padding: 10px 10px 10px 40px;
+    display: flex;
+    flex-direction: column;
+    row-gap: 10px;
+}

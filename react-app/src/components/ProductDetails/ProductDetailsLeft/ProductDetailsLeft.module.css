@@ -1,3 +1,4 @@
 .ProductDetailsLeftWrapper {
-    max-width: 60vw;
+    /* padding-right: 1rem; */
+    position: relative;
 }

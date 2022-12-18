@@ -1,9 +1,15 @@
 /* REVIEW STARS */
-button {
+
+.button {
     background-color: transparent;
     border: none;
     outline: none;
     cursor: pointer;
+}
+
+.button:focus {
+    border: none;
+    outline: none;
 }
 
 .on {
@@ -11,7 +17,7 @@ button {
 }
 
 .off {
-    color: #ccc;
+    color: #cccccc;
 }
 
 /*-----------------------------------------*/
@@ -70,7 +76,7 @@ button {
     background-color: #222222;
     padding: 7px 15px 8px;
     border-radius: 20px;
-    color: #FFF;
+    color: #FFFFFF;
     font-weight: 500;
     font-size: 15px;
 }

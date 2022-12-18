@@ -37,7 +37,7 @@ class OrderDetail(db.Model):
                         nullable=False)
 
     order = relationship("Order", back_populates="order_details")
-    product = relationship("Product")
+    product = relationship("Product", back_populates="purchases")
     seller = relationship("User", foreign_keys=[seller_id])
 
     def to_dict(self):

@@ -1,46 +1,153 @@
 .ProductEditorWrapper {
     display: flex;
     justify-content: center;
+    padding-top: 1.5rem;
+    margin: 0 auto;
 }
 
 .ProductEditor {
     display: flex;
     flex-direction: column;
-    max-width: 1350px;
-    gap: 10px;
     width: 100vw;
+    width: 1200px;
+    gap: 1rem;
+    padding: 0 2vw;
 }
+
+.ProductEditor h1 {
+    font-family: "Merriweather", sans-serif;
+    font-weight: 200;
+    margin: 1rem 0;
+}
+
+.ProductEditor p {
+    font-size: 0.9rem;
+    margin-bottom: 1rem;
+}
+
 
 .image {
     width: 16vw;
-    height: 10vw;
+    height: 16vw;
     object-fit: cover;
 }
 
 .form {
     display: flex;
     flex-direction: column;
-    gap: 10px;
+    row-gap: 0.5rem;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.8rem;
+    gap: 1rem;
 }
 
-.name {
-    width: 50vw;
+.form p {
+    font-size: 0.8rem;
+    color: #595959
 }
 
-.descriptionWrapper {
+.form label {
+    font-size: 0.9rem;
+    font-weight: 600;
+}
+
+.formForImage {
     display: flex;
-    gap: 5px;
+    flex-direction: column;
+    border: 0.05rem rgba(0, 0, 0, 0.2) solid;
+    border-radius: 0.3rem;
+    align-items: flex-start;
+    padding: 2vw;
 }
 
-.description {
-    width: 25vw;
-    height: 5vw;
-    padding-top: 4px;
-    padding-left: 4px;
+.formSectionName {
+    font-weight: 600;
+    font-size: 1.2rem;
 }
 
-.descriptionLabel {
-    align-self: flex-start;
+.formImageGrid {
+    display: grid;
+    grid-template-columns: 1fr 4fr;
+    grid-template-rows: 1fr;
+    gap: 1.5rem;
+    grid-template-areas:
+        ". .";
+    width: 100%;
+    margin-top: 1.5rem;
+}
+
+.formImageTips ul {
+    font-size: 0.8rem;
+    color: #595959;
+    margin-left: 2rem;
+}
+
+.formImageInput {
+    display: flex;
+    flex-direction: column;
+    row-gap: 1rem;
+}
+
+.formForDetails {
+    display: flex;
+    flex-direction: column;
+    border: 0.05rem rgba(0, 0, 0, 0.2) solid;
+    padding: 2vw;
+    border-radius: 0.3rem;
+}
+
+.formForDetails input {
+    width: 100%;
+    height: 2rem;
+    border: 0.05rem rgba(0, 0, 0, 0.2) solid;
+    border-radius: 0.3rem;
+    padding-left: 0.5rem;
+}
+
+.formForDetails textarea {
+    width: 100%;
+    height: 100%;
+    border: 0.05rem rgba(0, 0, 0, 0.2) solid;
+    border-radius: 0.3rem;
+    padding: 0.5rem;
+
+}
+
+.formDetailsGrid {
+    display: grid;
+    grid-template-columns: 1fr 4fr;
+    grid-template-rows: 1fr 2fr;
+    gap: 1.5rem;
+    grid-template-areas:
+        ". ."
+        ". .";
+}
+
+.formforPrice {
+    display: flex;
+    flex-direction: column;
+    border: 0.05rem rgba(0, 0, 0, 0.2) solid;
+    padding: 2vw;
+    border-radius: 0.3rem;
+}
+
+.formPriceGrid {
+    display: grid;
+    grid-template-columns: 1fr 4fr;
+    grid-template-rows: 1fr;
+    gap: 1.5rem;
+    grid-template-areas:
+        ". .";
+    width: 100%;
+    margin-top: 1.5rem;
+}
+
+.formPriceGrid input {
+    width: 100%;
+    height: 2rem;
+    border: 0.05rem rgba(0, 0, 0, 0.2) solid;
+    border-radius: 0.3rem;
+    padding-left: 0.5rem;
 }
 
 .checkbox {
