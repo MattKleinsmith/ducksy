@@ -618,143 +618,46 @@ def seed_all():
 
     product = Product(
         seller=anna,
-        categories=[wedding, gift, bag],
-        name="MakeUp Bag Make Up Bag Bridesmaid Make Up Bag with Name Birthday Gift Ideas for Her (EB3222AD)",
-        price="7.22",
-        description="Make Up Bags personalized with a name in pretty script make a great gift for bridesmaids or a birthday gift for any woman. Customize each bag with her name. Cosmetic Bags are lined on the inside and have a metallic zipper."
+        categories=[bag],
+        name="Pearl Clutch Bag; Evening Bag; Pearl beaded Bag; Wedding Pearl Bag; Handmade Pearl Clutch; Luxury Shoulder Bag; Vintage Inspired Purse",
+        price="85.00",
+        description="This vintage look purse is handmade with lovely faux pearls. The purse is quite versatile and can be worn in multiple ways: As a clutch; The included pearl handle allows you to wear it in the crook of your arm giving you the classic, ladylike look; unleash the chain and wear the purse on your shoulder, crossbody, or just let it dangle.Be it a wedding, an engagement, anniversary, date night, or just to mark a significant day, you will have the perfect accessory to make that moment special."
     )
 
     db.session.add_all([
         ProductImage(
             product=product,
-            url=upload_image_to_bucket_from_url(
-                "https://i.etsystatic.com/8617622/r/il/0c6972/2264040092/il_794xN.2264040092_5oim.jpg"),
+            url=upload_image_to_bucket_from_url("https://i.etsystatic.com/32294992/r/il/4de450/4275286222/il_794xN.4275286222_ghyq.jpg"),
             preview=True
         ),
-
-        ProductImage(
-            product=product,
-            url=upload_image_to_bucket_from_url(
-                "https://i.etsystatic.com/8617622/r/il/c0510a/2271000930/il_1588xN.2271000930_4nu0.jpg"),
-            preview=False
-        ),
-
-        ProductImage(
-            product=product,
-            url=upload_image_to_bucket_from_url(
-                "https://i.etsystatic.com/8617622/r/il/4876ec/2143657481/il_1588xN.2143657481_tiqt.jpg"),
-            preview=False
-        ),
-
-        ProductImage(
-            product=product,
-            url=upload_image_to_bucket_from_url(
-                "https://i.etsystatic.com/8617622/r/il/be1d24/2318598873/il_1588xN.2318598873_33fn.jpg"),
-            preview=False
-        ),
-
-        ProductImage(
-            product=product,
-            url=upload_image_to_bucket_from_url(
-                "https://i.etsystatic.com/8617622/r/il/61d7d3/2271001676/il_1588xN.2271001676_4cdi.jpg"),
-            preview=False
-        ),
-
-        ProductImage(
-            product=product,
-            url=upload_image_to_bucket_from_url(
-                "https://i.etsystatic.com/8617622/r/il/200fa7/2135455738/il_1588xN.2135455738_2wwe.jpg"),
-            preview=False
-        ),
-
-        ProductImage(
-            product=product,
-            url=upload_image_to_bucket_from_url(
-                "https://i.etsystatic.com/8617622/r/il/c417ee/3106133842/il_1588xN.3106133842_3kkd.jpg"),
-            preview=False
-        ),
-
-        ProductImage(
-            product=product,
-            url=upload_image_to_bucket_from_url(
-                "https://i.etsystatic.com/8617622/r/il/ca6d5d/3880525610/il_1588xN.3880525610_k3lt.jpg"),
-            preview=False
-        ),
-
-        Review(
-            buyer=bobbie,
-            product=product,
-            rating=5,
-            review="This seller is amazing! Unfortunately, my original shipment was lost/stolen and this seller worked with me on the replacement shipment and even expedited the shipping! Make up bags and mirrors are gorgeous, pictures really do not do the make up bags any justice. The pink with rose gold lettering is my fave combo and the pink is so pretty and flattering. Great buyer service. Incredibly happy with my items and my experience with this seller."
-        ),
-
-        Review(
-            buyer=caitlynn,
-            product=product,
-            rating=5,
-            review="The makeup bags were exactly as pictured. I ordered them as Christmas gifts for my nieces in their tween and teen years. It was easy to pick bag color and choice of font and print color. Shipped quickly and came nicely packaged."
-        ),
-
-        Review(
-            buyer=derrik,
-            product=product,
-            rating=5,
-            review="Bags came out better than I thought! My 2 girls are going to love it!"
-        ),
-
-        Review(
-            buyer=elizabeth,
-            product=product,
-            rating=5,
-            review="Super cute! My favorite part is the satin like inside."
-        ),
-    ])
-
-    db.session.commit()
-
-
-    product = Product(
-        seller=anna,
-        categories=[gift, girlfriend],
-        name="Feminist Sticker, holographic sticker , intersectional feminist, feminism sticker, car decal, laptop sticker",
-        price="2.39",
-        description="You will receive one 3' x 2.84' sticker printed with high quality opaque ink on durable thick vinyl. The adhesive is permanent, though -- so make sure you'll want it forever wherever you do stick it!"
-    )
-
-    db.session.add_all([
-        ProductImage(
-            product=product,
-            url=upload_image_to_bucket_from_url("https://i.etsystatic.com/7916159/r/il/b507e8/2479497621/il_794xN.2479497621_qw87.jpg"),
-            preview=True
-        ),
-        ProductImage(
-            product=product,
-            url=upload_image_to_bucket_from_url("https://i.etsystatic.com/7916159/r/il/273317/2479443123/il_1588xN.2479443123_izuu.jpg"),
-            preview=False
-        ),
          ProductImage(
             product=product,
-            url=upload_image_to_bucket_from_url("https://i.etsystatic.com/7916159/r/il/e17a99/2479398277/il_1588xN.2479398277_ntwi.jpg"),
+            url=upload_image_to_bucket_from_url("https://i.etsystatic.com/32294992/r/il/322e0f/4275286042/il_1588xN.4275286042_l0vp.jpg"),
             preview=False
         ),
-         ProductImage(
+          ProductImage(
             product=product,
-            url=upload_image_to_bucket_from_url("https://i.etsystatic.com/7916159/r/il/de3799/2479398281/il_1588xN.2479398281_cktd.jpg"),
+            url=upload_image_to_bucket_from_url("https://i.etsystatic.com/32294992/r/il/3c968e/4275286220/il_1588xN.4275286220_rsv2.jpg"),
             preview=False
         ),
-         ProductImage(
+          ProductImage(
             product=product,
-            url=upload_image_to_bucket_from_url("https://i.etsystatic.com/7916159/r/il/90ae69/2479492811/il_1588xN.2479492811_8tq2.jpg"),
+            url=upload_image_to_bucket_from_url("https://i.etsystatic.com/32294992/r/il/ed3ba4/4321910997/il_1588xN.4321910997_j2eh.jpg"),
             preview=False
         ),
-         ProductImage(
+          ProductImage(
             product=product,
-            url=upload_image_to_bucket_from_url("https://i.etsystatic.com/7916159/r/il/4638c9/2281777236/il_1588xN.2281777236_avxv.jpg"),
+            url=upload_image_to_bucket_from_url("https://i.etsystatic.com/32294992/r/il/b6457a/4274510926/il_1588xN.4274510926_lpv6.jpg"),
             preview=False
         ),
-         ProductImage(
+          ProductImage(
             product=product,
-            url=upload_image_to_bucket_from_url("https://i.etsystatic.com/7916159/r/il/49e238/2455792394/il_1588xN.2455792394_4dat.jpg"),
+            url=upload_image_to_bucket_from_url("https://i.etsystatic.com/32294992/r/il/b7d48e/4274510966/il_1588xN.4274510966_88sd.jpg"),
+            preview=False
+        ),
+          ProductImage(
+            product=product,
+            url=upload_image_to_bucket_from_url("https://i.etsystatic.com/32294992/r/il/625011/4275337422/il_1588xN.4275337422_8l4a.jpg"),
             preview=False
         ),
 
@@ -762,28 +665,28 @@ def seed_all():
             buyer=brian,
             product=product,
             rating=5,
-            review="Gorgeous! Just perfect - it’s exactly the sweet loving message I wanted to express my love of equality and my own femininity!"
+            review="My daughter is using this purse on her wedding day. The photo doesn’t do it justice. It is absolutely beautiful, excellent quality, great service. If I could have given it extra stars I would have done so."
         ),
 
         Review(
             buyer=caitlynn,
             product=product,
             rating=5,
-            review="Sticker is beautiful and I love it! It looks so great on my subie!"
+            review="Got the item within a day of ordering it! It is so cute and the perfect size. Very good quality. I am so obsessed! Also, came with the sweetest handwritten note. It was my first time ordering from here and I was so impressed and happy with the product and service! If you are hesitant about ordering, do it you won't regret it!"
         ),
 
         Review(
             buyer=derrik,
             product=product,
             rating=5,
-            review="Looks amazing on my laptop."
+            review="The packaging alone was so adorable and personal! I love my earrings ! I did think they were a tad bigger but the size is perfect seeing as I have 3 pierced holes close together! 10/10"
         ),
 
         Review(
             buyer=elizabeth,
             product=product,
             rating=5,
-            review="Love it! Perfect!"
+            review="pearl shoulder bag"
         ),
     ])
 
