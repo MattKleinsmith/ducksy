@@ -13,7 +13,7 @@ export default function ProductDetailsImages({ product }) {
         <div className={styles.ProductDetailsImagesWrapper}>
             <div type='checkbox' className={styles.moreImagesWrapper}>
                 {product.product_images.map(product_image =>
-                    <button className={styles.moreImagesBtn} onClick={() => onClickHandler(product_image.id)}>
+                    <button className={styles.moreImagesBtn} onClick={() => onClickHandler(product_image.id)} key={product_image.id}>
                         <img src={product_image.url} alt="ProductDetailsImages" className={styles.moreImages} />
                     </button>)}
             </div>

@@ -77,15 +77,16 @@
 }
 
 .recentViewed {
-    padding-left: 10px;
+    padding: 5px 30px;
 }
 
 .homepage {
     display: grid;
     grid-template-columns: repeat(5, minmax(0, 1fr));
     max-width: 1200px;
-    padding: 10px 10px;
-    gap: 10px;
+    padding: 10px 30px;
+    column-gap: 1vw;
+    row-gap: 1vh;
     overflow: hidden;
 }
 
