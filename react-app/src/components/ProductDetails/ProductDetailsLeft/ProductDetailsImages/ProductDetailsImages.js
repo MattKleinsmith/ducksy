@@ -2,7 +2,7 @@ import styles from "./ProductDetailsImages.module.css";
 import { useState } from "react";
 
 export default function ProductDetailsImages({ product }) {
-    const [url, setUrl] = useState("");
+    const [url, setUrl] = useState(product.preview_image);
 
     const onClickHandler = (productImageId) => {
         const image = product.product_images.find(image => image.id === productImageId);
