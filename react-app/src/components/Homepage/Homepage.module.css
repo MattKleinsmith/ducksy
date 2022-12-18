@@ -70,7 +70,7 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
-    margin: auto;
+    margin: 0 auto;
     max-width: 1200px;
     height: 100%;
     padding-top: 120px;
@@ -85,9 +85,14 @@
     grid-template-columns: repeat(5, minmax(0, 1fr));
     max-width: 1200px;
     padding: 10px 30px;
-    column-gap: 1vw;
+    column-gap: 10px;
     row-gap: 1vh;
     overflow: hidden;
+}
+
+.productInfos {
+    height: 14vw;
+    max-width: 18vw;
 }
 
 .price {
