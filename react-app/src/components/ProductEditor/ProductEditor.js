@@ -50,7 +50,7 @@ export default function ProductEditor() {
             }
         }
         else {
-            setErrors(["Please upload an image for the product listing"])
+            setImageErrors(["Please upload an image for the product listing"])
         }
 
     };
@@ -74,7 +74,7 @@ export default function ProductEditor() {
                 <form className={styles.form}>
                     <div className={styles.formForImage}>
                         {imageErrors.length > 0 && <ul className="formErrors">
-                            {imageErrors.map((error, i) => <li key={i}>{error}</li>)}
+                            {imageErrors.map((error, i) => <li key={i} style={{ color: "red" }}>{error}</li>)}
                         </ul>}
                         <div className={styles.formSectionName}>Photos</div>
                         <p>Add as many as you can so buyers can see every detail.</p>
