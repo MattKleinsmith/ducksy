@@ -79,7 +79,6 @@ export default function Homepage() {
                     </div>
                 </div>
                 <div className={styles.wrapper}>
-                    <div className={styles.recentViewed}>Recently viewed & more</div>
                     <div className={styles.homepage}>
                         {products.map((product, i) =>
                             <div className={styles.productInfos} key={i}>
@@ -93,8 +92,8 @@ export default function Homepage() {
                         )}
                     </div>
                 </div>
+                <div className={styles.popularGift}>Popular gifts right now</div>
             </div >
-            <div>Popular gifts right now</div>
             <ProductGrid isHomepage={true} />
         </>
     );

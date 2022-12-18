@@ -76,8 +76,12 @@
     padding-top: 120px;
 }
 
-.recentViewed {
-    padding: 5px 30px;
+.popularGift {
+    margin-top: 30px;
+    margin-left: 60px;
+    font-size: 32px;
+    line-height: 36px;
+    font-family: "Merriweather", sans-serif;
 }
 
 .homepage {
