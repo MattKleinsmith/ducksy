@@ -14,25 +14,25 @@
     max-height: 5rem;
     overflow-y: hidden;
     margin-bottom: 0.5rem;
+    padding-left: 3px;
 }
 
 .buyerInfo {
     display: flex;
     align-items: center;
-    gap: 5px;
-
+    gap: 10px;
 }
 
 .buyerPicture {
     font-family: serif;
     color: #f1641e;
-    font-size: 20px;
+    font-size: 30px;
 }
 
 .buyerName {
-    font-size: 12px;
+    font-size: 12.5px;
 }
 
 .reviewDate {
-    font-size: 12px;
+    font-size: 12.5px;
 }
