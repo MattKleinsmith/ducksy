@@ -12,8 +12,8 @@ export default function ProductGrid({ isHomepage = false }) {
     const productsAll = useSelector(state => Object.values(state.products));
     const productsBySearch = useSelector(state => Object.values(state.productsBySearch));
     let products = productsBySearch.length ? productsBySearch : productsAll;
-    if (categoryName) products.reverse()
-    if (isHomepage) products = products.slice(products.length - 10)
+    if (categoryName) products.reverse();
+    if (isHomepage) products = products.slice(products.length - 10);
 
     useEffect(() => {
         if (categoryName) dispatch(getProductsByCategory(categoryName));

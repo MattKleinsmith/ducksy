@@ -50,7 +50,6 @@ class Product(db.Model):
 
     def to_dict(self):
         preview_images = list(filter(lambda x: x.preview, self.product_images))
-        print(self.id, list(map(lambda x: x.id, preview_images)))
         product_rating = sum(
             [review.rating for review in self.reviews]) / len(self.reviews) if len(self.reviews) > 0 else None
         num_product_ratings = len(self.reviews)
