@@ -123,8 +123,6 @@
         ". .";
 }
 
-
-
 .formforPrice {
     display: flex;
     flex-direction: column;
@@ -152,9 +150,6 @@
     padding-left: 0.5rem;
 }
 
-.name {
-    width: 50vw;
-}
 
 .checkbox {
     margin-left: 5px;
