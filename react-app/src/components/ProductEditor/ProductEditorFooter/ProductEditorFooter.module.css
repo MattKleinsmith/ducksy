@@ -14,6 +14,7 @@
     justify-content: space-between;
     width: 100vw;
     padding: 12px 18px;
+    background-color: white;
 }
 
 .button {
@@ -27,8 +28,10 @@
     background-color: #1f1f1f;
     border: 1px solid #dedede;
     color: white;
+    margin-right: 10px;
 }
 
 .cancel {
     border: 1px solid #d9d9d9;
+    margin-left: 10px;
 }
