@@ -33,10 +33,12 @@ def seed_all():
 
     demo = User(display_name="Demo",
                 email="demo@aa.io",
-                password="password")
+                password="password",
+                profile_picture_url=upload_image_to_bucket_from_url("https://d23.com/app/uploads/2017/10/1180w-600h_101717_donald-nephews-anniversary_v3-780x440.jpg"))
     marnie = User(display_name="marnie",
                   email="marnie@aa.io",
-                  password="password")
+                  password="password",
+                  profile_picture_url=upload_image_to_bucket_from_url("https://d23.com/app/uploads/2017/10/1180w-600h_101717_donald-nephews-anniversary_v3-780x440.jpg"))
     bobbie = User(display_name="bobbie",
                   email="bobbie@aa.io",
                   password="password",
@@ -67,10 +69,9 @@ def seed_all():
     ## Products ##
     ##############
 
-
     product = Product(
         seller=anna,
-        categories=[home_decor, gift,personalized_gift],
+        categories=[home_decor, gift, personalized_gift],
         name="Christmas Tree Decoration - Librarian Ornament - Personalized Acrylic Ornament - Book Lovers Gift - Lover Bookworm - Bookshelf Custom Name",
         price="12.99",
         description="🎁Any Problem,Pls contact me any time."
@@ -79,42 +80,50 @@ def seed_all():
     db.session.add_all([
         ProductImage(
             product=product,
-            url=upload_image_to_bucket_from_url("https://i.etsystatic.com/5594537/r/il/23d3e4/4313384449/il_794xN.4313384449_duqj.jpg"),
+            url=upload_image_to_bucket_from_url(
+                "https://i.etsystatic.com/5594537/r/il/23d3e4/4313384449/il_794xN.4313384449_duqj.jpg"),
             preview=True
         ),
         ProductImage(
             product=product,
-            url=upload_image_to_bucket_from_url("https://i.etsystatic.com/5594537/r/il/066703/4265998012/il_1588xN.4265998012_ay31.jpg"),
+            url=upload_image_to_bucket_from_url(
+                "https://i.etsystatic.com/5594537/r/il/066703/4265998012/il_1588xN.4265998012_ay31.jpg"),
             preview=False
         ),
         ProductImage(
             product=product,
-            url=upload_image_to_bucket_from_url("https://i.etsystatic.com/5594537/r/il/957e42/4313395869/il_1588xN.4313395869_9ium.jpg"),
+            url=upload_image_to_bucket_from_url(
+                "https://i.etsystatic.com/5594537/r/il/957e42/4313395869/il_1588xN.4313395869_9ium.jpg"),
             preview=False
         ),
         ProductImage(
             product=product,
-            url=upload_image_to_bucket_from_url("https://i.etsystatic.com/5594537/r/il/c7fe11/4313392445/il_1588xN.4313392445_dfj4.jpg"),
+            url=upload_image_to_bucket_from_url(
+                "https://i.etsystatic.com/5594537/r/il/c7fe11/4313392445/il_1588xN.4313392445_dfj4.jpg"),
             preview=False
         ),
         ProductImage(
             product=product,
-            url=upload_image_to_bucket_from_url("https://i.etsystatic.com/5594537/r/il/9464a9/4265993564/il_1588xN.4265993564_b94k.jpg"),
+            url=upload_image_to_bucket_from_url(
+                "https://i.etsystatic.com/5594537/r/il/9464a9/4265993564/il_1588xN.4265993564_b94k.jpg"),
             preview=False
         ),
         ProductImage(
             product=product,
-            url=upload_image_to_bucket_from_url("https://i.etsystatic.com/5594537/r/il/8a3c8d/4265987390/il_1588xN.4265987390_l8lf.jpg"),
+            url=upload_image_to_bucket_from_url(
+                "https://i.etsystatic.com/5594537/r/il/8a3c8d/4265987390/il_1588xN.4265987390_l8lf.jpg"),
             preview=False
         ),
         ProductImage(
             product=product,
-            url=upload_image_to_bucket_from_url("https://i.etsystatic.com/5594537/r/il/c9fca9/4313394981/il_1588xN.4313394981_jjwl.jpg"),
+            url=upload_image_to_bucket_from_url(
+                "https://i.etsystatic.com/5594537/r/il/c9fca9/4313394981/il_1588xN.4313394981_jjwl.jpg"),
             preview=False
         ),
         ProductImage(
             product=product,
-            url=upload_image_to_bucket_from_url("https://i.etsystatic.com/5594537/r/il/3d4650/4265997396/il_1588xN.4265997396_owq4.jpg"),
+            url=upload_image_to_bucket_from_url(
+                "https://i.etsystatic.com/5594537/r/il/3d4650/4265997396/il_1588xN.4265997396_owq4.jpg"),
             preview=False
         ),
 
@@ -149,10 +158,9 @@ def seed_all():
 
     db.session.commit()
 
-
     product = Product(
         seller=anna,
-        categories=[gift,personalized_gift],
+        categories=[gift, personalized_gift],
         name="Goal Journal, Custom Planner, Planner 2023, Goal Planner, Planner Journal, 2023 Planner, Customized Planner, Personal Planner",
         price="49.99",
         description="BEATI FIC HAPPY DAILY PLANNER 2023 - 2024 and beyond."
@@ -161,47 +169,56 @@ def seed_all():
     db.session.add_all([
         ProductImage(
             product=product,
-            url=upload_image_to_bucket_from_url("https://i.etsystatic.com/14788844/r/il/8d9242/2807422358/il_794xN.2807422358_g54t.jpg"),
+            url=upload_image_to_bucket_from_url(
+                "https://i.etsystatic.com/14788844/r/il/8d9242/2807422358/il_794xN.2807422358_g54t.jpg"),
             preview=True
         ),
         ProductImage(
             product=product,
-            url=upload_image_to_bucket_from_url("https://i.etsystatic.com/14788844/r/il/4d18f7/4120791184/il_1588xN.4120791184_ly6c.jpg"),
+            url=upload_image_to_bucket_from_url(
+                "https://i.etsystatic.com/14788844/r/il/4d18f7/4120791184/il_1588xN.4120791184_ly6c.jpg"),
             preview=False
         ),
         ProductImage(
             product=product,
-            url=upload_image_to_bucket_from_url("https://i.etsystatic.com/14788844/r/il/df9e47/4120791468/il_1588xN.4120791468_sin6.jpg"),
+            url=upload_image_to_bucket_from_url(
+                "https://i.etsystatic.com/14788844/r/il/df9e47/4120791468/il_1588xN.4120791468_sin6.jpg"),
             preview=False
         ),
         ProductImage(
             product=product,
-            url=upload_image_to_bucket_from_url("https://i.etsystatic.com/14788844/r/il/ce79bd/4168456809/il_1588xN.4168456809_lokd.jpg"),
+            url=upload_image_to_bucket_from_url(
+                "https://i.etsystatic.com/14788844/r/il/ce79bd/4168456809/il_1588xN.4168456809_lokd.jpg"),
             preview=False
         ),
         ProductImage(
             product=product,
-            url=upload_image_to_bucket_from_url("https://i.etsystatic.com/14788844/r/il/93842d/4120791584/il_1588xN.4120791584_cat3.jpg"),
+            url=upload_image_to_bucket_from_url(
+                "https://i.etsystatic.com/14788844/r/il/93842d/4120791584/il_1588xN.4120791584_cat3.jpg"),
             preview=False
         ),
         ProductImage(
             product=product,
-            url=upload_image_to_bucket_from_url("https://i.etsystatic.com/14788844/r/il/e4f79a/4230055159/il_1588xN.4230055159_6i39.jpg"),
+            url=upload_image_to_bucket_from_url(
+                "https://i.etsystatic.com/14788844/r/il/e4f79a/4230055159/il_1588xN.4230055159_6i39.jpg"),
             preview=False
         ),
         ProductImage(
             product=product,
-            url=upload_image_to_bucket_from_url("https://i.etsystatic.com/14788844/r/il/8a3dd7/4168457247/il_1588xN.4168457247_ete0.jpg"),
+            url=upload_image_to_bucket_from_url(
+                "https://i.etsystatic.com/14788844/r/il/8a3dd7/4168457247/il_1588xN.4168457247_ete0.jpg"),
             preview=False
         ),
         ProductImage(
             product=product,
-            url=upload_image_to_bucket_from_url("https://i.etsystatic.com/14788844/r/il/4d18f7/4120791184/il_1588xN.4120791184_ly6c.jpg"),
+            url=upload_image_to_bucket_from_url(
+                "https://i.etsystatic.com/14788844/r/il/4d18f7/4120791184/il_1588xN.4120791184_ly6c.jpg"),
             preview=False
         ),
         ProductImage(
             product=product,
-            url=upload_image_to_bucket_from_url("https://i.etsystatic.com/14788844/r/il/cae788/4174206891/il_1588xN.4174206891_l13p.jpg"),
+            url=upload_image_to_bucket_from_url(
+                "https://i.etsystatic.com/14788844/r/il/cae788/4174206891/il_1588xN.4174206891_l13p.jpg"),
             preview=False
         ),
 
@@ -247,22 +264,26 @@ def seed_all():
     db.session.add_all([
         ProductImage(
             product=product,
-            url=upload_image_to_bucket_from_url("https://i.etsystatic.com/12421481/r/il/5be307/1223735702/il_794xN.1223735702_d1fk.jpg"),
+            url=upload_image_to_bucket_from_url(
+                "https://i.etsystatic.com/12421481/r/il/5be307/1223735702/il_794xN.1223735702_d1fk.jpg"),
             preview=True
         ),
-         ProductImage(
+        ProductImage(
             product=product,
-            url=upload_image_to_bucket_from_url("https://i.etsystatic.com/12421481/r/il/96a486/1073878972/il_1588xN.1073878972_awum.jpg"),
+            url=upload_image_to_bucket_from_url(
+                "https://i.etsystatic.com/12421481/r/il/96a486/1073878972/il_1588xN.1073878972_awum.jpg"),
             preview=False
         ),
-         ProductImage(
+        ProductImage(
             product=product,
-            url=upload_image_to_bucket_from_url("https://i.etsystatic.com/12421481/r/il/48f330/1073877922/il_1588xN.1073877922_swdt.jpg"),
+            url=upload_image_to_bucket_from_url(
+                "https://i.etsystatic.com/12421481/r/il/48f330/1073877922/il_1588xN.1073877922_swdt.jpg"),
             preview=False
         ),
-         ProductImage(
+        ProductImage(
             product=product,
-            url=upload_image_to_bucket_from_url("https://i.etsystatic.com/12421481/r/il/bd7a12/976145786/il_1588xN.976145786_728c.jpg"),
+            url=upload_image_to_bucket_from_url(
+                "https://i.etsystatic.com/12421481/r/il/bd7a12/976145786/il_1588xN.976145786_728c.jpg"),
             preview=False
         ),
 
@@ -308,32 +329,38 @@ def seed_all():
     db.session.add_all([
         ProductImage(
             product=product,
-            url=upload_image_to_bucket_from_url("https://i.etsystatic.com/9084215/r/il/d66b2d/2601849206/il_794xN.2601849206_mug7.jpg"),
+            url=upload_image_to_bucket_from_url(
+                "https://i.etsystatic.com/9084215/r/il/d66b2d/2601849206/il_794xN.2601849206_mug7.jpg"),
             preview=True
         ),
         ProductImage(
             product=product,
-            url=upload_image_to_bucket_from_url("https://i.etsystatic.com/9084215/r/il/f79c30/1580617794/il_1588xN.1580617794_177j.jpg"),
+            url=upload_image_to_bucket_from_url(
+                "https://i.etsystatic.com/9084215/r/il/f79c30/1580617794/il_1588xN.1580617794_177j.jpg"),
             preview=False
         ),
-         ProductImage(
+        ProductImage(
             product=product,
-            url=upload_image_to_bucket_from_url("https://i.etsystatic.com/9084215/r/il/887e53/1628058903/il_1588xN.1628058903_4omv.jpg"),
+            url=upload_image_to_bucket_from_url(
+                "https://i.etsystatic.com/9084215/r/il/887e53/1628058903/il_1588xN.1628058903_4omv.jpg"),
             preview=False
         ),
-         ProductImage(
+        ProductImage(
             product=product,
-            url=upload_image_to_bucket_from_url("https://i.etsystatic.com/9084215/r/il/727e0e/1580617896/il_1588xN.1580617896_hopj.jpg"),
+            url=upload_image_to_bucket_from_url(
+                "https://i.etsystatic.com/9084215/r/il/727e0e/1580617896/il_1588xN.1580617896_hopj.jpg"),
             preview=False
         ),
-         ProductImage(
+        ProductImage(
             product=product,
-            url=upload_image_to_bucket_from_url("https://i.etsystatic.com/9084215/r/il/02171a/1580617984/il_1588xN.1580617984_dbd9.jpg"),
+            url=upload_image_to_bucket_from_url(
+                "https://i.etsystatic.com/9084215/r/il/02171a/1580617984/il_1588xN.1580617984_dbd9.jpg"),
             preview=False
         ),
-         ProductImage(
+        ProductImage(
             product=product,
-            url=upload_image_to_bucket_from_url("https://i.etsystatic.com/9084215/r/il/dfe805/1628059351/il_1588xN.1628059351_ouao.jpg"),
+            url=upload_image_to_bucket_from_url(
+                "https://i.etsystatic.com/9084215/r/il/dfe805/1628059351/il_1588xN.1628059351_ouao.jpg"),
             preview=False
         ),
 
@@ -368,10 +395,9 @@ def seed_all():
 
     db.session.commit()
 
-
     product = Product(
         seller=anna,
-        categories=[gift, personalized_gift,home_decor],
+        categories=[gift, personalized_gift, home_decor],
         name="Best Christmas Gift,Hand-Carved Painted Orange Cat Figurines | Wooden Animal | Home Decor Sculpture Ornament | Personalized Gift",
         price="15.99",
         description="Painted wooden orange cat ornaments are handcrafted from carved wood and hand-painted in different shades of paint. the orange cat looks cute and funny and comes to life."
@@ -380,42 +406,50 @@ def seed_all():
     db.session.add_all([
         ProductImage(
             product=product,
-            url=upload_image_to_bucket_from_url("https://i.etsystatic.com/18840488/r/il/4f6762/4193569941/il_794xN.4193569941_k6q7.jpg"),
+            url=upload_image_to_bucket_from_url(
+                "https://i.etsystatic.com/18840488/r/il/4f6762/4193569941/il_794xN.4193569941_k6q7.jpg"),
             preview=True
         ),
         ProductImage(
             product=product,
-            url=upload_image_to_bucket_from_url("https://i.etsystatic.com/18840488/r/il/1621e6/4374499176/il_1588xN.4374499176_oob5.jpg"),
+            url=upload_image_to_bucket_from_url(
+                "https://i.etsystatic.com/18840488/r/il/1621e6/4374499176/il_1588xN.4374499176_oob5.jpg"),
             preview=False
         ),
         ProductImage(
             product=product,
-            url=upload_image_to_bucket_from_url("https://i.etsystatic.com/18840488/r/il/b202e1/4374477426/il_1588xN.4374477426_23w4.jpg"),
+            url=upload_image_to_bucket_from_url(
+                "https://i.etsystatic.com/18840488/r/il/b202e1/4374477426/il_1588xN.4374477426_23w4.jpg"),
             preview=False
         ),
         ProductImage(
             product=product,
-            url=upload_image_to_bucket_from_url("https://i.etsystatic.com/18840488/r/il/c25f9d/4374477544/il_1588xN.4374477544_qyym.jpg"),
+            url=upload_image_to_bucket_from_url(
+                "https://i.etsystatic.com/18840488/r/il/c25f9d/4374477544/il_1588xN.4374477544_qyym.jpg"),
             preview=False
         ),
         ProductImage(
             product=product,
-            url=upload_image_to_bucket_from_url("https://i.etsystatic.com/18840488/r/il/13c33e/4374477170/il_1588xN.4374477170_3rh5.jpg"),
+            url=upload_image_to_bucket_from_url(
+                "https://i.etsystatic.com/18840488/r/il/13c33e/4374477170/il_1588xN.4374477170_3rh5.jpg"),
             preview=False
         ),
         ProductImage(
             product=product,
-            url=upload_image_to_bucket_from_url("https://i.etsystatic.com/18840488/r/il/b63529/4421883813/il_1588xN.4421883813_muy3.jpg"),
+            url=upload_image_to_bucket_from_url(
+                "https://i.etsystatic.com/18840488/r/il/b63529/4421883813/il_1588xN.4421883813_muy3.jpg"),
             preview=False
         ),
         ProductImage(
             product=product,
-            url=upload_image_to_bucket_from_url("https://i.etsystatic.com/18840488/r/il/e7712f/4421887263/il_1588xN.4421887263_n06a.jpg"),
+            url=upload_image_to_bucket_from_url(
+                "https://i.etsystatic.com/18840488/r/il/e7712f/4421887263/il_1588xN.4421887263_n06a.jpg"),
             preview=False
         ),
         ProductImage(
             product=product,
-            url=upload_image_to_bucket_from_url("https://i.etsystatic.com/18840488/r/il/86b359/4421887219/il_1588xN.4421887219_t0lj.jpg"),
+            url=upload_image_to_bucket_from_url(
+                "https://i.etsystatic.com/18840488/r/il/86b359/4421887219/il_1588xN.4421887219_t0lj.jpg"),
             preview=False
         ),
 
@@ -461,42 +495,50 @@ def seed_all():
     db.session.add_all([
         ProductImage(
             product=product,
-            url=upload_image_to_bucket_from_url("https://i.etsystatic.com/26343368/r/il/bcff5a/4260582323/il_794xN.4260582323_jp01.jpg"),
+            url=upload_image_to_bucket_from_url(
+                "https://i.etsystatic.com/26343368/r/il/bcff5a/4260582323/il_794xN.4260582323_jp01.jpg"),
             preview=True
         ),
         ProductImage(
             product=product,
-            url=upload_image_to_bucket_from_url("https://i.etsystatic.com/26343368/r/il/bf8536/4352523970/il_1588xN.4352523970_qwbb.jpg"),
+            url=upload_image_to_bucket_from_url(
+                "https://i.etsystatic.com/26343368/r/il/bf8536/4352523970/il_1588xN.4352523970_qwbb.jpg"),
             preview=False
         ),
         ProductImage(
             product=product,
-            url=upload_image_to_bucket_from_url("https://i.etsystatic.com/26343368/r/il/c43f70/4352523944/il_1588xN.4352523944_gibm.jpg"),
+            url=upload_image_to_bucket_from_url(
+                "https://i.etsystatic.com/26343368/r/il/c43f70/4352523944/il_1588xN.4352523944_gibm.jpg"),
             preview=False
         ),
         ProductImage(
             product=product,
-            url=upload_image_to_bucket_from_url("https://i.etsystatic.com/26343368/r/il/410c70/4233610206/il_1588xN.4233610206_d4y3.jpg"),
+            url=upload_image_to_bucket_from_url(
+                "https://i.etsystatic.com/26343368/r/il/410c70/4233610206/il_1588xN.4233610206_d4y3.jpg"),
             preview=False
         ),
         ProductImage(
             product=product,
-            url=upload_image_to_bucket_from_url("https://i.etsystatic.com/26343368/r/il/070c58/4409831209/il_1588xN.4409831209_3v8r.jpg"),
+            url=upload_image_to_bucket_from_url(
+                "https://i.etsystatic.com/26343368/r/il/070c58/4409831209/il_1588xN.4409831209_3v8r.jpg"),
             preview=False
         ),
         ProductImage(
             product=product,
-            url=upload_image_to_bucket_from_url("https://i.etsystatic.com/26343368/r/il/a9c656/4352524038/il_1588xN.4352524038_gze4.jpg"),
+            url=upload_image_to_bucket_from_url(
+                "https://i.etsystatic.com/26343368/r/il/a9c656/4352524038/il_1588xN.4352524038_gze4.jpg"),
             preview=False
         ),
         ProductImage(
             product=product,
-            url=upload_image_to_bucket_from_url("https://i.etsystatic.com/26343368/r/il/57cc37/4454377091/il_1588xN.4454377091_k1jy.jpg"),
+            url=upload_image_to_bucket_from_url(
+                "https://i.etsystatic.com/26343368/r/il/57cc37/4454377091/il_1588xN.4454377091_k1jy.jpg"),
             preview=False
         ),
         ProductImage(
             product=product,
-            url=upload_image_to_bucket_from_url("https://i.etsystatic.com/26343368/r/il/f3020d/4240042263/il_1588xN.4240042263_4z31.jpg"),
+            url=upload_image_to_bucket_from_url(
+                "https://i.etsystatic.com/26343368/r/il/f3020d/4240042263/il_1588xN.4240042263_4z31.jpg"),
             preview=False
         ),
 
@@ -542,46 +584,54 @@ def seed_all():
     db.session.add_all([
         ProductImage(
             product=product,
-            url=upload_image_to_bucket_from_url("https://i.etsystatic.com/22038730/r/il/486b73/4337247972/il_794xN.4337247972_3ffm.jpg"),
+            url=upload_image_to_bucket_from_url(
+                "https://i.etsystatic.com/22038730/r/il/486b73/4337247972/il_794xN.4337247972_3ffm.jpg"),
             preview=True
         ),
         ProductImage(
             product=product,
-            url=upload_image_to_bucket_from_url("https://i.etsystatic.com/22038730/r/il/e4520c/4370065950/il_1588xN.4370065950_m71z.jpg"),
+            url=upload_image_to_bucket_from_url(
+                "https://i.etsystatic.com/22038730/r/il/e4520c/4370065950/il_1588xN.4370065950_m71z.jpg"),
             preview=False
         ),
-          ProductImage(
+        ProductImage(
             product=product,
-            url=upload_image_to_bucket_from_url("https://i.etsystatic.com/22038730/r/il/5c8192/4201608692/il_1588xN.4201608692_9fe8.jpg"),
+            url=upload_image_to_bucket_from_url(
+                "https://i.etsystatic.com/22038730/r/il/5c8192/4201608692/il_1588xN.4201608692_9fe8.jpg"),
             preview=False
         ),
-          ProductImage(
+        ProductImage(
             product=product,
-            url=upload_image_to_bucket_from_url("https://i.etsystatic.com/22038730/r/il/1dce16/4262239210/il_1588xN.4262239210_l9mp.jpg"),
+            url=upload_image_to_bucket_from_url(
+                "https://i.etsystatic.com/22038730/r/il/1dce16/4262239210/il_1588xN.4262239210_l9mp.jpg"),
             preview=False
         ),
 
         ProductImage(
             product=product,
-            url=upload_image_to_bucket_from_url("https://i.etsystatic.com/22038730/r/il/de00c2/4283903357/il_1588xN.4283903357_fr1x.jpg"),
+            url=upload_image_to_bucket_from_url(
+                "https://i.etsystatic.com/22038730/r/il/de00c2/4283903357/il_1588xN.4283903357_fr1x.jpg"),
             preview=False
         ),
 
         ProductImage(
             product=product,
-            url=upload_image_to_bucket_from_url("https://i.etsystatic.com/22038730/r/il/36b5fd/4240400934/il_1588xN.4240400934_e845.jpg"),
-            preview=False
-        ),
-
-         ProductImage(
-            product=product,
-            url=upload_image_to_bucket_from_url("https://i.etsystatic.com/22038730/r/il/bc503b/4201613894/il_1588xN.4201613894_j0u7.jpg"),
+            url=upload_image_to_bucket_from_url(
+                "https://i.etsystatic.com/22038730/r/il/36b5fd/4240400934/il_1588xN.4240400934_e845.jpg"),
             preview=False
         ),
 
         ProductImage(
             product=product,
-            url=upload_image_to_bucket_from_url("https://i.etsystatic.com/22038730/r/il/4a61d5/4394804761/il_1588xN.4394804761_6e2w.jpg"),
+            url=upload_image_to_bucket_from_url(
+                "https://i.etsystatic.com/22038730/r/il/bc503b/4201613894/il_1588xN.4201613894_j0u7.jpg"),
+            preview=False
+        ),
+
+        ProductImage(
+            product=product,
+            url=upload_image_to_bucket_from_url(
+                "https://i.etsystatic.com/22038730/r/il/4a61d5/4394804761/il_1588xN.4394804761_6e2w.jpg"),
             preview=False
         ),
 
@@ -723,37 +773,44 @@ def seed_all():
     db.session.add_all([
         ProductImage(
             product=product,
-            url=upload_image_to_bucket_from_url("https://i.etsystatic.com/32294992/r/il/4de450/4275286222/il_794xN.4275286222_ghyq.jpg"),
+            url=upload_image_to_bucket_from_url(
+                "https://i.etsystatic.com/32294992/r/il/4de450/4275286222/il_794xN.4275286222_ghyq.jpg"),
             preview=True
         ),
-         ProductImage(
+        ProductImage(
             product=product,
-            url=upload_image_to_bucket_from_url("https://i.etsystatic.com/32294992/r/il/322e0f/4275286042/il_1588xN.4275286042_l0vp.jpg"),
+            url=upload_image_to_bucket_from_url(
+                "https://i.etsystatic.com/32294992/r/il/322e0f/4275286042/il_1588xN.4275286042_l0vp.jpg"),
             preview=False
         ),
-          ProductImage(
+        ProductImage(
             product=product,
-            url=upload_image_to_bucket_from_url("https://i.etsystatic.com/32294992/r/il/3c968e/4275286220/il_1588xN.4275286220_rsv2.jpg"),
+            url=upload_image_to_bucket_from_url(
+                "https://i.etsystatic.com/32294992/r/il/3c968e/4275286220/il_1588xN.4275286220_rsv2.jpg"),
             preview=False
         ),
-          ProductImage(
+        ProductImage(
             product=product,
-            url=upload_image_to_bucket_from_url("https://i.etsystatic.com/32294992/r/il/ed3ba4/4321910997/il_1588xN.4321910997_j2eh.jpg"),
+            url=upload_image_to_bucket_from_url(
+                "https://i.etsystatic.com/32294992/r/il/ed3ba4/4321910997/il_1588xN.4321910997_j2eh.jpg"),
             preview=False
         ),
-          ProductImage(
+        ProductImage(
             product=product,
-            url=upload_image_to_bucket_from_url("https://i.etsystatic.com/32294992/r/il/b6457a/4274510926/il_1588xN.4274510926_lpv6.jpg"),
+            url=upload_image_to_bucket_from_url(
+                "https://i.etsystatic.com/32294992/r/il/b6457a/4274510926/il_1588xN.4274510926_lpv6.jpg"),
             preview=False
         ),
-          ProductImage(
+        ProductImage(
             product=product,
-            url=upload_image_to_bucket_from_url("https://i.etsystatic.com/32294992/r/il/b7d48e/4274510966/il_1588xN.4274510966_88sd.jpg"),
+            url=upload_image_to_bucket_from_url(
+                "https://i.etsystatic.com/32294992/r/il/b7d48e/4274510966/il_1588xN.4274510966_88sd.jpg"),
             preview=False
         ),
-          ProductImage(
+        ProductImage(
             product=product,
-            url=upload_image_to_bucket_from_url("https://i.etsystatic.com/32294992/r/il/625011/4275337422/il_1588xN.4275337422_8l4a.jpg"),
+            url=upload_image_to_bucket_from_url(
+                "https://i.etsystatic.com/32294992/r/il/625011/4275337422/il_1588xN.4275337422_8l4a.jpg"),
             preview=False
         ),
 
