@@ -7,7 +7,7 @@ export default function ProductGridItemDescription({ product }) {
             <div className="ProductGridItemDescriptionName">{product.name}</div>
             {product.product_rating &&
                 <div className="ProductGridItemStarRating">
-                    <FiveStars rating={product.product_rating} />
+                    <FiveStars rating={product.product_rating} isBlack={true} />
                     ({product.num_product_ratings})
                 </div>
             }
