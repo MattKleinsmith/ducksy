@@ -2,7 +2,7 @@ import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router";
 import { addItemToCart, checkoutNow } from "../../../store/shoppingCart";
-import { setRegisterModal } from "../../../store/ui";
+import { setSigninModal } from "../../../store/ui";
 import FiveStars from "../../FiveStars/FiveStars";
 import styles from "./ProductDetailsRight.module.css";
 
@@ -16,7 +16,7 @@ export default function ProductDetailsRight({ product }) {
     const checkoutHandler = user => {
         if (user) dispatch(checkoutNow(product.id, quantity))
             .then((orderId) => navigate(`/cart/checkout/${orderId}`))
-        else dispatch(setRegisterModal(true))
+        else dispatch(setSigninModal(true))
     }
 
     return (

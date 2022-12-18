@@ -2,7 +2,7 @@ import styles from './CartCheckout.module.css';
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router";
 import { checkoutCart } from "../../../store/shoppingCart";
-import { setRegisterModal } from "../../../store/ui";
+import { setSigninModal } from "../../../store/ui";
 
 
 export default function CartCheckout({ cart_items, user }) {
@@ -13,7 +13,7 @@ export default function CartCheckout({ cart_items, user }) {
     const checkoutHandler = user => {
         if (user) dispatch(checkoutCart(user))
             .then((orderId) => navigate(`/cart/checkout/${orderId}`));
-        else dispatch(setRegisterModal(true));
+        else dispatch(setSigninModal(true));
     };
     return (
         <div className={styles.CartCheckout}>
