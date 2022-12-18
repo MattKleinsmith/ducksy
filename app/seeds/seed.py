@@ -12,19 +12,24 @@ def seed_all():
 
     anna = User(display_name="Anna",
                 email="email@email.com",
-                password="password")
+                password="password",
+                profile_picture_url=upload_image_to_bucket_from_url("https://avatars.githubusercontent.com/u/98060462"))
     brian = User(display_name="Brian",
                  email="email2@email.com",
-                 password="password")
+                 password="password",
+                 profile_picture_url=upload_image_to_bucket_from_url("https://cdn.discordapp.com/avatars/872026711506694144/dd925f9567051c4ff4e60d3f345625eb.png"))
     caitlynn = User(display_name="Caitlynn",
                     email="email3@email.com",
-                    password="password")
+                    password="password",
+                    profile_picture_url=upload_image_to_bucket_from_url("https://avatars.githubusercontent.com/u/106051387"))
     derrik = User(display_name="Derrik",
                   email="email4@email.com",
-                  password="password")
+                  password="password",
+                  profile_picture_url=upload_image_to_bucket_from_url("https://cdn.discordapp.com/avatars/974032930202583140/f8deca01d6afdfcf27a12f2cf4dece59.png"))
     elizabeth = User(display_name="Elizabeth",
                      email="email5@email.com",
-                     password="password")
+                     password="password",
+                     profile_picture_url=upload_image_to_bucket_from_url("https://cdn.discordapp.com/avatars/485640660490387456/0b1731101c8e53e2758b6c95e34337d0.png"))
 
     demo = User(display_name="Demo",
                 email="demo@aa.io",
@@ -34,7 +39,8 @@ def seed_all():
                   password="password")
     bobbie = User(display_name="bobbie",
                   email="bobbie@aa.io",
-                  password="password")
+                  password="password",
+                  profile_picture_url=upload_image_to_bucket_from_url("https://cdn.discordapp.com/avatars/182662416633561089/c0d48f71e483b33f109e694782949510.png"))
 
     db.session.add_all([anna, brian, caitlynn, derrik,
                        elizabeth, demo, marnie, bobbie])
@@ -3868,7 +3874,7 @@ def seed_all():
 
     for review in Review.query:
         review.seller_id = anna.id
-        order=Order(buyer_id=review.buyer_id)
+        order = Order(buyer_id=review.buyer_id)
         purchase = OrderDetail(
             order=order,
             product_id=review.product_id,
@@ -3886,6 +3892,8 @@ def seed_all():
 # incrementing primary key, CASCADE deletes any dependent entities.  With
 # sqlite3 in development you need to instead use DELETE to remove all data and
 # it will reset the primary keys for you as well.
+
+
 def undo_seed():
     if environment == "production":
         db.session.execute(

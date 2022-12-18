@@ -28,7 +28,7 @@ export default function Homepage() {
                                 navigate('/category/personalized_gift');
                             }}
                         >
-                            <img className={styles.categoryImage} src={`${allproducts[26].product_images[0].url}`} alt='img'></img>
+                            <img className={styles.categoryImage} src={`${allproducts[26]?.product_images[0].url}`} alt=''></img>
                             <span className={styles.categoryName}>Personalized Gifts</span>
                         </div>
                         <div className={styles.imageWrapper}
@@ -37,7 +37,7 @@ export default function Homepage() {
                                 navigate('/category/wedding');
                             }}
                         >
-                            <span><img className={styles.categoryImage} src={`${allproducts[27].product_images[0].url}`} alt='img'></img></span>
+                            <span><img className={styles.categoryImage} src={`${allproducts[27]?.product_images[0].url}`} alt=''></img></span>
                             <span className={styles.categoryName}>Wedding</span>
                         </div>
                         <div className={styles.imageWrapper}
@@ -46,7 +46,7 @@ export default function Homepage() {
                                 navigate('/category/home_decor');
                             }}
                         >
-                            <span><img className={styles.categoryImage} src={`${allproducts[10].product_images[0].url}`} alt='img'></img></span>
+                            <span><img className={styles.categoryImage} src={`${allproducts[10]?.product_images[0].url}`} alt=''></img></span>
                             <span className={styles.categoryName}>Home decor</span>
                         </div>
                         <div className={styles.imageWrapper}
@@ -55,7 +55,7 @@ export default function Homepage() {
                                 navigate('/category/toy');
                             }}
                         >
-                            <span><img className={styles.categoryImage} src={`${allproducts[13].product_images[0].url}`} alt='img'></img></span>
+                            <span><img className={styles.categoryImage} src={`${allproducts[13]?.product_images[0].url}`} alt=''></img></span>
                             <span className={styles.categoryName}>Toy</span>
                         </div>
                         <div className={styles.imageWrapper}
@@ -64,7 +64,7 @@ export default function Homepage() {
                                 navigate('/category/bag');
                             }}
                         >
-                            <span><img className={styles.categoryImage} src={`${allproducts[8].product_images[0].url}`} alt='img'></img></span>
+                            <span><img className={styles.categoryImage} src={`${allproducts[8]?.product_images[0].url}`} alt=''></img></span>
                             <span className={styles.categoryName}>Bag</span>
                         </div>
                         <div className={styles.imageWrapper}
@@ -73,7 +73,7 @@ export default function Homepage() {
                                 navigate('/category/boyfriend');
                             }}
                         >
-                            <span><img className={styles.categoryImage} src={`${allproducts[14].product_images[0].url}`} alt='img'></img></span>
+                            <span><img className={styles.categoryImage} src={`${allproducts[14]?.product_images[0].url}`} alt=''></img></span>
                             <span className={styles.categoryName}>Boyfriend</span>
                         </div>
                     </div>
