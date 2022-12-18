@@ -67,639 +67,550 @@ def seed_all():
     ## Products ##
     ##############
 
+
     product = Product(
         seller=anna,
-        categories=[wedding, gift, girlfriend, bag],
-        name="60%Off customized straw bags Personalized WEDDING GUEST GIFT monogrammed bag bridal shower bags,custom beach bag,straw tote,embroidered bag",
-        price="28.00",
-        description="This straw is Personalized order and send me your name Personalized you want Write it down in this bags"
+        categories=[home_decor, gift,personalized_gift],
+        name="Christmas Tree Decoration - Librarian Ornament - Personalized Acrylic Ornament - Book Lovers Gift - Lover Bookworm - Bookshelf Custom Name",
+        price="12.99",
+        description="🎁Any Problem,Pls contact me any time."
     )
 
     db.session.add_all([
         ProductImage(
             product=product,
-            url=upload_image_to_bucket_from_url(
-                "https://i.etsystatic.com/23020574/r/il/831fda/3099213156/il_794xN.3099213156_rar7.jpg"),
+            url=upload_image_to_bucket_from_url("https://i.etsystatic.com/5594537/r/il/23d3e4/4313384449/il_794xN.4313384449_duqj.jpg"),
             preview=True
         ),
-
         ProductImage(
             product=product,
-            url=upload_image_to_bucket_from_url(
-                "https://i.etsystatic.com/23020574/r/il/fad766/3146934257/il_1588xN.3146934257_lnos.jpg"),
+            url=upload_image_to_bucket_from_url("https://i.etsystatic.com/5594537/r/il/066703/4265998012/il_1588xN.4265998012_ay31.jpg"),
             preview=False
         ),
-
         ProductImage(
             product=product,
-            url=upload_image_to_bucket_from_url(
-                "https://i.etsystatic.com/23020574/r/il/d928ce/3099213096/il_1588xN.3099213096_n86d.jpg"),
+            url=upload_image_to_bucket_from_url("https://i.etsystatic.com/5594537/r/il/957e42/4313395869/il_1588xN.4313395869_9ium.jpg"),
             preview=False
         ),
-
         ProductImage(
             product=product,
-            url=upload_image_to_bucket_from_url(
-                "https://i.etsystatic.com/23020574/r/il/499c97/3146934189/il_1588xN.3146934189_sb01.jpg"),
+            url=upload_image_to_bucket_from_url("https://i.etsystatic.com/5594537/r/il/c7fe11/4313392445/il_1588xN.4313392445_dfj4.jpg"),
             preview=False
         ),
-
         ProductImage(
             product=product,
-            url=upload_image_to_bucket_from_url(
-                "https://i.etsystatic.com/23020574/r/il/3d113a/3146934181/il_1588xN.3146934181_7nex.jpg"),
+            url=upload_image_to_bucket_from_url("https://i.etsystatic.com/5594537/r/il/9464a9/4265993564/il_1588xN.4265993564_b94k.jpg"),
             preview=False
         ),
-
         ProductImage(
             product=product,
-            url=upload_image_to_bucket_from_url(
-                "https://i.etsystatic.com/23020574/r/il/3fffd4/3146934133/il_1588xN.3146934133_hbmo.jpg"),
+            url=upload_image_to_bucket_from_url("https://i.etsystatic.com/5594537/r/il/8a3c8d/4265987390/il_1588xN.4265987390_l8lf.jpg"),
             preview=False
         ),
-
         ProductImage(
             product=product,
-            url=upload_image_to_bucket_from_url(
-                "https://i.etsystatic.com/23020574/r/il/67c451/3146934239/il_1588xN.3146934239_ik6z.jpg"),
+            url=upload_image_to_bucket_from_url("https://i.etsystatic.com/5594537/r/il/c9fca9/4313394981/il_1588xN.4313394981_jjwl.jpg"),
+            preview=False
+        ),
+        ProductImage(
+            product=product,
+            url=upload_image_to_bucket_from_url("https://i.etsystatic.com/5594537/r/il/3d4650/4265997396/il_1588xN.4265997396_owq4.jpg"),
             preview=False
         ),
 
         Review(
-            buyer=bobbie,
+            buyer=brian,
+            product=product,
+            rating=2,
+            review="It wasn’t what I expected. The colors are more vibrant on the Etsy photo which makes the books stand out more and look more dimensional. The one I received seems muted and all the same color palette so it just isn’t very interesting. I think I misinterpreted the Etsy photo. It arrived on time."
+        ),
+
+        Review(
+            buyer=caitlynn,
+            product=product,
+            rating=3,
+            review="For me this item didn’t match the pic or description, I assumed the ornament and books were more 3D, sticking out and that’s what attracted me to it. I didn’t want just a photo of books laminated on the ornament but if that’s what you’re looking for this is it. Quality is good but I don’t think the look of it is very bright as it shows in the photo."
+        ),
+
+        Review(
+            buyer=derrik,
             product=product,
             rating=5,
-            review="I love, love how the bag turned out!!! So cute!! Amazing buyer service and quick delivery… My only complaint was the packaging for shipping. I felt like the basket got a little banged up in transit because it was just in like a bag. Otherwise couldn’t recommend any more!"
+            review="Adorable! Perfect tree ornament for daughter who makes her living selling, reading, writing & loving books. Looks just like the picture; Thanks for sending it 'gift-ready' in nice little box."
+        ),
+
+        Review(
+            buyer=elizabeth,
+            product=product,
+            rating=2,
+            review="Very cheap-looking. Plastic coating was bubbled over the picture of books. Not what I was expecting. Cannot give this to the intended recipient."
+        ),
+    ])
+
+    db.session.commit()
+
+
+    product = Product(
+        seller=anna,
+        categories=[gift,personalized_gift],
+        name="Goal Journal, Custom Planner, Planner 2023, Goal Planner, Planner Journal, 2023 Planner, Customized Planner, Personal Planner",
+        price="49.99",
+        description="BEATI FIC HAPPY DAILY PLANNER 2023 - 2024 and beyond."
+    )
+
+    db.session.add_all([
+        ProductImage(
+            product=product,
+            url=upload_image_to_bucket_from_url("https://i.etsystatic.com/14788844/r/il/8d9242/2807422358/il_794xN.2807422358_g54t.jpg"),
+            preview=True
+        ),
+        ProductImage(
+            product=product,
+            url=upload_image_to_bucket_from_url("https://i.etsystatic.com/14788844/r/il/4d18f7/4120791184/il_1588xN.4120791184_ly6c.jpg"),
+            preview=False
+        ),
+        ProductImage(
+            product=product,
+            url=upload_image_to_bucket_from_url("https://i.etsystatic.com/14788844/r/il/df9e47/4120791468/il_1588xN.4120791468_sin6.jpg"),
+            preview=False
+        ),
+        ProductImage(
+            product=product,
+            url=upload_image_to_bucket_from_url("https://i.etsystatic.com/14788844/r/il/ce79bd/4168456809/il_1588xN.4168456809_lokd.jpg"),
+            preview=False
+        ),
+        ProductImage(
+            product=product,
+            url=upload_image_to_bucket_from_url("https://i.etsystatic.com/14788844/r/il/93842d/4120791584/il_1588xN.4120791584_cat3.jpg"),
+            preview=False
+        ),
+        ProductImage(
+            product=product,
+            url=upload_image_to_bucket_from_url("https://i.etsystatic.com/14788844/r/il/e4f79a/4230055159/il_1588xN.4230055159_6i39.jpg"),
+            preview=False
+        ),
+        ProductImage(
+            product=product,
+            url=upload_image_to_bucket_from_url("https://i.etsystatic.com/14788844/r/il/8a3dd7/4168457247/il_1588xN.4168457247_ete0.jpg"),
+            preview=False
+        ),
+        ProductImage(
+            product=product,
+            url=upload_image_to_bucket_from_url("https://i.etsystatic.com/14788844/r/il/4d18f7/4120791184/il_1588xN.4120791184_ly6c.jpg"),
+            preview=False
+        ),
+        ProductImage(
+            product=product,
+            url=upload_image_to_bucket_from_url("https://i.etsystatic.com/14788844/r/il/cae788/4174206891/il_1588xN.4174206891_l13p.jpg"),
+            preview=False
+        ),
+
+        Review(
+            buyer=brian,
+            product=product,
+            rating=5,
+            review="In love with it! So beautiful, thank you so much."
         ),
 
         Review(
             buyer=caitlynn,
             product=product,
             rating=5,
-            review="This is the perfect little bag for summer! It fits a lot and still looks stylish! I’m so glad I found this!"
+            review="Very happy with my purchase, so far. I’ve been using it every day and I just got it a week ago. So far so good! I like the simple design and simplicity overall. Other planners I’ve tried were just way too detailed and I think completely derail any effort you have of being organized because it just gives you too many options. I ordered this one specifically because it was just straight to the point and not too overwhelming. The shipping I only gave four stars because it just took longer than I thought. That’s all. But I got it and the quality of the product is really well done! 🙂"
         ),
 
         Review(
             buyer=derrik,
             product=product,
-            rating=3,
-            review="I'll start by saying that I was pleased with my bags when they arrived. Shipping was pretty quick, but the packaging was essentially a tarp wrapped around the bags and duct taped. My biggest issue was communication. I ordered 5 bags for myself and my bridesmaids for my upcoming wedding and wanted personalized writing on the bags. Nowhere in the listing did it indicate that there was a character limit, or that I would be upcharged for a larger bag if I exceeded that character limit. I actually used a phrase that is advertised in one of the listing pictures, but was informed there would be an additional surcharge because the writing wouldn't fit. Ultimately, I had to pay an extra $24 for 3 larger bags, but the seller did use the same larger bag for my 2 remaining items for free. Just be aware of this when placing your order."
+            rating=5,
+            review="I added customization on this notebook and it turned out better than I expected. Completely in love. 🥰😍"
+        ),
+
+        Review(
+            buyer=elizabeth,
+            product=product,
+            rating=5,
+            review="I had purchased 6 books total from Gvan. I had customized 4 of the 6 books and Gvan did a wonderful job. She went above and beyond to make sure I was happy with the draft before production started. She kept me in the loop from draft, to production, to shipped. Amazing customer service and everything was shipped very well. 1000% recommend. These are gifts and I can’t wait to hand them out. 😍"
+        ),
+    ])
+
+    db.session.commit()
+
+    product = Product(
+        seller=anna,
+        categories=[home_decor],
+        name="Pineapple Print, Pineapple Wall Art Prints, Printable Kitchen Decor, Botanical Print, Tropical Watercolor Print, Printable Wall Art, Posters",
+        price="6.99",
+        description="Pineapple print is a high quality instantly downloadable printable wall art. Decor your home, nursery or office in an affordable way! Print it and frame it - it's really that easy!"
+    )
+
+    db.session.add_all([
+        ProductImage(
+            product=product,
+            url=upload_image_to_bucket_from_url("https://i.etsystatic.com/12421481/r/il/5be307/1223735702/il_794xN.1223735702_d1fk.jpg"),
+            preview=True
+        ),
+         ProductImage(
+            product=product,
+            url=upload_image_to_bucket_from_url("https://i.etsystatic.com/12421481/r/il/96a486/1073878972/il_1588xN.1073878972_awum.jpg"),
+            preview=False
+        ),
+         ProductImage(
+            product=product,
+            url=upload_image_to_bucket_from_url("https://i.etsystatic.com/12421481/r/il/48f330/1073877922/il_1588xN.1073877922_swdt.jpg"),
+            preview=False
+        ),
+         ProductImage(
+            product=product,
+            url=upload_image_to_bucket_from_url("https://i.etsystatic.com/12421481/r/il/bd7a12/976145786/il_1588xN.976145786_728c.jpg"),
+            preview=False
+        ),
+
+        Review(
+            buyer=brian,
+            product=product,
+            rating=5,
+            review="I WILL DEFINITELY BE ORDERING AGAIN!! This print looks so great hanging in my kitchen- it was the perfect addition to the bare wall I was trying to beautify!"
+        ),
+
+        Review(
+            buyer=caitlynn,
+            product=product,
+            rating=5,
+            review="Was looking for some simple art to frame on the wall and this fit the bill. Was easy to print and turned out great!"
+        ),
+
+        Review(
+            buyer=derrik,
+            product=product,
+            rating=5,
+            review="I love the print, and told my friends about it. It's going to hang in my living room - the quality was wonderful."
+        ),
+
+        Review(
+            buyer=elizabeth,
+            product=product,
+            rating=5,
+            review="Fun print, very pleased with my purchase. It looks great in my kitchen!"
+        ),
+    ])
+
+    db.session.commit()
+
+    product = Product(
+        seller=anna,
+        categories=[boyfriend],
+        name="Pineapple Watercolor Print Kitchen Art by HippieHoppy",
+        price="9.10",
+        description="This is a print of my original watercolor painting that I hand painted in 2018. All prints are gallery quality Giclée prints on Pure white, ultra smooth, 100% cotton rag, acid and lignin free archival paper using archival inks and are individually signed."
+    )
+
+    db.session.add_all([
+        ProductImage(
+            product=product,
+            url=upload_image_to_bucket_from_url("https://i.etsystatic.com/9084215/r/il/d66b2d/2601849206/il_794xN.2601849206_mug7.jpg"),
+            preview=True
+        ),
+        ProductImage(
+            product=product,
+            url=upload_image_to_bucket_from_url("https://i.etsystatic.com/9084215/r/il/f79c30/1580617794/il_1588xN.1580617794_177j.jpg"),
+            preview=False
+        ),
+         ProductImage(
+            product=product,
+            url=upload_image_to_bucket_from_url("https://i.etsystatic.com/9084215/r/il/887e53/1628058903/il_1588xN.1628058903_4omv.jpg"),
+            preview=False
+        ),
+         ProductImage(
+            product=product,
+            url=upload_image_to_bucket_from_url("https://i.etsystatic.com/9084215/r/il/727e0e/1580617896/il_1588xN.1580617896_hopj.jpg"),
+            preview=False
+        ),
+         ProductImage(
+            product=product,
+            url=upload_image_to_bucket_from_url("https://i.etsystatic.com/9084215/r/il/02171a/1580617984/il_1588xN.1580617984_dbd9.jpg"),
+            preview=False
+        ),
+         ProductImage(
+            product=product,
+            url=upload_image_to_bucket_from_url("https://i.etsystatic.com/9084215/r/il/dfe805/1628059351/il_1588xN.1628059351_ouao.jpg"),
+            preview=False
+        ),
+
+        Review(
+            buyer=brian,
+            product=product,
+            rating=5,
+            review="I bought 4 pieces for my pantry wall and I love them. They are even prettier than they were on the site. They are perfect for what I wanted them for. Would highly recommend."
+        ),
+
+        Review(
+            buyer=caitlynn,
+            product=product,
+            rating=5,
+            review="Purchased for my daughter, who loves pineapples and is moving from Hawaii. The painting itself is adorable, and arrived quickly. I'm sure she will love it. My only disappointment is the signature is very tiny and on the bottom edge. I like to see the signature on artwork, but when I get this matted/framed the signature is so close to the edge that it will get covered up. That will make me sad."
+        ),
+
+        Review(
+            buyer=derrik,
+            product=product,
+            rating=5,
+            review="Absolutely beautiful piece! I am so happy with my purchase. Mahalo."
+        ),
+
+        Review(
+            buyer=elizabeth,
+            product=product,
+            rating=5,
+            review="Crystal nice crystal leave nice card. But in all seriousness it's a great quality and it's very pretty. All you need is the frame and you're good! It shipped extremely quick and it came with a nice card which I very much enjoyed. 10/10."
+        ),
+    ])
+
+    db.session.commit()
+
+
+    product = Product(
+        seller=anna,
+        categories=[gift, personalized_gift,home_decor],
+        name="Best Christmas Gift,Hand-Carved Painted Orange Cat Figurines | Wooden Animal | Home Decor Sculpture Ornament | Personalized Gift",
+        price="15.99",
+        description="Painted wooden orange cat ornaments are handcrafted from carved wood and hand-painted in different shades of paint. the orange cat looks cute and funny and comes to life."
+    )
+
+    db.session.add_all([
+        ProductImage(
+            product=product,
+            url=upload_image_to_bucket_from_url("https://i.etsystatic.com/18840488/r/il/4f6762/4193569941/il_794xN.4193569941_k6q7.jpg"),
+            preview=True
+        ),
+        ProductImage(
+            product=product,
+            url=upload_image_to_bucket_from_url("https://i.etsystatic.com/18840488/r/il/1621e6/4374499176/il_1588xN.4374499176_oob5.jpg"),
+            preview=False
+        ),
+        ProductImage(
+            product=product,
+            url=upload_image_to_bucket_from_url("https://i.etsystatic.com/18840488/r/il/b202e1/4374477426/il_1588xN.4374477426_23w4.jpg"),
+            preview=False
+        ),
+        ProductImage(
+            product=product,
+            url=upload_image_to_bucket_from_url("https://i.etsystatic.com/18840488/r/il/c25f9d/4374477544/il_1588xN.4374477544_qyym.jpg"),
+            preview=False
+        ),
+        ProductImage(
+            product=product,
+            url=upload_image_to_bucket_from_url("https://i.etsystatic.com/18840488/r/il/13c33e/4374477170/il_1588xN.4374477170_3rh5.jpg"),
+            preview=False
+        ),
+        ProductImage(
+            product=product,
+            url=upload_image_to_bucket_from_url("https://i.etsystatic.com/18840488/r/il/b63529/4421883813/il_1588xN.4421883813_muy3.jpg"),
+            preview=False
+        ),
+        ProductImage(
+            product=product,
+            url=upload_image_to_bucket_from_url("https://i.etsystatic.com/18840488/r/il/e7712f/4421887263/il_1588xN.4421887263_n06a.jpg"),
+            preview=False
+        ),
+        ProductImage(
+            product=product,
+            url=upload_image_to_bucket_from_url("https://i.etsystatic.com/18840488/r/il/86b359/4421887219/il_1588xN.4421887219_t0lj.jpg"),
+            preview=False
+        ),
+
+        Review(
+            buyer=brian,
+            product=product,
+            rating=5,
+            review="The Wooden Cat arrived wrapped up safely, and I love the feature of the little bell around the necklace and how it actually makes noise when you move it, it’s so adorable that I constantly pause what I’m doing and take a few moments to admire it. It was worth every penny for this little cat sculpture!"
+        ),
+
+        Review(
+            buyer=caitlynn,
+            product=product,
+            rating=4,
+            review="It's a very cute tiny cat. Perfect for a stocking stuffer. It did quite a long time to get to me. When I told the seller that I hadn't received it yet, they shipped one right out (so now I have it in time for Christmas)."
+        ),
+
+        Review(
+            buyer=derrik,
+            product=product,
+            rating=5,
+            review="This cat is really adorable! It makes me smile looking at it - it reminds me of our cat who we had to put down recently and it feels like he's smiling at me when I look at it. It's quite small, which is fine, but something to note that the other reviews have mentioned as well."
+        ),
+
+        Review(
+            buyer=elizabeth,
+            product=product,
+            rating=5,
+            review="Super cute!!! Smaller than I anticipated, but I didn't look at the dimensions before buying, so make sure you do to understand their size. Shipped quickly and good quality. Really recommend and will be giving as a gift."
+        ),
+    ])
+
+    db.session.commit()
+
+    product = Product(
+        seller=anna,
+        categories=[home_decor, gift],
+        name="Crystal Suncatchers, Light Catcher, Boho Decor, Moon Evil Eye Window Prism, Witchy Decor, Housewarming Gift, Indie Room Decor",
+        price="11.59",
+        description="PERSONALIZED ZODIAC & BIRTHSTONE CHARMS:"
+    )
+
+    db.session.add_all([
+        ProductImage(
+            product=product,
+            url=upload_image_to_bucket_from_url("https://i.etsystatic.com/26343368/r/il/bcff5a/4260582323/il_794xN.4260582323_jp01.jpg"),
+            preview=True
+        ),
+        ProductImage(
+            product=product,
+            url=upload_image_to_bucket_from_url("https://i.etsystatic.com/26343368/r/il/bf8536/4352523970/il_1588xN.4352523970_qwbb.jpg"),
+            preview=False
+        ),
+        ProductImage(
+            product=product,
+            url=upload_image_to_bucket_from_url("https://i.etsystatic.com/26343368/r/il/c43f70/4352523944/il_1588xN.4352523944_gibm.jpg"),
+            preview=False
+        ),
+        ProductImage(
+            product=product,
+            url=upload_image_to_bucket_from_url("https://i.etsystatic.com/26343368/r/il/410c70/4233610206/il_1588xN.4233610206_d4y3.jpg"),
+            preview=False
+        ),
+        ProductImage(
+            product=product,
+            url=upload_image_to_bucket_from_url("https://i.etsystatic.com/26343368/r/il/070c58/4409831209/il_1588xN.4409831209_3v8r.jpg"),
+            preview=False
+        ),
+        ProductImage(
+            product=product,
+            url=upload_image_to_bucket_from_url("https://i.etsystatic.com/26343368/r/il/a9c656/4352524038/il_1588xN.4352524038_gze4.jpg"),
+            preview=False
+        ),
+        ProductImage(
+            product=product,
+            url=upload_image_to_bucket_from_url("https://i.etsystatic.com/26343368/r/il/57cc37/4454377091/il_1588xN.4454377091_k1jy.jpg"),
+            preview=False
+        ),
+        ProductImage(
+            product=product,
+            url=upload_image_to_bucket_from_url("https://i.etsystatic.com/26343368/r/il/f3020d/4240042263/il_1588xN.4240042263_4z31.jpg"),
+            preview=False
+        ),
+
+        Review(
+            buyer=brian,
+            product=product,
+            rating=5,
+            review="They’re even more beautiful in person and I can’t wait to give it to my best friend for Christmas. I just know he’s going to love it. The sun catcher got to me sooner than expected and was packaged so thoughtfully. Will purchase another one for myself after the holidays."
+        ),
+
+        Review(
+            buyer=caitlynn,
+            product=product,
+            rating=5,
+            review="Beautifully made, and came in so quick! The little pouch it’s placed in is so cute as well. Very satisfied."
+        ),
+
+        Review(
+            buyer=derrik,
+            product=product,
+            rating=5,
+            review="Love. Love. Love. These will be the perfect gift for all of my girl friends. The hardest part... picking the 2 I want to keep."
+        ),
+
+        Review(
+            buyer=elizabeth,
+            product=product,
+            rating=5,
+            review="So cute! It’s absolutely gorgeous when the sun hits it too!"
+        ),
+    ])
+
+    db.session.commit()
+
+    product = Product(
+        seller=anna,
+        categories=[personalized_gift, gift, girlfriend],
+        name="Birth Month Flower Jewelry Case, Personalized Birth Flower Travel Box, Birthday Gift, Christmas & Holiday Gift, Wedding Gifts, Jewelry Case",
+        price="16.06",
+        description="A perfect Italian velvet, traveler's customizable zipper jewelry case for personal gift - especially for Christmas!"
+    )
+
+    db.session.add_all([
+        ProductImage(
+            product=product,
+            url=upload_image_to_bucket_from_url("https://i.etsystatic.com/22038730/r/il/486b73/4337247972/il_794xN.4337247972_3ffm.jpg"),
+            preview=True
+        ),
+        ProductImage(
+            product=product,
+            url=upload_image_to_bucket_from_url("https://i.etsystatic.com/22038730/r/il/e4520c/4370065950/il_1588xN.4370065950_m71z.jpg"),
+            preview=False
+        ),
+          ProductImage(
+            product=product,
+            url=upload_image_to_bucket_from_url("https://i.etsystatic.com/22038730/r/il/5c8192/4201608692/il_1588xN.4201608692_9fe8.jpg"),
+            preview=False
+        ),
+          ProductImage(
+            product=product,
+            url=upload_image_to_bucket_from_url("https://i.etsystatic.com/22038730/r/il/1dce16/4262239210/il_1588xN.4262239210_l9mp.jpg"),
+            preview=False
+        ),
+
+        ProductImage(
+            product=product,
+            url=upload_image_to_bucket_from_url("https://i.etsystatic.com/22038730/r/il/de00c2/4283903357/il_1588xN.4283903357_fr1x.jpg"),
+            preview=False
+        ),
+
+        ProductImage(
+            product=product,
+            url=upload_image_to_bucket_from_url("https://i.etsystatic.com/22038730/r/il/36b5fd/4240400934/il_1588xN.4240400934_e845.jpg"),
+            preview=False
+        ),
+
+         ProductImage(
+            product=product,
+            url=upload_image_to_bucket_from_url("https://i.etsystatic.com/22038730/r/il/bc503b/4201613894/il_1588xN.4201613894_j0u7.jpg"),
+            preview=False
+        ),
+
+        ProductImage(
+            product=product,
+            url=upload_image_to_bucket_from_url("https://i.etsystatic.com/22038730/r/il/4a61d5/4394804761/il_1588xN.4394804761_6e2w.jpg"),
+            preview=False
+        ),
+
+        Review(
+            buyer=brian,
+            product=product,
+            rating=5,
+            review="The jewelry box came out very well, and the embroidery looks amazing. The box feels nice as well, and the interior has a lot of room"
+        ),
+
+        Review(
+            buyer=caitlynn,
+            product=product,
+            rating=5,
+            review="Absolutely beautiful!! The color is perfect and it feels very high quality. I bought these for all the girls in my wedding party. I love them, thank you so much!!"
+        ),
+
+        Review(
+            buyer=derrik,
+            product=product,
+            rating=5,
+            review="My jaw dropped opening up this package. Their work is beautiful and I am so excited to give my nieces this gift. So happy.!"
         ),
 
         Review(
             buyer=elizabeth,
             product=product,
             rating=4,
-            review="Only complaint is that the text is not centered on the bag - is pretty 'left justified'. Otherwise, super adorable product and fast shipping."
-        ),
-    ])
-
-    db.session.commit()
-
-    product = Product(
-        seller=anna,
-        categories=[wedding, boyfriend, gift],
-        name="Men's Leather Dopp Kit, Personalized Groomsman Gift, Men's Leather Accessory, Custom Mens Shave Bag, Anniversary Gift for Man, Birthday Gift",
-        price="14.92",
-        description="Personalized Leather Dopp Kit, Third Anniversary Gifts For Men, Leather Toiletry Bag, Birthday Gift For Dad, Valentines Day Gift For Him, Dopp Kit, Travel Bag, Personalized Groomsmen Gift, Custom Leather Toiletry Bag, Leather Personalized Gift, Mens Toiletry Bag, Father’s Day Gift, Birthday Gift, Gift for Him"
-    )
-
-    db.session.add_all([
-        ProductImage(
-            product=product,
-            url=upload_image_to_bucket_from_url(
-                "https://i.etsystatic.com/32929192/r/il/cb7d09/3714311335/il_794xN.3714311335_4kwq.jpg"),
-            preview=True
-        ),
-
-        ProductImage(
-            product=product,
-            url=upload_image_to_bucket_from_url(
-                "https://i.etsystatic.com/32929192/r/il/490c85/3478726118/il_1588xN.3478726118_cq9g.jpg"),
-            preview=False
-        ),
-
-        ProductImage(
-            product=product,
-            url=upload_image_to_bucket_from_url(
-                "https://i.etsystatic.com/32929192/r/il/73824a/3890948405/il_1588xN.3890948405_dpmf.jpg"),
-            preview=False
-        ),
-
-        ProductImage(
-            product=product,
-            url=upload_image_to_bucket_from_url(
-                "https://i.etsystatic.com/32929192/r/il/0fc8b8/3890948387/il_1588xN.3890948387_o5r0.jpg"),
-            preview=False
-        ),
-
-        ProductImage(
-            product=product,
-            url=upload_image_to_bucket_from_url(
-                "https://i.etsystatic.com/32929192/r/il/5f5055/3889937763/il_1588xN.3889937763_s56t.jpg"),
-            preview=False
-        ),
-
-        ProductImage(
-            product=product,
-            url=upload_image_to_bucket_from_url(
-                "https://i.etsystatic.com/32929192/r/il/ed4ec5/3889941053/il_1588xN.3889941053_3xj1.jpg"),
-            preview=False
-        ),
-
-        ProductImage(
-            product=product,
-            url=upload_image_to_bucket_from_url(
-                "https://i.etsystatic.com/32929192/r/il/34db34/3526372801/il_1588xN.3526372801_s24t.jpg"),
-            preview=False
-        ),
-
-        ProductImage(
-            product=product,
-            url=upload_image_to_bucket_from_url(
-                "https://i.etsystatic.com/32929192/r/il/69854a/3481338888/il_1588xN.3481338888_osh1.jpg"),
-            preview=False
-        ),
-
-        ProductImage(
-            product=product,
-            url=upload_image_to_bucket_from_url(
-                "https://i.etsystatic.com/32929192/r/il/98071f/3842438288/il_1588xN.3842438288_4uzt.jpg"),
-            preview=False
-        ),
-
-        Review(
-            buyer=bobbie,
-            product=product,
-            rating=5,
-            review="Of all the things I’ve ever ordered from Etsy, this one is my ultimate favorite! WOW! Words cannot express how beautiful this toiletry bag is! I almost want to give the gift to my FIL now! (Haha) I’ve shown all of my friends and family and am encouraging them to seller from this seller. It shipped so quickly and the added keychain was just the cherry on top! Absolutely wonderful product!! I will be shipping with this seller again and again!"
-        ),
-
-        Review(
-            buyer=caitlynn,
-            product=product,
-            rating=5,
-            review="I've never experienced buyer service like I did with Enes! They made sure I was satisfied and kept me up to date with my order without me asking. I ordered a bag with my boyfriends initials and it looks stunning 🤩 I'm so excited to gift it to him. Super satisfied with my item!!! Thank you 🙏"
-        ),
-
-        Review(
-            buyer=derrik,
-            product=product,
-            rating=5,
-            review="The packaging on this items was a real surprise! The kit itself is well made and the stitching and name looks good. The color was also what I expected. I did measure when trying to decide on the size and think the next size up would have been better, but that is on me. I would definitely order this again."
-        ),
-
-        Review(
-            buyer=elizabeth,
-            product=product,
-            rating=5,
-            review="Seller was very responsive and super quick with getting my order ready--even with a customization. The bag looks exactly like the picture and the packaging is really good!"
-        ),
-    ])
-
-    db.session.commit()
-
-    product = Product(
-        seller=anna,
-        categories=[girlfriend, bag, case],
-        name="Leather iPhone 12 13 case bag, wallet with card pocket, Gift for Her, Leather Phone Bag, Leather Accessories for her",
-        price="87.00",
-        description="Crossbody phone bag Milley is very suitable for daily casual wearing, office occasion, travel. Especially for travel - it's perfect for holding your phone, cards and passport. This style features and adjustable strap, magnetic closure and a pocket on a back panel."
-    )
-
-    db.session.add_all([
-        ProductImage(
-            product=product,
-            url=upload_image_to_bucket_from_url(
-                "https://i.etsystatic.com/31475762/r/il/7a4962/3416025636/il_794xN.3416025636_neol.jpg"),
-            preview=True
-        ),
-
-        ProductImage(
-            product=product,
-            url=upload_image_to_bucket_from_url(
-                "https://i.etsystatic.com/31475762/r/il/1c7ca9/3375663430/il_1588xN.3375663430_8iom.jpg"),
-            preview=False
-        ),
-
-        ProductImage(
-            product=product,
-            url=upload_image_to_bucket_from_url(
-                "https://i.etsystatic.com/31475762/r/il/67771d/3415990988/il_1588xN.3415990988_iisk.jpg"),
-            preview=False
-        ),
-
-        ProductImage(
-            product=product,
-            url=upload_image_to_bucket_from_url(
-                "https://i.etsystatic.com/31475762/r/il/a60150/3415986242/il_1588xN.3415986242_t37f.jpg"),
-            preview=False
-        ),
-
-        ProductImage(
-            product=product,
-            url=upload_image_to_bucket_from_url(
-                "https://i.etsystatic.com/31475762/r/il/1f74de/4291529578/il_1588xN.4291529578_3jqc.jpg"),
-            preview=False
-        ),
-
-        ProductImage(
-            product=product,
-            url=upload_image_to_bucket_from_url(
-                "https://i.etsystatic.com/31475762/r/il/7ab155/4191194083/il_1588xN.4191194083_m91m.jpg"),
-            preview=False
-        ),
-
-        ProductImage(
-            product=product,
-            url=upload_image_to_bucket_from_url(
-                "https://i.etsystatic.com/31475762/r/il/4ac5ca/3375665586/il_1588xN.3375665586_fesp.jpg"),
-            preview=False
-        ),
-
-        ProductImage(
-            product=product,
-            url=upload_image_to_bucket_from_url(
-                "https://i.etsystatic.com/31475762/r/il/cfedfe/3375661820/il_1588xN.3375661820_3gap.jpg"),
-            preview=False
-        ),
-
-        ProductImage(
-            product=product,
-            url=upload_image_to_bucket_from_url(
-                "https://i.etsystatic.com/31475762/r/il/b739ae/4143913686/il_1588xN.4143913686_8quk.jpg"),
-            preview=False
-        ),
-
-        Review(
-            buyer=bobbie,
-            product=product,
-            rating=5,
-            review="I LOVE this bag!!!! It is perfect size to put some personal stuff and a place for cards and an outside pocket for your phone. I will be ordering another color! The only thing I regret was not getting my initials on the bag because I needed it fast for a trip. This seller shipped with a week and half when expected to be closer to 2-3 weeks!! buyer service was great! Responding to all my messages in a timely manner. Thank you so much!"
-        ),
-
-        Review(
-            buyer=caitlynn,
-            product=product,
-            rating=5,
-            review="I just received my bag and I love it! Well made, quality and show the love of the creator in every detail. Thank you very much, happy buyer here."
-        ),
-
-        Review(
-            buyer=derrik,
-            product=product,
-            rating=5,
-            review="Perfect cell phone bag for when you don't need to carry a purse or bag. Holds the cards you need, cell phone, and chapstick, keys etc. Strap is adjustable.Bought in the wine burgundy color. Fast shipping quality product. My 3rd item from this store."
-        ),
-
-        Review(
-            buyer=elizabeth,
-            product=product,
-            rating=5,
-            review="It’s beautifully made!!!! I just love it!"
-        ),
-    ])
-
-    db.session.commit()
-
-    product = Product(
-        seller=anna,
-        categories=[wedding, girlfriend, bag, gift],
-        name="Personalized Tote Bag, Bridesmaid Totes,Name Tote,Canvas Bag, Bridesmaid Gift, Bachelorette Gift, (Font 6 - 10 inch wide/ 6 inch height MAX)",
-        price="9.10",
-        description="Bag Dimensions are approximately 15x15 inches No Zipper Or Clip."
-    )
-
-    db.session.add_all([
-        ProductImage(
-            product=product,
-            url=upload_image_to_bucket_from_url(
-                "https://i.etsystatic.com/28509384/r/il/0927a2/3343967865/il_794xN.3343967865_sjls.jpg"),
-            preview=True
-        ),
-
-        ProductImage(
-            product=product,
-            url=upload_image_to_bucket_from_url(
-                "https://i.etsystatic.com/28509384/r/il/74386f/3296265660/il_1588xN.3296265660_4osh.jpg"),
-            preview=False
-        ),
-
-        ProductImage(
-            product=product,
-            url=upload_image_to_bucket_from_url(
-                "https://i.etsystatic.com/28509384/r/il/84a682/3294635830/il_1588xN.3294635830_hlx8.jpg"),
-            preview=False
-        ),
-
-
-        ProductImage(
-            product=product,
-            url=upload_image_to_bucket_from_url(
-                "https://i.etsystatic.com/28509384/r/il/69ea0d/3358133601/il_1588xN.3358133601_odoq.jpg"),
-            preview=False
-        ),
-
-        ProductImage(
-            product=product,
-            url=upload_image_to_bucket_from_url(
-                "https://i.etsystatic.com/28509384/r/il/38041d/3358133381/il_1588xN.3358133381_lqpf.jpg"),
-            preview=False
-        ),
-
-        ProductImage(
-            product=product,
-            url=upload_image_to_bucket_from_url(
-                "https://i.etsystatic.com/28509384/r/il/e9e519/3663698967/il_1588xN.3663698967_5vxb.jpg"),
-            preview=False
-        ),
-
-        ProductImage(
-            product=product,
-            url=upload_image_to_bucket_from_url(
-                "https://i.etsystatic.com/28509384/r/il/41842b/3663698885/il_1588xN.3663698885_apk3.jpg"),
-            preview=False
-        ),
-
-        Review(
-            buyer=bobbie,
-            product=product,
-            rating=5,
-            review="These are beautiful! Great size too !! Shipped super quick! Love them!"
-        ),
-
-        Review(
-            buyer=caitlynn,
-            product=product,
-            rating=5,
-            review="Great product! Fast turn around & shipping! It came out so cute!!"
-        ),
-
-        Review(
-            buyer=derrik,
-            product=product,
-            rating=5,
-            review="The tote bags look awesome! They worked with me to finalize the logo I wanted on the bags. 10/10 will recommend."
-        ),
-
-        Review(
-            buyer=elizabeth,
-            product=product,
-            rating=5,
-            review="Absolutely love my order! Items were shipped extremely fast. I highly recommend!! Great quality!"
-        ),
-    ])
-
-    db.session.commit()
-
-    product = Product(
-        seller=anna,
-        categories=[bag, personalized_gift],
-        name="Custom Text Bags in Bulk , Custom Tote Bag, Promotional Tote Bag, Trade Show Gift Bag, Custom sellerper, sellerping Bags, Custom Text Tote",
-        price="4.45",
-        description="Custom Text Bag, Custom Tote Bag, Promotional Tote Bag, Trade Show Gift Bag, Custom sellerper, sellerping Bags, Custom Text Tote"
-    )
-
-    db.session.add_all([
-        ProductImage(
-            product=product,
-            url=upload_image_to_bucket_from_url(
-                "https://i.etsystatic.com/17766621/r/il/16e3f0/4236608158/il_794xN.4236608158_aztc.jpg"),
-            preview=True
-        ),
-
-        Review(
-            buyer=bobbie,
-            product=product,
-            rating=5,
-            review="This came out perfect. With my wording on my canvas I think it's best I don't post a picture. (Kinda explicit.) You did an amazing job. Thank you so much."
-        ),
-
-        Review(
-            buyer=caitlynn,
-            product=product,
-            rating=5,
-            review="These bags turned out wonderfully! The graphics came out great and the colors are beautiful. I will definitely order from here again. Amazingly pleased with this order!!!"
-        ),
-
-        Review(
-            buyer=derrik,
-            product=product,
-            rating=5,
-            review="I was so excited to receive my package, it was extra special because it had my business logo. it met all my needs I am obsessed."
-        ),
-
-        Review(
-            buyer=elizabeth,
-            product=product,
-            rating=5,
-            review="Item was perfect, seller was very attentive and quick to respond to my questions! Item came very quickly!!! personalized totes for hotel guests for my son's wedding in Phila!!"
-        ),
-    ])
-
-    db.session.commit()
-
-    product = Product(
-        seller=anna,
-        categories=[bag, gift],
-        name="Campbell Tote | Choose Your Strap",
-        price="37.19",
-        description="Now you can build your perfect tote! Pick your favorite color Campbell Tote and then pick your favorite style strap to build the perfect bag. All straps are interchangeable!Our beautiful Campbell tote from the Threaded Pear is the perfect take anywhere bag. This stunning and durable bag features a zipper closure to access the spacious interior for all your must-have essentials. Multiple interior pockets allow for organization for all your items on the go."
-    )
-
-    db.session.add_all([
-        ProductImage(
-            product=product,
-            url=upload_image_to_bucket_from_url(
-                "https://i.etsystatic.com/27481253/r/il/aee3c0/4146026909/il_794xN.4146026909_dfu3.jpg"),
-            preview=True
-        ),
-
-        ProductImage(
-            product=product,
-            url=upload_image_to_bucket_from_url(
-                "https://i.etsystatic.com/27481253/r/il/52186d/3759312349/il_1588xN.3759312349_5e1s.jpg"),
-            preview=False
-        ),
-
-        ProductImage(
-            product=product,
-            url=upload_image_to_bucket_from_url(
-                "https://i.etsystatic.com/27481253/r/il/be0888/3711743784/il_1588xN.3711743784_73im.jpg"),
-            preview=False
-        ),
-
-        ProductImage(
-            product=product,
-            url=upload_image_to_bucket_from_url(
-                "https://i.etsystatic.com/27481253/r/il/03ea82/4146016113/il_1588xN.4146016113_oz2z.jpg"),
-            preview=False
-        ),
-
-        ProductImage(
-            product=product,
-            url=upload_image_to_bucket_from_url(
-                "https://i.etsystatic.com/27481253/r/il/a8a692/4098359482/il_1588xN.4098359482_q6sx.jpg"),
-            preview=False
-        ),
-
-        ProductImage(
-            product=product,
-            url=upload_image_to_bucket_from_url(
-                "https://i.etsystatic.com/27481253/r/il/3640f4/3759312653/il_1588xN.3759312653_k3c0.jpg"),
-            preview=False
-        ),
-
-        ProductImage(
-            product=product,
-            url=upload_image_to_bucket_from_url(
-                "https://i.etsystatic.com/27481253/r/il/d6f597/4138828614/il_1588xN.4138828614_7i59.jpg"),
-            preview=False
-        ),
-
-        ProductImage(
-            product=product,
-            url=upload_image_to_bucket_from_url(
-                "https://i.etsystatic.com/27481253/r/il/c0e07b/4186489933/il_1588xN.4186489933_lq60.jpg"),
-            preview=False
-        ),
-
-        ProductImage(
-            product=product,
-            url=upload_image_to_bucket_from_url(
-                "https://i.etsystatic.com/27481253/r/il/e89ace/4138829272/il_1588xN.4138829272_ix21.jpg"),
-            preview=False
-        ),
-
-        ProductImage(
-            product=product,
-            url=upload_image_to_bucket_from_url(
-                "https://i.etsystatic.com/27481253/r/il/6d94ba/4138829522/il_1588xN.4138829522_40bj.jpg"),
-            preview=False
-        ),
-
-        Review(
-            buyer=bobbie,
-            product=product,
-            rating=5,
-            review="I actually had my strap and needed a purse due to my purse breaking. I wax sent a picture of this purse! It worked perfect"
-        ),
-
-        Review(
-            buyer=caitlynn,
-            product=product,
-            rating=5,
-            review="Love this bag. It’s massive! Perfect for professionals or moms who are transitioning out of the diaper bag phase but still have to carry random kid items. Super happy with the strap and the way the bag looks overall. I will be ordering more!"
-        ),
-
-        Review(
-            buyer=derrik,
-            product=product,
-            rating=5,
-            review="This bag is the perfect size to carry my laptop and work stuff plus my normal purse items. No more carrying multiple bags as this one holds it all! The wide strap doesn't dig into your shoulder like small ones do and being able to choose the strap let me add a little bit of my style to this classy tote. Thank you!"
-        ),
-
-        Review(
-            buyer=elizabeth,
-            product=product,
-            rating=5,
-            review="Love this bag so much! So spacious and arrived so fast! I’ve already gotten several compliments from friends and even strangers. I’ll definitely be purchasing other colors in the future."
-        ),
-    ])
-
-    db.session.commit()
-
-    product = Product(
-        seller=anna,
-        categories=[bag, personalized_gift],
-        name="Beach Tote Bags for Women Personalize, Embroidery Initial Monogram Large Bag, 100% Cotton Canvas, Bridesmaid Bachelorette Gift A-Z",
-        price="18.97",
-        description="- Elegant beach bag: The canvas beach tote is a classic, minimalist design bag with plenty of room for your daily summer tasks. Whether by the poolside, at the beach, or a quick grocery trip. It is big enough to fit all of the day's essentials and perfect for a weekend getaway."
-    )
-
-    db.session.add_all([
-        ProductImage(
-            product=product,
-            url=upload_image_to_bucket_from_url(
-                "https://i.etsystatic.com/21515874/r/il/70440b/2916023872/il_794xN.2916023872_agns.jpg"),
-            preview=True
-        ),
-
-        ProductImage(
-            product=product,
-            url=upload_image_to_bucket_from_url(
-                "https://i.etsystatic.com/21515874/r/il/1c7a2a/3854800271/il_1588xN.3854800271_obi0.jpg"),
-            preview=False
-        ),
-
-        ProductImage(
-            product=product,
-            url=upload_image_to_bucket_from_url(
-                "https://i.etsystatic.com/21515874/r/il/27274f/3872663237/il_1588xN.3872663237_b73y.jpg"),
-            preview=False
-        ),
-
-        ProductImage(
-            product=product,
-            url=upload_image_to_bucket_from_url(
-                "https://i.etsystatic.com/21515874/r/il/73de40/2109966780/il_1588xN.2109966780_f0o2.jpg"),
-            preview=False
-        ),
-
-        ProductImage(
-            product=product,
-            url=upload_image_to_bucket_from_url(
-                "https://i.etsystatic.com/21515874/r/il/1494ff/3895691133/il_1588xN.3895691133_b9zu.jpg"),
-            preview=False
-        ),
-
-        ProductImage(
-            product=product,
-            url=upload_image_to_bucket_from_url(
-                "https://i.etsystatic.com/21515874/r/il/64eb90/3157818513/il_1588xN.3157818513_sjcb.jpg"),
-            preview=False
-        ),
-
-        ProductImage(
-            product=product,
-            url=upload_image_to_bucket_from_url(
-                "https://i.etsystatic.com/21515874/r/il/9c9483/2117559993/il_1588xN.2117559993_9qnp.jpg"),
-            preview=False
-        ),
-
-        ProductImage(
-            product=product,
-            url=upload_image_to_bucket_from_url(
-                "https://i.etsystatic.com/21515874/r/il/576709/2069990788/il_1588xN.2069990788_4356.jpg"),
-            preview=False
-        ),
-
-        Review(
-            buyer=bobbie,
-            product=product,
-            rating=5,
-            review="These bags are simply beautiful. I ordered them for my bridesmaids for our wedding morning and I was concerned about the quality because some other sellers had poor reviews for similar items. However these bags are divine. They are so sturdy the entire inside is coded with a waterproof material they are beautiful the stitching is Flawless and I’m so glad that I had the idea of ordering one for myself because I would definitely be jealous of my girls if I hadn’t!"
-        ),
-
-        Review(
-            buyer=caitlynn,
-            product=product,
-            rating=5,
-            review="I bought several of these tote bags as bridesmaids gifts, and they’re perfect. They are a good size, sturdy, and they come with a hard interior bottom insert that keeps them from tipping over. The embroidered letters look perfect. Love them!"
-        ),
-
-        Review(
-            buyer=derrik,
-            product=product,
-            rating=5,
-            review="I ordered 5 of these and they arrived in time for my trip, they were neatly packaged so I can easily pack, size is perfect for a beach/pool bag, super cute, and they feel sturdy."
-        ),
-
-        Review(
-            buyer=elizabeth,
-            product=product,
-            rating=5,
-            review="I ordered 5 of these and they arrived in time for my trip, they were neatly packaged so I can easily pack, size is perfect for a beach/pool bag, super cute, and they feel sturdy."
+            review="Absolutely amazing!!!! Perfect quality and look is absolutely perfection!!!!"
         ),
     ])
 
@@ -796,6 +707,82 @@ def seed_all():
             product=product,
             rating=5,
             review="Super cute! My favorite part is the satin like inside."
+        ),
+    ])
+
+    db.session.commit()
+
+    product = Product(
+        seller=anna,
+        categories=[bag],
+        name="Pearl Clutch Bag; Evening Bag; Pearl beaded Bag; Wedding Pearl Bag; Handmade Pearl Clutch; Luxury Shoulder Bag; Vintage Inspired Purse",
+        price="85.00",
+        description="This vintage look purse is handmade with lovely faux pearls. The purse is quite versatile and can be worn in multiple ways: As a clutch; The included pearl handle allows you to wear it in the crook of your arm giving you the classic, ladylike look; unleash the chain and wear the purse on your shoulder, crossbody, or just let it dangle.Be it a wedding, an engagement, anniversary, date night, or just to mark a significant day, you will have the perfect accessory to make that moment special."
+    )
+
+    db.session.add_all([
+        ProductImage(
+            product=product,
+            url=upload_image_to_bucket_from_url("https://i.etsystatic.com/32294992/r/il/4de450/4275286222/il_794xN.4275286222_ghyq.jpg"),
+            preview=True
+        ),
+         ProductImage(
+            product=product,
+            url=upload_image_to_bucket_from_url("https://i.etsystatic.com/32294992/r/il/322e0f/4275286042/il_1588xN.4275286042_l0vp.jpg"),
+            preview=False
+        ),
+          ProductImage(
+            product=product,
+            url=upload_image_to_bucket_from_url("https://i.etsystatic.com/32294992/r/il/3c968e/4275286220/il_1588xN.4275286220_rsv2.jpg"),
+            preview=False
+        ),
+          ProductImage(
+            product=product,
+            url=upload_image_to_bucket_from_url("https://i.etsystatic.com/32294992/r/il/ed3ba4/4321910997/il_1588xN.4321910997_j2eh.jpg"),
+            preview=False
+        ),
+          ProductImage(
+            product=product,
+            url=upload_image_to_bucket_from_url("https://i.etsystatic.com/32294992/r/il/b6457a/4274510926/il_1588xN.4274510926_lpv6.jpg"),
+            preview=False
+        ),
+          ProductImage(
+            product=product,
+            url=upload_image_to_bucket_from_url("https://i.etsystatic.com/32294992/r/il/b7d48e/4274510966/il_1588xN.4274510966_88sd.jpg"),
+            preview=False
+        ),
+          ProductImage(
+            product=product,
+            url=upload_image_to_bucket_from_url("https://i.etsystatic.com/32294992/r/il/625011/4275337422/il_1588xN.4275337422_8l4a.jpg"),
+            preview=False
+        ),
+
+        Review(
+            buyer=brian,
+            product=product,
+            rating=5,
+            review="My daughter is using this purse on her wedding day. The photo doesn’t do it justice. It is absolutely beautiful, excellent quality, great service. If I could have given it extra stars I would have done so."
+        ),
+
+        Review(
+            buyer=caitlynn,
+            product=product,
+            rating=5,
+            review="Got the item within a day of ordering it! It is so cute and the perfect size. Very good quality. I am so obsessed! Also, came with the sweetest handwritten note. It was my first time ordering from here and I was so impressed and happy with the product and service! If you are hesitant about ordering, do it you won't regret it!"
+        ),
+
+        Review(
+            buyer=derrik,
+            product=product,
+            rating=5,
+            review="The packaging alone was so adorable and personal! I love my earrings ! I did think they were a tad bigger but the size is perfect seeing as I have 3 pierced holes close together! 10/10"
+        ),
+
+        Review(
+            buyer=elizabeth,
+            product=product,
+            rating=5,
+            review="pearl shoulder bag"
         ),
     ])
 

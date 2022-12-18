@@ -84,7 +84,7 @@ And then navigate to http://localhost:3000.
 
 ### Contact
 
-This was a group project completed by Jade Vie Tran, [Huishi An](https://www.linkedin.com/in/huishi-an-8397311b1/), and [Matthew Kleinsmith](https://www.linkedin.com/in/matthewkleinsmith/).
+This was a group project completed by [Jade Vie Tran](https://www.linkedin.com/in/jadetran603/), [Huishi An](https://www.linkedin.com/in/huishi-an-8397311b1/), and [Matthew Kleinsmith](https://www.linkedin.com/in/matthewkleinsmith/).
 
 https://www.linkedin.com/in/huishi-an-8397311b1/
 

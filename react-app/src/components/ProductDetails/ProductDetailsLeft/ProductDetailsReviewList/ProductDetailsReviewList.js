@@ -1,6 +1,6 @@
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { getReviewsByProductId } from "../../../../store/productReviews";
+import { clearReviews, getReviewsByProductId } from "../../../../store/productReviews";
 import FiveStars from "../../../FiveStars/FiveStars";
 import ProductDetailsReview from "./ProductDetailsReview/ProductDetailsReview";
 import styles from "./ProductDetailsReviewList.module.css";
@@ -10,6 +10,9 @@ export default function ProductDetailsReviewList({ product }) {
     const reviews = useSelector(state => Object.values(state.productReviews));
     useEffect(() => {
         dispatch(getReviewsByProductId(product.id));
+        return () => {
+            dispatch(clearReviews());
+        }
     }, [dispatch, product.id]);
 
     if (!reviews) return;

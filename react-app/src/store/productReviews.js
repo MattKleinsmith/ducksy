@@ -2,6 +2,11 @@ import { csrfFetch } from './csrf';
 
 const GET_REVIEWS_BY_PRODUCT_ID = 'productReviews/GET_REVIEWS_BY_PRODUCT_ID';
 const GET_REVIEWS = 'productReviews/GET_REVIEWS';
+const CLEAR_REVIEWS = 'productReviews/CLEAR_REVIEWS';
+
+export const clearReviews = () => {
+    return { type: CLEAR_REVIEWS };
+};
 
 export const getReviewsByProductId = (productId) => async dispatch => {
     const response = await csrfFetch(`/api/products/${productId}/reviews`);
@@ -31,6 +36,8 @@ export default function productReviewsReducer(state = {}, action) {
                 reviews[review.id] = review;
                 return reviews;
             }, {});
+        case CLEAR_REVIEWS:
+            return {};
         default:
             return state;
     }
