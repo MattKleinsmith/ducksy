@@ -8,13 +8,18 @@
 }
 
 .reviewText {
-    font-size: 0.9rem;
-    font-weight: 200;
-    line-height: 1.8rem;
     max-height: 5rem;
-    overflow-y: hidden;
+
+    margin-top: 5px;
     margin-bottom: 0.5rem;
     padding-left: 3px;
+
+    font-size: 1rem;
+    font-weight: 200;
+    line-height: 1.8rem;
+
+    color: #525252;
+    overflow-y: hidden;
 }
 
 .buyerInfo {
@@ -31,8 +36,10 @@
 
 .buyerName {
     font-size: 12.5px;
+    color: #646464;
 }
 
 .reviewDate {
     font-size: 12.5px;
+    color: #646464;
 }
