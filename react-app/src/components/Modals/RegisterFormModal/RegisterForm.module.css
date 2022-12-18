@@ -85,3 +85,7 @@
 .form input:focus {
     outline: 1px solid rgb(27, 34, 169);
 }
+
+.formErrors {
+    color: rgb(246, 18, 18);
+}

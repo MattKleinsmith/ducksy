@@ -26,7 +26,7 @@ export default function RegisterForm() {
         <form className={styles.form} onSubmit={handleSubmit}>
             <div className={styles.header}>Create your account</div>
             <div className={styles.tagline}>Registration is easy.</div>
-            {errors.length > 0 && <ul className="formErrors">
+            {errors.length > 0 && <ul className={styles.formErrors}>
                 {errors.map((error, i) => <li key={i}>{error}</li>)}
             </ul>}
             <label className={styles.label}>
