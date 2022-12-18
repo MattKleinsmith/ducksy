@@ -73,7 +73,7 @@ export default function Homepage() {
                                 navigate('/category/boyfriend');
                             }}
                         >
-                            <span><img className={styles.categoryImage} src='/images/boyfriend.jpg' alt='img'></img></span>
+                            <span><img className={styles.categoryImage} src={`${allproducts[14].product_images[0].url}`} alt='img'></img></span>
                             <span className={styles.categoryName}>Boyfriend</span>
                         </div>
                     </div>
