@@ -618,6 +618,102 @@ def seed_all():
 
     product = Product(
         seller=anna,
+        categories=[wedding, gift, bag],
+        name="MakeUp Bag Make Up Bag Bridesmaid Make Up Bag with Name Birthday Gift Ideas for Her (EB3222AD)",
+        price="7.22",
+        description="Make Up Bags personalized with a name in pretty script make a great gift for bridesmaids or a birthday gift for any woman. Customize each bag with her name. Cosmetic Bags are lined on the inside and have a metallic zipper."
+    )
+
+    db.session.add_all([
+        ProductImage(
+            product=product,
+            url=upload_image_to_bucket_from_url(
+                "https://i.etsystatic.com/8617622/r/il/0c6972/2264040092/il_794xN.2264040092_5oim.jpg"),
+            preview=True
+        ),
+
+        ProductImage(
+            product=product,
+            url=upload_image_to_bucket_from_url(
+                "https://i.etsystatic.com/8617622/r/il/c0510a/2271000930/il_1588xN.2271000930_4nu0.jpg"),
+            preview=False
+        ),
+
+        ProductImage(
+            product=product,
+            url=upload_image_to_bucket_from_url(
+                "https://i.etsystatic.com/8617622/r/il/4876ec/2143657481/il_1588xN.2143657481_tiqt.jpg"),
+            preview=False
+        ),
+
+        ProductImage(
+            product=product,
+            url=upload_image_to_bucket_from_url(
+                "https://i.etsystatic.com/8617622/r/il/be1d24/2318598873/il_1588xN.2318598873_33fn.jpg"),
+            preview=False
+        ),
+
+        ProductImage(
+            product=product,
+            url=upload_image_to_bucket_from_url(
+                "https://i.etsystatic.com/8617622/r/il/61d7d3/2271001676/il_1588xN.2271001676_4cdi.jpg"),
+            preview=False
+        ),
+
+        ProductImage(
+            product=product,
+            url=upload_image_to_bucket_from_url(
+                "https://i.etsystatic.com/8617622/r/il/200fa7/2135455738/il_1588xN.2135455738_2wwe.jpg"),
+            preview=False
+        ),
+
+        ProductImage(
+            product=product,
+            url=upload_image_to_bucket_from_url(
+                "https://i.etsystatic.com/8617622/r/il/c417ee/3106133842/il_1588xN.3106133842_3kkd.jpg"),
+            preview=False
+        ),
+
+        ProductImage(
+            product=product,
+            url=upload_image_to_bucket_from_url(
+                "https://i.etsystatic.com/8617622/r/il/ca6d5d/3880525610/il_1588xN.3880525610_k3lt.jpg"),
+            preview=False
+        ),
+
+        Review(
+            buyer=bobbie,
+            product=product,
+            rating=5,
+            review="This seller is amazing! Unfortunately, my original shipment was lost/stolen and this seller worked with me on the replacement shipment and even expedited the shipping! Make up bags and mirrors are gorgeous, pictures really do not do the make up bags any justice. The pink with rose gold lettering is my fave combo and the pink is so pretty and flattering. Great buyer service. Incredibly happy with my items and my experience with this seller."
+        ),
+
+        Review(
+            buyer=caitlynn,
+            product=product,
+            rating=5,
+            review="The makeup bags were exactly as pictured. I ordered them as Christmas gifts for my nieces in their tween and teen years. It was easy to pick bag color and choice of font and print color. Shipped quickly and came nicely packaged."
+        ),
+
+        Review(
+            buyer=derrik,
+            product=product,
+            rating=5,
+            review="Bags came out better than I thought! My 2 girls are going to love it!"
+        ),
+
+        Review(
+            buyer=elizabeth,
+            product=product,
+            rating=5,
+            review="Super cute! My favorite part is the satin like inside."
+        ),
+    ])
+
+    db.session.commit()
+
+    product = Product(
+        seller=anna,
         categories=[bag],
         name="Pearl Clutch Bag; Evening Bag; Pearl beaded Bag; Wedding Pearl Bag; Handmade Pearl Clutch; Luxury Shoulder Bag; Vintage Inspired Purse",
         price="85.00",

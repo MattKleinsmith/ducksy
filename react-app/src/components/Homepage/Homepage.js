@@ -64,7 +64,7 @@ export default function Homepage() {
                                 navigate('/category/bag');
                             }}
                         >
-                            <span><img className={styles.categoryImage} src={`${allProducts[8]?.product_images[0].url}`} alt=''></img></span>
+                            <span><img className={styles.categoryImage} src={`${allProducts[9]?.product_images[0].url}`} alt=''></img></span>
                             <span className={styles.categoryName}>Bag</span>
                         </div>
                         <div className={styles.imageWrapper}
