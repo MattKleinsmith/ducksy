@@ -126,7 +126,7 @@ export default function ProductEditor() {
                         <p>Tell the world all about your item and why they’ll love it.</p>
 
                         {errors.length > 0 && <ul className="formErrors">
-                            {errors.map((error, i) => <li key={i}>{error}</li>)}
+                            {errors.map((error, i) => <li key={i} style={{ color: "red" }}>{error}</li>)}
                         </ul>}
                         <div className={styles.formDetailsGrid}>
                             <div>
