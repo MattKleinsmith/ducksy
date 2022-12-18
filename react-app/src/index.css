@@ -11,10 +11,3 @@ button {
     outline: none;
     cursor: pointer;
 }
-
-button:focus {
-    background-color: transparent;
-    border: none;
-    outline: none;
-    cursor: pointer;
-}
