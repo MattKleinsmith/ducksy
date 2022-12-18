@@ -11,7 +11,7 @@ export default function Homepage() {
     const navigate = useNavigate();
     const allproducts = useSelector(state => state.products);
     const currentUser = useSelector(state => state.session.user);
-    const products = Object.values(allproducts).slice(0, 10);
+    const products = allproducts.slice(0, 8);
     return (
         <>
             <div>
@@ -79,7 +79,6 @@ export default function Homepage() {
                     </div>
                 </div>
                 <div className={styles.wrapper}>
-                    <div className={styles.recentViewed}>Recently viewed & more</div>
                     <div className={styles.homepage}>
                         {products.map((product, i) =>
                             <div className={styles.productInfos} key={i}>
@@ -93,6 +92,7 @@ export default function Homepage() {
                         )}
                     </div>
                 </div>
+                <div className={styles.popularGift}>Popular gifts right now</div>
             </div >
             <ProductGrid isHomepage={true} />
         </>
