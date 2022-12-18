@@ -1,6 +1,8 @@
 import styles from "./App.module.css";
 import { useEffect } from "react";
 import { useDispatch } from "react-redux";
+import { Routes, Route } from "react-router-dom";
+
 import { restoreUser } from "./store/session";
 import { getProducts } from "./store/products";
 import Header from "./components/Header/Header";
@@ -25,6 +27,7 @@ export default function App() {
         </div>
         <Footer />
       </div>
+
       <Modals />
     </>
   );

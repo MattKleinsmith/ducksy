@@ -1,8 +1,12 @@
+import { useLocation } from "react-router";
 import styles from "./Footer.module.css";
 import UnitedStatesIcon from "./UnitedStatesIcon";
 
 export default function Footer() {
-    if (window.location.href.includes("/your/shop/listing/new")) return;
+    const location = useLocation()
+    if (location.pathname.includes("/your/shop/listing/new")) {
+        return;
+    }
     return (
         <div className={styles.wrapper}>
             <div className={styles.line}></div>
