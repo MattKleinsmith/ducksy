@@ -1,9 +1,9 @@
 from flask import Blueprint, request
 from flask_login import login_required, current_user
-from app.models import db, Product, Review, ProductImage, Order, OrderDetail, Category
-from app.forms import ProductForm, ReviewForm, ProductImageForm, validation_errors_formatter
+from app.models import db, Product, Review, ProductImage, Order, Category
+from app.forms import ProductForm, ReviewForm, validation_errors_formatter
 from sqlalchemy.exc import IntegrityError
-from app.seeds.upload import upload_image_to_bucket_from_url, upload_image_to_bucket
+from app.seeds.upload import upload_image_to_bucket
 from werkzeug.utils import secure_filename
 
 bp = Blueprint("products", __name__, url_prefix="/products")
@@ -16,7 +16,6 @@ def get_products():
     if category_names:
         categories = Category.query.filter(
             Category.name.in_(category_names)).all()
-
         products = set()
         for i, category in enumerate(categories):
             if i == 0:
@@ -84,20 +83,14 @@ def put_product(product_id):
 @login_required
 def delete_product(product_id):
     try:
-        # product = Product.query.filter(Product.id == product_id,
-        #                                Product.seller_id == current_user.id).first()
         product = db.session.query(Product).filter(
             Product.id == product_id, Product.seller_id == current_user.id).first()
         if (product):
-            print("-"*50)
-            print("Deleting PRODUCT:", product.to_dict())
-            print("-"*75)
             db.session.delete(product)
             db.session.commit()
             return {"message": f"Deleted product with id {product_id}"}
         return "404", 404
     except IntegrityError as e:
-        print(e)
         return {"errors": {
             "server": "Server failed to delete"
         }}, 500
