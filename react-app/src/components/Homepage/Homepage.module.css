@@ -76,9 +76,15 @@
     padding-top: 120px;
 }
 
+.popularGiftWrapper {
+    max-width: 1200px;
+    margin: 0px auto;
+}
+
 .popularGift {
-    margin-top: 30px;
-    margin-left: 60px;
+    padding-left: 30px;
+    padding-top: 30px;
+    width: 1200px;
     font-size: 32px;
     line-height: 36px;
     font-family: "Merriweather", sans-serif;

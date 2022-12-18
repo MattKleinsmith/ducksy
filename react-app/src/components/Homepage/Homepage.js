@@ -92,9 +92,11 @@ export default function Homepage() {
                         )}
                     </div>
                 </div>
-                <div className={styles.popularGift}>Popular gifts right now</div>
+                <div className={styles.popularGiftWrapper}>
+                    <div className={styles.popularGift}>Popular gifts right now</div>
+                    <ProductGrid isHomepage={true} />
+                </div>
             </div >
-            <ProductGrid isHomepage={true} />
         </>
     );
 }
