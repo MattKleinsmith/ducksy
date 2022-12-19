@@ -4,6 +4,7 @@ const GET_PRODUCTS = 'products/GET_PRODUCTS';
 const ADD_PRODUCT = 'products/ADD_PRODUCT';
 const ADD_IMAGE = 'products/ADD_IMAGE';
 const UPDATE_PRODUCT = 'products/UPDATE_PRODUCT';
+const DELETE_PRODUCT = 'products/DELETE_PRODUCT';
 
 export const getProducts = () => async dispatch => {
     const response = await csrfFetch('/api/products');
@@ -58,8 +59,8 @@ export const postProductImage = (productId, image, preview) => async dispatch =>
 };
 
 export const deleteProduct = productId => async dispatch => {
-    await csrfFetch(`/api/products/${productId}`, { method: "DELETE", });
-    dispatch(getProducts());
+    await csrfFetch(`/api/products/${productId}`, { method: "DELETE" });
+    dispatch({ type: DELETE_PRODUCT, productId });
 };
 
 export default function productsReducer(state = {}, action) {
@@ -79,6 +80,9 @@ export default function productsReducer(state = {}, action) {
         case ADD_IMAGE:
             newState[action.productId].preview_image = action.product_image.url;
             newState[action.productId].product_images.push(action.product_image);
+            return newState;
+        case DELETE_PRODUCT:
+            delete newState[action.productId];
             return newState;
         default:
             return state;
