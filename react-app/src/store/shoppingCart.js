@@ -1,5 +1,4 @@
 import { csrfFetch } from "./csrf";
-import { getProducts } from "./products";
 
 export const saveCarts = (carts) => {
     window.localStorage.setItem('ducksyCarts', JSON.stringify(carts));
