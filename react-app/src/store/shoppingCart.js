@@ -70,7 +70,6 @@ export const checkoutCart = (user) => async dispatch => {
     user ? carts[user.id] = {} : carts['guest'] = {};
     saveCarts(carts)
     dispatch({ type: GET_CARTS, carts })
-    dispatch(getProducts())
     return data.order_id
 }
 
@@ -82,7 +81,6 @@ export const checkoutNow = (product_id, quantity) => async dispatch => {
         body: JSON.stringify(requestBody)
     });
     const data = await response.json()
-    dispatch(getProducts())
     return data.order_id
 }
 
