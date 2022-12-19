@@ -4,7 +4,7 @@ import UnitedStatesIcon from "./UnitedStatesIcon";
 
 export default function Footer() {
     const location = useLocation()
-    if (location.pathname.includes("/your/shop/listing/new")) {
+    if (location.pathname.includes("/your/shop/listing")) {
         return;
     }
     return (

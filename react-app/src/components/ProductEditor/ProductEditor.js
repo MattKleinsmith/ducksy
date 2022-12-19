@@ -14,9 +14,9 @@ export default function ProductEditor() {
     const dispatch = useDispatch();
     const product = useSelector(state => state.products)[productId]
 
-    useEffect(() => {
-        dispatch(getProducts());
-    }, [dispatch]);
+    // useEffect(() => {
+    //     dispatch(getProducts());
+    // }, [dispatch]);
 
     const [image, setImage] = useState(null);
     const [preview, setPreview] = useState(true);
@@ -39,7 +39,8 @@ export default function ProductEditor() {
                     setImageErrors([]);
                     if (image)
                         dispatch(postProductImage(newProductId ? newProductId : productId, image, preview))
-                    dispatch(setDataLoadingModal(true));
+                    // dispatch(setDataLoadingModal(true));
+                    navigate("/your/shop");
                 }
                 catch (responseBody) {
                     setImageErrors(Object.values(responseBody.errors))

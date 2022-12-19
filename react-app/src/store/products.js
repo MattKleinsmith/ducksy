@@ -1,6 +1,8 @@
 import { csrfFetch } from './csrf';
 
 const GET_PRODUCTS = 'products/GET_PRODUCTS';
+const ADD_PRODUCT = 'products/ADD_PRODUCT';
+const ADD_IMAGE = 'products/ADD_IMAGE';
 
 export const getProducts = () => async dispatch => {
     const response = await csrfFetch('/api/products');
@@ -13,8 +15,8 @@ export const postProduct = body => async dispatch => {
         method: "POST",
         body: JSON.stringify(body)
     });
-    await dispatch(getProducts());
     const product = await response.json();
+    dispatch({ type: ADD_PRODUCT, product });
     return product.id;
 };
 
@@ -32,18 +34,20 @@ export const postProductImage = (productId, image, preview) => async dispatch =>
     formData.append('image', image);
     formData.append('preview', preview);
 
-    const res = await fetch(`/api/products/${productId}/images`, {
+    const response = await fetch(`/api/products/${productId}/images`, {
         method: "POST",
         body: formData
     });
 
-    if (res.status >= 400) {
-        const errors = await res.json();
+    if (response.status >= 400) {
+        const errors = await response.json();
         console.log(errors);
         throw errors;
     }
 
-    dispatch(getProducts());
+    const product_image = await response.json();
+
+    dispatch({ type: ADD_IMAGE, productId, product_image })
 };
 
 export const deleteProduct = productId => async dispatch => {
@@ -52,12 +56,20 @@ export const deleteProduct = productId => async dispatch => {
 };
 
 export default function productsReducer(state = {}, action) {
+    const newState = { ...state };
     switch (action.type) {
         case GET_PRODUCTS:
             return action.products.reduce((products, product) => {
                 products[product.id] = product;
                 return products;
             }, {});
+        case ADD_PRODUCT:
+            newState[action.product.id] = action.product;
+            return newState;
+        case ADD_IMAGE:
+            newState[action.productId].preview_image = action.product_image.url;
+            newState[action.productId].product_images.push(action.product_image);
+            return newState;
         default:
             return state;
     }
