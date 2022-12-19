@@ -1,5 +1,5 @@
 import { csrfFetch } from './csrf';
-import { getProducts, getProduct } from './products';
+import { getProduct } from './products';
 
 const GET_REVIEWS_BY_BUYER_ID = 'buyerReviews/GET_REVIEWS_BY_BUYER_ID';
 const POST_REVIEW = 'buyerReviews/POST_REVIEW';
