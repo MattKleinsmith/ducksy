@@ -3,11 +3,18 @@ import { csrfFetch } from './csrf';
 const GET_PRODUCTS = 'products/GET_PRODUCTS';
 const ADD_PRODUCT = 'products/ADD_PRODUCT';
 const ADD_IMAGE = 'products/ADD_IMAGE';
+const UPDATE_PRODUCT = 'products/UPDATE_PRODUCT';
 
 export const getProducts = () => async dispatch => {
     const response = await csrfFetch('/api/products');
     const products = await response.json();
     dispatch({ type: GET_PRODUCTS, products });
+};
+
+export const getProduct = (productId) => async dispatch => {
+    const response = await csrfFetch(`/api/products/${productId}`);
+    const product = await response.json();
+    dispatch({ type: UPDATE_PRODUCT, product });
 };
 
 export const postProduct = body => async dispatch => {
@@ -64,6 +71,9 @@ export default function productsReducer(state = {}, action) {
                 return products;
             }, {});
         case ADD_PRODUCT:
+            newState[action.product.id] = action.product;
+            return newState;
+        case UPDATE_PRODUCT:
             newState[action.product.id] = action.product;
             return newState;
         case ADD_IMAGE:

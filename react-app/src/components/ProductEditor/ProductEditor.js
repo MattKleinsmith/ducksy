@@ -3,7 +3,6 @@ import { useDispatch, useSelector } from "react-redux";
 import { useNavigate, useParams } from "react-router-dom";
 import { putProduct, postProduct } from "../../store/products";
 import { postProductImage } from "../../store/products";
-// import { setDataLoadingModal } from "../../store/ui";
 
 import styles from "./ProductEditor.module.css";
 import footerStyles from "./ProductEditorFooter/ProductEditorFooter.module.css"
@@ -13,10 +12,6 @@ export default function ProductEditor() {
     const { productId } = useParams();
     const dispatch = useDispatch();
     const product = useSelector(state => state.products)[productId]
-
-    // useEffect(() => {
-    //     dispatch(getProducts());
-    // }, [dispatch]);
 
     const [image, setImage] = useState(null);
     const [preview, setPreview] = useState(true);
