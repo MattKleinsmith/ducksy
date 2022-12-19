@@ -1,12 +1,11 @@
 .ShopManagerItemDescription {
     display: flex;
     flex-direction: column;
-    /* justify-content: space-evenly; */
     font-size: 14px;
     color: #222222;
-    padding-top: 10px;
-    padding-left: 8px;
-    padding-right: 8px;
+    row-gap: 0.3rem;
+    padding: 0.3rem 0.5rem;
+
 }
 
 .ShopManagerItemDescriptionName {
