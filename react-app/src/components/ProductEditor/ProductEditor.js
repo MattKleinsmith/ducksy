@@ -1,9 +1,9 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate, useParams } from "react-router-dom";
-import { getProducts, putProduct, postProduct } from "../../store/products";
+import { putProduct, postProduct } from "../../store/products";
 import { postProductImage } from "../../store/products";
-import { setDataLoadingModal } from "../../store/ui";
+// import { setDataLoadingModal } from "../../store/ui";
 
 import styles from "./ProductEditor.module.css";
 import footerStyles from "./ProductEditorFooter/ProductEditorFooter.module.css"
