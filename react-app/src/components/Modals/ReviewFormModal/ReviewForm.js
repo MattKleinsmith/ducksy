@@ -20,7 +20,7 @@ export default function ReviewForm() {
         e.preventDefault();
         const body = { rating, review };
         const thunk = originalReview ?
-            updateReview(originalReview.id, body) : postReview(productId, body);
+            updateReview(originalReview, body) : postReview(productId, body);
         try {
             await dispatch(thunk);
             dispatch(setReviewModal(false));

@@ -17,7 +17,11 @@ export default function PurchasedProductReview({ orderDetail }) {
                             <div>{[...Array(reviews[orderDetail.product_id].rating)].map((_, i) => <i key={i} className="fa-solid fa-star" />)}</div>
                         </div>
                         <button className={styles.removeReviewBtn} onClick={() => {
-                            dispatch(setReviewDetails(reviews[orderDetail.product_id].id, reviews[orderDetail.product_id].review));
+                            dispatch(setReviewDetails(
+                                reviews[orderDetail.product_id].id,
+                                reviews[orderDetail.product_id].review,
+                                reviews[orderDetail.product_id].rating,
+                                orderDetail.product_id));
                             dispatch(setDeleteReviewModal(true));
                         }}>x</button>
                     </div>
@@ -25,7 +29,11 @@ export default function PurchasedProductReview({ orderDetail }) {
                     <div>
                         <button className={`${styles.editReviewBtn}`} onClick={() => {
                             dispatch(setProductId(orderDetail.product_id));
-                            dispatch(setReviewDetails(reviews[orderDetail.product_id].id, reviews[orderDetail.product_id].review, reviews[orderDetail.product_id].rating));
+                            dispatch(setReviewDetails(
+                                reviews[orderDetail.product_id].id,
+                                reviews[orderDetail.product_id].review,
+                                reviews[orderDetail.product_id].rating,
+                                orderDetail.product_id));
                             dispatch(setReviewModal(true));
                         }}>Edit review</button>
                     </div>
