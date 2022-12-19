@@ -7,7 +7,6 @@ import styles from './ItemQuantity.module.css'
 export default function ItemQuantity({ initialQuantity, user, product }) {
     const dispatch = useDispatch();
     const [quantity, setQuantity] = useState(initialQuantity);
-    console.log("ItemQuantity quantity", quantity, initialQuantity);
     useEffect(() => {
         dispatch(updateItemQuantity(product, user, quantity));
     }, [dispatch, quantity, product, user]);
