@@ -13,7 +13,7 @@ export default function ProductDetailsReviewList({ product }) {
         return () => {
             dispatch(clearReviews());
         }
-    }, [dispatch, product.id]);
+    }, [dispatch, product]);
 
     if (!reviews) return;
     return (
