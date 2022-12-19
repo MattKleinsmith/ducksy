@@ -20,19 +20,16 @@ export const postReview = (productId, data) => async dispatch => {
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(data)
     });
-    if (response.ok) {
-        const review = await response.json();
-        dispatch({ type: POST_REVIEW, review });
-        dispatch(getProducts());
-        return review;
-    }
+    const review = await response.json();
+    dispatch({ type: POST_REVIEW, review });
+    await dispatch(getProducts());
 };
 
 export const deleteReview = (reviewId) => async dispatch => {
     await csrfFetch(`/api/reviews/${reviewId}`, { method: "DELETE" });
     await dispatch({ type: DELETE_REVIEW, reviewId });
     dispatch(getReviewsByBuyerId());
-    dispatch(getProducts());
+    await dispatch(getProducts());
 };
 
 export const updateReview = (reviewId, body) => async dispatch => {
@@ -40,12 +37,9 @@ export const updateReview = (reviewId, body) => async dispatch => {
         method: "PUT",
         body: JSON.stringify(body)
     });
-    if (response.ok) {
-        const review = await response.json();
-        dispatch({ type: UPDATE_REVIEW, review });
-        dispatch(getProducts());
-        return review;
-    }
+    const review = await response.json();
+    dispatch({ type: UPDATE_REVIEW, review });
+    await dispatch(getProducts());
 };
 
 export default function buyerReviewsReducer(state = {}, action) {

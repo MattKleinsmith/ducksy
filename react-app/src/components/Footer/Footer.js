@@ -20,10 +20,13 @@ export default function Footer() {
                     <div>$ (USD)</div>
                 </div>
                 <div className={styles.right}>
+                    <a target="_blank" href="https://github.com/MattKleinsmith/ducksy">Project repo</a>
+                </div>
+                <div className={styles.right}>
                     <div>Developers:</div>
-                    <a href="https://github.com/jadevie">Jade Tran</a>
-                    <a href="https://github.com/huishi329">Huishi An</a>
-                    <a href="https://github.com/MattKleinsmith">Matt Kleinsmith</a>
+                    <a target="_blank" href="https://github.com/jadevie" >Jade Tran</a>
+                    <a target="_blank" href="https://github.com/huishi329">Huishi An</a>
+                    <a target="_blank" href="https://github.com/MattKleinsmith">Matt Kleinsmith</a>
                 </div>
             </div>
         </div>

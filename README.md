@@ -76,18 +76,32 @@ The following are screenshots of this user flow:
 
 ### Getting started
 
-From within the project folder: <code>sh ./setup.sh</code>
+1. Start the backend server: From a terminal within the project directory, run:
 
-And then navigate to http://localhost:3000.
+    ```javascript
+    sh ./setup.sh
+    ```
+
+2. Start the frontend server: From a second terminal within the `react-app` directory, run:
+
+    ```javascript
+    npm start
+    ```
+
+3. Experience the app: From a browser, go to:
+    > http://localhost:3000
+
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 ### Contact
 
-This was a group project completed by [Jade Vie Tran](https://www.linkedin.com/in/jadetran603/), [Huishi An](https://www.linkedin.com/in/huishi-an-8397311b1/), and [Matthew Kleinsmith](https://www.linkedin.com/in/matthewkleinsmith/).
+This was a group project completed by [Jade Tran](https://www.linkedin.com/in/jadetran603/), [Huishi An](https://www.linkedin.com/in/huishi-an-8397311b1/), and [Matt Kleinsmith](https://www.linkedin.com/in/matthewkleinsmith/).
 
-https://www.linkedin.com/in/huishi-an-8397311b1/
+Jade Tran: https://www.linkedin.com/in/jadetran603/
 
-https://www.linkedin.com/in/matthewkleinsmith/
+Huishi An: https://www.linkedin.com/in/huishi-an-8397311b1/
+
+Matt Kleinsmith: https://www.linkedin.com/in/matthewkleinsmith/
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
