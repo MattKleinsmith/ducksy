@@ -4,6 +4,7 @@ import SigninFormModal from './SigninFormModal/SigninFormModal';
 import DeleteProductFormModal from './DeleteProductFormModal/DeleteProductFormModal';
 import ReviewFormModal from './ReviewFormModal/ReviewFormModal';
 import DeleteReviewFormModal from './DeleteReviewFormModal/DeleteReviewFormModal';
+import DataLoadingBufferModal from './DataLoadingModal/DataLoadingBufferModal';
 
 export default function Modals() {
     const ui = useSelector(state => state.ui);
@@ -13,5 +14,6 @@ export default function Modals() {
         {ui.showDeleteProductModal && <DeleteProductFormModal />}
         {ui.showReviewModal && <ReviewFormModal />}
         {ui.showDeleteReviewModal && <DeleteReviewFormModal />}
+        {ui.showDataLoadingModal && <DataLoadingBufferModal />}
     </>;
 }

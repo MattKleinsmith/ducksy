@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { useNavigate, useParams } from "react-router-dom";
 import { getProducts, putProduct, postProduct } from "../../store/products";
 import { postProductImage } from "../../store/products";
+import { setDataLoadingModal } from "../../store/ui";
 
 import styles from "./ProductEditor.module.css";
 import footerStyles from "./ProductEditorFooter/ProductEditorFooter.module.css"
@@ -37,8 +38,9 @@ export default function ProductEditor() {
                 try {
                     setImageErrors([]);
                     if (image)
-                        await dispatch(postProductImage(newProductId ? newProductId : productId, image, preview))
-                    navigate("/your/shop")
+                        dispatch(postProductImage(newProductId ? newProductId : productId, image, preview))
+                    dispatch(setDataLoadingModal(true));
+                    // navigate("/your/shop")
                 }
                 catch (responseBody) {
                     setImageErrors(Object.values(responseBody.errors))

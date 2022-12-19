@@ -1,0 +1,8 @@
+.DataLoadingBuffer {
+    width: 30rem;
+}
+
+
+.DataLoadingBuffer p {
+    padding: 1rem 2rem;
+}
