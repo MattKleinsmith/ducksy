@@ -22,24 +22,25 @@ export const postReview = (productId, data) => async dispatch => {
     });
     const review = await response.json();
     dispatch({ type: POST_REVIEW, review });
-    await dispatch(getProduct());
+    await dispatch(getProduct(productId));
 };
 
-export const deleteReview = (reviewId) => async dispatch => {
-    await csrfFetch(`/api/reviews/${reviewId}`, { method: "DELETE" });
-    await dispatch({ type: DELETE_REVIEW, reviewId });
+export const deleteReview = (review) => async dispatch => {
+    await csrfFetch(`/api/reviews/${review.id}`, { method: "DELETE" });
+    await dispatch({ type: DELETE_REVIEW, review });
     dispatch(getReviewsByBuyerId());
-    await dispatch(getProducts());
+    console.log("deleteReview", review, review.productId);
+    await dispatch(getProduct(review.productId));
 };
 
-export const updateReview = (reviewId, body) => async dispatch => {
-    const response = await csrfFetch(`/api/reviews/${reviewId}`, {
+export const updateReview = (oldReview, body) => async dispatch => {
+    const response = await csrfFetch(`/api/reviews/${oldReview.id}`, {
         method: "PUT",
         body: JSON.stringify(body)
     });
     const review = await response.json();
     dispatch({ type: UPDATE_REVIEW, review });
-    await dispatch(getProduct());
+    await dispatch(getProduct(review.product_id));
 };
 
 export default function buyerReviewsReducer(state = {}, action) {
@@ -51,13 +52,13 @@ export default function buyerReviewsReducer(state = {}, action) {
                 return reviews;
             }, {});
         case POST_REVIEW:
-            newState[action.review.id] = action.review;
+            newState[action.review.product_id] = action.review;
             return newState;
         case UPDATE_REVIEW:
-            newState[action.review.id] = action.review;
+            newState[action.review.product_id] = action.review;
             return newState;
         case DELETE_REVIEW:
-            delete newState[action.reviewId];
+            delete newState[action.review.product_id];
             return newState;
         default:
             return state;

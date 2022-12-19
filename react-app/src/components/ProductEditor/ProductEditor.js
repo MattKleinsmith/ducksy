@@ -13,7 +13,7 @@ export default function ProductEditor() {
     const dispatch = useDispatch();
     const product = useSelector(state => state.products)[productId]
 
-    const [image, setImage] = useState(null);
+    const [newImage, setImage] = useState(null);
     const [preview, setPreview] = useState(true);
     const [imageErrors, setImageErrors] = useState([]);
 
@@ -26,16 +26,18 @@ export default function ProductEditor() {
         e.preventDefault();
         setErrors([]);
         const body = { name, description, price };
-        if (image || product?.preview_image) {
+        if (newImage || product?.preview_image) {
             try {
-                const productThunkAction = product ? putProduct(productId, body) : postProduct(body)
-                const newProductId = await dispatch(productThunkAction)
+                const productThunkAction = product ? putProduct(productId, body) : postProduct(body);
+                const newProductId = await dispatch(productThunkAction);
                 try {
                     setImageErrors([]);
-                    if (image)
-                        dispatch(postProductImage(newProductId ? newProductId : productId, image, preview))
-                    // dispatch(setDataLoadingModal(true));
-                    navigate("/your/shop");
+                    if (newImage) {
+                        await dispatch(postProductImage(newProductId ? newProductId : productId, newImage, preview));
+                        navigate("/your/shop");
+                    } else {
+                        navigate("/your/shop");
+                    }
                 }
                 catch (responseBody) {
                     setImageErrors(Object.values(responseBody.errors))
