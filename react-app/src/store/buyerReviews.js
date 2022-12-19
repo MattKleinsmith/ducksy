@@ -1,5 +1,5 @@
 import { csrfFetch } from './csrf';
-import { getProducts } from './products';
+import { getProducts, getProduct } from './products';
 
 const GET_REVIEWS_BY_BUYER_ID = 'buyerReviews/GET_REVIEWS_BY_BUYER_ID';
 const POST_REVIEW = 'buyerReviews/POST_REVIEW';
@@ -22,7 +22,7 @@ export const postReview = (productId, data) => async dispatch => {
     });
     const review = await response.json();
     dispatch({ type: POST_REVIEW, review });
-    await dispatch(getProducts());
+    await dispatch(getProduct());
 };
 
 export const deleteReview = (reviewId) => async dispatch => {
@@ -39,7 +39,7 @@ export const updateReview = (reviewId, body) => async dispatch => {
     });
     const review = await response.json();
     dispatch({ type: UPDATE_REVIEW, review });
-    await dispatch(getProducts());
+    await dispatch(getProduct());
 };
 
 export default function buyerReviewsReducer(state = {}, action) {
