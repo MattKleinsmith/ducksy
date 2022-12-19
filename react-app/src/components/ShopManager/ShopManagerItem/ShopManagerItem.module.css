@@ -1,5 +1,5 @@
 .ShopManagerItem {
-    height: 15vw;
+    height: 18rem;
     border: 1px solid #e1e3df;
     border-radius: 2px;
 }
@@ -13,7 +13,6 @@
 }
 
 .delete {
-    margin-top: 10px;
     border-top: 1px solid #e1e3df;
     padding: 10px;
     text-align: center;
