@@ -3,8 +3,8 @@ import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { setReviewModal } from '../../../store/ui';
 import { getReviewsByBuyerId, postReview, updateReview } from '../../../store/buyerReviews';
-import { getProductsByCategory } from '../../../store/productsBySearch';
-import { getProducts } from '../../../store/products';
+// import { getProductsByCategory } from '../../../store/productsBySearch';
+// import { getProducts } from '../../../store/products';
 
 
 export default function ReviewForm() {
