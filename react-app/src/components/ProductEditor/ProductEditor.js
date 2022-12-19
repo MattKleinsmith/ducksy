@@ -40,7 +40,6 @@ export default function ProductEditor() {
                     if (image)
                         dispatch(postProductImage(newProductId ? newProductId : productId, image, preview))
                     dispatch(setDataLoadingModal(true));
-                    // navigate("/your/shop")
                 }
                 catch (responseBody) {
                     setImageErrors(Object.values(responseBody.errors))
