@@ -23,7 +23,7 @@ export default function DataLoadingBuffer() {
         <div className={styles.DataLoadingBuffer}>
             <p>We are working on it!</p>
             <p>Thank you for taking your business to Ducksy!</p>
-            <p>You will be redirected in {count} seconds</p>
+            <p>Your listing will be ready in {count} seconds</p>
         </div>
     )
 }
