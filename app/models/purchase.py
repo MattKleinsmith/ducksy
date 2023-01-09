@@ -6,18 +6,31 @@ from sqlalchemy.types import Integer, DateTime, DECIMAL
 from sqlalchemy.sql import func
 
 
-class OrderDetail(db.Model):
-    __tablename__ = "order_details"
+class Purchase(db.Model):
+    __tablename__ = "purchases"
 
     id = Column(Integer, primary_key=True)
-    order_id = Column(Integer, ForeignKey(
-        'orders.id', name='fk_order_detail_order_id', ondelete='CASCADE'), nullable=False)
-    product_id = Column(Integer, ForeignKey(
-        'products.id', name='fk_order_detail_product_id', ondelete='SET NULL'), nullable=True)
-    seller_id = Column(Integer, ForeignKey(
-        'users.id', name='fk_order_detail_seller_id', ondelete='CASCADE'), nullable=False)
-    buyer_id = Column(Integer, ForeignKey(
-        'users.id', name='fk_order_detail_buyer_id', ondelete='CASCADE'), nullable=False)
+
+    order_id = Column(Integer,
+                      ForeignKey(
+                          'orders.id', name='fk_purchase_order_id', ondelete='CASCADE'),
+                      nullable=False)
+
+    product_id = Column(Integer,
+                        ForeignKey(
+                            'products.id', name='fk_purchase_product_id', ondelete='SET NULL'),
+                        nullable=True)
+
+    seller_id = Column(Integer,
+                       ForeignKey(
+                           'users.id', name='fk_purchase_seller_id', ondelete='CASCADE'),
+                       nullable=False)
+
+    buyer_id = Column(Integer,
+                      ForeignKey(
+                          'users.id', name='fk_purchase_buyer_id', ondelete='CASCADE'),
+                      nullable=False)
+
     price = Column(DECIMAL, nullable=False)
     quantity = Column(Integer, nullable=False)
 

@@ -10,7 +10,6 @@ import sqlalchemy as sa
 
 import os
 environment = os.getenv("FLASK_ENV")
-SCHEMA = os.environ.get("SCHEMA")
 
 # revision identifiers, used by Alembic.
 revision = '6ae124cccc6d'
@@ -36,9 +35,6 @@ def upgrade():
                     sa.UniqueConstraint('email')
                     )
 
-    if environment == "production":
-        op.execute(f"ALTER TABLE users SET SCHEMA {SCHEMA};")
-
     op.create_table('products',
                     sa.Column('id', sa.Integer(), nullable=False),
                     sa.Column('seller_id', sa.Integer(), nullable=False),
@@ -50,12 +46,9 @@ def upgrade():
                     sa.Column('updated_at', sa.DateTime(timezone=True),
                               server_default=sa.text('(CURRENT_TIMESTAMP)'), nullable=False),
                     sa.ForeignKeyConstraint(
-                        ['seller_id'], ['users.id'], name='fk_product_seller_id' ),
+                        ['seller_id'], ['users.id'], name='fk_product_seller_id'),
                     sa.PrimaryKeyConstraint('id')
                     )
-
-    if environment == "production":
-        op.execute(f"ALTER TABLE products SET SCHEMA {SCHEMA};")
 
     op.create_table('product_images',
                     sa.Column('id', sa.Integer(), nullable=False),
@@ -67,12 +60,9 @@ def upgrade():
                     sa.Column('updated_at', sa.DateTime(timezone=True),
                               server_default=sa.text('(CURRENT_TIMESTAMP)'), nullable=False),
                     sa.ForeignKeyConstraint(
-                        ['product_id'], ['products.id'], name='fk_product_image_product_id' ),
+                        ['product_id'], ['products.id'], name='fk_product_image_product_id'),
                     sa.PrimaryKeyConstraint('id')
                     )
-
-    if environment == "production":
-        op.execute(f"ALTER TABLE product_images SET SCHEMA {SCHEMA};")
 
     op.create_table('reviews',
                     sa.Column('id', sa.Integer(), nullable=False),
@@ -87,17 +77,14 @@ def upgrade():
                     sa.Column('updated_at', sa.DateTime(timezone=True),
                               server_default=sa.text('(CURRENT_TIMESTAMP)'), nullable=False),
                     sa.ForeignKeyConstraint(
-                        ['buyer_id'], ['users.id'], name='fk_review_buyer_id' ),
+                        ['buyer_id'], ['users.id'], name='fk_review_buyer_id'),
                     sa.ForeignKeyConstraint(
-                        ['product_id'], ['products.id'], name='fk_review_product_id' ),
+                        ['product_id'], ['products.id'], name='fk_review_product_id'),
                     sa.ForeignKeyConstraint(
                         ['seller_id'], ['users.id'], name='fk_review_seller_id'),
                     sa.PrimaryKeyConstraint('id')
                     )
     # ### end Alembic commands ###
-
-    if environment == "production":
-        op.execute(f"ALTER TABLE reviews SET SCHEMA {SCHEMA};")
 
 
 def downgrade():

@@ -1,4 +1,4 @@
-from .db import db, environment, SCHEMA, add_prefix_for_prod
+from .db import db, environment
 from sqlalchemy.schema import Column, ForeignKey, Table
 from sqlalchemy.orm import relationship
 from sqlalchemy.types import Integer, DateTime, VARCHAR, DECIMAL, TEXT, BOOLEAN
@@ -8,26 +8,20 @@ from sqlalchemy.sql import func
 products_categories = Table(
     'products_categories',
     db.Model.metadata,
-    Column('product_id', Integer, ForeignKey(
-        add_prefix_for_prod('products.id'), name='fk_product_category_product_id'), primary_key=True),
-    Column('category_id', Integer, ForeignKey(
-        add_prefix_for_prod('categories.id'), name='fk_product_category_category_id'), primary_key=True)
+    Column('product_id', Integer, ForeignKey('products.id',
+           name='fk_product_category_product_id'), primary_key=True),
+    Column('category_id', Integer, ForeignKey('categories.id',
+           name='fk_product_category_category_id'), primary_key=True)
 )
-
-if environment == "production":
-    products_categories.schema = SCHEMA
 
 
 class Product(db.Model):
     __tablename__ = "products"
 
-    if environment == "production":
-        __table_args__ = {'schema': SCHEMA}
-
     id = Column(Integer, primary_key=True)
 
     seller_id = Column(Integer, ForeignKey(
-        add_prefix_for_prod('users.id'), name='fk_product_seller_id', ondelete='CASCADE'), nullable=False)
+        'users.id', name='fk_product_seller_id', ondelete='CASCADE'), nullable=False)
 
     name = Column(VARCHAR(140), nullable=False)
     price = Column(DECIMAL, nullable=False)
@@ -74,9 +68,6 @@ class Product(db.Model):
 
 class Category(db.Model):
     __tablename__ = "categories"
-
-    if environment == "production":
-        __table_args__ = {'schema': SCHEMA}
 
     id = Column(Integer, primary_key=True)
     name = Column(VARCHAR, nullable=False)

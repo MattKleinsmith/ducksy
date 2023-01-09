@@ -1,4 +1,4 @@
-from app.models import db, environment, SCHEMA, User, Product, ProductImage, Review, Category, Order, OrderDetail
+from app.models import db, User, Product, ProductImage, Review, Category, Order, OrderDetail
 from app.seeds.upload import upload_image_to_bucket_from_url
 from random import randint
 
@@ -3939,27 +3939,17 @@ def seed_all():
 
 
 def undo_seed():
-    if environment == "production":
-        db.session.execute(
-            f"TRUNCATE table {SCHEMA}.users RESTART IDENTITY CASCADE;")
-        db.session.execute(
-            f"TRUNCATE table {SCHEMA}.products RESTART IDENTITY CASCADE;")
-        db.session.execute(
-            f"TRUNCATE table {SCHEMA}.product_images RESTART IDENTITY CASCADE;")
-        db.session.execute(
-            f"TRUNCATE table {SCHEMA}.reviews RESTART IDENTITY CASCADE;")
-        db.session.execute(
-            f"TRUNCATE table {SCHEMA}.orders RESTART IDENTITY CASCADE;")
-        db.session.execute(
-            f"TRUNCATE table {SCHEMA}.order_details RESTART IDENTITY CASCADE;")
-    else:
-        db.session.execute("DELETE FROM reviews")
-        db.session.execute("DELETE FROM order_details")
-        db.session.execute("DELETE FROM orders")
-        db.session.execute("DELETE FROM products_categories")
-        db.session.execute("DELETE FROM categories")
-        db.session.execute("DELETE FROM product_images")
-        db.session.execute("DELETE FROM products")
-        db.session.execute("DELETE FROM users")
+    db.session.execute(
+        f"TRUNCATE table users RESTART IDENTITY CASCADE;")
+    db.session.execute(
+        f"TRUNCATE table products RESTART IDENTITY CASCADE;")
+    db.session.execute(
+        f"TRUNCATE table product_images RESTART IDENTITY CASCADE;")
+    db.session.execute(
+        f"TRUNCATE table reviews RESTART IDENTITY CASCADE;")
+    db.session.execute(
+        f"TRUNCATE table orders RESTART IDENTITY CASCADE;")
+    db.session.execute(
+        f"TRUNCATE table order_details RESTART IDENTITY CASCADE;")
 
     db.session.commit()
