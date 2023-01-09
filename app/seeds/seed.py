@@ -13,36 +13,36 @@ def seed_all():
     anna = User(display_name="Anna",
                 email="email@email.com",
                 password="password",
-                profile_picture_url=upload_image_to_bucket_from_url("https://avatars.githubusercontent.com/u/98060462"))
+                profile_picture_url="https://ducksybucket.s3.amazonaws.com/huishi.png")
     brian = User(display_name="Brian",
                  email="email2@email.com",
                  password="password",
-                 profile_picture_url=upload_image_to_bucket_from_url("https://cdn.discordapp.com/avatars/872026711506694144/dd925f9567051c4ff4e60d3f345625eb.png"))
+                 profile_picture_url="https://ducksybucket.s3.amazonaws.com/gray.png")
     caitlynn = User(display_name="Caitlynn",
                     email="email3@email.com",
                     password="password",
-                    profile_picture_url=upload_image_to_bucket_from_url("https://avatars.githubusercontent.com/u/106051387"))
+                    profile_picture_url="https://ducksybucket.s3.amazonaws.com/jade.png")
     derrik = User(display_name="Derrik",
                   email="email4@email.com",
                   password="password",
-                  profile_picture_url=upload_image_to_bucket_from_url("https://cdn.discordapp.com/avatars/974032930202583140/f8deca01d6afdfcf27a12f2cf4dece59.png"))
+                  profile_picture_url="https://ducksybucket.s3.amazonaws.com/mike.png")
     elizabeth = User(display_name="Elizabeth",
                      email="email5@email.com",
                      password="password",
-                     profile_picture_url=upload_image_to_bucket_from_url("https://cdn.discordapp.com/avatars/485640660490387456/0b1731101c8e53e2758b6c95e34337d0.png"))
+                     profile_picture_url="https://ducksybucket.s3.amazonaws.com/will.png")
 
     demo = User(display_name="Demo",
                 email="demo@aa.io",
                 password="password",
-                profile_picture_url=upload_image_to_bucket_from_url("https://d23.com/app/uploads/2017/10/1180w-600h_101717_donald-nephews-anniversary_v3-780x440.jpg"))
+                profile_picture_url="https://ducksybucket.s3.amazonaws.com/ducks.jpg")
     marnie = User(display_name="marnie",
                   email="marnie@aa.io",
                   password="password",
-                  profile_picture_url=upload_image_to_bucket_from_url("https://d23.com/app/uploads/2017/10/1180w-600h_101717_donald-nephews-anniversary_v3-780x440.jpg"))
+                  profile_picture_url="https://ducksybucket.s3.amazonaws.com/ducks.jpg")
     bobbie = User(display_name="bobbie",
                   email="bobbie@aa.io",
                   password="password",
-                  profile_picture_url=upload_image_to_bucket_from_url("https://cdn.discordapp.com/avatars/182662416633561089/c0d48f71e483b33f109e694782949510.png"))
+                  profile_picture_url="https://ducksybucket.s3.amazonaws.com/chris.png")
 
     db.session.add_all([anna, brian, caitlynn, derrik,
                        elizabeth, demo, marnie, bobbie])
