@@ -10,7 +10,6 @@ import sqlalchemy as sa
 
 import os
 environment = os.getenv("FLASK_ENV")
-SCHEMA = os.environ.get("SCHEMA")
 
 # revision identifiers, used by Alembic.
 revision = '984ed45fbfc2'
@@ -33,9 +32,6 @@ def upgrade():
                     sa.PrimaryKeyConstraint('id')
                     )
 
-    if environment == "production":
-        op.execute(f"ALTER TABLE orders SET SCHEMA {SCHEMA};")
-
     op.create_table('order_details',
                     sa.Column('id', sa.Integer(), nullable=False),
                     sa.Column('order_id', sa.Integer(), nullable=False),
@@ -49,12 +45,10 @@ def upgrade():
                     sa.ForeignKeyConstraint(
                         ['order_id'], ['orders.id'], name='fk_order_detail_order_id'),
                     sa.ForeignKeyConstraint(
-                        ['product_id'], ['products.id'],name='fk_order_detail_product_id' ),
+                        ['product_id'], ['products.id'], name='fk_order_detail_product_id'),
                     sa.PrimaryKeyConstraint('id')
                     )
     # ### end Alembic commands ###
-    if environment == "production":
-        op.execute(f"ALTER TABLE order_details SET SCHEMA {SCHEMA};")
 
 
 def downgrade():

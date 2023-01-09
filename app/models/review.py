@@ -1,31 +1,22 @@
-from .db import db, environment, SCHEMA, add_prefix_for_prod
-from werkzeug.security import generate_password_hash, check_password_hash
-from flask_login import UserMixin
+from .db import db
 
-from flask_sqlalchemy import SQLAlchemy
 from sqlalchemy.schema import Column, ForeignKey
 from sqlalchemy.orm import relationship
-from sqlalchemy.types import Integer, DateTime, VARCHAR, DECIMAL, TEXT, BOOLEAN
+from sqlalchemy.types import Integer, DateTime, VARCHAR
 from sqlalchemy.sql import func
-from flask_login import UserMixin
-#  a crypto library that came with Flask
-from werkzeug.security import generate_password_hash, check_password_hash
 
 
 class Review(db.Model):
     __tablename__ = "reviews"
 
-    if environment == "production":
-        __table_args__ = {'schema': SCHEMA}
-
     id = Column(Integer, primary_key=True)
 
     buyer_id = Column(Integer, ForeignKey(
-        add_prefix_for_prod('users.id'), name='fk_review_buyer_id', ondelete='CASCADE'), nullable=False)
+        'users.id', name='fk_review_buyer_id', ondelete='CASCADE'), nullable=False)
     seller_id = Column(Integer, ForeignKey(
-        add_prefix_for_prod('users.id'), name='fk_review_seller_id', ondelete='CASCADE'))
+        'users.id', name='fk_review_seller_id', ondelete='CASCADE'))
     product_id = Column(Integer, ForeignKey(
-        add_prefix_for_prod('products.id'), name='fk_review_product_id', ondelete='CASCADE'), nullable=False)
+        'products.id', name='fk_review_product_id', ondelete='CASCADE'), nullable=False)
     rating = Column(Integer, nullable=False)
     review = Column(VARCHAR(840), nullable=False)
 
