@@ -21,8 +21,8 @@ It was built using this stack:
 ![Postgres](https://img.shields.io/badge/postgres-%23316192.svg?style=for-the-badge&logo=postgresql&logoColor=white)
 ![Python](https://img.shields.io/badge/python⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀-376c99?style=for-the-badge&logo=python&logoColor=f7d34b)
 <br/>
-![Render](https://img.shields.io/badge/render⠀⠀⠀⠀⠀⠀⠀⠀-%23242a55.svg?style=for-the-badge&logo=render&logoColor=45e1b6)
-![AWS](https://img.shields.io/badge/Amazon_AWS-%23232f3e.svg?style=for-the-badge&logo=amazonaws&logoColor=ec912d)
+![Heroku](https://img.shields.io/badge/heroku⠀⠀⠀⠀⠀⠀⠀⠀-79589f.svg?style=for-the-badge&logo=heroku&logoColor=FFFFFF)
+![AWS](https://img.shields.io/badge/AWS_S3⠀⠀⠀⠀⠀-%23232f3e.svg?style=for-the-badge&logo=amazonaws&logoColor=ec912d)
 
 ## Features
 
