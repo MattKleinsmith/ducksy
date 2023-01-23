@@ -5,25 +5,26 @@ import { setDataLoadingModal } from "../../../store/ui";
 import styles from './DataLoadingBuffer.module.css'
 
 export default function DataLoadingBuffer() {
-    const [count, setCount] = useState(3);
+    const [count, setCount] = useState(2);
     const navigate = useNavigate();
     const dispatch = useDispatch()
     useEffect(() => {
         const interval = setInterval(() => {
             if (count === 0) {
-                navigate("/your/shop");
                 dispatch(setDataLoadingModal(false));
             }
             setCount(count - 1);
         }, 1000)
-        return () => clearInterval(interval);
+        return () => {
+            dispatch(setDataLoadingModal(false));
+            clearInterval(interval);
+        }
     }, [count, navigate, dispatch]);
 
     return (
         <div className={styles.DataLoadingBuffer}>
-            <p>We are working on it!</p>
-            <p>Thank you for taking your business to Ducksy!</p>
-            <p>Your listing will be ready in {count} seconds</p>
+            <img alt="duck loading" src="/images/duck.gif"></img>
+            <div>Duck loading your shopping cart</div>
         </div>
     )
 }

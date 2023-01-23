@@ -1,4 +1,15 @@
 .DataLoadingBuffer {
     width: 25rem;
     margin: 2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+    font-weight: 500;
+}
+
+.DataLoadingBuffer img {
+    width: 25rem;
+    object-fit: cover;
+
 }
