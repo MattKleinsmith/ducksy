@@ -33,8 +33,6 @@ export default function ShoppingCart() {
         }
     }, [dispatch, user]);
 
-    if (!isLoaded) return null;
-
     return (
         <>
             {
