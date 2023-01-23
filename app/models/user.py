@@ -1,23 +1,19 @@
-from .db import db, environment, SCHEMA, add_prefix_for_prod
+from .db import db
 from werkzeug.security import generate_password_hash, check_password_hash
 from flask_login import UserMixin
 
 from flask_sqlalchemy import SQLAlchemy
 from sqlalchemy.schema import Column, ForeignKey
 from sqlalchemy.orm import relationship
-from sqlalchemy.types import Integer, DateTime, VARCHAR, DECIMAL, TEXT, BOOLEAN
+from sqlalchemy.types import Integer, DateTime, VARCHAR, TEXT
 from sqlalchemy.sql import func
 from flask_login import UserMixin
 #  a crypto library that came with Flask
 from werkzeug.security import generate_password_hash, check_password_hash
-from app.models.order import Order
 
 
 class User(db.Model, UserMixin):
     __tablename__ = "users"
-
-    if environment == "production":
-        __table_args__ = {'schema': SCHEMA}
 
     id = Column(Integer, primary_key=True)
 

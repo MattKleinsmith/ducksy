@@ -1,4 +1,4 @@
-from .db import db, environment, SCHEMA, add_prefix_for_prod
+from .db import db, environment
 from werkzeug.security import generate_password_hash, check_password_hash
 from flask_login import UserMixin
 
@@ -15,13 +15,10 @@ from werkzeug.security import generate_password_hash, check_password_hash
 class ProductImage(db.Model):
     __tablename__ = "product_images"
 
-    if environment == "production":
-        __table_args__ = {'schema': SCHEMA}
-
     id = Column(Integer, primary_key=True)
 
     product_id = Column(Integer, ForeignKey(
-        add_prefix_for_prod('products.id'), name='fk_product_image_product_id', ondelete='CASCADE'), nullable=False)
+        'products.id', name='fk_product_image_product_id', ondelete='CASCADE'), nullable=False)
     url = Column(TEXT, nullable=False)
     preview = Column(BOOLEAN, nullable=False)
 
