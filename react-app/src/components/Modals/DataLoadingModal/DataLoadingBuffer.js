@@ -5,7 +5,7 @@ import { setDataLoadingModal } from "../../../store/ui";
 import styles from './DataLoadingBuffer.module.css'
 
 export default function DataLoadingBuffer() {
-    const [count, setCount] = useState(2);
+    const [count, setCount] = useState(10);
     const navigate = useNavigate();
     const dispatch = useDispatch()
     useEffect(() => {
