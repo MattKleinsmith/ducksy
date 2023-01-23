@@ -31,7 +31,7 @@ export default function ShoppingCart() {
         else {
             dispatch(getCarts(user));
         }
-    }, [dispatch, user]);
+    }, [dispatch, navigate, user, isLoaded]);
 
     return (
         <>
