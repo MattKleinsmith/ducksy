@@ -1,18 +1,38 @@
-import { NavLink } from "react-router-dom";
-import { useSelector, } from 'react-redux';
-import CartSummary from "./CartSummary/CartSummary";
+import { NavLink, useNavigate } from "react-router-dom";
+import { useDispatch, useSelector, } from 'react-redux';
+import { useEffect, useState } from "react";
 import styles from './ShoppingCart.module.css'
-import { CartList } from "./CartList/CartList";
+import CartSummary from "./CartSummary/CartSummary";
 import CartCheckout from "./CartCheckout/CartCheckout";
+import { CartList } from "./CartList/CartList";
+import { getCarts } from "../../store/shoppingCart";
+import { setDataLoadingModal } from "../../store/ui";
 
 export default function ShoppingCart() {
-    const user = useSelector(state => state.session.user)
-    const products = useSelector(state => state.products)
-    const carts = useSelector(state => state.shoppingCarts)
-
-    let current_cart = {}
+    const navigate = useNavigate();
+    const dispatch = useDispatch();
+    const user = useSelector(state => state.session.user);
+    const [isLoaded, setIsLoaded] = useState(false);
+    const products = useSelector(state => state.products);
+    const carts = useSelector(state => state.shoppingCarts);
+    let current_cart = {};
     if (carts) current_cart = user ? carts[user.id] : carts["guest"]
     const cart_items = Object.entries(current_cart).filter(([product_id, quantity]) => product_id in products);
+
+    useEffect(() => {
+        dispatch(setDataLoadingModal(true));
+        let timeout;
+        if (!isLoaded) {
+            (async () => {
+                await dispatch(getCarts(user));
+                setIsLoaded(true);
+            })();
+        }
+        else {
+            timeout = setTimeout(dispatch, 300, setDataLoadingModal(false));
+        }
+        return () => clearTimeout(timeout)
+    }, [dispatch, navigate, user, isLoaded]);
 
     return (
         <>
