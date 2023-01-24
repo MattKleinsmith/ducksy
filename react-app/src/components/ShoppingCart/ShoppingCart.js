@@ -11,26 +11,27 @@ import { setDataLoadingModal } from "../../store/ui";
 export default function ShoppingCart() {
     const navigate = useNavigate();
     const dispatch = useDispatch();
-    const user = useSelector(state => state.session.user)
+    const user = useSelector(state => state.session.user);
     const [isLoaded, setIsLoaded] = useState(false);
-    const products = useSelector(state => state.products)
-    const carts = useSelector(state => state.shoppingCarts)
-    let current_cart = {}
+    const products = useSelector(state => state.products);
+    const carts = useSelector(state => state.shoppingCarts);
+    let current_cart = {};
     if (carts) current_cart = user ? carts[user.id] : carts["guest"]
     const cart_items = Object.entries(current_cart).filter(([product_id, quantity]) => product_id in products);
 
     useEffect(() => {
+        dispatch(setDataLoadingModal(true));
+        let timeout;
         if (!isLoaded) {
-            dispatch(setDataLoadingModal(true));
             (async () => {
                 await dispatch(getCarts(user));
-                setIsLoaded(true)
-                navigate("/cart");
+                setIsLoaded(true);
             })();
         }
         else {
-            dispatch(getCarts(user));
+            timeout = setTimeout(dispatch, 300, setDataLoadingModal(false));
         }
+        return () => clearTimeout(timeout)
     }, [dispatch, navigate, user, isLoaded]);
 
     return (
