@@ -2,6 +2,8 @@
 
 ## Ducksy
 
+![](https://mattkleinsmith.github.io/images/ducksy.gif)
+
 Ducksy is a web application clone of Etsy, which provides an online marketplace for handmade items.
 
 Live demo: https://ducksy.herokuapp.com/
